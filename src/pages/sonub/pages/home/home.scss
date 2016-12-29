@@ -1,0 +1,18 @@
+sonub-home-page {
+  .sonub-main-banner {
+    padding: 5px;
+    img {
+      width: 100%;
+    }
+  }
+
+  .for_sale_on_home {
+    sonub-buy-and-sell {
+      .posts {
+        float: left;
+        overflow: hidden;
+        width: 25%;
+      }
+    }
+  }
+}

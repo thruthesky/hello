@@ -1,28 +1,30 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { RouterModule, Routes } from '@angular/router';
-import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 
-import { HomePage } from '../pages/home/home';
-import { HelpPage } from '../pages/help/help';
+import { AppRouteModule } from './app.route.module';
 
-const appRoutes: Routes = [
-  { path: 'help', loadChildren: '../pages/help/help.module#HelpModule' },
-  { path: '', component: HomePage }
-];
+import { IonicApiModule } from "../api/ionic-api-0.2/ionic-api.module";
+
+import { SonubModule } from "../pages/sonub/sonub.module";
+
+import { JobModule } from "../pages/job/app/job.module";
+
+import { BaseModule } from "../pages/base/base.module";
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomePage,
-    HelpPage
   ],
   imports: [
     BrowserModule,
-    HttpModule,
-    RouterModule.forRoot( appRoutes )
+    AppRouteModule,
+    IonicApiModule,
+    BaseModule,
+    SonubModule,
+    JobModule,
   ],
   bootstrap: [ AppComponent ],
   providers: [ ]
