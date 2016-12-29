@@ -3,7 +3,7 @@ import { AppRouter } from '../../../../../app/app.router';
 import { formProcess } from '../../../../../etc/share';
 import { Member, MEMBER_LOGIN_DATA } from '../../../../../api/philgo-api/v2/member';
 import { LanguagePipe } from '../../../../../pipes/language/language.pipe';
-import { IonicApi } from '../../../../../api/ionic-api-0.2/ionic-api';
+import { IonicApi } from '../../../../../providers/ionic-api-0.2/ionic-api';
 @Component({
     selector: 'login-page',
     templateUrl: 'login.html'

@@ -6,7 +6,7 @@ import { AppRouter } from './app.router';
 
 
 /** Import Pages Default Pages  **/
-import { HelpPage } from '../pages/help/help';
+import { FileNotFoundPage } from "../pages/base/file-not-found/file-not-found";
 
 /** Importing Sonub Pages **/
 import { SonubHomePage } from "../pages/sonub/pages/home/home";
@@ -22,18 +22,12 @@ import { JobListComponent } from "../pages/job/pages/job-list/job-list.component
 import { JobEditComponent } from "../pages/job/pages/job-edit/job-edit.component";
 import { JobViewComponent } from "../pages/job/pages/job-view/job-view.component";
 
-/** Importing Base Pages **/
-import { FileNotFoundPage } from "../pages/base/file-not-found/file-not-found";
 
 
 const appRoutes: Routes = [
 
-    /** Default Pages **/
-    { path: '', component: SonubHomePage },
-    { path: 'help', component: HelpPage },
-
-
     /** Sonub Pages **/
+    { path: '', component: SonubHomePage },
     { path: 'user/register', component: SonubRegisterPage },
     { path: 'user/login', component: SonubLoginPage },
     { path: "forum", component: SonubForumIndexPage },
@@ -48,14 +42,11 @@ const appRoutes: Routes = [
     { path: "job/list", component: JobListComponent },
     { path: "job/view/:idx", component: JobViewComponent },
 
-    /** Base Pages **/
+    /** Default Base Pages **/
     { path: '**', component: FileNotFoundPage }
 ];
 
 @NgModule({
-    declarations: [
-        HelpPage
-    ],
     imports: [
         RouterModule.forRoot( appRoutes )
     ],
