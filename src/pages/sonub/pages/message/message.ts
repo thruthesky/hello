@@ -1,5 +1,6 @@
 import { Component, Renderer } from '@angular/core';
 import { Message, MESSAGE, MESSAGES, MESSAGE_LIST, MESSAGE_FORM } from '../../../../api/philgo-api/v2/message';
+import { Member, MEMBER_LOGIN } from '../../../../api/philgo-api/v2/member';
 import * as _ from 'lodash';
 
 @Component({
@@ -8,6 +9,8 @@ import * as _ from 'lodash';
 })
 export class SonubMessagePage {
     // data : MESSAGE_LIST = <MESSAGE_LIST>{};
+
+    login: MEMBER_LOGIN = null;
     messages: MESSAGES = [];
     showCreateForm: boolean = false;
     form: MESSAGE_FORM = <MESSAGE_FORM> {};
@@ -18,15 +21,20 @@ export class SonubMessagePage {
     scrollListener = null;
     scrollCount = 0;
     inPageLoading: boolean = false; // true while loading a page of posts.
-
     noMorePosts: boolean = false; // true when there are no more posts of a page.
     constructor(
         private message: Message,
+        private member: Member,
         private renderer: Renderer,
     ) {
         console.log("SonubMessagePage::constructor()");
-        this.getMessages();
-        this.beginScroll();
+
+        this.login = member.getLoginData();
+        if ( this.login ) {
+            this.getMessages();
+            this.beginScroll();
+        }
+
         // setTimeout ( () => this.getMessages(), 1000 );
         /*
         setInterval ( () => {

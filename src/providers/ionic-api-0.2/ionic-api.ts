@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Push, PushToken, PushSaveTokenOptions } from '@ionic/cloud-angular';
-import { Member } from '../philgo-api/v2/member';
+import { Member } from '../../api/philgo-api/v2/member';
 import * as app from '../../etc/app.helper';
 @Injectable()
 export class IonicApi {
