@@ -38,7 +38,9 @@ export class SonubLatestPhoto {
           v.url = this.post.getLink( v );
           v['date'] = this.post.getDateTime( v.stamp );
           v.content = this.post.strip_tags( v.content );
-          v.comments.map( (v: POST) => v.content = this.post.strip_tags( v.content ) ); 
+          if ( v.comments && v.comments.length ) {
+            v.comments.map( (v: POST) => v.content = this.post.strip_tags( v.content ) ); 
+          }
           this.posts.push( v );
         }, i * 50 );
       });

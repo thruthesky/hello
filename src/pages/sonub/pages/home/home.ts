@@ -9,7 +9,7 @@ export class SonubHomePage {
     forums;
     forum_group;
     page_no: number = 1;
-    @ViewChild('SonubLatestPhoto') sonubLatestPhoto: SonubLatestPhoto;
+    @ViewChild('sonubLatestPhoto') sonubLatestPhoto: SonubLatestPhoto;
     constructor(
         forum: ForumService
     ) {
