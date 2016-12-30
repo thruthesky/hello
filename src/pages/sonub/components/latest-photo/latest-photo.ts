@@ -13,17 +13,23 @@ export class SonubLatestPhoto {
   @Input() title: string = null;
   @Input() post_id: string = null;
   @Input() limit: number = 1;
+  @Input() page_no: number = 1;
   posts: POSTS = <POSTS> [];
   constructor( private post: Post ) {
     //console.log("LatestComponent::constructor()");
   }
   ngOnInit() {
+    this.loadPage(this.page_no);
+  }
+
+  loadPage( page_no: number ) {
+
     let option: PHOTO_OPTION = {
       post_id: this.post_id,
-      limit: this.limit
+      limit: this.limit,
+      page_no: page_no
     };
-    // console.log('option::',option);
-
+    
     this.post.latestPhotos( option, (posts: POSTS) => {
       // console.log("posts: ", posts);
       this.posts = [];
