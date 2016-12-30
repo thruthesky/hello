@@ -42,9 +42,9 @@ export class SonubPostListPage {
     ngOnInit() {
         this.pageScroll.watch( this.renderer, no => {
             if ( this.page_no == 0 ) {
-                 this.page_no ++; // since 1st page has been loaded in constructor()
+                this.page_no ++; // since 1st page has been loaded in constructor()
             }
-            this.loadPage();
+            if ( this.post_id ) this.loadPage(); // call 'loadPage()' after the view-post has been loaded. ( or when post-list clicked )
         } );
     }
     ngOnDestroy() {
@@ -124,6 +124,7 @@ export class SonubPostListPage {
             limit: this.limit
         };
         // this.post.debug = true;
+        console.log("load page: ", option);
         this.post.page( option, (page: PAGE) => { // two 1st page because there is a cache for 1st page.
             console.log("Page no: ", page.page_no);
             this.inPageLoading = false;
