@@ -29,10 +29,10 @@ export class SonubLatestPhoto {
       limit: this.limit,
       page_no: page_no
     };
-    
+    console.log(option);
     this.post.latestPhotos( option, (posts: POSTS) => {
-      // console.log("posts: ", posts);
-      this.posts = [];
+      //console.log("posts: ", posts);
+      //this.posts = [];
       posts.map( ( v:POST, i ) => {
         setTimeout( () => {
           v.url = this.post.getLink( v );
@@ -44,6 +44,7 @@ export class SonubLatestPhoto {
           this.posts.push( v );
         }, i * 50 );
       });
+      //console.log('this.posts::', this.posts);
     },
     error => alert("LatestPhotos Error " + error));
   }
