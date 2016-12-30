@@ -30,6 +30,13 @@ Ionic 2 project hack by JaeHo Song to use Angular2 framework with ionic 2.
 # TODO
 
 * push notification on comment, message.
+    - for message,
+        when a new message arrives,
+        but send push after 30 minutes from previous.
+
+    - for comment,
+        when a new message arrives,
+        but send push after 40 minutes.
 
 * deploy test.
 
