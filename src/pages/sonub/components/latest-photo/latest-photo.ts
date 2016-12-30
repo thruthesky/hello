@@ -3,7 +3,7 @@
  *
  */
 import { Component, Input } from '@angular/core';
-import { Post, PHOTO_OPTION, POSTS } from '../../../../api/philgo-api/v2/post';
+import { Post, PHOTO_OPTION, POSTS, POST } from '../../../../api/philgo-api/v2/post';
 
 @Component({
   selector: 'sonub-latest-photo',
@@ -27,39 +27,17 @@ export class SonubLatestPhoto {
     this.post.latestPhotos( option, (posts: POSTS) => {
       // console.log("posts: ", posts);
       this.posts = [];
-      posts.map( ( v:any, i ) => {
+      posts.map( ( v:POST, i ) => {
         setTimeout( () => {
           v.url = this.post.getLink( v );
-          v.date = this.getDate(v.stamp);
+          v['date'] = this.post.getDateTime( v.stamp );
+          v.content = this.post.strip_tags( v.content );
+          v.comments.map( (v: POST) => v.content = this.post.strip_tags( v.content ) ); 
           this.posts.push( v );
         }, i * 50 );
       });
     },
     error => alert("LatestPhotos Error " + error));
-  }
-
-  getDate( stamp ) {
-    let m = parseInt(stamp) * 1000;
-    let d = new Date( m );
-
-    let post_year = d.getFullYear();
-    let post_month = d.getMonth();
-    let post_date = d.getDate();
-
-    let t = new Date();
-    let today_year = t.getFullYear();
-    let today_month = t.getMonth();
-    let today_date = t.getDate();
-
-
-    let time;
-    if ( today_year == post_year && today_month == post_month && today_date == post_date ) {
-      time = d.getHours() + ':' + d.getMinutes();
-    }
-    else {
-      time = post_year + '-' + post_month + '-' + post_date;
-    }
-    return time;
   }
 
 }
