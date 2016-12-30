@@ -1,17 +1,10 @@
-section.content {
-  
-.in-page-loading {
-  display: none;
-  &.active {
-    display: block;
+section.content.container-fluid { 
+  .no-more-posts {
+    display: none;
+    &.active {
+      display: block;
+    }
   }
-}
-.no-more-posts {
-  display: none;
-  &.active {
-    display: block;
-  }
-}
 
 }
 .posts {
