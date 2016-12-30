@@ -39,14 +39,23 @@
                             </span>
                             <div>Job</div>
                         </td>
-                        <td routerLink="/user/register">
+                        <td *ngIf=" ! login " routerLink="/user/register">
                             <span class="fa-stack fa-lg">
                                 <i class="fa fa-circle fa-stack-2x"></i>
                                 <i class="fa fa-user-plus fa-stack-1x fa-inverse"></i>
                             </span>
                             <div>Register</div>
                         </td>
-                        <td routerLink="/user/login">
+                        
+                        <td *ngIf=" login " routerLink="/user/register">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-user-plus fa-stack-1x fa-inverse"></i>
+                            </span>
+                            <div>Profile</div>
+                        </td>
+
+                        <td *ngIf=" ! login " routerLink="/user/login">
                             <span class="fa-stack fa-lg">
                                 <i class="fa fa-circle fa-stack-2x"></i>
                                 <i class="fa fa-user fa-stack-1x fa-inverse"></i>
@@ -54,6 +63,14 @@
                             <div>Login</div>
                         </td>
                         
+                        <td *ngIf=" login " (click)=" onClickLogout() ">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-user fa-stack-1x fa-inverse"></i>
+                            </span>
+                            <div>Logout</div>
+                        </td>
+
                         <td routerLink="/message">
                             <span class="fa-stack fa-lg">
                                 <i class="fa fa-circle fa-stack-2x"></i>

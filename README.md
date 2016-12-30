@@ -40,6 +40,8 @@ Ionic 2 project hack by JaeHo Song to use Angular2 framework with ionic 2.
 
 * deploy test.
 
+* file not found page design.
+
 * Show 'Logout' after login
 
 * add 'reset data' on menu.

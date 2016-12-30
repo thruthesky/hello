@@ -14,6 +14,8 @@ import { JobModule } from "../pages/job/app/job.module";
 import { IonicApiModule } from "../providers/ionic-api-0.2/ionic-api.module";
 
 
+import { PageScroll } from '../providers/page-scroll';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,7 +29,7 @@ import { IonicApiModule } from "../providers/ionic-api-0.2/ionic-api.module";
     JobModule,
   ],
   bootstrap: [ AppComponent ],
-  providers: [ ]
+  providers: [ PageScroll ]
 })
 export class AppModule {}
 

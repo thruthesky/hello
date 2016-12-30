@@ -1,4 +1,19 @@
+section.content {
+  
+.in-page-loading {
+  display: none;
+  &.active {
+    display: block;
+  }
+}
+.no-more-posts {
+  display: none;
+  &.active {
+    display: block;
+  }
+}
 
+}
 .posts {
 
     .uploaded-files {

@@ -1,5 +1,6 @@
 import { Component, Renderer } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { PageScroll } from './../../../../../providers/page-scroll';
 import { Post, PAGE, POSTS, POST, PAGE_OPTION, ADS, POST_TOP_ADS, POST_TOP_PREMIUM_ADS } from "../../../../../api/philgo-api/v2/post";
 import * as _ from 'lodash';
 @Component({
@@ -12,7 +13,7 @@ export class SonubPostListPage {
     view: POST = null;
     showPostCreateFrom: boolean = false;
     post_id: string = '';
-    page_no: number = 1;
+    page_no: number = 0;
     limit: number =  2;
     ads: ADS = null;
     post_top_ad: POST_TOP_ADS = null;
@@ -24,47 +25,65 @@ export class SonubPostListPage {
     noMorePosts: boolean = false; // true when there are no more posts of a page.
     constructor( private post: Post,
                  activated: ActivatedRoute,
-                 private renderer: Renderer) {
+                 private renderer: Renderer,
+                 private pageScroll: PageScroll ) {
         console.log("SonubPostListPage::constructor()");
-        // this.post_id = activated.snapshot.params['post_id'];
         activated.params.subscribe( param => {
             this.posts = <POSTS> [];
             if ( param['post_id'] !== void 0 ) {
-                this.requestPostList( param['post_id'] );
+                this.loadPosts( param['post_id'] );
             }
             else if ( param['idx_post'] !== void 0 ) {
-                this.requestPostView( param['idx_post'] );
+                this.loadPost( param['idx_post'] );
             }
         } );
     }
 
-    requestPostView( idx_post: string ) {
-        this.loadPost( idx_post );
+    ngOnInit() {
+        this.pageScroll.watch( this.renderer, no => {
+            if ( this.page_no == 0 ) {
+                 this.page_no ++; // since 1st page has been loaded in constructor()
+            }
+            this.loadPage();
+        } );
+    }
+    ngOnDestroy() {
+        this.pageScroll.stop();
     }
 
-    requestPostList( post_id: string ) {
-            this.post_id = post_id;
-            this.post_id = this.post_id.replace('--', ',');
-            this.page_no = 0;
-            if ( this.post_id ) {
-              this.loadPage();
-            }
-            else {
-              alert("No post id provided");
-            }
-            this.beginScroll();
+
+    /**
+     * This loads posts for a page.
+     * 
+     * It does some initialization before 'loadPage()'.
+     * This must be called only one time per 'visit/view'.
+     * If you need to load next page, call 'loadPage()'
+     */
+    loadPosts( post_id: string ) {
+        this.post_id = post_id;
+        this.post_id = this.post_id.replace('--', ',');
+        this.page_no = 0;
+        if ( this.post_id ) {
+            this.loadPage();
+        }
+        else {
+            alert("No post id provided");
+        }
+        // this.beginScroll();
     }
 
     
 
+    /**
+     * This loads only one ( 1 ) post for 'view' mode and loads a bunch of posts for that post_id. 
+     */
     loadPost(idx_post){
-
-        this.post.debug = true;
+        //this.post.debug = true;
         this.post.load(idx_post, response =>{
             this.view = <POST> response.post;
             console.log("Load a post for view : ", this.view );
             console.log("Load post success on idx : ", idx_post);
-            this.requestPostList( this.view.post_id );
+            this.loadPosts( this.view.post_id );
         },error =>{
             alert("Load post error" + error);
         });
@@ -72,7 +91,7 @@ export class SonubPostListPage {
     }
 
 
-
+/*
     beginScroll() {
       this.scrollListener = this.renderer.listenGlobal( 'document', 'scroll', _.debounce( () => this.pageScrolled(), 50));
     }
@@ -89,31 +108,28 @@ export class SonubPostListPage {
         console.log("page scroll reaches at bottom: pageOffset=" + pageOffset + ", pagesHeight=" + pagesHeight);
         this.loadPage();
       }
-    }
-    ngOnDestroy() {
-      this.endScroll();
-    }
+    }*/
 
     loadPage() {
-      if ( this.inPageLoading ) {
-        console.info("in page loading");
-        return;
-      }
-      this.inPageLoading = true;
+        if ( this.inPageLoading ) {
+            console.info("in page loading");
+            return;
+        }
+        this.inPageLoading = true;
+        this.page_no++;
 
         let option: PAGE_OPTION = {
             post_id: this.post_id,
-            page_no: this.page_no++,
+            page_no: this.page_no,
             limit: this.limit
         };
         // this.post.debug = true;
-        this.post.page( option, (page: PAGE) => {
-
-            console.log("Page: ", page);
+        this.post.page( option, (page: PAGE) => { // two 1st page because there is a cache for 1st page.
+            console.log("Page no: ", page.page_no);
             this.inPageLoading = false;
             if ( page.posts.length == 0 ) {
               this.noMorePosts = true;
-              this.endScroll();
+              //this.endScroll();
             }
 
             if ( page.page_no == 1 ) {
