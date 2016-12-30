@@ -2,7 +2,7 @@ import { Component, Renderer } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { PageScroll } from './../../../../../providers/page-scroll';
 import { Post, PAGE, POSTS, POST, PAGE_OPTION, ADS, POST_TOP_ADS, POST_TOP_PREMIUM_ADS } from "../../../../../api/philgo-api/v2/post";
-import * as _ from 'lodash';
+
 @Component({
     selector: 'sonub-post-list',
     templateUrl: 'post-list.html'
