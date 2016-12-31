@@ -1,7 +1,8 @@
+$news_left_width: 100px;
 sonub-news .news {
   .left {
     float: left;
-    width: 100px;
+    width: $news_left_width;
     text-align: center;
     cursor: pointer;
     img {
@@ -11,30 +12,42 @@ sonub-news .news {
 
     .subject {
       display: block;
-      margin-top: .35em;
+      margin-top: .4em;
       height: 1.35em;
       overflow: hidden;
-      font-size: 0.75em;
+      font-family:Gulim,"AppleGothic","Malgun Gothic";
+      font-size: 13px;
     }
   }
 
   .right {
+    margin-left: $news_left_width + $gutter;
     & > div { cursor: pointer; }
-    .top .subject {
-      font-weight: bold;
+
+    .top {
+      padding: .4em;
+      background-color: #d9d9d9;
+      .subject {
+        font-family:"Malgun Gothic","AppleGothic","Gulim";
+        font-size: 1em;
+        font-weight: bold;
+      }
     }
     .subject {
+      margin-bottom: .2em;
       height: 1.4em;
       line-height: 1.4em;
       overflow: hidden;
       color: #00007b;
       text-decoration: none;
-      font-size: 1em;
+      font-family:Gulim,"AppleGothic","Malgun Gothic";
+      font-size: 13px;
     }
     .content {
       height: 2em;
       overflow: hidden;
-      font-size: .8em;
+      font-family:Gulim,"AppleGothic","Malgun Gothic";
+      font-size: 13px;
       text-decoration: none;
       color: #898888;
       line-height: 1em;

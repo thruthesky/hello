@@ -1,12 +1,17 @@
-section.content.container-fluid { 
+section.content.container-fluid {
+  
   .no-more-posts {
     display: none;
     &.active {
       display: block;
     }
   }
-
 }
+
+.post {
+  word-break: break-all;
+}
+
 .posts {
 
     .uploaded-files {

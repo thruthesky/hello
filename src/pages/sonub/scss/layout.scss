@@ -1,11 +1,4 @@
 
-@mixin no-gutter() {
-    margin-left: 0;
-    margin-right: 0;
-    padding-left: 0;
-    padding-right: 0;
-}
-
 body {
     background-color: $background_color;
 }
@@ -20,9 +13,11 @@ header {
 }
 
 aside.left {
+    margin-right: $gutter;
     width: $left_width;
 }
 aside.right {
+    margin-left: $gutter;
     width: $right_width;
 }
 /*

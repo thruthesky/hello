@@ -22,7 +22,7 @@ export class SonubNews {
       post_id: this.post_id,
       limit: this.limit,
       expire: ONE_MINUTE_STAMP,
-      fields: 'idx,idx_parent,subject,SUBSTRING(content_stripped,1,50) as content,deleted,gid,good,no_of_comment,no_of_view,post_id,stamp'
+      fields: 'idx,idx_parent,subject,SUBSTRING(content_stripped,1,70) as content,deleted,gid,good,no_of_comment,no_of_view,post_id,stamp'
     };
     // console.log('option::',option);
     this.post.page( option, ( page: PAGE ) => {

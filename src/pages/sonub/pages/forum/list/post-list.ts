@@ -2,7 +2,7 @@ import { Component, Renderer } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { PageScroll } from './../../../../../providers/page-scroll';
 import { Post, PAGE, POSTS, POST, PAGE_OPTION, ADS, POST_TOP_ADS, POST_TOP_PREMIUM_ADS } from "../../../../../api/philgo-api/v2/post";
-
+import { App } from '../../../../../providers/app';
 @Component({
     selector: 'sonub-post-list',
     templateUrl: 'post-list.html'
@@ -26,6 +26,7 @@ export class SonubPostListPage {
     constructor( private post: Post,
                  activated: ActivatedRoute,
                  private renderer: Renderer,
+                 private app: App,
                  private pageScroll: PageScroll ) {
         console.log("SonubPostListPage::constructor()");
         activated.params.subscribe( param => {

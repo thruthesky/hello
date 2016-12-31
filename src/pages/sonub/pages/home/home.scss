@@ -1,5 +1,15 @@
 sonub-home-page {
-  .sonub-main-banner {
+  .center {
+  }
+  aside.right {
+    background-color: #080;
+  }
+
+  .news {
+    margin-bottom: .6em;
+  }
+  .main-banner {
+    margin-bottom: .6em;
     img {
       width: 100%;
     }
@@ -14,7 +24,6 @@ sonub-home-page {
       }
     }
   }
-
 
   .container-fluid {
     margin: 0;

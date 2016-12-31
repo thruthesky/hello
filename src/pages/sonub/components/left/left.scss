@@ -1,4 +1,58 @@
 sonub-left {
-        
+    font-size: .9em;
+    .freetalk, .qna, .greeting {
+        margin-bottom: $gutter;
+        border: 1px solid #ddd;
+        box-sizing: border-box;
+    }
+    .title {
+        padding: $gutter;
+        background-color: #eee;
+    }
+    .posts {
+        padding: .4em;
+    }
+    .post {
+        position: relative;
+        padding-left: 2em;
+        line-height: 1.6em;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        .no-of-comment {
+            position: absolute;
+            display: inline-block;
+            top: .4em;
+            left: 0;
+            box-sizing: border-box;
+            text-align: center;
+            color: white;
+            background-color: #b44;
+            height: 1.8em;
+            width: 1.8em;
+            font-size: .6em;
+            border-radius: 50%;
+            &[no="0"] {
+                background-color: white;
+            }
+            &[no="1"], &[no="2"], &[no="3"], &[no="4"], &[no="5"] {
+                background-color: #ccc;
+            }
+            &[no="6"], &[no="7"], &[no="8"], &[no="9"], &[no="10"] {
+                background-color: #599;
+            }
+            &[no="11"], &[no="12"], &[no="13"], &[no="14"], &[no="15"] {
+                background-color: #559;
+            }
+            i {
+                position: absolute;
+                top: -.4em;
+                left: .2em;
+            }
+            &[no="1"], &[no="2"], &[no="3"], &[no="4"], &[no="5"], &[no="6"], &[no="7"], &[no="8"], &[no="9"] {
+                i { left: .52em; }
+            }
+        }
+    }
 }/*--- End of sonub-left---*/
 
