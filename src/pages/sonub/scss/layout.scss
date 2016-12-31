@@ -18,6 +18,13 @@ header {
         height: $header_toolbar_height;
     }
 }
+
+aside.left {
+    width: $left_width;
+}
+aside.right {
+    width: $right_width;
+}
 /*
 footer {
     height: $footer_toolbar_height;
@@ -29,6 +36,7 @@ section.content {
     margin-left: auto;
     margin-right: auto;
     width: $content_width;
+    overflow: hidden;
     // margin-bottom: $footer_toolbar_height;
     // background-color: $content_background_color;
     

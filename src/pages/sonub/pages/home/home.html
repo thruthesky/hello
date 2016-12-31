@@ -3,9 +3,8 @@
 <section class="content">
   <table width="100%" cellpadding="0" cellspacing="0">
     <tr valign="top">
-      <td *ngIf=" app.size == 'big' "><aside><sonub-left></sonub-left></aside></td>
+      <td *ngIf=" app.size == 'big' "><sonub-left></sonub-left></td>
       <td>
-        <div class="container-fluid">
           <sonub-news></sonub-news>
         <div class="sonub-main-banner">
           <img src="assets/img/ads.png">
@@ -45,10 +44,10 @@
           [post_id]   = " 'freetalk' "
           [limit]     = " 3 "
         ></sonub-latest-photo>
-        </div>
+        
         <div class="in-page-loading"><i class="fa fa-spinner fa-spin"></i> Loading ...</div>
       </td>
-      <td *ngIf=" app.size == 'big' "><aside><sonub-right></sonub-right></aside></td>
+      <td *ngIf=" app.size == 'big' "><sonub-right></sonub-right></td>
     </tr>
   </table>
 

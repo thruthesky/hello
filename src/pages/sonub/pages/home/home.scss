@@ -1,6 +1,5 @@
 sonub-home-page {
   .sonub-main-banner {
-    padding: 5px;
     img {
       width: 100%;
     }
@@ -13,6 +12,16 @@ sonub-home-page {
         overflow: hidden;
         width: 25%;
       }
+    }
+  }
+
+
+  .container-fluid {
+    margin: 0;
+    padding: 0;
+    .row, .row > div {
+      margin: 0;
+      padding: 0;
     }
   }
 }
