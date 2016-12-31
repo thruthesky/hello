@@ -87,7 +87,9 @@ export class JobIndexComponent implements OnInit {
     this.scrollListener = this.renderer.listenGlobal( 'document', 'scroll', _.debounce( () => this.pageScrolled(), 50));
   }
   endScroll() {
-    this.scrollListener();
+        // this.scrollListener(); // THIS IS ERROR. IT ACUTALLY CREATES CRITICAL ERROR.
+        if ( typeof this.scrollListener == 'function' ) this.scrollListener();
+
   }
   pageScrolled() {
     console.log("scrolled:", this.scrollCount++);

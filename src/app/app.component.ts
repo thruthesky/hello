@@ -2,10 +2,11 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Deploy, DeployDownloadOptions } from '@ionic/cloud-angular';
 import { IonicApi } from '../providers/ionic-api-0.2/ionic-api';
+import { App } from '../providers/app';
 @Component({
   selector: `app-component`,
   template: `
-    <router-outlet></router-outlet>
+    <router-outlet (window:resize)="onResize($event)"></router-outlet>
   `
 })
 export class AppComponent {
@@ -13,11 +14,15 @@ export class AppComponent {
   constructor(
       private router: Router,
       public deploy: Deploy,
-      private ionic: IonicApi
+      private ionic: IonicApi,
+      private app: App
   ) {
+    app.setWidth( window.innerWidth );
     document.addEventListener("deviceready", () => this.onDevinceReady(), false);
   }
-
+  onResize(event) {
+    this.app.setWidth( window.innerWidth);
+  }
   onDevinceReady() {
     console.log("yes, I am running in cordova.");
     this.updateApp();

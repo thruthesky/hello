@@ -1,3 +1,4 @@
+
 @mixin no-gutter() {
     margin-left: 0;
     margin-right: 0;
@@ -17,18 +18,20 @@ header {
         height: $header_toolbar_height;
     }
 }
-
+/*
 footer {
     height: $footer_toolbar_height;
     background-color: $toolbar_color;
 }
-
-section.content.container-fluid {
+*/
+section.content {
     margin-top: $header_toolbar_height;
-    margin-bottom: $footer_toolbar_height;
-    background-color: $content_background_color;
+    margin-left: auto;
+    margin-right: auto;
+    width: $content_width;
+    // margin-bottom: $footer_toolbar_height;
+    // background-color: $content_background_color;
     
-    @include no-gutter();
     & > .row {
         @include no-gutter();
         & > .left, & > .right, & > .center {

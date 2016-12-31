@@ -46,7 +46,8 @@ export class JobListComponent {
     this.scrollListener = this.renderer.listenGlobal( 'document', 'scroll', _.debounce( () => this.pageScrolled(), 50));
   }
   endScroll() {
-    this.scrollListener();
+    // this.scrollListener(); // THIS IS ERROR. IT ACUTALLY CREATES CRITICAL ERROR.s
+    if ( typeof this.scrollListener == 'function' ) this.scrollListener();
   }
   pageScrolled() {
     console.log("scrolled:", this.scrollCount++);

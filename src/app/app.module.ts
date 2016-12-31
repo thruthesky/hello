@@ -5,6 +5,8 @@ import { AppComponent } from './app.component';
 
 import { AppRouteModule } from './app.route.module';
 
+import { App } from '../providers/app';
+
 import { BaseModule } from "../pages/base/base.module";
 
 import { SonubModule } from "../pages/sonub/sonub.module";
@@ -29,7 +31,7 @@ import { PageScroll } from '../providers/page-scroll';
     JobModule,
   ],
   bootstrap: [ AppComponent ],
-  providers: [ PageScroll ]
+  providers: [ App, PageScroll ]
 })
 export class AppModule {}
 

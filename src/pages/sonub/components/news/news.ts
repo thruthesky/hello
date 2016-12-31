@@ -11,8 +11,8 @@ import { Post, PAGE, PAGE_OPTION, POSTS, ONE_MINUTE_STAMP } from '../../../../ap
 })
 export class SonubNews {
   @Input() title: string = null;
-  @Input() post_id: string = null;
-  @Input() limit: number = 1;
+  @Input() post_id: string = 'news';
+  @Input() limit: number = 5;
   posts: POSTS = <POSTS> [];
   constructor( private post: Post ) {
     //console.log("LatestComponent::constructor()");

@@ -30,7 +30,7 @@ export class SonubLatestPhoto {
       page_no: page_no
     };
     console.log(option);
-    this.post.debug = true;
+    //this.post.debug = true;
     this.post.latestPhotos( option, (posts: POSTS) => {
       //console.log("posts: ", posts);
       //this.posts = [];

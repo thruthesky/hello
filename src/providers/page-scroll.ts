@@ -25,7 +25,7 @@ export class PageScroll {
         this.scrollListener = this.renderer.listenGlobal( 'document', 'scroll', debounce( () => this.scrolled( callback ), 150));
     }
     stop() {
-        if ( this.scrollListener ) this.scrollListener();
+        if ( typeof this.scrollListener == 'function' ) this.scrollListener();
     }
     scrolled( callback: (scrollNo: number) => void ) {
         this.scrollNo ++;
