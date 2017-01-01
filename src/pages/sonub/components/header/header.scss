@@ -2,18 +2,17 @@ sonub-header {
     header {
         font-size: 12px;
         font-family: Gulim, AppleGothic, Arial, Helvetica, sans-serif;
-        background-color: $toolbar-background-color;
-        color: $toolbar-color;
-        .fa-stack {
+        background-color: $header-background-color;
+        color: $header-color;
+        .icon {
             font-size: 1.6em;
-            .fa-circle {
-                color: $toolbar-icon-background-color;
+            .background {
+                color: $header-icon-background-color;
             }
-            i:last-child {
-                color: $toolbar-icon-color;
+            .font {
+                color: $header-icon-color;
             }
         }
-
         td {
             text-align: center;
         }

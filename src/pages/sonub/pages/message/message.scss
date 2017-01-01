@@ -1,19 +1,17 @@
-@mixin title_icon( $icon ) {
-
+@mixin title-icon( $icon ) {
   &:before {
-
     padding-right : 3px;
     content: $icon;
     font-family: "FontAwesome";
     color:dimgrey;
-
-
     font-size: 1.2em;
     vertical-align: middle;
   }
 }
 
-message-page {
+sonub-message-page {
+  display: block;
+  @include color-combination( 3 );
   font-family: "Malgun Gothic",AppleGothic,sans-serif;
   .messages {
     padding: 0 .3em;
@@ -79,9 +77,9 @@ message-page {
       overflow-x: hidden;
       overflow-y: hidden;
 
-      .hide       { @include title_icon( '\f151' ); }
-      .reply      { @include title_icon( '\f112' ); }
-      .delete     { @include title_icon( '\f014' ); }
+      .hide       { @include title-icon( '\f151' ); }
+      .reply      { @include title-icon( '\f112' ); }
+      .delete     { @include title-icon( '\f014' ); }
 
       button{
         float: left;

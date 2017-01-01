@@ -9,6 +9,9 @@ export class SonubHeader {
     constructor( public member: Member ) {
         member.getLogin( x => this.login = x );
     }
+    onClickHeader() {
+        window.scrollTo( 0, 0 );
+    }
     onClickLogout() {
         this.login = null;
         this.member.logout();
@@ -16,4 +19,5 @@ export class SonubHeader {
     onClickClearLocalStorage() {
         localStorage.clear();
     }
+
 }

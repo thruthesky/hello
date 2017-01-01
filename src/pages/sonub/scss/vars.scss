@@ -2,22 +2,93 @@
 $content-width: 960px; // 960px is best fit for desktop.
 $break-point: 760px; // this is the 'app.size' break point.
 
-$header_toolbar_height: 80px;
+$header-header-height: 80px;
 $left_width: 200px;
 $right_width: 160px;
 
 $gutter: 8px;
 
-
-// color combination #1
-$page-background_color: #f9f9f9;
-$content_background_color: #f7f7f7;
-$toolbar-background-color: #af473c;
-$toolbar-icon-background-color: #f9f9f9;
-$toolbar-icon-color: #a04030;
-$toolbar-color: white;
+// default color combination #1
+$page-background-color: #dfdfdf;
+$content-background-color: #f7f7f7;
+$header-background-color: #703023;
+$header-icon-background-color: #f9f9f9;
+$header-icon-color: #904030;
+$header-color: white;
 $box-title-background-color: #a9b7c0;
 $box-title-color: white;
+
+
+// 'art inspired' combination #2
+$page-background-color-2: #f9f9f9;
+$content-background-color-2: #f7f7f7;
+$header-background-color-2: #006640;
+$header-icon-background-color-2: #f9f9f9;
+$header-icon-color-2: #006644;
+$header-color-2: white;
+$box-title-background-color-2: #90a095;
+$box-title-color-2: #f9f9f9;
+
+
+// combination #3
+$page-background-color-3: #dfdfdf;
+$content-background-color-3: #394950;
+$header-background-color-3: #123456;
+$header-icon-background-color-3: #f9f9f9;
+$header-icon-color-3: darkgrey;
+$header-color-3: darkred;
+$box-title-background-color-3: #a9b7c0;
+$box-title-color-3: orange;
+
+
+
+@function page-background-color( $n ) {
+    @if $n == 2 { @return $page-background-color-2; }
+    @else if $n == 3 { @return $page-background-color-3; }
+    @return $page-background-color;
+}
+@function content-background-color( $n ) {
+    @if $n == 2 { @return $content-background-color-2; }
+    @else if $n == 3 { @return $content-background-color-3; }
+    @return $content-background-color;
+}
+@function header-background-color( $n ) {
+    @if $n == 2 { @return $header-background-color-2; }
+    @else if $n == 3 { @return $header-background-color-3; }
+    @return $header-background-color;
+}
+
+@function header-icon-background-color( $n ) {
+    @if $n == 2 { @return $header-icon-background-color-2; }
+    @else if $n == 3 { @return $header-icon-background-color-3; }
+    @return $header-icon-background-color;
+}
+
+@function header-icon-color( $n ) {
+    @if $n == 2 { @return $header-icon-color-2; }
+    @else if $n == 3 { @return $header-icon-color-3; }
+    @return $header-icon-color;
+}
+
+@function header-color( $n ) {
+    @if $n == 2 { @return $header-color-2; }
+    @else if $n == 3 { @return $header-color-3; }
+    @return $header-color;
+}
+
+@function box-title-background-color( $n ) {
+    @if $n == 2 { @return $box-title-background-color-2; }
+    @else if $n == 3 { @return $box-title-background-color-3; }
+    @return $box-title-background-color;
+}
+
+@function box-title-color( $n ) {
+    @if $n == 2 { @return $box-title-color-2; }
+    @else if $n == 3 { @return $box-title-color-3; }
+    @return $box-title-color;
+}
+
+
 
 
 @mixin no-gutter() {
@@ -25,6 +96,34 @@ $box-title-color: white;
     margin-right: 0;
     padding-left: 0;
     padding-right: 0;
+}
+
+@mixin color-combination( $n ) {
+    background-color: page-background-color( $n );
+    sonub-header header {
+        color: header-color( $n );
+        background-color: header-background-color( $n );
+        .icon {
+            .background {
+                color: header-icon-background-color( $n );
+            }
+            .font {
+                color: header-icon-color( $n );
+            }
+        }
+    }
+    section.content {
+        background-color: content-background-color( $n );
+        aside.left, aside.right {
+            .box {
+                border: 1px solid box-title-background-color( $n );
+                .title {
+                    color: box-title-color( $n );
+                    background-color: box-title-background-color( $n );
+                }
+            }
+        }
+    }
 }
 .box {
     display: block;
@@ -36,7 +135,7 @@ $box-title-color: white;
         padding: $gutter;
         border-bottom: 0;
         color: $box-title-color;
-        background-color:$box-title-background-color;
+        background-color: $box-title-background-color;
         font-size: .9em;
     }
     .content {

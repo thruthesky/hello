@@ -28,7 +28,8 @@ Ionic 2 project hack by JaeHo Song to use Angular2 framework with ionic 2.
 
 
 # TODO
-
+* post-view 에서 맨위에 보여지는 글은 글(페이지) 목록에서 없앨 것. 
+* 모든 페이지를 hme.html 처럼 table 로 layout 을 적용 할 것.
 * 데스크톱에서 페이지가 스크롤이 많이 되면, 광고를 fixed 해서 양옆으로 보여 줄 수 있도록 한다.
 * push notification on comment, message.
     - for message,

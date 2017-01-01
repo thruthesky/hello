@@ -1,12 +1,15 @@
-section.content.container-fluid {
-  
-  .no-more-posts {
-    display: none;
-    &.active {
-      display: block;
+sonub-post-list {
+  display: block;
+  @include color-combination( 2 );
+  section.content{
+    .no-more-posts {
+      display: none;
+      &.active {
+        display: block;
+      }
     }
   }
-}
+
 
 .post {
   word-break: break-all;
@@ -114,8 +117,10 @@ section.content.container-fluid {
         }
       }
     }
+  }
+
+
 
 }
-
 
 

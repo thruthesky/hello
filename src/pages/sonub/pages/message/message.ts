@@ -1,10 +1,11 @@
 import { Component, Renderer } from '@angular/core';
 import { Message, MESSAGE, MESSAGES, MESSAGE_LIST, MESSAGE_FORM } from '../../../../api/philgo-api/v2/message';
 import { Member, MEMBER_LOGIN } from '../../../../api/philgo-api/v2/member';
+import { App } from '../../../../providers/app';
 import * as _ from 'lodash';
 
 @Component({
-    selector: 'message-page',
+    selector: 'sonub-message-page',
     templateUrl: 'message.html'
 })
 export class SonubMessagePage {
@@ -23,6 +24,7 @@ export class SonubMessagePage {
     inPageLoading: boolean = false; // true while loading a page of posts.
     noMorePosts: boolean = false; // true when there are no more posts of a page.
     constructor(
+        public app: App,
         private message: Message,
         private member: Member,
         private renderer: Renderer,

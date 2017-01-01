@@ -1,10 +1,6 @@
 
-body {
-    background-color: $background_color;
-}
-
 header {
-    height: $header_toolbar_height;
+    height: $header-toolbar-height;
     overflow: hidden;
     nav {
         height: $header_toolbar_height;
@@ -26,7 +22,6 @@ section.content {
     margin-right: auto;
     max-width: $content-width;
     overflow: hidden;
-
     & > .row {
         @include no-gutter();
         & > .left, & > .right, & > .center {
