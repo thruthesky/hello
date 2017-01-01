@@ -71,7 +71,7 @@ export class JobListComponent {
       return;
     }
     this.inPageLoading = true;
-    this.post.debug = true;
+    //this.post.debug = true;
     console.log("page no: ", this.page);
     this.post.page( {post_id: this.post_id, page_no: this.page++, limit: 5}, (page: PAGE) => {
       console.log('PostList::loadPage() page:', page);

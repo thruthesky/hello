@@ -1,8 +1,8 @@
 <div class="exchange_rate">
-  Exchange Rate
+  {{ [ 'Exchange Rate', '환율'] | ek }}
   <div class="info">
-    <div class="text">1 Peso is <span class="rate">{{currency?.one_peso_to_won}}</span> Won</div>
-    <div class="text">1 Dollar is <span class="rate">{{currency?.one_dollar_to_peso}}</span> Peso</div>
-    <div class="text">1 Dollar is <span class="rate">{{currency?.one_dollar_to_won}}</span> Won</div>
+    <div class="text">1 {{ ['Peso','페소'] | ek }} <span class="rate">{{currency?.one_peso_to_won}}</span> {{ ['Won','원'] | ek }}</div>
+    <div class="text">1 {{ ['Dallar','달러'] | ek }} <span class="rate">{{currency?.one_dollar_to_peso}}</span> {{ ['Peso','페소'] | ek }}</div>
+    <div class="text">1 {{ ['Dallar','달러'] | ek }} <span class="rate">{{currency?.one_dollar_to_won}}</span> {{ ['Won','원'] | ek }}</div>
   </div>
 </div>

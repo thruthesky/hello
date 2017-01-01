@@ -80,7 +80,7 @@ export class JobEditComponent implements OnInit {
     this.form.gid = data.uniqid(); // for file upload of new post
     let idx = this.route.snapshot.params['idx'];
     if( idx ){ //if idx exist then edit
-      this.post.debug = true;
+      //this.post.debug = true;
       this.post.load(idx, re=> {
         console.log('re data',re.post);
         if(re.post) {
