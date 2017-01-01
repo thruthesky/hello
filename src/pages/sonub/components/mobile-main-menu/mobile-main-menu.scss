@@ -1,0 +1,28 @@
+
+  .mobile-main-menu {
+    font-size: 12px;
+    font-family: Gulim,AppleGothic,Arial, Helvetica, sans-serif;
+    text-align: center;    
+    .inner {
+      display: inline-block;
+    }
+    .menu {
+      display: inline-block;
+      margin-right: $gutter;
+      width: 5em;
+      height: 7em;
+      text-align: center;
+      .icon {
+        display: block;
+        padding-top: 1.2em;
+        width: 5em;
+        height: 5em;
+        background-color: #898989;
+        i.fa {
+          color: white;
+          font-size: 2.6em;
+        } 
+      }
+    }
+    .menu.hot .icon { background-color: #80a0a0; }
+  }

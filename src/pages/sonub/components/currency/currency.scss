@@ -1,9 +1,7 @@
-.exchange_rate {
-  @include box();
-  @include box-title();
-  font-size: 12px;
-  font-family: Gulim,AppleGothic,Arial, Helvetica, sans-serif;
-  .info {
+.exchange-rate {
+  .content {
+    font-size: 12px;
+    font-family: Gulim,AppleGothic,Arial, Helvetica, sans-serif;
     padding: $gutter;
   }
 }

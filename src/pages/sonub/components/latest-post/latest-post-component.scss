@@ -7,7 +7,9 @@
 }
 
 
-
+latest-post-component {
+    display: block;
+}
 .latest-posts {
     
     .title, .post {
@@ -31,7 +33,7 @@
         padding-left:0.5em;   
         .post {
             position: relative;
-            padding: 2px;
+            padding: .2em;
             height: 2em;
             overflow: hidden;
             font-size: 9pt;
@@ -47,7 +49,7 @@
             }
             .no-of-comment {
                 position: absolute;
-                top: .4em;
+                top: .45em;
                 right: .2em;
                 width: 1.4em;
                 height: 1.4em;

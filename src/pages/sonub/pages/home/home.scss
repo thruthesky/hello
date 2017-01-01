@@ -1,5 +1,7 @@
 sonub-home-page {
-  .center {
+  display: block;
+  background-color: $page-background-color;
+  .content {
   }
 
   .news {
@@ -11,5 +13,5 @@ sonub-home-page {
       width: 100%;
     }
   }
-
+  
 }

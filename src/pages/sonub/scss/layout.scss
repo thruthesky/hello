@@ -5,7 +5,6 @@ body {
 
 header {
     height: $header_toolbar_height;
-        background-color: $toolbar_color;
     overflow: hidden;
     nav {
         height: $header_toolbar_height;
@@ -20,26 +19,23 @@ aside.right {
     margin-left: $gutter;
     width: $right_width;
 }
-/*
-footer {
-    height: $footer_toolbar_height;
-    background-color: $toolbar_color;
-}
-*/
+
 section.content {
     margin-top: $header_toolbar_height;
     margin-left: auto;
     margin-right: auto;
-    width: $content_width;
+    max-width: $content-width;
     overflow: hidden;
-    // margin-bottom: $footer_toolbar_height;
-    // background-color: $content_background_color;
-    
+
     & > .row {
         @include no-gutter();
         & > .left, & > .right, & > .center {
             @include no-gutter();
         }
+    }
+
+    @media all and ( max-width: $break-point ) {
+        padding: $gutter;
     }
 }
 

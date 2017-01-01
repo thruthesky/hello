@@ -1,5 +1,5 @@
 <div class="title" *ngIf="title">{{ title }}</div>
-<div *ngIf=" posts ">
+<div *ngIf=" posts " class="posts">
   <div *ngFor=" let post of posts " routerLink="{{ post.url }}" class="post">
     <table>
       <tr>

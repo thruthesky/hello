@@ -25,7 +25,7 @@ import { SonubCurrency } from "./components/currency/currency"
 import { SonubSales } from './components/sales/sales';
 import { SonubLoginPage } from './pages/user/login/login';
 import { SonubRegisterPage } from './pages/user/register/register';
-
+import { SonubMobileMainMenu } from './components/mobile-main-menu/mobile-main-menu';
 // services
 import { ForumService } from './providers/forum'
 
@@ -53,7 +53,8 @@ import { SonubMessagePage } from './pages/message/message';
         SonubMessagePage,
         SonubBuyAndSell,
         SonubCurrency,
-        SonubSales
+        SonubSales,
+        SonubMobileMainMenu
     ],
     imports: [
         BrowserModule,

@@ -1,9 +1,5 @@
 aside.left {
-    font-size: .9em;
-    .freetalk, .qna, .greeting {
-        @include box();
-        @include box-title();
-    }
+    
     .posts {
         padding: .4em;
     }
@@ -14,6 +10,7 @@ aside.left {
         overflow: hidden;
         white-space: nowrap;
         text-overflow: ellipsis;
+        font-size: .9em;
         .no-of-comment {
             position: absolute;
             display: inline-block;

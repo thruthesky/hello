@@ -9,42 +9,42 @@
                                 <i class="fa fa-circle fa-stack-2x"></i>
                                 <i class="fa fa-home fa-stack-1x fa-inverse"></i>
                             </span>
-                            <div>Home</div>
+                            <div class="text">Home</div>
                         </td>
                         <td routerLink="/forum/knowhow--lookfor--caution">
                             <span class="fa-stack fa-lg">
                                 <i class="fa fa-circle fa-stack-2x"></i>
                                 <i class="fa fa-comments fa-stack-1x fa-inverse"></i>
                             </span>
-                            <div>Community</div>
+                            <div class="text">Community</div>
                         </td>
                         <td routerLink="/forum/qna">
                             <span class="fa-stack fa-lg">
                                 <i class="fa fa-circle fa-stack-2x"></i>
                                 <i class="fa fa-question fa-stack-1x fa-inverse"></i>
                             </span>
-                            <div>QnA</div>
+                            <div class="text">QnA</div>
                         </td>
                         <td routerLink="/forum/buyandsell">
                             <span class="fa-stack fa-lg">
                                 <i class="fa fa-circle fa-stack-2x"></i>
                                 <i class="fa fa-shopping-basket fa-stack-1x fa-inverse"></i>
                             </span>
-                            <div>Buy&amp;Sell</div>
+                            <div class="text">Buy&amp;Sell</div>
                         </td>
                         <td routerLink="/job">
                             <span class="fa-stack fa-lg">
                                 <i class="fa fa-circle fa-stack-2x"></i>
                                 <i class="fa fa-suitcase fa-stack-1x fa-inverse"></i>
                             </span>
-                            <div>Job</div>
+                            <div class="text">Job</div>
                         </td>
                         <td *ngIf=" ! login " routerLink="/user/register">
                             <span class="fa-stack fa-lg">
                                 <i class="fa fa-circle fa-stack-2x"></i>
                                 <i class="fa fa-user-plus fa-stack-1x fa-inverse"></i>
                             </span>
-                            <div>Register</div>
+                            <div class="text">Register</div>
                         </td>
                         
                         <td *ngIf=" login " routerLink="/user/register">
@@ -52,7 +52,7 @@
                                 <i class="fa fa-circle fa-stack-2x"></i>
                                 <i class="fa fa-user-plus fa-stack-1x fa-inverse"></i>
                             </span>
-                            <div>Profile</div>
+                            <div class="text">Profile</div>
                         </td>
 
                         <td *ngIf=" ! login " routerLink="/user/login">
@@ -68,7 +68,7 @@
                                 <i class="fa fa-circle fa-stack-2x"></i>
                                 <i class="fa fa-user fa-stack-1x fa-inverse"></i>
                             </span>
-                            <div>Logout</div>
+                            <div class="text">Logout</div>
                         </td>
 
                         <td routerLink="/message">
@@ -76,7 +76,7 @@
                                 <i class="fa fa-circle fa-stack-2x"></i>
                                 <i class="fa fa-envelope-o fa-stack-1x fa-inverse"></i>
                             </span>
-                            <div>Message</div>
+                            <div class="text">Message</div>
                         </td>
                         <td>
                             <div (click)="onClickClearLocalStorage()"> clear localStorage</div>

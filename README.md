@@ -29,6 +29,7 @@ Ionic 2 project hack by JaeHo Song to use Angular2 framework with ionic 2.
 
 # TODO
 
+* 데스크톱에서 페이지가 스크롤이 많이 되면, 광고를 fixed 해서 양옆으로 보여 줄 수 있도록 한다.
 * push notification on comment, message.
     - for message,
         when a new message arrives,
@@ -42,11 +43,11 @@ Ionic 2 project hack by JaeHo Song to use Angular2 framework with ionic 2.
 
 * file not found page design.
 
-* Show 'Logout' after login
+* @done Show 'Logout' after login
 
-* add 'reset data' on menu.
+* @done add 'reset data' on menu.
 
-* Do '*ngIf' on break-point 'NOT TO load un-necessary data on small width device.'
+* @done Do '*ngIf' on break-point 'NOT TO load un-necessary data on small width device.'
     각 라우트마다 새로운 컴포넌트가 로드되므로 top,left,right,bottom 을 모두 코딩 해야한다.
     하지만 모든 서브 경로를 IndexComponent 로 통일하고,
         IndexComponent 에서 top, left, right, bottom 을 한번씩만 코딩학,

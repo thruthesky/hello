@@ -27,12 +27,13 @@ export class SonubLatestPhoto {
     let option: PHOTO_OPTION = {
       post_id: this.post_id,
       limit: this.limit,
+      limit_comment: 1,
       page_no: page_no
     };
     console.log(option);
-    //this.post.debug = true;
+    this.post.debug = true;
     this.post.latestPhotos( option, (posts: POSTS) => {
-      //console.log("posts: ", posts);
+      console.log("posts: ", posts);
       //this.posts = [];
       posts.map( ( v:POST, i ) => {
         setTimeout( () => {

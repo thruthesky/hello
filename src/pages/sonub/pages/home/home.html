@@ -5,6 +5,9 @@
       <td *ngIf=" app.size == 'big' "><sonub-left></sonub-left></td>
       <td>
           <section class="center">
+            
+            <mobile-main-menu *ngIf=" app.size == 'small' "></mobile-main-menu>
+
             <sonub-news class="news"></sonub-news>
             <div class="main-banner">
               <img src="assets/img/ads.png">
