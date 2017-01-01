@@ -1,0 +1,8 @@
+aside.right {
+    .buy-and-sell {
+        @include box();
+        padding: $gutter;
+        font-size: 12px;
+        font-family: Gulim,AppleGothic,Arial, Helvetica, sans-serif;
+    }
+}

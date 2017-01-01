@@ -22,4 +22,16 @@ $content_background_color: #f0f0f0;
     padding-left: 0;
     padding-right: 0;
 }
+@mixin box() {
+    margin-bottom: $gutter;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+    background-color: white;
+}
+@mixin box-title() {
+    .title {
+        padding: $gutter;
+        background-color: #eee;
+    }
+}
 

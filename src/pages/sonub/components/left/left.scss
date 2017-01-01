@@ -1,13 +1,8 @@
 aside.left {
     font-size: .9em;
     .freetalk, .qna, .greeting {
-        margin-bottom: $gutter;
-        border: 1px solid #ddd;
-        box-sizing: border-box;
-    }
-    .title {
-        padding: $gutter;
-        background-color: #eee;
+        @include box();
+        @include box-title();
     }
     .posts {
         padding: .4em;
