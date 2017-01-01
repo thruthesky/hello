@@ -22,7 +22,7 @@ import { SonubNews } from './components/news/news';
 import { SonubLatestPhoto } from "./components/latest-photo/latest-photo";
 import { SonubBuyAndSell } from "./components/buy-and-sell/buy-and-sell";
 import { SonubCurrency } from "./components/currency/currency"
-
+import { SonubSales } from './components/sales/sales';
 import { SonubLoginPage } from './pages/user/login/login';
 import { SonubRegisterPage } from './pages/user/register/register';
 
@@ -52,7 +52,8 @@ import { SonubMessagePage } from './pages/message/message';
         SonubRegisterPage,
         SonubMessagePage,
         SonubBuyAndSell,
-        SonubCurrency
+        SonubCurrency,
+        SonubSales
     ],
     imports: [
         BrowserModule,
