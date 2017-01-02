@@ -1,8 +1,12 @@
-
-  .mobile-main-menu {
+mobile-main-menu {
+  &.active {
+    display: block!important;
+  }
+  padding: 1em 0;
+  .menus {
     font-size: 12px;
     font-family: Gulim,AppleGothic,Arial, Helvetica, sans-serif;
-    text-align: center;    
+    text-align: center;
     .inner {
       display: inline-block;
     }
@@ -26,3 +30,4 @@
     }
     .menu.hot .icon { background-color: #80a0a0; }
   }
+}

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class App {
     _width: number = 0;
+    menu: boolean = false;
     constructor() {
         console.log("App::constructor()");
     }
