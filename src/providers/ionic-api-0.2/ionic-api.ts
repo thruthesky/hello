@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Push, PushToken, PushSaveTokenOptions } from '@ionic/cloud-angular';
 import { Member } from '../../api/philgo-api/v2/member';
-import * as app from '../../etc/app.helper';
+
 @Injectable()
 export class IonicApi {
     constructor(
@@ -20,7 +20,7 @@ export class IonicApi {
      * 공식 문서에서는 실행 될 때 마다 등로하라고 나와 있다.
      */
     registerPushNotification( succssCallback: ( token: string ) => void, errorCallback: ( error : string ) => void ) {
-        if ( ! app.isCordova() ) return console.info( 'Push notification : does not support browser.');
+        if ( ! this.member.isCordova() ) return console.info( 'Push notification : does not support browser.');
         this.push.register()
             .then( (pushToken: PushToken) => {
                 let options: PushSaveTokenOptions = { ignore_user: true };

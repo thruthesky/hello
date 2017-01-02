@@ -1,4 +1,6 @@
-login-page {
+sonub-login-page {
+    display: block;
+    @include color-combination(2);
     .process {
         margin-top: .4em;
     }

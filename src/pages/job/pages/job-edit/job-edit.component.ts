@@ -5,8 +5,7 @@ import { Post, POST_DATA } from '../../../../api/philgo-api/v2/post';
 import { Member, MEMBER_LOGIN } from '../../../../api/philgo-api/v2/member';
 import { Data, FILE_UPLOAD_RESPONSE, FILE_UPLOAD_DATA, DATA_UPLOAD_OPTIONS } from '../../../../api/philgo-api/v2/data';
 import { Router, ActivatedRoute } from '@angular/router';
-
-import * as app from '../../../../etc/app.helper';
+import { App } from '../../../../providers/app';
 import * as _ from 'lodash';
 
 declare var Array;
@@ -58,7 +57,7 @@ export class JobEditComponent implements OnInit {
   progress: number = 0;
   widthProgress: any;
   inputFileValue: string = null;
-  cordova: boolean = app.isCordova();
+  cordova: boolean = false;
 
   constructor(
     private region: PhilippineRegion,
@@ -68,8 +67,10 @@ export class JobEditComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     private sanitizer: DomSanitizer,
-    private ngZone: NgZone
+    private ngZone: NgZone,
+    public app: App
   ) {
+    this.cordova = app.isCordova();
     region.get_province( re => {
       this.provinces = re;
     }, e => {
@@ -86,7 +87,6 @@ export class JobEditComponent implements OnInit {
         if(re.post) {
           this.form = re.post;
           re.post.photos.map( e => this.files.push(e) );
-
           if(re.post.photos.length) {
             this.urlPhoto = re.post.photos[0].url_thumbnail;
           }

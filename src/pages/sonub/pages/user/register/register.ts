@@ -4,14 +4,13 @@ import { AppRouter } from '../../../../../app/app.router';
 import { formProcess } from '../../../../../etc/share';
 import { Member, MEMBER_DATA, MEMBER_REGISTER_DATA, MEMBER_LOGIN } from '../../../../../api/philgo-api/v2/member';
 import { Data, FILE_UPLOAD_RESPONSE, FILE_UPLOAD_DATA, DATA_UPLOAD_OPTIONS, CODE_PRIMARY_PHOTO } from '../../../../../api/philgo-api/v2/data';
-import * as app from '../../../../../etc/app.helper';
-
+import { App } from '../../../../../providers/app';
 
 declare var navigator;
 declare var Camera;
 
 @Component({
-    selector: 'register-page',
+    selector: 'sonub-register-page',
     templateUrl: 'register.html'
 })
 export class SonubRegisterPage {
@@ -33,15 +32,16 @@ export class SonubRegisterPage {
     widthProgress: any;
     inputFileValue: string = null;
 
-    cordova: boolean = app.isCordova();
+    cordova: boolean = false;
     constructor(
         private member: Member,
         private data: Data,
         private router: AppRouter,
         private sanitizer: DomSanitizer,
-        private ngZone: NgZone
+        private ngZone: NgZone,
+        public app: App
     ) {
-        
+        this.cordova = app.isCordova();
         this.gid = data.uniqid();
         member.getLogin( x => {
             this.login = x;

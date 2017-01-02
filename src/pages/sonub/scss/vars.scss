@@ -8,85 +8,66 @@ $right_width: 160px;
 
 $gutter: 8px;
 
-// default color combination #1
-$page-background-color: #dfdfdf;
-$content-background-color: #f7f7f7;
-$header-background-color: #703023;
-$header-icon-background-color: #f9f9f9;
-$header-icon-color: #904030;
-$header-color: white;
-$box-title-background-color: #a9b7c0;
-$box-title-color: white;
+
+$page-background-color: (
+    1: #dfdfdf,
+    2: #f9f9f9,
+    3: #dfdfdf
+);
+
+$content-background-color: (
+    1: #f7f7f7,
+    2: #f7f7f7,
+    3: #394950
+);
+
+$header-background-color: (
+    1: #703023,
+    2: #006640,
+    3: #123456
+);
+
+$header-icon-background-color: (
+    1: #f9f9f9,
+    2: #f9f9f9,
+    3: #f9f9f9
+);
+
+$header-icon-color: (
+    1: #904030,
+    2: #006644,
+    3: darkgrey
+);
 
 
-// 'art inspired' combination #2
-$page-background-color-2: #f9f9f9;
-$content-background-color-2: #f7f7f7;
-$header-background-color-2: #006640;
-$header-icon-background-color-2: #f9f9f9;
-$header-icon-color-2: #006644;
-$header-color-2: white;
-$box-title-background-color-2: #90a095;
-$box-title-color-2: #f9f9f9;
+$header-color: (
+    1: #fff,
+    2: #fff,
+    3: #d00
+);
 
 
-// combination #3
-$page-background-color-3: #dfdfdf;
-$content-background-color-3: #394950;
-$header-background-color-3: #123456;
-$header-icon-background-color-3: #f9f9f9;
-$header-icon-color-3: darkgrey;
-$header-color-3: darkred;
-$box-title-background-color-3: #a9b7c0;
-$box-title-color-3: orange;
+$box-title-background-color: (
+    1: #a9b7c0,
+    2: #90a095,
+    3: #a9b7c0
+);
 
+$box-title-color: (
+    1: #fff,
+    2: #f9f9f9,
+    3: #orange
+);
 
+@function page-background-color( $n ) { @return map_get( $page-background-color, $n ); }
+@function content-background-color( $n ) { @return map_get( $content-background-color, $n ); }
+@function header-background-color( $n ) { @return map_get( $header-background-color, $n ); }
+@function header-icon-background-color( $n ) { @return map_get( $header-icon-background-color, $n ); }
+@function header-icon-color( $n ) { @return map_get( $header-icon-color, $n ); }
+@function header-color( $n ) { @return map_get( $header-color, $n ); }
+@function box-title-background-color( $n ) { @return map_get( $box-title-background-color, $n ); }
+@function box-title-color( $n ) { @return map_get( $box-title-color, $n ); }
 
-@function page-background-color( $n ) {
-    @if $n == 2 { @return $page-background-color-2; }
-    @else if $n == 3 { @return $page-background-color-3; }
-    @return $page-background-color;
-}
-@function content-background-color( $n ) {
-    @if $n == 2 { @return $content-background-color-2; }
-    @else if $n == 3 { @return $content-background-color-3; }
-    @return $content-background-color;
-}
-@function header-background-color( $n ) {
-    @if $n == 2 { @return $header-background-color-2; }
-    @else if $n == 3 { @return $header-background-color-3; }
-    @return $header-background-color;
-}
-
-@function header-icon-background-color( $n ) {
-    @if $n == 2 { @return $header-icon-background-color-2; }
-    @else if $n == 3 { @return $header-icon-background-color-3; }
-    @return $header-icon-background-color;
-}
-
-@function header-icon-color( $n ) {
-    @if $n == 2 { @return $header-icon-color-2; }
-    @else if $n == 3 { @return $header-icon-color-3; }
-    @return $header-icon-color;
-}
-
-@function header-color( $n ) {
-    @if $n == 2 { @return $header-color-2; }
-    @else if $n == 3 { @return $header-color-3; }
-    @return $header-color;
-}
-
-@function box-title-background-color( $n ) {
-    @if $n == 2 { @return $box-title-background-color-2; }
-    @else if $n == 3 { @return $box-title-background-color-3; }
-    @return $box-title-background-color;
-}
-
-@function box-title-color( $n ) {
-    @if $n == 2 { @return $box-title-color-2; }
-    @else if $n == 3 { @return $box-title-color-3; }
-    @return $box-title-color;
-}
 
 
 
@@ -129,13 +110,10 @@ $box-title-color-3: orange;
     display: block;
     margin-bottom: $gutter;
     background-color: white;
-    border: 1px solid $box-title-background-color;
     box-sizing: border-box;
     .title {
         padding: $gutter;
         border-bottom: 0;
-        color: $box-title-color;
-        background-color: $box-title-background-color;
         font-size: .9em;
     }
     .content {

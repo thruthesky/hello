@@ -2,16 +2,8 @@ sonub-header {
     header {
         font-size: 12px;
         font-family: Gulim, AppleGothic, Arial, Helvetica, sans-serif;
-        background-color: $header-background-color;
-        color: $header-color;
         .icon {
             font-size: 1.6em;
-            .background {
-                color: $header-icon-background-color;
-            }
-            .font {
-                color: $header-icon-color;
-            }
         }
         td {
             text-align: center;

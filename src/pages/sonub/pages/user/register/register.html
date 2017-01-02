@@ -1,19 +1,11 @@
-<!--
-  Registration form
-
-  @note this is not RWD page. so, no need to use grid.
-
- -->
 <sonub-header></sonub-header>
 <section class="content">
-  <div class="container-fluid">
-    <div class="row">
-      <aside class="left hidden-xs-down col-sm-4 col-md-3 col-lg-3 col-xl-2">
-        <sonub-left></sonub-left>
-      </aside>
-      
-      <section class="center base-center col-sm-8 col-md-9 col-lg-6 col-xl-8">
-        
+  <table width="100%" cellpadding="0" cellspacing="0">
+    <tr valign="top">
+      <td *ngIf=" app.size == 'big' "><sonub-left></sonub-left></td>
+      <td width="100%">
+          <section class="center">
+
           <h1 *ngIf=" ! login ">{{ ['User Registration', '회원가입'] | ek }}</h1>
           <h1 *ngIf=" login ">{{ ['Account Update', '회원 정보 수정'] | ek }}</h1>
 
@@ -130,15 +122,10 @@
 
 
           </form>
-          
-      </section>
+          </section><!--/.center-->
+      </td>
+      <td *ngIf=" app.size == 'big' "><sonub-right></sonub-right></td>
+    </tr>
+  </table>
 
-      <aside class="right hidden-xs-down col-sm-12 col-lg-3 col-xl-2">
-        <sonub-right></sonub-right>
-      </aside>
-    </div>
-  </div>
-</section>
-
-
-<sonub-footer></sonub-footer>
+</section><!--/section.content-->

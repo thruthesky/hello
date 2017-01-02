@@ -70,7 +70,8 @@ export class SonubMessagePage {
       this.endScroll();
     }
 
-    onClickShowContent(message : MESSAGE){
+    onClickToggleContent(message : MESSAGE) {
+        
         message['show_content'] = true;
 
         if ( message.stamp_open != "0" ) return;

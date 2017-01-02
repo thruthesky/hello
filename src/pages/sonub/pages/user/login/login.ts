@@ -2,10 +2,11 @@ import { Component } from '@angular/core';
 import { AppRouter } from '../../../../../app/app.router';
 import { formProcess } from '../../../../../etc/share';
 import { Member, MEMBER_LOGIN_DATA } from '../../../../../api/philgo-api/v2/member';
+import { App } from '../../../../../providers/app';
 import { LanguagePipe } from '../../../../../pipes/language/language.pipe';
 import { IonicApi } from '../../../../../providers/ionic-api-0.2/ionic-api';
 @Component({
-    selector: 'login-page',
+    selector: 'sonub-login-page',
     templateUrl: 'login.html'
 })
 export class SonubLoginPage {
@@ -17,7 +18,8 @@ export class SonubLoginPage {
 //        private auth: FirebaseAuth,
         private ln: LanguagePipe,
         private router: AppRouter,
-        private ionic: IonicApi
+        private ionic: IonicApi,
+        public app: App
     ) {
 
 //        this.form.id = 'thruthesky';

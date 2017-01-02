@@ -1,5 +1,6 @@
 sonub-home-page {
   display: block;
+  @include color-combination( 1 );
   .news {
     margin-bottom: .6em;
   }
