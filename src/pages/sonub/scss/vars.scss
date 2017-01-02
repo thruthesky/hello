@@ -2,7 +2,7 @@
 $content-width: 960px; // 960px is best fit for desktop.
 $break-point: 760px; // this is the 'app.size' break point.
 
-$header-header-height: 80px;
+$header-height: 80px;
 $left_width: 200px;
 $right_width: 160px;
 
@@ -12,51 +12,59 @@ $gutter: 8px;
 $page-background-color: (
     1: #dfdfdf,
     2: #f9f9f9,
-    3: #dfdfdf
+    3: #dfdfdf,
+    4: #F0EFE6
 );
 
 $content-background-color: (
     1: #f7f7f7,
     2: #f7f7f7,
-    3: #394950
+    3: #394950,
+    4: #CCC7B9
 );
 
 $header-background-color: (
     1: #703023,
     2: #006640,
-    3: #123456
+    3: #123456,
+    4: #686763
 );
 
 $header-icon-background-color: (
     1: #f9f9f9,
     2: #f9f9f9,
-    3: #f9f9f9
+    3: #f9f9f9,
+    4: #F0EFE6
 );
 
 $header-icon-color: (
     1: #904030,
     2: #006644,
-    3: darkgrey
+    3: darkgrey,
+    4: #686763
 );
 
 
 $header-color: (
     1: #fff,
     2: #fff,
-    3: #d00
+    3: #d00,
+    4: white
 );
 
 
 $box-title-background-color: (
     1: #a9b7c0,
     2: #90a095,
-    3: #a9b7c0
+    3: #a9b7c0,
+    4: #87857D
 );
 
 $box-title-color: (
     1: #fff,
     2: #f9f9f9,
-    3: #orange
+    3: #orange,
+    4: white
 );
 
 @function page-background-color( $n ) { @return map_get( $page-background-color, $n ); }

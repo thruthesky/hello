@@ -19,6 +19,9 @@ export let ROUTES = [
         { path: "job/list", component: JobListComponent, name: 'JobList' },
         { path: "job/view/:idx", component: JobViewComponent, name: 'JobView' }
 ];
+
+
+
 @NgModule({
   declarations: [
       JobIndexComponent,

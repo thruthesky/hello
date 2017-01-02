@@ -11,6 +11,7 @@ export class SonubHomePage {
     forums;
     forum_group;
     page_no: number = 1;
+    displayMenu: boolean = false;
     @ViewChild('sonubLatestPhoto') sonubLatestPhoto: SonubLatestPhoto;
     constructor(
         forum: ForumService,
@@ -18,9 +19,11 @@ export class SonubHomePage {
         private renderer: Renderer,
         public app: App
     ) {
+        this.displayMenu = app.size == 'small';
         this.forums = forum.forums;
         this.forum_group = Object.keys( this.forums );
         // console.log( this.forums);
+
     }
 
     ngOnInit() {
@@ -32,6 +35,10 @@ export class SonubHomePage {
 
     ngOnDestroy() {
         this.pageScroll.stop();
+    }
+
+    onClickMenu() {
+
     }
 
 }

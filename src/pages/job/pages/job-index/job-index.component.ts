@@ -4,6 +4,7 @@ import { PAGES } from '../../../../api/philgo-api/v2/philgo-api-interface';
 import { Member, MEMBER_LOGIN } from '../../../../api/philgo-api/v2/member';
 import { Post, SEARCH_QUERY_DATA } from '../../../../api/philgo-api/v2/post';
 import { PageScroll } from './../../../../providers/page-scroll';
+import { App } from '../../../../providers/app';
 import * as _ from 'lodash';
 
 declare var Array;
@@ -61,7 +62,8 @@ export class JobIndexComponent implements OnInit {
               private post: Post,
               private member: Member,
               private renderer: Renderer,
-              private pageScroll: PageScroll
+              private pageScroll: PageScroll,
+              public app: App
   ) {
 
     // this.login = this.member.getLoginData();
