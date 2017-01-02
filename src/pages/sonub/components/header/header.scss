@@ -1,4 +1,5 @@
 sonub-header {
+    display: block;
     header {
         font-size: 12px;
         font-family: Gulim, AppleGothic, Arial, Helvetica, sans-serif;
@@ -9,6 +10,5 @@ sonub-header {
             text-align: center;
         }
     }
-
     .alert { display: none; }
 }
