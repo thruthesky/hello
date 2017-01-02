@@ -71,7 +71,10 @@ export class SonubMessagePage {
     }
 
     onClickToggleContent(message : MESSAGE) {
-        
+        if ( message['show_content'] ) {
+            message['show_content'] = false;
+            return;
+        }
         message['show_content'] = true;
 
         if ( message.stamp_open != "0" ) return;
