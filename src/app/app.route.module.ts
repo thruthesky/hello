@@ -17,10 +17,10 @@ import { SonubForumIndexPage } from '../pages/sonub/pages/forum/index/forum-inde
 import { SonubPostListPage } from '../pages/sonub/pages/forum/list/post-list';
 
 /** Importing Job Pages **/
-import { JobIndexComponent } from '../pages/job/pages/job-index/job-index.component';
-import { JobListComponent } from "../pages/job/pages/job-list/job-list.component";
-import { JobEditComponent } from "../pages/job/pages/job-edit/job-edit.component";
-import { JobViewComponent } from "../pages/job/pages/job-view/job-view.component";
+import { JobIndexPage } from '../pages/job/pages/job-index/job-index';
+import { JobListPage } from "../pages/job/pages/job-list/job-list";
+import { JobPostPage } from "../pages/job/pages/job-post/job-post";
+import { JobViewPage } from "../pages/job/pages/job-view/job-view";
 
 
 
@@ -36,11 +36,11 @@ const appRoutes: Routes = [
     { path: "message", component: SonubMessagePage },
 
     /** Job Pages **/
-    { path: "job", component: JobIndexComponent },
-    { path: "job/post", component: JobEditComponent },
-    { path: "job/post/:idx", component: JobEditComponent },
-    { path: "job/list", component: JobListComponent },
-    { path: "job/view/:idx", component: JobViewComponent },
+    { path: "job", component: JobIndexPage },
+    { path: "job/post", component: JobPostPage },
+    { path: "job/post/:idx", component: JobPostPage },
+    { path: "job/list", component: JobListPage },
+    { path: "job/view/:idx", component: JobViewPage },
 
     /** Default Base Pages **/
     { path: '**', component: FileNotFoundPage }

@@ -2,16 +2,31 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { JobIndexComponent } from '../pages/job-index/job-index.component';
-import { JobListComponent } from "../pages/job-list/job-list.component";
-import { JobEditComponent } from "../pages/job-edit/job-edit.component";
+
 import { PhilippineRegion } from '../providers/philippine-region';
-
-import { JobBaseComponentsModule } from '../pages/job-base-components/job.base.components.module';
-import { JobViewComponent } from "../pages/job-view/job-view.component";
-import { JobBaseListComponent } from "../pages/job-base-components/job-base-list/job-base-list-component";
+import { LanguagePipeModule } from "../../../pipes/language/language.pipe.module";
 
 
+import { JobIndexPage } from '../pages/job-index/job-index';
+import { JobListPage } from "../pages/job-list/job-list";
+import { JobPostPage } from "../pages/job-post/job-post";
+import { JobViewPage } from "../pages/job-view/job-view";
+
+import { JobHeader } from '../pages/job-components/job-header/job-header';
+import { JobLeft } from '../pages/job-components/job-left/job-left';
+import { JobRight } from '../pages/job-components/job-right/job-right';
+
+import { JobListing } from "../pages/job-components/job-listing/job-listing";
+
+
+
+import { PhilgoApiModule } from "../../../api/philgo-api/v2/philgo-api-module";
+import { JobCurrency } from "../pages/job-components/currency/currency";
+import { JobBuyAndSell } from "../pages/job-components/buy-and-sell/buy-and-sell";
+
+
+
+/**
 export let ROUTES = [
         { path: "job", component: JobIndexComponent, name: 'JobIndex' },
         { path: "job/post", component: JobEditComponent, name: 'JobEdit' },
@@ -19,23 +34,33 @@ export let ROUTES = [
         { path: "job/list", component: JobListComponent, name: 'JobList' },
         { path: "job/view/:idx", component: JobViewComponent, name: 'JobView' }
 ];
-
+ **/
 
 
 @NgModule({
   declarations: [
-      JobIndexComponent,
-      JobListComponent,
-      JobEditComponent,
-      JobViewComponent,
-      JobBaseListComponent
+      JobIndexPage,
+      JobListPage,
+      JobPostPage,
+      JobViewPage,
+      JobHeader,
+      JobLeft,
+      JobRight,
+      JobListing,
+      JobCurrency,
+      JobBuyAndSell
   ],
   imports: [
       BrowserModule,
       FormsModule,
       RouterModule,
-      JobBaseComponentsModule
+      LanguagePipeModule,
+      PhilgoApiModule,
   ],
   providers: [ PhilippineRegion ]
 })
 export class JobModule {}
+
+
+
+

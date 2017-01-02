@@ -1,0 +1,14 @@
+job-header {
+    header {
+        font-size: 12px;
+        font-family: Gulim, AppleGothic, Arial, Helvetica, sans-serif;
+        .icon {
+            font-size: 1.6em;
+        }
+        td {
+            text-align: center;
+        }
+    }
+
+    .alert { display: none; }
+}

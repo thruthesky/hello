@@ -1,0 +1,27 @@
+<job-header></job-header>
+<section class="content">
+  <table width="100%" cellpadding="0" cellspacing="0">
+    <tr valign="top">
+      <td *ngIf=" app.size == 'big' "><job-left></job-left></td>
+      <td width="100%">
+        <section class="center">
+          <div *ngIf=" pages.length " class="pages row">
+            <div *ngFor=" let page of pages " class="page posts">
+              <div class="post col-xs-6" *ngFor=" let post of page.posts;">
+                <job-listing
+                        [post]="post" [root]="page.posts"
+                        [login]="login"
+                        [shareUrl]="shareUrl"
+                ></job-listing>
+              </div>
+            </div>
+          </div>
+          <div *ngIf=" inPageLoading " class="in-page-loading"><i class="fa fa-spinner fa-spin"></i> Loading ...</div>
+          <div *ngIf=" noMorePosts " class="no-more-posts">No more posts</div>
+        </section><!--/.center-->
+      </td>
+      <td *ngIf=" app.size == 'big' "><job-right></job-right></td>
+    </tr>
+  </table>
+
+</section><!--/section.content-->

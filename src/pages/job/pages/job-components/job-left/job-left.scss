@@ -1,0 +1,49 @@
+aside.left {
+
+  .posts {
+    padding: .4em;
+  }
+  .post {
+    position: relative;
+    padding-left: 2em;
+    line-height: 1.6em;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-size: .9em;
+    .no-of-comment {
+      position: absolute;
+      display: inline-block;
+      top: .4em;
+      left: 0;
+      box-sizing: border-box;
+      text-align: center;
+      color: white;
+      background-color: #b44;
+      height: 1.8em;
+      width: 1.8em;
+      font-size: .6em;
+      border-radius: 50%;
+      &[no="0"] { display: none; }
+      i {
+        position: absolute;
+        top: -.4em;
+        left: 0;
+      }
+      &[length="1"] {
+        background-color: #ccc;
+        i {
+          left: .52em;
+        }
+      }
+      &[length="2"] {
+        background-color: #559;
+        i {
+          left: .2em;
+        }
+      }
+
+    }
+  }
+}/*--- End of sonub-left---*/
+

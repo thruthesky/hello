@@ -1,0 +1,65 @@
+job-index {
+  display: block;
+  @include color-combination( 2 );
+  .news {
+    margin-bottom: .6em;
+  }
+  .main-banner {
+    margin-bottom: .6em;
+    img {
+      width: 100%;
+    }
+  }
+
+
+  section.content{
+    .no-more-posts {
+      display: none;
+      &.active {
+        display: block;
+      }
+    }
+    .pages {
+      padding-left: 0;
+      padding-right: 0;
+      .post {
+        padding-left: 5px;
+        padding-right: 5px;
+      }
+      .btn-group {
+        margin-bottom: 5px;
+      }
+    }
+    font-size: .8rem;
+    nav {
+      padding-top: 10px;
+      button {
+        padding-top: .4em;
+        padding-bottom: .4em;
+        border: 0;
+        border-radius: 0;
+        width: 32%;
+      }
+      .close.fa-times {
+        position: absolute;
+        top: .5rem;
+        right: .5rem;
+      }
+      label {
+        padding: 0;
+      }
+      .range.col-xs-4 {
+        padding: 0;
+        .form-control {
+          padding: .5rem .25rem;
+
+        }
+      }
+    }
+    .row {
+      margin-left: 0;
+      margin-right: 0;
+    }
+  }
+
+}
