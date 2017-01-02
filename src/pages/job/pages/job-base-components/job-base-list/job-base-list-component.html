@@ -19,7 +19,7 @@
       </ul>
       <div class="share">
         <label (click)="post.share = !post.share"><i class="fa fa-share-alt"></i> Share</label>
-        <input *ngIf="post.share" class="shareLink text" onClick="this.setSelectionRange(0, this.value.length)" value="{{shareUrl+post.idx}}" readonly/>
+        <input *ngIf="post.share" class="shareLink text" onClick="this.setSelectionRange(0, this.value.length)" value="{{post.link}}" readonly/>
       </div>
 
       <div class="btn-group" role="group">

@@ -92,7 +92,7 @@
     <i class="close fa fa-times" (click)=" searchBy = {} "></i>
   </nav>
 
-  <div *ngIf=" pages.length " class="pages">
+  <div *ngIf=" pages?.length " class="pages">
     <div class="card card-block">
       Searching:
       <span *ngIf="query.sub_category">{{query.sub_category}} with </span>
@@ -115,8 +115,7 @@
       </div><!--/.col-xx-x-->
     </div><!--/.page.posts.row-->
   </div><!--/.pages.container-->
-  <div *ngIf=" inPageLoading " class="in-page-loading"><i class="fa fa-spinner fa-spin"></i> Loading ...</div>
-  <div *ngIf=" noMorePosts " class="no-more-posts">No more posts</div>
+  <div [class.active]=" ! noMorePosts " class="no-more-posts in-page-loading"><i class="fa fa-spinner fa-spin"></i> Loading ...</div>
+  <div [class.active]=" noMorePosts " class="no-more-posts">No more posts</div>
 </section>
-<job-base-footer></job-base-footer>
 

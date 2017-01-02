@@ -177,6 +177,7 @@ export class JobEditComponent implements OnInit {
 
   clearInputs(){
     this.form = {
+      gid : this.data.uniqid(),
       subject: 'Job Post Title',
       content: 'Job Post Content',
       post_id: 'jobs',

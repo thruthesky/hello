@@ -1,5 +1,11 @@
 app-job-index {
-  .content {
+  section.content{
+    .no-more-posts {
+      display: none;
+      &.active {
+        display: block;
+      }
+    }
     .pages {
       padding-left: 0;
       padding-right: 0;
