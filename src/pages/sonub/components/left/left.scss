@@ -16,21 +16,21 @@ aside.left {
             display: inline-block;
             top: .4em;
             left: 0;
-            box-sizing: border-box;
-            text-align: center;
-            color: white;
-            background-color: #b44;
             height: 1.8em;
             width: 1.8em;
-            font-size: .6em;
+            box-sizing: border-box;
             border-radius: 50%;
+            color: white;
+            background-color: #b44;
+            text-align: center;
+            font-size: .6em;
             &[no="0"] { display: none; }
             i {
                 position: absolute;
                 top: -.4em;
                 left: 0;
             }
-            &[length="1"] { 
+            &[length="1"] {
                 background-color: #ccc;
                 i {
                     left: .52em;

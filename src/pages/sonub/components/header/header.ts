@@ -11,7 +11,8 @@ export class SonubHeader {
         public app: App,
         public member: Member
     ) {
-        app.menu = app.size == 'small';
+        // app.menu = app.size == 'small';
+        app.menu = false;
         member.getLogin( x => this.login = x );
     }
     onClickHeader() {

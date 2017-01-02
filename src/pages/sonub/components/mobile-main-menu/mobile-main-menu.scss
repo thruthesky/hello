@@ -1,5 +1,7 @@
 mobile-main-menu {
-  display: block;
+  &.active {
+    display: block!important;
+  }
   padding: 1em 0;
   .menus {
     font-size: 12px;
