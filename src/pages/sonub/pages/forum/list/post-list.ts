@@ -88,7 +88,6 @@ export class SonubPostListPage {
         },error =>{
             alert("Load post error" + error);
         });
-
     }
 
 

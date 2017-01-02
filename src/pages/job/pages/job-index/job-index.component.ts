@@ -3,6 +3,7 @@ import { PhilippineRegion } from  '../../providers/philippine-region'
 import { PAGES } from '../../../../api/philgo-api/v2/philgo-api-interface';
 import { Member, MEMBER_LOGIN } from '../../../../api/philgo-api/v2/member';
 import { Post, SEARCH_QUERY_DATA } from '../../../../api/philgo-api/v2/post';
+import { PageScroll } from './../../../../providers/page-scroll';
 import * as _ from 'lodash';
 
 declare var Array;
@@ -16,7 +17,7 @@ export class JobIndexComponent implements OnInit {
   login: MEMBER_LOGIN = {
     id: ''
   };
-  page: number = 1;
+  page_no: number = 0;
   numbers = Array.from(new Array(20), (x,i) => i+1);
 
   //variables used in range
@@ -59,7 +60,8 @@ export class JobIndexComponent implements OnInit {
   constructor(private region: PhilippineRegion,
               private post: Post,
               private member: Member,
-              private renderer: Renderer
+              private renderer: Renderer,
+              private pageScroll: PageScroll
   ) {
 
     // this.login = this.member.getLoginData();
@@ -72,46 +74,36 @@ export class JobIndexComponent implements OnInit {
     }, e => {
       //console.log('error location.get_province::', e);
     });
-    //this.beginScroll();
+    this.search();
   }
 
   ngOnInit() {
-    this.search();
+    this.pageScroll.watch( this.renderer, no => {
+      if ( this.page_no == 0 ) {
+        this.page_no ++; // since 1st page has been loaded in constructor()
+      }
+      this.doSearch();
+    } );
   }
 
   get cityKeys() {
     return Object.keys( this.cities );
   }
 
-  beginScroll() {
-    this.scrollListener = this.renderer.listenGlobal( 'document', 'scroll', _.debounce( () => this.pageScrolled(), 50));
-  }
-  endScroll() {
-        // this.scrollListener(); // THIS IS ERROR. IT ACUTALLY CREATES CRITICAL ERROR.
-        if ( typeof this.scrollListener == 'function' ) this.scrollListener();
-
-  }
-  pageScrolled() {
-    console.log("scrolled:", this.scrollCount++);
-    let pages = document.querySelector(".pages");
-    if ( pages === void 0 || ! pages || pages['offsetTop'] === void 0) return; // @attention this is error handling for some reason, especially on first loading of each forum, it creates "'offsetTop' of undefined" error.
-    let pagesHeight = pages['offsetTop'] + pages['clientHeight'];
-    let pageOffset = window.pageYOffset + window.innerHeight;
-    if( pageOffset > pagesHeight - 200) { // page scrolled. the distance to the bottom is within 200 px from
-      console.log("page scroll reaches at bottom: pageOffset=" + pageOffset + ", pagesHeight=" + pagesHeight);
-      this.search();
-    }
-  }
   ngOnDestroy() {
-    //this.endScroll();
+    this.pageScroll.stop();
   }
 
   search() {
-    this.showLoader();
-    //console.log("search() form has changed. you can search now: data: ", this.query);
+    if ( this.inPageLoading ) {
+      console.info("in page loading");
+      return;
+    }
+    this.inPageLoading = true;
+    this.noMorePosts = false;
     this.condition = '';
     this.pages = [];
-    this.page = 1;
+    this.page_no = 1;
 
     let min = this.currentYear-this.minAgeSelected;
     let max = this.currentYear-this.maxAgeSelected;
@@ -145,31 +137,27 @@ export class JobIndexComponent implements OnInit {
 
   doSearch() {
     console.log('###############doSearch###############');
+    let page = this.page_no++;
     let data = <SEARCH_QUERY_DATA> {};
     data.fields = "idx,idx_member,gid,sub_category,post_id,text_1,text_2,text_3,int_1,int_2,int_3,int_4,char_1,varchar_1,varchar_2,varchar_3,varchar_4,varchar_6";
     data.from = "sf_post_data";
     data.where = "post_id = 'jobs' AND idx_parent=0" + this.condition;
-    data.limit = "5";
+    data.limit = "4";
     data.orderby = "idx desc";
-    data.page = this.page++;
+    data.page = page;
     data.post = 1;
     //this.post.debug = true;
     this.post.search( data, re => {
       console.log("search result: ", re);
-      this.onSearchComplete( re );
+      this.displayPosts( re );
     }, error => alert("error on search: " + error ) );
   }
 
-  onSearchComplete( data ) {
-    //console.log('onSearchComplete()');
-    this.hideLoader();
-    this.displayPosts( data );
-  }
-
   displayPosts( page ) {
+    this.inPageLoading = false;
     if ( page.search.length == 0 ) {
       this.noMorePosts = true;
-      this.endScroll();
+      //this.endScroll();
     }
     if ( page.page_no == 1 ) this.pages[0] = page;
     else this.pages.push( page );
@@ -183,42 +171,20 @@ export class JobIndexComponent implements OnInit {
 
     // for date.
     page.search.map( post => {
-      post['date'] = this.getDate( post.stamp );
+      post['date'] = this.post.getDateTime( post.stamp );
       if ( post.comments === void 0 ) return;
-      post.comments.map( comment => comment['date'] = this.getDate( comment.stamp ) );
+      post.comments.map( comment => comment['date'] = this.post.getDateTime( comment.stamp ) );
     });
 
     // for link
-    page.search.map( post => post['link'] = this.getLink( post ) );
+    let path = 'job/view';
+    page.search.map( post => post['link'] = this.getLink( post, path ) );
 
   }
-  getLink( post ) {
+  getLink( post, path = '-' ) {
     let full = location.protocol+'//'+location.hostname+(location.port ? ':'+location.port: '');
-    full += '/-/' + post.idx;
+    full += '/' + path + '/' + post.idx;
     return full;
-  }
-  getDate( stamp ) {
-    let m = parseInt(stamp) * 1000;
-    let d = new Date( m );
-
-    let post_year = d.getFullYear();
-    let post_month = d.getMonth();
-    let post_date = d.getDate();
-
-    let t = new Date();
-    let today_year = t.getFullYear();
-    let today_month = t.getMonth();
-    let today_date = t.getDate();
-
-
-    let time;
-    if ( today_year == post_year && today_month == post_month && today_date == post_date ) {
-      time = d.getHours() + ':' + d.getMinutes();
-    }
-    else {
-      time = post_year + '-' + post_month + '-' + post_date;
-    }
-    return time;
   }
 
   onClickProvince() {
@@ -241,18 +207,6 @@ export class JobIndexComponent implements OnInit {
     }
     this.search();
   }
-
-  showLoader() {
-    if ( this.inPageLoading ) {
-      console.info("in paeg loading");
-      return;
-    }
-    this.inPageLoading = true;
-  }
-  hideLoader() {
-    this.inPageLoading = false;
-  }
-
 
   onChange() {
       this.search();
