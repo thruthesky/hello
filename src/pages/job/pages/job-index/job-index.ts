@@ -22,7 +22,7 @@ export class JobIndexPage{
   numbers = Array.from(new Array(20), (x,i) => i+1);
 
   //variables used in range
-  shareUrl = 'http://192.168.26.2:8000/job/view/';
+  sharePath = 'job/view';
   minAge: number = 18;
   maxAge: number = 60;
   minAgeRange = Array.from(new Array( this.maxAge - this.minAge), (x,i) => i+1);
@@ -160,6 +160,7 @@ export class JobIndexPage{
     if ( page.search.length == 0 ) {
       this.noMorePosts = true;
       //this.endScroll();
+      return;
     }
     if ( page.page_no == 1 ) this.pages[0] = page;
     else this.pages.push( page );
@@ -179,10 +180,9 @@ export class JobIndexPage{
     });
 
     // for link
-    let path = 'job/view';
-    page.search.map( post => post['link'] = this.getLink( post, path ) );
-
+    page.search.map( post => post['link'] = this.getLink( post, this.sharePath ) );
   }
+
   getLink( post, path = '-' ) {
     let full = location.protocol+'//'+location.hostname+(location.port ? ':'+location.port: '');
     full += '/' + path + '/' + post.idx;

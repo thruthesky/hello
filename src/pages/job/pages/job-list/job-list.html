@@ -16,8 +16,8 @@
               </div>
             </div>
           </div>
-          <div *ngIf=" inPageLoading " class="in-page-loading"><i class="fa fa-spinner fa-spin"></i> Loading ...</div>
-          <div *ngIf=" noMorePosts " class="no-more-posts">No more posts</div>
+          <div [class.active]=" ! noMorePosts " class="no-more-posts in-page-loading"><i class="fa fa-spinner fa-spin"></i> Loading ...</div>
+          <div [class.active]=" noMorePosts " class="no-more-posts">No more posts</div>
         </section><!--/.center-->
       </td>
       <td *ngIf=" app.size == 'big' "><job-right></job-right></td>

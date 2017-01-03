@@ -1,5 +1,4 @@
 import { Component, NgZone } from '@angular/core';
-import { DomSanitizer } from '@angular/platform-browser';
 import { PhilippineRegion } from  '../../providers/philippine-region'
 import { Post, POST_DATA } from '../../../../api/philgo-api/v2/post';
 import { Member, MEMBER_LOGIN } from '../../../../api/philgo-api/v2/member';
@@ -66,7 +65,6 @@ export class JobPostPage{
     private member: Member,
     private router: Router,
     private route: ActivatedRoute,
-    private sanitizer: DomSanitizer,
     private ngZone: NgZone,
     public app: App
   ) {
