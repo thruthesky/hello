@@ -7,7 +7,7 @@
                         <td routerLink="/">
                             <span class="icon fa-stack fa-lg">
                                 <i class="background fa fa-circle fa-stack-2x"></i>
-                                <i class="font fa fa-home fa-stack-1x fa-inverse"></i>
+                                <img class="logo fa fa-stack-1x" src="assets/img/philgo-logo.png">
                             </span>
                             <div class="text">Home</div>
                         </td>
@@ -78,13 +78,10 @@
                             </span>
                             <div class="text">Message</div>
                         </td>
-                        <td>
-                            <div (click)="onClickClearLocalStorage()"> clear localStorage</div>
-                        </td>
                     </tr>
                 </table>
             </td>
-            <td width="1%" nowrap (click)="onClickMenu()">
+            <td width="1%" class="cursor" nowrap (click)="onClickMenu()">
                 <i class="fa fa-list fa-2x"></i>
                 <div>Menu</div>
             </td>

@@ -3,4 +3,9 @@ import { Component } from '@angular/core';
     selector: 'mobile-main-menu',
     templateUrl: 'mobile-main-menu.html'
 })
-export class SonubMobileMainMenu {}
+export class SonubMobileMainMenu {
+    
+    onClickClearLocalStorage() {
+        localStorage.clear();
+    }
+}
