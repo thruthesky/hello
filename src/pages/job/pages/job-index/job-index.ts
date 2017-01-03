@@ -1,4 +1,4 @@
-import { Component, Renderer, OnInit } from '@angular/core';
+import { Component, Renderer } from '@angular/core';
 import { PhilippineRegion } from  '../../providers/philippine-region'
 import { PAGES } from '../../../../api/philgo-api/v2/philgo-api-interface';
 import { Member, MEMBER_LOGIN } from '../../../../api/philgo-api/v2/member';

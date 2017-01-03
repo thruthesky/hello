@@ -20,11 +20,13 @@ export class SonubNews {
   ngOnInit() {
     let option: PAGE_OPTION = {
       post_id: this.post_id,
+      file: 1,
       limit: this.limit,
       expire: ONE_MINUTE_STAMP,
       fields: 'idx,idx_parent,subject,SUBSTRING(content_stripped,1,70) as content,deleted,gid,good,no_of_comment,no_of_view,post_id,stamp'
     };
     // console.log('option::',option);
+    this.post.debug = true;
     this.post.page( option, ( page: PAGE ) => {
         // console.log("latest: ", page);
         page.posts.map( ( v:any, i ) => {

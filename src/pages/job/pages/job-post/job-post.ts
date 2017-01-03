@@ -1,4 +1,4 @@
-import { Component, OnInit, NgZone } from '@angular/core';
+import { Component, NgZone } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { PhilippineRegion } from  '../../providers/philippine-region'
 import { Post, POST_DATA } from '../../../../api/philgo-api/v2/post';
