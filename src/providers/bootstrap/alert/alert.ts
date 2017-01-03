@@ -1,38 +1,36 @@
-import { Component, Injectable, ViewChild, OnInit } from '@angular/core';
-import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
+import { Injectable } from '@angular/core';
+import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
+import { AlertContent } from './alert-content';
+export interface ALERT_OPTION {
+    title: string;
+    content: string;
+    'class'?: string;
+}
 @Injectable()
-@Component({
-    selector: 'ngb-alert',
-    template: `
-    <template #box let-c="close" let-d="dismiss">
-      <div class="modal-header">
-        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
-          <span aria-hidden="true">&times;</span>
-        </button>
-        <h4 class="modal-title">{{ title }}</h4>
-      </div>
-      <div class="modal-body">
-        <p>{{ content }}</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" (click)="c('Close click')">Close</button>
-      </div>
-    </template>
-    `
-})
 export class Alert {
-    @ViewChild('box') box;
     constructor( private modalService: NgbModal  ) {
     }
 
-    open() {
-        console.log("Alert::open() this.box: ", this.box);
+    open( option: ALERT_OPTION, yesCallback?: () => void, noCallback?: () => void ) : NgbModalRef {
+        
+        //console.log("AlertContent: ", AlertContent);
+
+        let modalOption = {};
+        if ( option.class ) modalOption['windowClass'] = option.class;
         let modalRef = this.modalService
-            .open( this.box, { windowClass: 'just-box-modal' } )
-            .result.then((result) => {
+            .open( AlertContent, modalOption );
+        
+        modalRef.componentInstance['title'] = option.title;
+        modalRef.componentInstance['content'] = option.content;
+        
+        modalRef.result.then((result) => {
             console.info( `Closed with: ${result}` );
-            }, (reason) => {
-                console.info( "dismissed" );
-            });
+            if ( yesCallback ) yesCallback();
+        }, (reason) => {
+            console.info( "dismissed" );
+            if ( noCallback ) noCallback();
+        });
+
+        return modalRef;
     }
 }

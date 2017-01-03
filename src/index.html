@@ -3,18 +3,19 @@
 <head>
   
   
-  <base id="baseHref" href="">
+  <base id="baseHref" href="./">
   <script src="cordova.js"></script><!-- cordova.js required for cordova apps. For web, it should be null script. -->
+
   <script type="text/javascript">
     if ( window.cordova ) {
       if ( typeof IonicDevServer != 'undefined' ) path = '/'; // live reload. source comes from desktop computer.
-      else path = '/android_asset/www/'; // For mobile app, no none will reload. so, <base href=''> is fine. overwrite emtpy base href to '/' for web.
+      else path = './'; // For production mode of mobile app, no live reload. so, <base href='./'> for app update.
     }
     else path = '/'; // For web, change <base href=''> to <base href='/'> for reloading. 
     var theBase = document.getElementById("baseHref");
     theBase.href = path;
   </script>
-  
+
   <meta charset="UTF-8">
   <title>Ionic App</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -38,9 +39,7 @@
 
   <!-- Ionic's root component and where the app will load -->
   <app-component></app-component>
-
   
-    
   <!-- The polyfills js is generated during the build process -->
   <script src="build/polyfills.js"></script>
 

@@ -3,8 +3,6 @@ import { ForumService } from '../../providers/forum';
 import { SonubLatestPhoto } from '../../components/latest-photo/latest-photo';
 import { PageScroll } from './../../../../providers/page-scroll';
 import { App } from '../../../../providers/app';
-import { Alert } from '../../../../providers/bootstrap/alert/alert';
-
 @Component({
     selector: 'sonub-home-page',
     templateUrl: 'home.html'
@@ -15,7 +13,6 @@ export class SonubHomePage {
     page_no: number = 1;
     @ViewChild('sonubLatestPhoto') sonubLatestPhoto: SonubLatestPhoto;
     constructor(
-        private alert: Alert,
         forum: ForumService,
         private pageScroll: PageScroll,
         private renderer: Renderer,
@@ -34,7 +31,6 @@ export class SonubHomePage {
     }
 
     ngOnInit() {
-        this.alert.open();
         this.pageScroll.watch( this.renderer, no => {
             this.page_no ++;
             this.sonubLatestPhoto.loadPage( this.page_no );

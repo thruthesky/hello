@@ -26,4 +26,5 @@ export class SonubHeader {
     onClickMenu() {
         this.app.menu = ! this.app.menu;
     }
+    
 }

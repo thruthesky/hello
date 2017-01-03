@@ -7,8 +7,22 @@ Ionic 2 project hack by JaeHo Song to use Angular2 framework with ionic 2.
 * We work on master branch. So, Modularity and Refactoring of folders, source files, asessts are highly important because many app will be made upon this single source repository.
 
 
-
 ## Work Environment
+
+* push notification.
+* splash image
+* message page design
+* forum list/edit design.
+* job page design.
+* message page desgin.
+* all other page design.
+* toolbar menu is not responsive.
+* Loading is seen because
+    there is not enough data to cover one page or there is no more data on the server.
+
+    If the data is not enough to cover a page, when load more.
+    If there is no more data, hide loader.
+
 
 * When you do project, fork http://github.com/thruthesky/ionic-hack and use it.
     * for instance, there is a forked project at http://github.com/withcenter/sonub
@@ -28,6 +42,7 @@ Ionic 2 project hack by JaeHo Song to use Angular2 framework with ionic 2.
 
 
 # TODO
+* put loader in index.html.
 * Language option. korean/english
 * 메뉴에. 언어 설정. 캐시. 추가.
 * 새 메세지 개 수 표시와. 새 메세지 push notification.
@@ -263,7 +278,9 @@ ionic plugin add cordova-plugin-camera
 ionic plugin add cordova-plugin-file-transfer
 ionic plugin add cordova-plugin-dialogs
 cordova plugin add ionic-plugin-deploy
-* ionic plugin add phonegap-plugin-push // ???
+
+
+ionic plugin add phonegap-plugin-push
 
 
 

@@ -9,9 +9,12 @@ import { Router } from "@angular/router";
 export class FileNotFoundPage {
 
   title: string = 'Page Not Found';
+  url: string = null;
   constructor(
       private router: Router
   ) {
+
+    this.url = window.location.href;
 
   }
 
