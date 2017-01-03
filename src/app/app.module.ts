@@ -18,6 +18,9 @@ import { IonicApiModule } from "../providers/ionic-api-0.2/ionic-api.module";
 
 import { PageScroll } from '../providers/page-scroll';
 
+
+import { BootstrapModule } from '../providers/bootstrap/bootstrap';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,6 +32,7 @@ import { PageScroll } from '../providers/page-scroll';
     BaseModule,
     SonubModule,
     JobModule,
+    BootstrapModule
   ],
   bootstrap: [ AppComponent ],
   providers: [ App, PageScroll ]

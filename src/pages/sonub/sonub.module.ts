@@ -33,6 +33,7 @@ import { ForumService } from './providers/forum'
 // message
 import { SonubMessagePage } from './pages/message/message';
 
+import { BootstrapModule } from '../../providers/bootstrap/bootstrap';
 
 
 @NgModule( {
@@ -62,7 +63,8 @@ import { SonubMessagePage } from './pages/message/message';
         FormsModule,
         //BaseComponentsModule,
         PhilgoApiModule,
-        LanguagePipeModule
+        LanguagePipeModule,
+        BootstrapModule
     ],
     providers: [ ForumService ]
 })

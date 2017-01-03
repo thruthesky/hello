@@ -28,6 +28,8 @@ Ionic 2 project hack by JaeHo Song to use Angular2 framework with ionic 2.
 
 
 # TODO
+* Language option. korean/english
+* 메뉴에. 언어 설정. 캐시. 추가.
 * 새 메세지 개 수 표시와. 새 메세지 push notification.
 * post-view 에서 맨위에 보여지는 글은 글(페이지) 목록에서 없앨 것. 
 * 모든 페이지를 hme.html 처럼 table 로 layout 을 적용 할 것.
@@ -255,6 +257,7 @@ If you clone a repository which was forked, then you do not need to do 'git subm
 
 ## Plugin Insallation
 ionic platform add browser
+npm install --save @ng-bootstrap/ng-bootstrap
 ionic platform add android
 ionic plugin add cordova-plugin-camera
 ionic plugin add cordova-plugin-file-transfer

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Deploy, DeployDownloadOptions } from '@ionic/cloud-angular';
 import { IonicApi } from '../providers/ionic-api-0.2/ionic-api';
@@ -7,18 +7,22 @@ import { App } from '../providers/app';
   selector: `app-component`,
   template: `
     <router-outlet (window:resize)="onResize($event)"></router-outlet>
+    <template ngbModalContainer></template>
   `
 })
-export class AppComponent {
-  
+export class AppComponent implements OnInit {
+  @ViewChild('alertModal') alertModal = null;
   constructor(
       private router: Router,
       public deploy: Deploy,
       private ionic: IonicApi,
-      private app: App
+      public app: App
   ) {
     app.setWidth( window.innerWidth );
     document.addEventListener("deviceready", () => this.onDevinceReady(), false);
+  }
+  ngOnInit() {
+    
   }
   onResize(event) {
     this.app.setWidth( window.innerWidth);

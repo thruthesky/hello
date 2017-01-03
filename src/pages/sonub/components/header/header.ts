@@ -22,9 +22,6 @@ export class SonubHeader {
         this.login = null;
         this.member.logout();
     }
-    onClickClearLocalStorage() {
-        localStorage.clear();
-    }
 
     onClickMenu() {
         this.app.menu = ! this.app.menu;

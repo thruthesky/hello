@@ -5,6 +5,12 @@ sonub-header {
         font-family: Gulim, AppleGothic, Arial, Helvetica, sans-serif;
         .icon {
             font-size: 1.6em;
+            .logo {
+                margin-top: 8px;
+                margin-left: 8px;
+                width: 22px;
+                height: 22px;
+            }
         }
         td {
             text-align: center;
