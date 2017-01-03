@@ -11,6 +11,12 @@ job-list {
     }
   }
   .content {
+    .no-more-posts {
+      display: none;
+      &.active {
+        display: block;
+      }
+    }
     .pages {
       padding:.5rem 0;
       .post {

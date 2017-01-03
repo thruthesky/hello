@@ -2,10 +2,8 @@ import { Component,Renderer } from '@angular/core';
 import { Post} from '../../../../api/philgo-api/v2/post';
 import { PAGE, PAGES } from '../../../../api/philgo-api/v2/philgo-api-interface';
 import { Member, MEMBER_LOGIN } from '../../../../api/philgo-api/v2/member';
-import { Router } from '@angular/router';
+import { PageScroll } from './../../../../providers/page-scroll';
 import { App } from '../../../../providers/app';
-
-import * as _ from 'lodash';
 
 @Component({
   selector: 'job-list',
@@ -16,57 +14,44 @@ export class JobListPage {
   login: MEMBER_LOGIN = {
     id:''
   };
-  shareUrl = 'http://192.168.26.2:8000/job/view/';
+  sharePath = 'job/view';
   today = new Date();
   currentYear = this.today.getFullYear();
   moreButton = [];
   posts = [];
   post_id = 'jobs';
-  page: number = 1;
+  page_no: number = 0;
   pages: PAGES = [];
 
   scrollListener = null;
   scrollCount = 0;
   inPageLoading: boolean = false; // true while loading a page of posts.
-
   noMorePosts: boolean = false; // true when there are no more posts of a page.
 
   constructor(private post: Post,
-              private router: Router,
               private renderer: Renderer,
               private member: Member,
+              private pageScroll: PageScroll,
               public app: App
   ) {
     member.getLogin( x => {
       this.login = x;
     });
     this.loadPage();
-    this.beginScroll();
   }
 
-
-  beginScroll() {
-    this.scrollListener = this.renderer.listenGlobal( 'document', 'scroll', _.debounce( () => this.pageScrolled(), 50));
-  }
-  endScroll() {
-    // this.scrollListener(); // THIS IS ERROR. IT ACUTALLY CREATES CRITICAL ERROR.s
-    if ( typeof this.scrollListener == 'function' ) this.scrollListener();
-  }
-  pageScrolled() {
-    console.log("scrolled:", this.scrollCount++);
-    let pages = document.querySelector(".pages");
-    if ( pages === void 0 || ! pages || pages['offsetTop'] === void 0) return; // @attention this is error handling for some reason, especially on first loading of each forum, it creates "'offsetTop' of undefined" error.
-    let pagesHeight = pages['offsetTop'] + pages['clientHeight'];
-    let pageOffset = window.pageYOffset + window.innerHeight;
-    if( pageOffset > pagesHeight - 200) { // page scrolled. the distance to the bottom is within 200 px from
-      console.log("page scroll reaches at bottom: pageOffset=" + pageOffset + ", pagesHeight=" + pagesHeight);
+  ngOnInit() {
+    this.pageScroll.watch( this.renderer, no => {
+      if ( this.page_no == 0 ) {
+        this.page_no ++; // since 1st page has been loaded in constructor()
+      }
       this.loadPage();
-    }
-  }
-  ngOnDestroy() {
-    this.endScroll();
+    } );
   }
 
+  ngOnDestroy() {
+    this.pageScroll.stop();
+  }
 
   loadPage() {
     if ( this.inPageLoading ) {
@@ -75,13 +60,13 @@ export class JobListPage {
     }
     this.inPageLoading = true;
     //this.post.debug = true;
-    console.log("page no: ", this.page);
-    this.post.page( {post_id: this.post_id, page_no: this.page++, limit: 4}, (page: PAGE) => {
+    console.log("page no: ", this.page_no);
+    this.post.page( {post_id: this.post_id, page_no: ++this.page_no, limit: 4}, (page: PAGE) => {
       console.log('PostList::loadPage() page:', page);
       this.inPageLoading = false;
       if ( page.posts.length == 0 ) {
         this.noMorePosts = true;
-        this.endScroll();
+        //this.endScroll();
         return;
       }
       if ( page.page_no == 1 ) this.pages[0] = page;
@@ -112,8 +97,7 @@ export class JobListPage {
     });
 
     // for link
-    let path = 'job/view';
-    page.posts.map( post => post['link'] = this.getLink( post, path ) );
+    page.posts.map( post => post['link'] = this.getLink( post, this.sharePath ) );
 
   }
 
@@ -122,27 +106,5 @@ export class JobListPage {
     full += '/' + path + '/' + post.idx;
     return full;
   }
-
-
-  /*
-    onClickEdit(idx){
-      this.router.navigate(['/job/post', idx]);
-    }
-
-
-    onClickDelete( post ) {
-      let re = confirm("Are you sure you want to delete this post?");
-      if ( re ) {
-        this.post.delete( post.idx, re => {
-              //console.log('delete: re: ', re);
-            },
-            error => alert("delete error: " + error )
-        );
-      }
-      else {
-        //console.log('delete Was Canceled');
-      }
-    }
-  */
 
 }
