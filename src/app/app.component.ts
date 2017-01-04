@@ -3,7 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { Deploy, DeployDownloadOptions } from '@ionic/cloud-angular';
 import { IonicApi } from '../providers/ionic-api-0.2/ionic-api';
 import { App } from '../providers/app';
-import { Alert } from '../providers/bootstrap/alert/alert';
+import { Alert, ALERT_OPTION } from '../providers/bootstrap/alert/alert';
 import { parse_url } from '../etc/function';
 declare let navigator;
 @Component({
@@ -43,7 +43,8 @@ export class AppComponent implements OnInit {
     console.log("yes, I am running in cordova.");
     this.updateApp();
     this.backButton();
-    // this.registerPushNotification();
+    this.registerPushNotification();
+    this.subscribePushNotification();
   }
   backButton() {
     document.addEventListener("backbutton", () => {
@@ -55,16 +56,15 @@ export class AppComponent implements OnInit {
         navigator.app.backHistory();
       }
     }, false );
-    
   }
 
   updateApp() {
     this.updateNewSnapshot_if_there_is();
-    setInterval( () => this.updateNewSnapshot_if_there_is(), 30 * 1000 );
+    setInterval( () => this.updateNewSnapshot_if_there_is(), 60 * 5 * 1000 );
   }
 
   updateNewSnapshot_if_there_is() {
-    console.log("MyApp::updateNewSnapshot_if_there_is()");
+    console.log("checking app update on MyApp::updateNewSnapshot_if_there_is()");
     this.deploy.check().then( (snapshotAvailable: boolean) => {
       if ( snapshotAvailable ) { // snapshotAvailable 이 true 이면, 새로운 snapshot 을 사용 할 수 있다.
         let opt : DeployDownloadOptions = {
@@ -95,12 +95,20 @@ export class AppComponent implements OnInit {
     });
   }
 
-
   registerPushNotification() {
     this.ionic.registerPushNotification(
-        re => {},
+        token => { console.log("Push token saved into ionic cloud and philgo."); },
         error => alert("Failed on push notification: " + error )
     );
+  }
+  subscribePushNotification() {
+    this.ionic.subscribePushNotification( msg => {
+      let option: ALERT_OPTION = {
+        title: msg.title,
+        content: msg.text
+      }
+      this.alert.open( option );
+    } );
   }
 
 

@@ -35,6 +35,7 @@ import { SonubMessagePage } from './pages/message/message';
 
 import { BootstrapModule } from '../../providers/bootstrap/bootstrap';
 
+import { SafeHTMLPipeModule } from '../../pipes/security/security.pipe.module';
 
 @NgModule( {
     declarations: [
@@ -64,7 +65,8 @@ import { BootstrapModule } from '../../providers/bootstrap/bootstrap';
         //BaseComponentsModule,
         PhilgoApiModule,
         LanguagePipeModule,
-        BootstrapModule
+        BootstrapModule,
+        SafeHTMLPipeModule
     ],
     providers: [ ForumService ]
 })
