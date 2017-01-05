@@ -19,7 +19,7 @@ export class JobListing {
   currentYear = this.today.getFullYear();
   @Input() mode : string = 'posts';
   @Input() pages : PAGES = null;
-  @Input() login: MEMBER_LOGIN = {
+  @Input() login : MEMBER_LOGIN = {
     id: ''
   };
   @Input() root = [];
