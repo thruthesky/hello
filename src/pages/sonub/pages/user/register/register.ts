@@ -109,7 +109,7 @@ export class SonubRegisterPage {
                 this.data.updateMemberIdx( this.gid, re => {
                     console.log("file 'idx_member' update success: ", re );
                     this.router.go('/');
-                }, error => alert( 'file idx_member update error: ' + error ) );
+                }, error => this.member.error( 'file idx_member update error: ' + error ) );
             }
             else this.router.go('/');
         },
@@ -122,10 +122,10 @@ export class SonubRegisterPage {
     onClickUpdate() {
         this.process.begin();
         this.member.update( this.form, login => {
-            alert("User profile updated!");
+            this.member.error("User profile updated!");
         },
         error => {
-            alert('error on update user profile: ' + error );
+            this.member.error('error on update user profile: ' + error );
         },
         () => {
 
@@ -178,7 +178,7 @@ export class SonubRegisterPage {
             this.fileTransfer( path );
         }, e => {
             console.error( 'camera error: ', e );
-            alert("camera error");
+            this.member.error("camera error");
         }, options);
     }
 
@@ -221,7 +221,7 @@ export class SonubRegisterPage {
     }
 
     failurePrimaryPhotoUpload( e ) {
-        alert( "An error has occured while uploading: Code = " + e );
+        this.member.error( "An error has occured while uploading: Code = " + e );
     }
 
     progressPrimaryPhotoUpload( p ) {
@@ -253,7 +253,7 @@ export class SonubRegisterPage {
                     }
                     this.uploadData = null;
                 }, error => {
-                    alert( error );
+                    this.member.error( error );
                 } );
             }
         }

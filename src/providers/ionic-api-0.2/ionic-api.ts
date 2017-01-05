@@ -66,7 +66,7 @@ export class IonicApi {
     // receivedPushNotification(){
     //     this.push.rx.notification()
     //         .subscribe( msg => {
-    //             alert( msg.title + ': ' + msg.text );
+    //             a lert ( msg.title + ': ' + msg.text );
     //             console.log( "Push notification received." );
     //         } );
     // }
@@ -75,7 +75,7 @@ export class IonicApi {
         return this.push.rx.notification()
             .subscribe( msg => {
                 callback( msg );
-                // alert( msg.title + ': ' + msg.text );
+                // a lert( msg.title + ': ' + msg.text );
                 // console.log( "Push notification received." );
             } );;
     }

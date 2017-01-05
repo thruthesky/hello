@@ -153,7 +153,7 @@ export class JobIndexPage{
     this.post.search( data, re => {
       console.log("search result: ", re);
       this.displayPosts( re );
-    }, error => alert("error on search: " + error ) );
+    }, error => this.post.error("error on search: " + error ) );
   }
 
   displayPosts( page ) {

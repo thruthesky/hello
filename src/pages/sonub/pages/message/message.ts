@@ -85,7 +85,7 @@ export class SonubMessagePage {
             console.log("onClickShowContent() : data: ", data);
             message.stamp_open = "1";
         },
-        error => alert("error on reading: " + error ),
+        error => this.app.error("error on reading: " + error ),
         () => {}
         );
     }
@@ -104,7 +104,7 @@ export class SonubMessagePage {
             message['showReplyForm'] = false;
             this.sendPushNotification( re );
         },
-        error => alert("error on reply: " + error),
+        error => this.app.error("error on reply: " + error),
         () => {} );
     }
 
@@ -127,10 +127,7 @@ export class SonubMessagePage {
         },
         error => {
           this.inPageLoading = false;
-          if ( error == 'http-request-error maybe no-internet or wrong-domain or timeout or server-down' ) {
-            alert("You have no internet.");
-          }
-          else alert("error:" + error);
+          this.message.error( error );
         },
         () => {
             console.log("message list complete");
@@ -189,7 +186,7 @@ export class SonubMessagePage {
         this.message.send( this.form, re => {
             console.log("message send success: ", re);
             if( re.code == 0 ) {
-                //alert("Message successfully sent to " + this.form.id_recv);
+                //this.message.error("Message successfully sent to " + this.form.id_recv);
                 this.form.id_recv = '';
                 this.form.content = '';
                 this.showCreateForm = false;
@@ -198,10 +195,10 @@ export class SonubMessagePage {
                 
             }
             else {
-                alert("Message sending error");
+                this.message.error("Message sending error");
             }
         },
-        error => alert("message sending error: " + error ),
+        error => this.message.error("message sending error: " + error ),
         () => { }
         );
     }
@@ -230,7 +227,7 @@ export class SonubMessagePage {
             this.page_no = 0;
             this.getMessages();
         },
-        error => alert("error on make all read: " + error),
+        error => this.message.error("error on make all read: " + error),
         () => {} );
     }
 
@@ -255,7 +252,7 @@ export class SonubMessagePage {
             console.log("message delete success: ", re);
             message.idx = null;
         },
-        error => alert("error on message delete: " + error ),
+        error => this.message.error("error on message delete: " + error ),
         () => {} );
     }
 

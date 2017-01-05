@@ -29,7 +29,10 @@ export class SonubPostListPage {
                  private app: App,
                  private pageScroll: PageScroll ) {
         // console.log("SonubPostListPage::constructor()");
+
         activated.params.subscribe( param => {
+            
+            this.clearAds(); // it must be here to clear previous forum's ads.
             this.posts = <POSTS> [];
             if ( param['post_id'] !== void 0 ) {
                 this.loadPosts( param['post_id'] );
@@ -52,6 +55,14 @@ export class SonubPostListPage {
         this.pageScroll.stop();
     }
 
+    /**
+     * It clears all ads array.
+     */
+    clearAds() {
+        this.ads = null;
+        this.post_top_ad = null;
+        this.post_top_premium_ad = null;
+    }
 
     /**
      * This loads posts for a page.
@@ -68,7 +79,7 @@ export class SonubPostListPage {
             this.loadPage();
         }
         else {
-            alert("No post id provided");
+            this.app.error("No post id provided");
         }
         // this.beginScroll();
     }
@@ -85,8 +96,9 @@ export class SonubPostListPage {
             // console.log("Load a post for view : ", this.view );
             // console.log("Load post success on idx : ", idx_post);
             this.loadPosts( this.view.post_id );
-        },error =>{
-            alert("Load post error" + error);
+        }, error =>{
+            this.app.warning(error);
+            /// this.app.error("Load post error" + error);
         });
     }
 
@@ -142,7 +154,7 @@ export class SonubPostListPage {
             }
             else this.delayPush( page );
         },
-        error => alert("Page Load Error: " + error)
+        error => this.post.error("Page Load Error: " + error)
         );
     }
 

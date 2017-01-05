@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Post, PHOTO_OPTION, POSTS } from '../../../../../api/philgo-api/v2/post';
-
+import { App } from '../../../../../providers/app';
 declare var Array;
 
 @Component({
@@ -13,7 +13,7 @@ export class JobBuyAndSell {
   @Input() limit: number = 1;
   @Input() photo: number = 1;
   posts: POSTS = <POSTS> [];
-  constructor(private post: Post) {
+  constructor( private app: App, private post: Post) {
     //console.log("LatestComponent::constructor()");
   }
 
@@ -37,7 +37,7 @@ export class JobBuyAndSell {
           }, i * 50);
         });
       },
-      error => alert("LatestPhotos Error " + error));
+      error => this.app.error("JobBuyAndSell()::ngOnInit() LatestPhotos Error " + error));
   }
 
 }

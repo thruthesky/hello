@@ -91,6 +91,7 @@ export class JobPostPage{
           this.getCities();
         }
       }, e => {
+        this.app.warning( e );
         console.log('error on getting idx', e);
       })
     }
@@ -154,13 +155,13 @@ export class JobPostPage{
         this.loader = false;
         this.clearInputs();
       },
-      error => alert( error ),
+      error => this.post.error( error ),
       () => {}
     )
   }
 
   openConfirmation(msg) {
-    alert(msg);
+    this.post.error(msg);
   }
 
   updatePost() {
@@ -170,7 +171,7 @@ export class JobPostPage{
       this.loader = false;
       this.openConfirmation('Success::Your post has been Updated.');
       this.router.navigate( [ '/job/view/'+ data.idx ] );
-    }, er => alert( er ));
+    }, er => this.post.error( er ));
   }
 
   clearInputs(){
@@ -224,7 +225,7 @@ export class JobPostPage{
       this.fileTransfer( path );
     }, e => {
       console.error( 'camera error: ', e );
-      alert("camera error");
+      this.post.error("camera error");
     }, options);
   }
 
@@ -266,7 +267,7 @@ export class JobPostPage{
 
   onFailureFileUpload ( error ) {
     this.showProgress = false;
-    alert( error );
+    this.post.error( error );
   }
 
   onCompleteFileUpload( completeCode ) {
@@ -301,7 +302,7 @@ export class JobPostPage{
       } );
       console.log( this.files );
     }, error => {
-      alert( error );
+      this.post.error( error );
     } );
   }
 

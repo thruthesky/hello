@@ -4,7 +4,7 @@
  */
 import { Component, Input } from '@angular/core';
 import { Post, PAGE, PAGE_OPTION, POSTS, ONE_MINUTE_STAMP } from '../../../../api/philgo-api/v2/post';
-
+import { App } from '../../../../providers/app';
 @Component({
   selector: 'sonub-news',
   templateUrl: 'news.html'
@@ -14,7 +14,7 @@ export class SonubNews {
   @Input() post_id: string = 'news';
   @Input() limit: number = 5;
   posts: POSTS = <POSTS> [];
-  constructor( private post: Post ) {
+  constructor( private app: App, private post: Post ) {
     //console.log("LatestComponent::constructor()");
   }
   ngOnInit() {
@@ -36,7 +36,7 @@ export class SonubNews {
           }, i * 50 );
         } );
       },
-      error => alert( "Latest error: " + error ),
+      error => this.app.error( error ),
       () => {});
     // console.log('this.posts',this.posts);
   }

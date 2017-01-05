@@ -5,6 +5,7 @@
                 [title]     = " ['Discussion', '자유게시판'] | ek "
                 [post_id]   = " 'freetalk' "
                 [limit]     = "13"
+                    (error)="onLatestComponentError( $event )"
             ></latest-component>
         </td>
         <td>
@@ -12,12 +13,14 @@
                 [title]     = " ['QnA', '질문과답변'] | ek "
                 [post_id]   = " 'qna' "
                 [limit]     = "5"
+                    (error)="onLatestComponentError( $event )"
             ></latest-component>
 
             <latest-component class="buyandsell"
                 [title]      = " ['Buy&amp;Sell', '회원장터'] | ek "
                 [post_id]   = " 'buyandsell' "
                 [limit]     = "6"
+                    (error)="onLatestComponentError( $event )"
             ></latest-component>
     </td>
     </tr>

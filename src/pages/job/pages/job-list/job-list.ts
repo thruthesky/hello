@@ -75,10 +75,7 @@ export class JobListPage {
       setTimeout( () => this.lazyProcess( page ), 100 );
     }, e => {
       this.inPageLoading = false;
-      if ( e == 'http-request-error maybe no-internet or wrong-domain or timeout or server-down' ) {
-        alert("You have no internet.");
-      }
-      else alert(e);
+      this.post.error( e );
     });
   }
 

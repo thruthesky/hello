@@ -45,7 +45,7 @@ export class SonubLoginPage {
                 // this.loginFirebase( login );
             },
             er => {
-                // alert("login error:" + er);
+                // this.message.error("login error:" + er);
                 console.log("philgo member.login error: ", er );
                 setTimeout(()=>this.process.setError( er ),345);
             },

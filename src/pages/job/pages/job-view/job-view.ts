@@ -60,6 +60,7 @@ export class JobViewPage {
           }
         }
       }, e => {
+        this.app.warning(e);
         console.log('error on getting idx', e);
       })
     }

@@ -13,13 +13,13 @@ export class JobCurrency {
     this.get_currency();
   }
   get_currency() {
-    let url = "http://philgo.com/?module=ajax&action=currency&submit=1";
+    let url = "https://philgo.com/?module=ajax&action=currency&submit=1";
     this.philgo.get( { url: url, expire: 3600 }, re => {
       console.log("currency data: ", re );
       if ( re['code'] ) console.log( re['message'] );
       else this.currency = re.currency;
     }, error => {
-      alert("current error");
+      this.philgo.error("JobCurrency::get_currency() current error");
     }, () => {
       console.log("current complete");
     });

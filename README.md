@@ -63,7 +63,7 @@ Ionic 2 project hack by JaeHo Song to use Angular2 framework with ionic 2.
     - for comment,
         when a new message arrives,
         but send push after 40 minutes.
-
+* send push notification by clicking user name  on page view.
 * @done deploy test.
 
 * 필고(소너브)를 firebase hosting 으로 올리니까 너무 좋다.
@@ -76,6 +76,8 @@ file.philgo.com 을 그냥 ssl 도메인을 하나 구입해서 file.philgo.com 
 * 새 메세지 개수 표시. 하루에 한번씩 알림창으로 표시하기.
 * file not found page design.
 * 내가 잠든 사이에 push 가 100 개 와 있으면 100 개의 창이 뜨나?
+* genymotion,  andyos 에서 qna 와 talk 페이지 이동이 안좋은 것 같다.
+QnA => talk 으로 못간다 간다. 다만 광고가 위에 보인다.
 
 * @done Show 'Logout' after login
 

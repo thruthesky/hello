@@ -4,7 +4,7 @@
  */
 import { Component, Input } from '@angular/core';
 import { Post, PHOTO_OPTION, POSTS, POST } from '../../../../api/philgo-api/v2/post';
-
+import { App } from '../../../../providers/app';
 @Component({
   selector: 'sonub-latest-photo',
   templateUrl: 'latest-photo.html'
@@ -15,7 +15,10 @@ export class SonubLatestPhoto {
   @Input() limit: number = 1;
   @Input() page_no: number = 1;
   posts: POSTS = <POSTS> [];
-  constructor( private post: Post ) {
+  constructor(
+    private app: App,
+    private post: Post
+   ) {
     //console.log("LatestComponent::constructor()");
   }
   ngOnInit() {
@@ -30,10 +33,10 @@ export class SonubLatestPhoto {
       limit_comment: 1,
       page_no: page_no
     };
-    console.log(option);
-    this.post.debug = true;
+    //console.log(option);
+    //this.post.debug = true;
     this.post.latestPhotos( option, (posts: POSTS) => {
-      console.log("posts: ", posts);
+      //console.log("posts: ", posts);
       //this.posts = [];
       posts.map( ( v:POST, i ) => {
         setTimeout( () => {
@@ -48,7 +51,7 @@ export class SonubLatestPhoto {
       });
       //console.log('this.posts::', this.posts);
     },
-    error => alert("LatestPhotos Error " + error));
+    error => this.app.error("SonubLatestPhoto::loadPage() => LatestPhotos Error " + error));
   }
 
 }

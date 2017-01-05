@@ -26,7 +26,7 @@ export class AppComponent implements OnInit {
       private alert: Alert
   ) {
     router.events.subscribe(event => {
-      console.log(event);
+      // console.log(event);
       this.prevUrl = this.url;
       this.url = event.url;
     });
@@ -35,6 +35,8 @@ export class AppComponent implements OnInit {
   }
   ngOnInit() {
     
+    
+
   }
   onResize(event) {
     this.app.setWidth( window.innerWidth);
@@ -58,7 +60,6 @@ export class AppComponent implements OnInit {
 
     document.addEventListener("backbutton", () => {
       console.log("backbutton clicked: prevUrl: " + this.prevUrl + ", this.url: ", this.url );
-    
       if ( this.prevUrl == '/' ) {
         navigator.app.exitApp();
       }
@@ -108,7 +109,7 @@ export class AppComponent implements OnInit {
   registerPushNotification() {
     this.ionic.registerPushNotification(
         token => { console.log("Push token saved into ionic cloud and philgo."); },
-        error => alert("Failed on push notification: " + error )
+        error => this.app.error("Failed on push notification: " + error )
     );
   }
   subscribePushNotification() {

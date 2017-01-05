@@ -2,7 +2,7 @@
  * @see ./README.md
  */
 import { Component, Input } from '@angular/core';
-import { POST_DATA, PAGES } from '../../../../../api/philgo-api/v2/philgo-api-interface';
+import { PAGES } from '../../../../../api/philgo-api/v2/philgo-api-interface';
 import { Post } from '../../../../../api/philgo-api/v2/post';
 import { MEMBER_LOGIN } from '../../../../../api/philgo-api/v2/member';
 import { Router } from '@angular/router';
@@ -31,7 +31,7 @@ export class JobListing {
   }
 
   ngOnInit() {
-    if (this.pages === null) return alert("Listing Component Error: post is null");
+    if (this.pages === null) return this._post.error("Listing Component Error: post is null");
   }
 
 
@@ -46,10 +46,10 @@ export class JobListing {
     let re = confirm("Are you sure you want to delete this post?");
     if ( re ) {
       this._post.delete( post.idx, re => {
-          alert("Successful on Deleting this post...");
+          this._post.error("Successful on Deleting this post...");
           post.idx = null;
         },
-        error => alert("delete error: " + error )
+        error => this._post.error("delete error: " + error )
       );
     }
     else {

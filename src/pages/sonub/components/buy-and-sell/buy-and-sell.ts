@@ -37,7 +37,7 @@ export class SonubBuyAndSell {
           }, i * 50);
         });
       },
-      error => alert("LatestPhotos Error " + error));
+      error => this.post.error("LatestPhotos Error " + error));
   }
 
 }

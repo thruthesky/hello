@@ -30,7 +30,7 @@ export class SonubPostViewPage {
                  console.log("Load post : ", this.post );
                  console.log("Load post success on idx : ", idx_post);
             },error =>{
-                alert("Load post error" + error);
+                this.postService.error("Load post error" + error);
            });
     }
 
