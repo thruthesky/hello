@@ -111,15 +111,12 @@
               <span *ngIf="query.name">and name like "{{query.name}}"</span>
             </div>
 
-            <div *ngFor=" let page of pages " class="page posts row">
-              <div class="post col-xs-6" *ngFor=" let post of page.search ">
-                <job-listing
-                        [post]="post" [root]="page.search"
-                        [login]="login"
-                        [shareUrl]="shareUrl"
-                ></job-listing>
-              </div><!--/.col-xx-x-->
-            </div><!--/.page.posts.row-->
+            <job-listing
+                    [pages]="pages" [root]="pages"
+                    [login]="login"
+                    [mode] =" 'search' "
+            ></job-listing>
+
           </div><!--/.pages.container-->
 
           <div [class.active]=" ! noMorePosts " class="no-more-posts in-page-loading"><i class="fa fa-spinner fa-spin"></i> Loading ...</div>
