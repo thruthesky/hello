@@ -4,7 +4,7 @@ import { Deploy, DeployDownloadOptions } from '@ionic/cloud-angular';
 import { IonicApi } from '../providers/ionic-api-0.2/ionic-api';
 import { App } from '../providers/app';
 import { Alert, ALERT_OPTION } from '../providers/bootstrap/alert/alert';
-import { parse_url } from '../etc/function';
+// import { parse_url } from '../etc/function';
 declare let navigator;
 @Component({
   selector: `app-component`,
@@ -15,6 +15,8 @@ declare let navigator;
 })
 export class AppComponent implements OnInit {
   @ViewChild('alertModal') alertModal = null;
+  url: string = null; // url of current page.
+  prevUrl: string = null; // previos page url.
   constructor(
       private router: Router,
       private activatedRoute: ActivatedRoute,
@@ -23,6 +25,11 @@ export class AppComponent implements OnInit {
       public app: App,
       private alert: Alert
   ) {
+    router.events.subscribe(event => {
+      console.log(event);
+      this.prevUrl = this.url;
+      this.url = event.url;
+    });
     app.setWidth( window.innerWidth );
     document.addEventListener("deviceready", () => this.onDevinceReady(), false);
   }
@@ -47,9 +54,12 @@ export class AppComponent implements OnInit {
     this.subscribePushNotification();
   }
   backButton() {
+    //this.app.addBackButtonEventListener();
+
     document.addEventListener("backbutton", () => {
-      let url = parse_url( location.href );
-      if ( url['path'] == '/' || url['path'] == '/android_asset/www/') {
+      console.log("backbutton clicked: prevUrl: " + this.prevUrl + ", this.url: ", this.url );
+    
+      if ( this.prevUrl == '/' ) {
         navigator.app.exitApp();
       }
       else {

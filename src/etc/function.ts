@@ -1,3 +1,7 @@
+/**
+ * 
+ * @code import { parse_url } from '../etc/function';
+ */
 export function parse_url (str, component?) { // eslint-disable-line camelcase
   //       discuss at: http://locutus.io/php/parse_url/
   //      original by: Steven Levithan (http://blog.stevenlevithan.com)

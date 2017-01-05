@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
+//declare let navigator;
 @Injectable()
 export class App {
     _width: number = 0;
     menu: boolean = false;
+    page: string = null; // current page tag(name or id)
     constructor() {
         // console.log("App::constructor()");
     }
@@ -30,5 +32,18 @@ export class App {
         if ( document.URL.indexOf('http://') === -1 && document.URL.indexOf('https://') === -1 ) return true;
         return false;
     }
+
+    // addBackButtonEventListener() {
+        
+    //     document.addEventListener("backbutton", () => {
+    //         alert( this.page );
+    //         if ( this.page == 'home' ) {
+    //             navigator.app.exitApp();
+    //         }
+    //         else {
+    //             navigator.app.backHistory();
+    //         }
+    //     }, false );
+    // }
 
 }

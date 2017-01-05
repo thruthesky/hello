@@ -96,14 +96,13 @@ export class SonubMessagePage {
         message['show_content'] = false;
     }
 
-
-
     onClickReplyFormSubmit( message: MESSAGE ) {
         console.log("onClickReplyFormSubmit(): ", message);
         this.form.id_recv = message.from.id;
-        this.message.send( this.form, data => {
-            console.log("reply sucess: ", data);
+        this.message.send( this.form, re => {
+            console.log("reply sucess: ", re);
             message['showReplyForm'] = false;
+            this.sendPushNotification( re );
         },
         error => alert("error on reply: " + error),
         () => {} );
@@ -138,8 +137,6 @@ export class SonubMessagePage {
         });
       //console.log("messages::", this.messages);
     }
-
-
 
 
      lazyProcess( data: MESSAGE_LIST ) {
@@ -197,19 +194,8 @@ export class SonubMessagePage {
                 this.form.content = '';
                 this.showCreateForm = false;
                 console.log(re);
+                this.sendPushNotification( re );
                 
-                let option: PUSH_MESSAGE = {
-                    token: re['pushToken'],
-                    title: "New Message",
-                    content: "You have a new message. Please open the message menu."
-                };
-
-                this.ionic.sendPushNotification( option, () => {
-                    console.info("push notification OK");
-                }, err => {
-                    console.error("push notification error: ", err);
-                })
-
             }
             else {
                 alert("Message sending error");
@@ -220,6 +206,21 @@ export class SonubMessagePage {
         );
     }
 
+    sendPushNotification( re ) {
+        
+        let option: PUSH_MESSAGE = {
+            token: re['pushToken'],
+            title: "New Message",
+            content: "You have a new message. Please open the message menu."
+        };
+
+        this.ionic.sendPushNotification( option, () => {
+            console.info("push notification OK");
+        }, err => {
+            console.error("push notification error: ", err);
+        });
+
+    }
 
     onClickMakeAllRead() {
         this.message.makeAllRead( re => {

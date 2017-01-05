@@ -17,14 +17,17 @@ export class SonubHeader {
     }
     onClickHeader() {
         window.scrollTo( 0, 0 );
+        if ( this.app.menu ) this.app.menu = false;
     }
     onClickLogout() {
         this.login = null;
         this.member.logout();
     }
 
-    onClickMenu() {
+    onClickMenu( $event ) {
+        event.stopPropagation();
+        window.scrollTo( 0, 0 );
         this.app.menu = ! this.app.menu;
     }
-    
+
 }

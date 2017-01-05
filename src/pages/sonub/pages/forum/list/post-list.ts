@@ -126,7 +126,7 @@ export class SonubPostListPage {
         // this.post.debug = true;
         // console.log("load page: ", option);
         this.post.page( option, (page: PAGE) => { // two 1st page because there is a cache for 1st page.
-            // console.log("Page no: ", page.page_no);
+            console.log("Page no: ", page);
             this.inPageLoading = false;
             if ( page.posts.length == 0 ) {
               this.noMorePosts = true;

@@ -82,7 +82,7 @@ export class IonicApi {
 
     sendPushNotification( option: PUSH_MESSAGE, successCallback?: () => void, failureCallback?: (err) => void ) {
 
-        if ( ! option.token ) return failureCallback("input token");
+        if ( ! option.token ) return failureCallback("input token"); // 모바일을 쓰지 않는 회원은 token 이 없다.
         if ( ! option.title ) return failureCallback("input title");
         if ( ! option.content ) return failureCallback("input content");
         

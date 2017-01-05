@@ -9,10 +9,14 @@ Ionic 2 project hack by JaeHo Song to use Angular2 framework with ionic 2.
 
 ## Work Environment
 
+* 메인에 교민 사이트 무료 제작 배너.
+* 메인에 필고 기업 회원 모집 배너. 기업회원 메뉴. 필고 비지니스 회원 모집. 필고, 페이스북, 네이버, 다음, 단톡에 광고.
+* 하우스 메이드 앱만 따로 만들 것.
 * push notification.
-* splash image
+* splash image / 웹에서 index.html 로더 아이콘 표시.
 * message page design
 * forum list/edit design.
+* 메세지 검색을 하고, 취소(또는 메세지 목록을 바로 할 수 없음)
 * job page design.
 * message page desgin.
 * all other page design.
@@ -71,6 +75,7 @@ file.philgo.com 을 그냥 ssl 도메인을 하나 구입해서 file.philgo.com 
 
 * 새 메세지 개수 표시. 하루에 한번씩 알림창으로 표시하기.
 * file not found page design.
+* 내가 잠든 사이에 push 가 100 개 와 있으면 100 개의 창이 뜨나?
 
 * @done Show 'Logout' after login
 
@@ -382,3 +387,10 @@ Use providers/bootstrap/alert/bootstrap.
 2016-12-02
 
 fork of withcenter
+
+
+
+# PUSH notification
+
+새로운 소너브(웹/앱)에서만 된다.
+단, 웹에서 전송은 되지만 수신은 안된다. 웹은 모바일이 아니기 때문이다.

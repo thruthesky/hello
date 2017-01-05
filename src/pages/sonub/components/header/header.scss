@@ -12,9 +12,35 @@ sonub-header {
                 height: 22px;
             }
         }
-        td {
-            text-align: center;
-        }
+    }
+    header.navbar.navbar-fixed-top {
+        margin: 0 ;
+        padding: $gutter;
     }
     .alert { display: none; }
+
+    nav.menus {
+        position: relative;
+        text-align: center;
+        ul.menu {
+            list-style: none;
+            margin: 0;
+            margin-right: 4em;
+            padding: 0;
+            li {
+                padding: .28em $gutter .3em 0;
+                float: left;
+            }
+        }
+        .all-menu {
+            position: absolute;
+            top: 0;
+            right: 0;
+            .icon {
+                padding: .24em 0 .24em;
+                font-size: 2.2em;
+                color: white;
+            }
+        }
+    }
 }
