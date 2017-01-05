@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
+import { AppComponent } from '../app/app.component';
 //declare let navigator;
 import { Alert, ALERT_OPTION } from '../providers/bootstrap/alert/alert';
 @Injectable()
 export class App {
+    appComponent: AppComponent = null;
     _width: number = 0;
     menu: boolean = false;
     page: string = null; // current page tag(name or id)
@@ -54,6 +56,7 @@ export class App {
             console.info("alert OK");
         });
     }
+
     error( content ) {
         let option: ALERT_OPTION = {
             title: "ERROR",
@@ -61,7 +64,8 @@ export class App {
             class: 'error'
         };
         console.log(option);
-        this.showModal( option );
+        // this.showModal( option );
+        this.note( option );
     }
 
     warning( content ) {
@@ -79,5 +83,11 @@ export class App {
             class: 'alarm'
         };
         this.showModal( option );
+    }
+
+    note( option ) {
+        this.appComponent.note.active = true;;
+        this.appComponent.note.content = option.content;
+        setTimeout( () => this.appComponent.note.active = false, 10000 );
     }
 }
