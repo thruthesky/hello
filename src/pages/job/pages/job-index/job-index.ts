@@ -19,6 +19,7 @@ export class JobIndexPage{
     id: ''
   };
   page_no: number = 0;
+  limit: number = 6;
   numbers = Array.from(new Array(20), (x,i) => i+1);
 
   //variables used in range
@@ -144,7 +145,7 @@ export class JobIndexPage{
     data.fields = "idx,idx_member,gid,sub_category,post_id,text_1,text_2,text_3,int_1,int_2,int_3,int_4,char_1,varchar_1,varchar_2,varchar_3,varchar_4,varchar_6";
     data.from = "sf_post_data";
     data.where = "post_id = 'jobs' AND idx_parent=0" + this.condition;
-    data.limit = "4";
+    data.limit = this.limit.toString();
     data.orderby = "idx desc";
     data.page = page;
     data.post = 1;
@@ -180,13 +181,7 @@ export class JobIndexPage{
     });
 
     // for link
-    page.search.map( post => post['link'] = this.getLink( post, this.sharePath ) );
-  }
-
-  getLink( post, path = '-' ) {
-    let full = location.protocol+'//'+location.hostname+(location.port ? ':'+location.port: '');
-    full += '/' + path + '/' + post.idx;
-    return full;
+    page.search.map( post => post['link'] = this.post.getPermalink( post, this.sharePath ) );
   }
 
   onClickProvince() {
@@ -236,7 +231,6 @@ export class JobIndexPage{
     this.searchBy = (!this.searchBy.location || this.searchBy.more ) ? {location: true} : {};
     console.log('SearchBy', this.searchBy);
   }
-
 
   onClickMore(){
     this.searchBy = (!this.searchBy.more) ? this.searchBy = { profession: true, more: true,location: true } : {};

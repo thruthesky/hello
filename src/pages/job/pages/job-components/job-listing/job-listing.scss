@@ -1,26 +1,58 @@
-$break-xs: 360px;
+$break-sm: 568px;
 
 job-listing {
-  .card {
-    .profile {
-      overflow: hidden;
-      height:auto;
-      padding: 0;
-      float: left;
-      @media screen and (max-width: $break-xs) {
+  word-break: break-all;
+  position: relative;
+  display: block;
+  margin-right: .4em;
+  .post {
+    display: inline-block;
+    width: 50%;
+    float: left;
+    &.more {
+      width: 100%;
+    }
+    .content {
+      margin-left: .4em;
+      margin-bottom: .4em;
+      padding: .4em;
+      border: 1px solid #d3d3d3;
+      background-color: #fff;
+      .profile {
+        padding: 0;
         width: 60px;
         height: 60px;
-      }
-      .profile-photo{
-        width: 100%;
-        padding: .2rem;
+        @media screen and (max-width: $break-sm) {
+          margin: 0 auto;
+        }
+        @media screen and (min-width: $break-sm) {
+          display: inline-block;
+          max-width: 100px;
+          max-height: 100px;
+          width: auto;
+          height: auto;
+        }
+        .profile-photo{
+          width: 100%;
+          max-width: 100%;
+          height: auto;
+          vertical-align: top;
+        }
+
       }
 
-    }
-    .info {
-      padding: 0;
+      .info, .sub-info {
+        vertical-align: top;
+        @media screen and (min-width: $break-sm) {
+          display: inline-block;
+          margin: .2em;
+        }
+      }
+
       .share {
         overflow: hidden;
+        height: 23px;
+        margin-top: .3em;
         line-height: 21px;
         .shareLink {
           display: inline-block;

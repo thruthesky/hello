@@ -5,17 +5,13 @@
       <td *ngIf=" app.size == 'big' "><job-left></job-left></td>
       <td width="100%">
         <section class="center">
-          <div *ngIf=" pages.length " class="pages row">
-            <div *ngFor=" let page of pages " class="page posts">
-              <div class="post col-xs-6" *ngFor=" let post of page.posts;">
-                <job-listing
-                        [post]="post" [root]="page.posts"
-                        [login]="login"
-                        [shareUrl]="shareUrl"
-                ></job-listing>
-              </div>
-            </div>
-          </div>
+
+          <job-listing
+                  [pages]="pages" [root]="pages"
+                  [login]="login"
+                  [mode] =" 'posts' "
+          ></job-listing>
+
           <div [class.active]=" ! noMorePosts " class="no-more-posts in-page-loading"><i class="fa fa-spinner fa-spin"></i> Loading ...</div>
           <div [class.active]=" noMorePosts " class="no-more-posts">No more posts</div>
         </section><!--/.center-->

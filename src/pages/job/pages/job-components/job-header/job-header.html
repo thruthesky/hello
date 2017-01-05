@@ -1,111 +1,90 @@
 <header class="navbar navbar-fixed-top" (click)="onClickHeader()">
-  <table cellpadding="0" cellspacing="0">
-    <tr>
-      <td width="99%">
-        <table cellpadding="0" cellspacing="0">
-          <tr>
-            <td routerLink="/">
+    <table cellpadding="0" cellspacing="0">
+        <tr>
+            <td width="99%">
+                <table cellpadding="0" cellspacing="0">
+                    <tr>
+                        <td routerLink="/">
                             <span class="icon fa-stack fa-lg">
                                 <i class="background fa fa-circle fa-stack-2x"></i>
                                 <i class="font fa fa-home fa-stack-1x fa-inverse"></i>
                             </span>
-              <div class="text">Home</div>
-            </td>
-            <td routerLink="/forum/freetalk">
-                            <span class="icon fa-stack fa-lg">
-                                <i class="background fa fa-circle fa-stack-2x"></i>
-                                <i class="font fa fa-comments fa-stack-1x fa-inverse"></i>
-                            </span>
-              <div class="text">Discussion</div>
-            </td>
-            <td routerLink="/forum/qna">
-                            <span class="icon fa-stack fa-lg">
-                                <i class="background fa fa-circle fa-stack-2x"></i>
-                                <i class="font fa fa-question fa-stack-1x fa-inverse"></i>
-                            </span>
-              <div class="text">QnA</div>
-            </td>
-            <td routerLink="/forum/buyandsell">
-                            <span class="icon fa-stack fa-lg">
-                                <i class="background fa fa-circle fa-stack-2x"></i>
-                                <i class="font fa fa-shopping-basket fa-stack-1x fa-inverse"></i>
-                            </span>
-              <div class="text">Buy&amp;Sell</div>
-            </td>
-            <td routerLink="/job">
+                            <div class="text">Home</div>
+                        </td>
+                        <td routerLink="/job">
                             <span class="icon fa-stack fa-lg">
                                 <i class="background fa fa-circle fa-stack-2x"></i>
                                 <i class="font fa fa-suitcase fa-stack-1x fa-inverse"></i>
                             </span>
-              <div class="text">Job</div>
-            </td>
-            <td *ngIf=" ! login " routerLink="/user/register">
-                            <span class="icon fa-stack fa-lg">
-                                <i class="background fa fa-circle fa-stack-2x"></i>
-                                <i class="font fa fa-user-plus fa-stack-1x fa-inverse"></i>
-                            </span>
-              <div class="text">Register</div>
-            </td>
-
-            <td *ngIf=" login " routerLink="/user/register">
-                            <span class="icon fa-stack fa-lg">
-                                <i class="background fa fa-circle fa-stack-2x"></i>
-                                <i class="font fa fa-user-plus fa-stack-1x fa-inverse"></i>
-                            </span>
-              <div class="text">Profile</div>
-            </td>
-
-            <td *ngIf=" ! login " routerLink="/user/login">
-                            <span class="icon fa-stack fa-lg">
-                                <i class="background fa fa-circle fa-stack-2x"></i>
-                                <i class="font fa fa-user fa-stack-1x fa-inverse"></i>
-                            </span>
-              <div>Login</div>
-            </td>
-
-            <td *ngIf=" login " (click)=" onClickLogout() ">
-                            <span class="icon fa-stack fa-lg">
-                                <i class="background fa fa-circle fa-stack-2x"></i>
-                                <i class="font fa fa-user fa-stack-1x fa-inverse"></i>
-                            </span>
-              <div class="text">Logout</div>
-            </td>
-
-            <td routerLink="/message">
-                            <span class="icon fa-stack fa-lg">
-                                <i class="background fa fa-circle fa-stack-2x"></i>
-                                <i class="font fa fa-envelope-o fa-stack-1x fa-inverse"></i>
-                            </span>
-              <div class="text">Message</div>
-            </td>
-            <td routerLink="/job/post">
+                            <div class="text">Job</div>
+                        </td>
+                        <td routerLink="/job/post">
                             <span class="icon fa-stack fa-lg">
                                 <i class="background fa fa-circle fa-stack-2x"></i>
                                 <i class="font fa fa-pencil-square-o fa-stack-1x fa-inverse"></i>
                             </span>
-              <div class="text">Post</div>
-            </td>
-            <td routerLink="/job/list">
+                            <div class="text">Post</div>
+                        </td>
+                        <td routerLink="/job/list">
                             <span class="icon fa-stack fa-lg">
                                 <i class="background fa fa-circle fa-stack-2x"></i>
                                 <i class="font fa fa-list-alt fa-stack-1x fa-inverse"></i>
                             </span>
-              <div class="text">List</div>
-            </td>
+                            <div class="text">List</div>
+                        </td>
+                        <td *ngIf=" ! login " routerLink="/user/register">
+                            <span class="icon fa-stack fa-lg">
+                                <i class="background fa fa-circle fa-stack-2x"></i>
+                                <i class="font fa fa-user-plus fa-stack-1x fa-inverse"></i>
+                            </span>
+                            <div class="text">Register</div>
+                        </td>
+                        <td *ngIf=" login " routerLink="/user/register">
+                            <span class="icon fa-stack fa-lg">
+                                <i class="background fa fa-circle fa-stack-2x"></i>
+                                <i class="font fa fa-user-plus fa-stack-1x fa-inverse"></i>
+                            </span>
+                            <div class="text">Profile</div>
+                        </td>
+
+                        <td *ngIf=" ! login " routerLink="/user/login">
+                            <span class="icon fa-stack fa-lg">
+                                <i class="background fa fa-circle fa-stack-2x"></i>
+                                <i class="font fa fa-user fa-stack-1x fa-inverse"></i>
+                            </span>
+                            <div>Login</div>
+                        </td>
+
+                        <td *ngIf=" login " (click)=" onClickLogout() ">
+                            <span class="icon fa-stack fa-lg">
+                                <i class="background fa fa-circle fa-stack-2x"></i>
+                                <i class="font fa fa-user fa-stack-1x fa-inverse"></i>
+                            </span>
+                            <div class="text">Logout</div>
+                        </td>
+
+                        <td routerLink="/message">
+                            <span class="icon fa-stack fa-lg">
+                                <i class="background fa fa-circle fa-stack-2x"></i>
+                                <i class="font fa fa-envelope-o fa-stack-1x fa-inverse"></i>
+                            </span>
+                            <div class="text">Message</div>
+                        </td>
 
 
-            <td>
-              <div (click)="onClickClearLocalStorage()"> clear localStorage</div>
+
+                        <td>
+                            <div (click)="onClickClearLocalStorage()"> clear localStorage</div>
+                        </td>
+                    </tr>
+                </table>
             </td>
-          </tr>
-        </table>
-      </td>
-      <td width="1%" nowrap (click)="onClickMenu()">
-        <i class="fa fa-list fa-2x"></i>
-        <div>Menu</div>
-      </td>
-    </tr>
-  </table>
+            <td width="1%" nowrap (click)="onClickMenu()">
+                <i class="fa fa-list fa-2x"></i>
+                <div>Menu</div>
+            </td>
+        </tr>
+    </table>
 </header>
 <div class="alert"></div>
 

@@ -22,6 +22,7 @@ export class JobListPage {
   post_id = 'jobs';
   page_no: number = 0;
   pages: PAGES = [];
+  limit: number = 6;
 
   scrollListener = null;
   scrollCount = 0;
@@ -61,7 +62,7 @@ export class JobListPage {
     this.inPageLoading = true;
     //this.post.debug = true;
     console.log("page no: ", this.page_no);
-    this.post.page( {post_id: this.post_id, page_no: ++this.page_no, limit: 4}, (page: PAGE) => {
+    this.post.page( {post_id: this.post_id, page_no: ++this.page_no, limit: this.limit}, (page: PAGE) => {
       console.log('PostList::loadPage() page:', page);
       this.inPageLoading = false;
       if ( page.posts.length == 0 ) {
@@ -97,14 +98,7 @@ export class JobListPage {
     });
 
     // for link
-    page.posts.map( post => post['link'] = this.getLink( post, this.sharePath ) );
-
-  }
-
-  getLink( post, path = '-' ) {
-    let full = location.protocol+'//'+location.hostname+(location.port ? ':'+location.port: '');
-    full += '/' + path + '/' + post.idx;
-    return full;
+    page.posts.map( post => post['link'] = this.post.getPermalink( post, this.sharePath ) );
   }
 
 }

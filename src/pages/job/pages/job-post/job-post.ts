@@ -200,8 +200,6 @@ export class JobPostPage{
     this.showCities = false;
   }
 
-
-
   // for camera.
   onClickFileUploadButton() {
     if ( ! this.cordova ) return;
@@ -265,10 +263,12 @@ export class JobPostPage{
     this.showProgress = false;
     this.renderPage();
   }
+
   onFailureFileUpload ( error ) {
     this.showProgress = false;
     alert( error );
   }
+
   onCompleteFileUpload( completeCode ) {
     console.log("completeCode: ", completeCode);
   }
