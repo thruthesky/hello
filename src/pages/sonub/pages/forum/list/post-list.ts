@@ -28,7 +28,7 @@ export class SonubPostListPage {
                  private renderer: Renderer,
                  private app: App,
                  private pageScroll: PageScroll ) {
-        console.log("SonubPostListPage::constructor()");
+        // console.log("SonubPostListPage::constructor()");
         activated.params.subscribe( param => {
             this.posts = <POSTS> [];
             if ( param['post_id'] !== void 0 ) {
@@ -82,8 +82,8 @@ export class SonubPostListPage {
         //this.post.debug = true;
         this.post.load(idx_post, response =>{
             this.view = <POST> response.post;
-            console.log("Load a post for view : ", this.view );
-            console.log("Load post success on idx : ", idx_post);
+            // console.log("Load a post for view : ", this.view );
+            // console.log("Load post success on idx : ", idx_post);
             this.loadPosts( this.view.post_id );
         },error =>{
             alert("Load post error" + error);
@@ -124,9 +124,9 @@ export class SonubPostListPage {
             limit: this.limit
         };
         // this.post.debug = true;
-        console.log("load page: ", option);
+        // console.log("load page: ", option);
         this.post.page( option, (page: PAGE) => { // two 1st page because there is a cache for 1st page.
-            console.log("Page no: ", page.page_no);
+            // console.log("Page no: ", page.page_no);
             this.inPageLoading = false;
             if ( page.posts.length == 0 ) {
               this.noMorePosts = true;

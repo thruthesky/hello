@@ -42,6 +42,8 @@ Ionic 2 project hack by JaeHo Song to use Angular2 framework with ionic 2.
 
 
 # TODO
+* 쪽지 읽기에서 답변을 해도, push 를 보내개 한다. 현재는 쪽지 쓰기만된다.
+* 글에 push 는 새글이 있을 때, 단, 최대 10분에 하나씩만 보낸다.
 * put loader in index.html.
 * Language option. korean/english
 * 메뉴에. 언어 설정. 캐시. 추가.
@@ -58,8 +60,16 @@ Ionic 2 project hack by JaeHo Song to use Angular2 framework with ionic 2.
         when a new message arrives,
         but send push after 40 minutes.
 
-* deploy test.
+* @done deploy test.
 
+* 필고(소너브)를 firebase hosting 으로 올리니까 너무 좋다.
+계정별/프로젝트별로 돈내는지 확인하고 계정별이면 firebase hosting 을 하고,
+file.philgo.com 을 그냥 ssl 도메인을 하나 구입해서 file.philgo.com 만 ssl 로 올린다.
+
+* deploy 에서 에러가 나지 않도록 재 실행하고, go back 버튼에서 홈이면 종료하게 해도, 여전히 에러가 발생한다.
+그래서  file not found 까지 그냥 home 으로 바로 이동하ㅔㄱ 한다.
+
+* 새 메세지 개수 표시. 하루에 한번씩 알림창으로 표시하기.
 * file not found page design.
 
 * @done Show 'Logout' after login
@@ -119,7 +129,10 @@ Ionic 2 project hack by JaeHo Song to use Angular2 framework with ionic 2.
 * sanitizing erorr 를 reproduce 하지 못해서 수정을 하지 못했다.
 
 
-
+* dobule check security isssue by putting raw HTML into 'innerHTML' on view-component.html
+````
+    <div class="content" [hidden]="hideContent" innerHTML="{{ safeHtml( post.content ) }}"></div>
+````
 
 
 # TODO for fixing ionic-hack.
@@ -350,6 +363,16 @@ You do not need to install these module one by one. these are installed by 'npm 
 # Locations of Philippines
 
 * @see philgo api.
+
+
+
+# Safe HTML for security
+
+use SafeHTMLPipe
+
+# Modal box, Alert, Confirm, etc
+
+Use providers/bootstrap/alert/bootstrap.
 
 
 

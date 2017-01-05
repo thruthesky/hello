@@ -2,6 +2,7 @@ import { Component, Renderer } from '@angular/core';
 import { Message, MESSAGE, MESSAGES, MESSAGE_LIST, MESSAGE_FORM } from '../../../../api/philgo-api/v2/message';
 import { Member, MEMBER_LOGIN } from '../../../../api/philgo-api/v2/member';
 import { App } from '../../../../providers/app';
+import { IonicApi, PUSH_MESSAGE } from '../../../../providers/ionic-api-0.2/ionic-api';
 import * as _ from 'lodash';
 
 @Component({
@@ -28,6 +29,7 @@ export class SonubMessagePage {
         private message: Message,
         private member: Member,
         private renderer: Renderer,
+        private ionic: IonicApi
     ) {
         console.log("SonubMessagePage::constructor()");
 
@@ -194,6 +196,23 @@ export class SonubMessagePage {
                 this.form.id_recv = '';
                 this.form.content = '';
                 this.showCreateForm = false;
+                console.log(re);
+                
+                let option: PUSH_MESSAGE = {
+                    token: re['pushToken'],
+                    title: "New Message",
+                    content: "You have a new message. Please open the message menu."
+                };
+
+                this.ionic.sendPushNotification( option, () => {
+                    console.info("push notification OK");
+                }, err => {
+                    console.error("push notification error: ", err);
+                })
+
+            }
+            else {
+                alert("Message sending error");
             }
         },
         error => alert("message sending error: " + error ),
