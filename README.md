@@ -8,7 +8,8 @@ Ionic 2 project hack by JaeHo Song to use Angular2 framework with ionic 2.
 
 
 ## Work Environment
-
+* philgo api ajax module 에서 comment 를 새로 생성하면 그 코멘트의 조상들의 idx 와 varchar_9 를 리턴하도록 했다. token 으로 메세지를 봬면 된다.
+    Andy OS 를 구매하면 여러개 실행 가능하다.
 * app.alarm() app.error() app.warning design
 * app.note() design with class.
 * 메인에 교민 사이트 무료 제작 배너.
