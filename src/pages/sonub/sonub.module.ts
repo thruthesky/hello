@@ -25,7 +25,7 @@ import { SonubCurrency } from "./components/currency/currency"
 import { SonubSales } from './components/sales/sales';
 import { SonubLoginPage } from './pages/user/login/login';
 import { SonubRegisterPage } from './pages/user/register/register';
-import { SonubMobileMainMenu } from './components/mobile-main-menu/mobile-main-menu';
+import { SonubMainMenu } from './components/main-menu/main-menu';
 // services
 import { ForumService } from './providers/forum'
 
@@ -56,13 +56,12 @@ import { SafeHTMLPipeModule } from '../../pipes/security/security.pipe.module';
         SonubBuyAndSell,
         SonubCurrency,
         SonubSales,
-        SonubMobileMainMenu
+        SonubMainMenu
     ],
     imports: [
         BrowserModule,
         RouterModule,
         FormsModule,
-        //BaseComponentsModule,
         PhilgoApiModule,
         LanguagePipeModule,
         BootstrapModule,
