@@ -26,6 +26,7 @@ import { SonubSales } from './components/sales/sales';
 import { SonubLoginPage } from './pages/user/login/login';
 import { SonubRegisterPage } from './pages/user/register/register';
 import { SonubMainMenu } from './components/main-menu/main-menu';
+import { FileNotFoundPage } from './pages/file-not-found/file-not-found';
 // services
 import { ForumService } from './providers/forum'
 
@@ -56,7 +57,8 @@ import { SafeHTMLPipeModule } from '../../pipes/security/security.pipe.module';
         SonubBuyAndSell,
         SonubCurrency,
         SonubSales,
-        SonubMainMenu
+        SonubMainMenu,
+        FileNotFoundPage
     ],
     imports: [
         BrowserModule,

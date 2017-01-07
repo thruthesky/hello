@@ -1,0 +1,28 @@
+<sonub-header></sonub-header>
+<section class="content">
+  <table width="100%" cellpadding="0" cellspacing="0">
+    <tr valign="top">
+      <td *ngIf=" app.size == 'big' "><sonub-left></sonub-left></td>
+      <td width="100%">
+          <section class="center">
+
+            <div class="row">
+                <section class="center base-center">
+                    <div>
+                    <h1>{{ title }} </h1>
+                    There is no such page.
+                    url: {{ url }}
+                    </div>
+                </section>
+            </div>
+
+        </section><!--/.center-->
+      </td>
+      <td *ngIf=" app.size == 'big' "><sonub-right></sonub-right></td>
+    </tr>
+  </table>
+
+</section><!--/section.content-->
+
+
+

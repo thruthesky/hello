@@ -7,7 +7,6 @@ import { AppRouteModule } from './app.route.module';
 
 import { App } from '../providers/app';
 
-import { BaseModule } from "../pages/base/base.module";
 
 import { SonubModule } from "../pages/sonub/sonub.module";
 
@@ -29,7 +28,6 @@ import { BootstrapModule } from '../providers/bootstrap/bootstrap';
     BrowserModule,
     AppRouteModule,
     IonicApiModule,
-    BaseModule,
     SonubModule,
     JobModule,
     BootstrapModule

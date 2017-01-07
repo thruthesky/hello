@@ -37,7 +37,7 @@
                 <div class="text">Job</div>
             </li>
             
-            <li *ngIf=" login " class="message" routerLink="/message">
+            <li class="message" *ngIf=" login " routerLink="/message">
                 <span class="icon fa-stack fa-lg">
                     <i class="background fa fa-circle fa-stack-2x"></i>
                     <i class="font fa fa-envelope-o fa-stack-1x fa-inverse"></i>
@@ -63,7 +63,7 @@
             </li>
             
 
-            <li class="login" *ngIf=" ! login " routerLink="/user/login">
+            <li class="business" routerLink="/business">
                 <span class="icon fa-stack fa-lg">
                     <i class="background fa fa-circle fa-stack-2x"></i>
                     <i class="font fa fa-handshake-o fa-stack-1x fa-inverse"></i>
@@ -73,7 +73,7 @@
             
 
 
-            <li class="login" *ngIf=" ! login " routerLink="/user/login">
+            <li class="help" routerLink="/user/help">
                 <span class="icon fa-stack fa-lg">
                     <i class="background fa fa-circle fa-stack-2x"></i>
                     <i class="font fa fa-whatsapp fa-stack-1x fa-inverse"></i>

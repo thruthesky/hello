@@ -14,6 +14,7 @@ Ionic 2 project hack by JaeHo Song to use Angular2 framework with ionic 2.
 * app.alarm() app.error() app.warning design
 * focus on textarea after openining textarrea
 * app.note() design with class.
+* file-not-found 페이지를 디자인 한다.
 * 메인에 교민 사이트 무료 제작 배너.
 * 메인에 필고 기업 회원 모집 배너. 기업회원 메뉴. 필고 비지니스 회원 모집. 필고, 페이스북, 네이버, 다음, 단톡에 광고.
 * 하우스 메이드 앱만 따로 만들 것.
