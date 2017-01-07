@@ -13,6 +13,8 @@ import { SonubRegisterPage } from '../pages/sonub/pages/user/register/register';
 import { SonubMessagePage } from '../pages/sonub/pages/message/message';
 import { SonubForumIndexPage } from '../pages/sonub/pages/forum/index/forum-index';
 import { SonubPostListPage } from '../pages/sonub/pages/forum/list/post-list';
+import { SonubBusinessPage } from '../pages/sonub/pages/business/business';
+
 import { FileNotFoundPage } from "../pages/sonub/pages/file-not-found/file-not-found";
 
 
@@ -39,6 +41,7 @@ const appRoutes: Routes = [
     { path: "forum/:post_id", component: SonubPostListPage },
     { path: "article/:idx_post", component: SonubPostListPage },
     { path: "message", component: SonubMessagePage },
+    { path: "business", component: SonubBusinessPage },
 
     { path: '', component: SonubHomePage },
 

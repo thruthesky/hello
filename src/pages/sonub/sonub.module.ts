@@ -27,9 +27,10 @@ import { SonubLoginPage } from './pages/user/login/login';
 import { SonubRegisterPage } from './pages/user/register/register';
 import { SonubMainMenu } from './components/main-menu/main-menu';
 import { FileNotFoundPage } from './pages/file-not-found/file-not-found';
+import { SonubBusinessPage } from './pages/business/business';
+
 // services
 import { ForumService } from './providers/forum'
-
 
 // message
 import { SonubMessagePage } from './pages/message/message';
@@ -58,6 +59,7 @@ import { SafeHTMLPipeModule } from '../../pipes/security/security.pipe.module';
         SonubCurrency,
         SonubSales,
         SonubMainMenu,
+        SonubBusinessPage,
         FileNotFoundPage
     ],
     imports: [
