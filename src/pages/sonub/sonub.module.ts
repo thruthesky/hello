@@ -28,6 +28,7 @@ import { SonubRegisterPage } from './pages/user/register/register';
 import { SonubMainMenu } from './components/main-menu/main-menu';
 import { FileNotFoundPage } from './pages/file-not-found/file-not-found';
 import { SonubBusinessPage } from './pages/business/business';
+import { SonubHelpPage } from './pages/help/help';
 
 // services
 import { ForumService } from './providers/forum'
@@ -60,6 +61,7 @@ import { SafeHTMLPipeModule } from '../../pipes/security/security.pipe.module';
         SonubSales,
         SonubMainMenu,
         SonubBusinessPage,
+        SonubHelpPage,
         FileNotFoundPage
     ],
     imports: [
