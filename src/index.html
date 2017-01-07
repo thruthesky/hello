@@ -34,7 +34,19 @@
 <body>
 
   <!-- Ionic's root component and where the app will load -->
-  <app-component></app-component>
+  <app-component>
+    
+    <style>
+      .app-loader { margin: 0 auto; width: 80%; max-width: 540px; text-align: center; }
+      .app-loader .l { margin-bottom: 2.6em; }
+      .app-loader .l img { display: block; width: 100%; }
+    </style>
+    <div class="app-loader">
+      <div class="l"><img src="assets/img/philgo-loader.svg"></div>
+      <div class="t"><i class="fa fa-spinner fa-spin"></i> 필고를 로딩중입니다.</div>
+    </div>
+    
+  </app-component>
   
   <!-- The polyfills js is generated during the build process -->
   <script src="build/polyfills.js"></script>

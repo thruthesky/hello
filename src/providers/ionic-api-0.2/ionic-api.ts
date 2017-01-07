@@ -31,9 +31,12 @@ export class IonicApi {
 
     /**
      * 푸시를 등록한다.
+     * 
      * 이 메쏘드는 앱이 실행 될 때마다, 로그인을 할 때 마다 실행되어야 한다.
      * 공식 문서에서는 실행 될 때 마다 등로하라고 나와 있다.
      * 
+     * @note 앱으로 실행을 해야지만, 이 메소드가 호출 된다.
+     *          즉, 회원이 앱으로 로그인을 했다가, 웹으로 로그인을 한다고 해서, 기존의 토큰 값을 없애거나 덮어쓰지 않는다.
      * @note 필고에 token 을 등록해야지 successCallback() 이 호출 된다.
      */
     registerPushNotification( succssCallback: ( token: string ) => void, errorCallback: ( error : string ) => void ) {

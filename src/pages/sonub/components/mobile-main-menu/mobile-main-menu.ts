@@ -1,21 +1,27 @@
 import { Component } from '@angular/core';
-import { Alert, ALERT_OPTION } from '../../../../providers/bootstrap/alert/alert';
+//import { Alert, ALERT_OPTION } from '../../../../providers/bootstrap/alert/alert';
+import { Member, MEMBER_LOGIN } from '../../../../api/philgo-api/v2/member';
+import { App } from '../../../../providers/app';
 @Component({
     selector: 'mobile-main-menu',
     templateUrl: 'mobile-main-menu.html'
 })
 export class SonubMobileMainMenu {
-    constructor( private alert: Alert ) { }
-    onClickClearLocalStorage() {
-
-        let o: ALERT_OPTION = {
-            title: 'Erase',
-            content: 'Do you want to delete cache data?',
-            class: 'warning'
-        }
-        this.alert.open(o, () => {
-            console.log("clearing cache on localStorage");
-            localStorage.clear();
-        });
+    login: MEMBER_LOGIN = null;
+    constructor(
+        public app: App,
+        public member: Member
+    ) {
+        member.getLogin( x => this.login = x );
     }
+    onClickClearLocalStorage() {
+        this.app.alarm( "Cache data has been deleted!");
+        localStorage.clear();
+    }
+    
+    onClickLogout() {
+        this.login = null;
+        this.member.logout();
+    }
+
 }

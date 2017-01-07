@@ -13,7 +13,7 @@ export class SonubCurrency {
     this.get_currency();
   }
   get_currency() {
-    let url = "https://philgo.com/?module=ajax&action=currency&submit=1";
+    let url = this.philgo.apiEndpoint + "?module=ajax&action=currency&submit=1";
     this.philgo.get( { url: url, expire: 3600 }, re => {
       console.log("currency data: ", re );
       if ( re['code'] ) console.log( re['message'] );
@@ -25,22 +25,5 @@ export class SonubCurrency {
     });
 
 
-    /*
-    this.http.get( "http://philgo.com/?module=ajax&action=currency&submit=1" )
-      .subscribe( data => {
-        try {
-          let re = JSON.parse( data['_body'] );
-          //console.log('re::', re);
-          if ( re['code'] ) console.log( re['message'] );
-          else {
-            this.currency = re.currency;
-            //console.log( 're data' , this.currency );
-          }
-        }
-        catch( e ){
-          console.log( data['_body']);
-        }
-      });
-      */
   }
 }

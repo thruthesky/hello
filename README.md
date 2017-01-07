@@ -8,13 +8,20 @@ Ionic 2 project hack by JaeHo Song to use Angular2 framework with ionic 2.
 
 
 ## Work Environment
-* philgo api ajax module 에서 comment 를 새로 생성하면 그 코멘트의 조상들의 idx 와 varchar_9 를 리턴하도록 했다. token 으로 메세지를 봬면 된다.
+* 게시판 코멘트 쓸 때, push notification 이 제대로 되면, 일단 전반적으로 마무리.
+    philgo api ajax module 에서 comment 를 새로 생성하면 그 코멘트의 조상들의 idx 와 varchar_9 를 리턴하도록 했다. token 으로 메세지를 봬면 된다.
     Andy OS 를 구매하면 여러개 실행 가능하다.
 * app.alarm() app.error() app.warning design
+* focus on textarea after openining textarrea
 * app.note() design with class.
 * 메인에 교민 사이트 무료 제작 배너.
 * 메인에 필고 기업 회원 모집 배너. 기업회원 메뉴. 필고 비지니스 회원 모집. 필고, 페이스북, 네이버, 다음, 단톡에 광고.
 * 하우스 메이드 앱만 따로 만들 것.
+* Move philgippines region api into philgo class.
+    * problem : the end point is not consistent and makes problem.
+    * error handling is not right.
+* philgo api push edit component uses 'ionic api' which means it is not independent.
+    * separate edit component from philgo api.
 * push notification.
 * splash image / 웹에서 index.html 로더 아이콘 표시.
 * message page design

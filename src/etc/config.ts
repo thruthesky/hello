@@ -8,6 +8,6 @@ if ( lang != 'ko' ) lang = 'en';
 export let Config = {
     name: 'Sonub',
     language: lang,
-    urlPhilgoServer: 'http://test.philgo.com/index.php' // For test server.
+    // urlPhilgoServer: 'http://test.philgo.com/index.php' // For test server.
     // urlPhilgoServer: 'https://www.philgo.com/index.php' // For real server.
 }
