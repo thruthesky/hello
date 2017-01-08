@@ -32,6 +32,7 @@ export class SonubPostListPage {
 
         activated.params.subscribe( param => {
             
+            window.scrollTo( 0, 0 ); // when a forum clicked on a forum in the middle of the page, it does not scroll top. 게시판이 열려 있는 상태에서 다시 게시판을 열면 scrollTop 이 안되므로, 여기서 임의적으로 해 준다.
             this.clearAds(); // it must be here to clear previous forum's ads.
             this.posts = <POSTS> [];
             if ( param['post_id'] !== void 0 ) {

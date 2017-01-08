@@ -1,4 +1,4 @@
-.note {
+.toast {
     display: none;
     &.active { display: block; }
     position: fixed;
@@ -6,16 +6,14 @@
     left: 0;
     right: 0;
 
-    .inner {
-        margin: 0 auto;
-        padding: 1em;
-        width: 24em;
-        background-color: #aeae77;
-        &:before {
-            margin-right: .6em;
-            font-family: 'FontAwesome';
-            content: '\f071';
-        }
+    margin: 0 auto;
+    padding: 1em;
+    width: 24em;
+    background-color: #aeae77;
+    &:before {
+        margin-right: .6em;
+        font-family: 'FontAwesome';
+        content: '\f071';
     }
 
 }

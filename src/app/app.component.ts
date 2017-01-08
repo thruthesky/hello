@@ -11,14 +11,14 @@ declare let navigator;
   template: `
     <router-outlet (window:resize)="onResize($event)"></router-outlet>
     <template ngbModalContainer></template>
-    <div class="note" [class.active]="note.active"><div class="inner">{{note.content}}</div></div>
+    <div class="toast" [class.active]="toast.active">{{toast.content}}</div>
   `
 })
 export class AppComponent implements OnInit {
   @ViewChild('alertModal') alertModal = null;
   url: string = null; // url of current page.
   prevUrl: string = null; // previos page url.
-  note: { active: boolean; content: string; } = { active: false, content: null };
+  toast: { active: boolean; content: string; } = { active: false, content: null };
   constructor(
       private router: Router,
       private activatedRoute: ActivatedRoute,
