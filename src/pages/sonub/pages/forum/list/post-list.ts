@@ -97,7 +97,7 @@ export class SonubPostListPage {
             // console.log("Load post success on idx : ", idx_post);
             this.loadPosts( this.view.post_id );
         }, error =>{
-            this.app.warning(error);
+            this.app.error(error);
             /// this.app.error("Load post error" + error);
         });
     }
@@ -154,8 +154,10 @@ export class SonubPostListPage {
             }
             else this.delayPush( page );
         },
-        error => this.post.error("Page Load Error: " + error)
-        );
+        error => {
+            this.app.error( error );
+            // this.post.error("Page Load Error: " + error);
+        } );
     }
 
     delayPush( page:PAGE ) {

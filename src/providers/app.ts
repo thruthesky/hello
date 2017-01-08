@@ -65,7 +65,7 @@ export class App {
         };
         console.log(option);
         // this.showModal( option );
-        this.note( option );
+        this.toast( option );
     }
 
     warning( content ) {
@@ -85,7 +85,7 @@ export class App {
         this.showModal( option );
     }
 
-    note( option ) {
+    toast( option ) {
         this.appComponent.note.active = true;;
         this.appComponent.note.content = option.content;
         setTimeout( () => this.appComponent.note.active = false, 10000 );

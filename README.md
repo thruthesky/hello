@@ -11,6 +11,8 @@ Ionic 2 project hack by JaeHo Song to use Angular2 framework with ionic 2.
 * 게시판 코멘트 쓸 때, push notification 이 제대로 되면, 일단 전반적으로 마무리.
     philgo api ajax module 에서 comment 를 새로 생성하면 그 코멘트의 조상들의 idx 와 varchar_9 를 리턴하도록 했다. token 으로 메세지를 봬면 된다.
     Andy OS 를 구매하면 여러개 실행 가능하다.
+* toast() 에 창 닫기 옵션을 둘 것.
+* toast() 가 한번에 많이 출력되면, 하나씩 아래로 차례대로 표시 할 것.
 * app.alarm() app.error() app.warning design
 * focus on textarea after openining textarrea
 * app.note() design with class.
