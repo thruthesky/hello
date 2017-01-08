@@ -8,6 +8,13 @@ Ionic 2 project hack by JaeHo Song to use Angular2 framework with ionic 2.
 
 
 ## Work Environment
+* 도움말 페이지에 질문게시판에 질문하기, 운영자에게 요청하기.
+    * 글 쓰기 컴포넌트를 만들어야 한다.
+    * 기존의 글 쓰기 edit-component 로 만들 수 있을까? 될 것 같다. 누구에게 시켜본다.
+* new color combinations on each page.
+* 메인 메뉴에서. 각 게시판에 맞는 아이콘 지정.
+* 메인 페이지에서, 회원 장터를 뺀 모든 새로운 글을 보여주는 항목이 있어야 할 것 같다. 왼쪽 메뉴이든.
+* 메인 메뉴에 뭐가 좀 많으니, grid 로 해서, 3열로 표시 할 것.
 * 게시판 코멘트 쓸 때, push notification 이 제대로 되면, 일단 전반적으로 마무리.
     philgo api ajax module 에서 comment 를 새로 생성하면 그 코멘트의 조상들의 idx 와 varchar_9 를 리턴하도록 했다. token 으로 메세지를 봬면 된다.
     Andy OS 를 구매하면 여러개 실행 가능하다.

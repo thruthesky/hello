@@ -5,7 +5,15 @@
       <td *ngIf=" app.size == 'big' "><sonub-left></sonub-left></td>
       <td width="100%">
           <section class="center">
-            help.
+
+            <div routerLink="/fourm/qna?a=b">
+              {{ ['Query on Q&amp;A Forum', '질문 게시판에 질문하기'] | ek }}
+            </div>
+
+
+            <div>
+              {{ ['Query to Admin', '운영자에게 문의하기'] | ek }}
+            </div>
         </section><!--/.center-->
       </td>
       <td *ngIf=" app.size == 'big' "><sonub-right></sonub-right></td>

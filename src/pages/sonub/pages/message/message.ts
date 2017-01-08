@@ -127,7 +127,7 @@ export class SonubMessagePage {
         },
         error => {
           this.inPageLoading = false;
-          this.message.error( error );
+          this.app.error( error );
         },
         () => {
             console.log("message list complete");
@@ -180,13 +180,11 @@ export class SonubMessagePage {
         return i >= 10 ? i : "0" + i;
     }
 
-
-
     onClickCreateFormSubmit() {
         this.message.send( this.form, re => {
             console.log("message send success: ", re);
             if( re.code == 0 ) {
-                //this.message.error("Message successfully sent to " + this.form.id_recv);
+                //this.app.error("Message successfully sent to " + this.form.id_recv);
                 this.form.id_recv = '';
                 this.form.content = '';
                 this.showCreateForm = false;
@@ -195,10 +193,10 @@ export class SonubMessagePage {
                 
             }
             else {
-                this.message.error("Message sending error");
+                this.app.error("Message sending error");
             }
         },
-        error => this.message.error("message sending error: " + error ),
+        error => this.app.error("message sending error: " + error ),
         () => { }
         );
     }
@@ -227,7 +225,7 @@ export class SonubMessagePage {
             this.page_no = 0;
             this.getMessages();
         },
-        error => this.message.error("error on make all read: " + error),
+        error => this.app.error("error on make all read: " + error),
         () => {} );
     }
 
@@ -252,7 +250,7 @@ export class SonubMessagePage {
             console.log("message delete success: ", re);
             message.idx = null;
         },
-        error => this.message.error("error on message delete: " + error ),
+        error => this.app.error("error on message delete: " + error ),
         () => {} );
     }
 

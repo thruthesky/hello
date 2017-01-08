@@ -31,5 +31,12 @@ sonub-main-menu {
       }
     }
     .menu.hot .icon { background-color: #80a0a0; }
+
+    .inactive {
+      text-decoration: line-through;
+      .icon {
+        background-color: #cdcdcd;
+      }
+    }
   }
 }
