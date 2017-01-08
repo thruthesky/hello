@@ -10,10 +10,16 @@ sonub-post-list {
     }
   }
 
+  .post-list-menu {
+    position: fixed;
+    top: $header-height + $gutter;
+    width: inherit;
+    background-color: #cdcdcd;
+  }
 
-.post {
-  word-break: break-all;
-}
+  .post {
+    word-break: break-all;
+  }
 
 .posts {
 

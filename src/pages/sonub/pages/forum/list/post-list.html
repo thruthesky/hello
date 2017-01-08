@@ -5,6 +5,11 @@
       <td *ngIf=" app.size == 'big' "><sonub-left></sonub-left></td>
       <td width="100%">
           <section class="center">
+            
+            <div class="post-list-menu">
+              <span *ngIf="post_name" class="post-name">{{ post_name }}</span>
+              <button (click)="onClickPostCreate()">Post Write</button>
+            </div>
             <!-- create a  post -->
             <edit-component *ngIf = " showPostCreateFrom "
                             [mode]    = " 'create-post' "
@@ -15,7 +20,6 @@
                             (cancel)  = " editComponentOnCancel() "
                             (success) = " editComponentOnSuccess() "
             ></edit-component>
-            <button (click)="onClickPostCreate()">Post Write</button>
             <hr>
             <div *ngIf=" view " class="view">
               <view-component

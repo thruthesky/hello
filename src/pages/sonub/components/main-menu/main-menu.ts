@@ -14,6 +14,9 @@ export class SonubMainMenu {
     ) {
         member.getLogin( x => this.login = x );
     }
+    onClickMenu() {
+        this.app.menu = false;
+    }
     onClickClearLocalStorage() {
         this.app.alarm( "Cache data has been deleted!");
         localStorage.clear();
