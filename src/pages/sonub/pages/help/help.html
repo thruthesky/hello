@@ -6,14 +6,30 @@
       <td width="100%">
           <section class="center">
 
-            <div routerLink="/fourm/qna?a=b">
+            <div routerLink="/forum/qna?">
               {{ ['Query on Q&amp;A Forum', '질문 게시판에 질문하기'] | ek }}
             </div>
 
 
-            <div>
+            <div routerLink="/forum/request_to_manager">
               {{ ['Query to Admin', '운영자에게 문의하기'] | ek }}
             </div>
+
+
+             <div class="post-list-menu">
+              <span *ngIf="post_name" class="post-name">{{ post_name }}</span>
+              <button (click)="onClickPostCreate('qna')">Post a Question</button>
+              <button (click)="onClickPostCreate('request_to_manager')">Inquire to admin</button>
+            </div>
+            <!-- create a  post -->
+            <edit-component *ngIf = " showPostCreateFrom "
+                            [mode]    = " 'create-post' "
+                            [active]  = " true "
+                            [post_id] = " post_id "
+                            (error)   = " editComponentOnError( $event ) "
+                            (cancel)  = " editComponentOnCancel() "
+                            (success) = " editComponentOnSuccess() "
+            ></edit-component>
         </section><!--/.center-->
       </td>
       <td *ngIf=" app.size == 'big' "><sonub-right></sonub-right></td>
