@@ -15,6 +15,9 @@ sonub-post-list {
     top: $header-height + $gutter;
     width: inherit;
     background-color: #cdcdcd;
+    button {
+      cursor: pointer;
+    }
   }
 
   .post {

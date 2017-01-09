@@ -15,6 +15,9 @@ sonub-message-page {
   font-family: "Malgun Gothic",AppleGothic,sans-serif;
   .messages {
     padding: 0 .3em;
+    button {
+      cursor: pointer;
+    }
 
     .message{
       position: relative;
