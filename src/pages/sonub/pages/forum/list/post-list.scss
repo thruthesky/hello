@@ -9,6 +9,17 @@ sonub-post-list {
       }
     }
   }
+  button {
+    cursor: pointer;
+  }
+
+  .buttons {
+    &>span {
+      cursor: pointer;
+    }
+  }
+
+
 
   .post-list-menu {
     /*position: fixed;
@@ -16,9 +27,7 @@ sonub-post-list {
     width: inherit;*/
     display: inline-block;
     background-color: #cdcdcd;
-    button {
-      cursor: pointer;
-    }
+
   }
 
   .post {
