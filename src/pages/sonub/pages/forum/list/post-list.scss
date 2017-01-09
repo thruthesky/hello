@@ -11,10 +11,14 @@ sonub-post-list {
   }
 
   .post-list-menu {
-    position: fixed;
+    /*position: fixed;
     top: $header-height + $gutter;
-    width: inherit;
+    width: inherit;*/
+    display: inline-block;
     background-color: #cdcdcd;
+    button {
+      cursor: pointer;
+    }
   }
 
   .post {
