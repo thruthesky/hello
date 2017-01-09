@@ -14,6 +14,7 @@ Ionic 2 project hack by JaeHo Song to use Angular2 framework with ionic 2.
     * help 페이지에서 질문게시판에 글 쓰기, 운영자 게시판에 글 쓰기를 찰스나 랜디에게 시킨다.
 * new color combinations on each page.
 * 게시판 상단에 어느 게시판인지 이름을 표시. fixed 로 항상 상단에 표시되도록 한다.
+    * 페이지 스크롤(page_no>1)이 되면 연하게, 마우스가 올라가면 진하게( :hover { opacity: rgba(); } ).
 * 인터넷이 느릴 때, 게시판 목록을 리스트 할 때, 맨 밑에 loader 가 보지만, 에러가 있는 경우 에러를 표시하고, 다시 페이지를 밑으로 내리면 계속 다시, 같은 페이지를 로드하려고 하는가? 다음 페이지를 로드하려고 하는가? 아예 로드를 하지 않는가?
 * &quot; 를 " 로 변경. ( 광고. 프리미엄광고에 있음. )
 * 회원 사진을 업로드하고, 헤더 메뉴의 전체 보기 앞에 사진을 동그랗게 넣는다.
