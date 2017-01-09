@@ -15,7 +15,7 @@ import { JobViewPage } from "../pages/job-view/job-view";
 import { JobHeader } from '../pages/job-components/job-header/job-header';
 import { JobLeft } from '../pages/job-components/job-left/job-left';
 import { JobRight } from '../pages/job-components/job-right/job-right';
-
+import { JobMainMenu } from '../pages/job-components/main-menu/main-menu';
 import { JobListing } from "../pages/job-components/job-listing/job-listing";
 
 
@@ -23,6 +23,7 @@ import { JobListing } from "../pages/job-components/job-listing/job-listing";
 import { PhilgoApiModule } from "../../../api/philgo-api/v2/philgo-api-module";
 import { JobCurrency } from "../pages/job-components/currency/currency";
 import { JobBuyAndSell } from "../pages/job-components/buy-and-sell/buy-and-sell";
+
 
 
 
@@ -46,9 +47,10 @@ export let ROUTES = [
       JobHeader,
       JobLeft,
       JobRight,
+      JobMainMenu,
       JobListing,
       JobCurrency,
-      JobBuyAndSell
+      JobBuyAndSell,
   ],
   imports: [
       BrowserModule,

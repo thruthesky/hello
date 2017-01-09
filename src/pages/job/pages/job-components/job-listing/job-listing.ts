@@ -41,8 +41,6 @@ export class JobListing {
 
 
   onClickDelete( post ) {
-    console.log(post);
-    post.idx = null;
     let re = confirm("Are you sure you want to delete this post?");
     if ( re ) {
       this._post.delete( post.idx, re => {

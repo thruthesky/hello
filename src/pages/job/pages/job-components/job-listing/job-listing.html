@@ -19,14 +19,27 @@
           <div class="text">City : {{post.varchar_3}}</div>
           <div class="message">Applicant Message : {{post.varchar_6}}</div>
         </div>
-        <div class="btn-group" role="group">
-          <button type="button" class="btn btn-secondary btn-sm" (click)=" post.more = ! post.more " >{{ post.more  ? 'Less' : 'More' }}</button>
-          <button *ngIf=" post.member.id == login.id " type="button" class="btn btn-secondary btn-sm" (click)="onClickEdit(post.idx)">Edit</button>
-          <button *ngIf=" post.member.id == login.id " type="button" class="btn btn-secondary btn-sm" (click)="onClickDelete(post)">Delete</button>
-        </div>
-        <div class="share">
-          <span (click)="post.share = !post.share"><i class="fa fa-share-alt"></i> Share</span>
-          <input *ngIf="post.share" class="shareLink text" onClick="this.setSelectionRange(0, this.value.length)" value="{{post.link}}" readonly/>
+        <ul class="action-group">
+          <li class="cursor" *ngIf=" post.member.id == login.id " (click)="onClickEdit(post.idx)">
+            <i class="font fa fa-pencil"></i>
+            <div>Edit</div>
+          </li>
+          <li class="cursor" *ngIf=" post.member.id == login.id " (click)="onClickDelete(post)">
+            <i class="font fa fa-trash-o"></i>
+            <div>Delete</div>
+          </li>
+          <li class="cursor" (click)="post.share = !post.share">
+            <i class="fa fa-share-alt"></i>
+            <div>Share</div>
+          </li>
+          <li class="cursor" (click)=" post.more = ! post.more " >
+            <i class="font fa fa-angle-double-down"></i>
+            <div>{{ post.more  ? 'Less' : 'More' }}</div>
+          </li>
+        </ul>
+        <div *ngIf="post.share" class="share">
+          <span class="text">Share</span>
+          <input class="shareLink text cursor" onClick="this.setSelectionRange(0, this.value.length)" value="{{post.link}}" readonly/>
         </div>
       </div>
     </div>

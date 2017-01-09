@@ -1,90 +1,73 @@
 <header class="navbar navbar-fixed-top" (click)="onClickHeader()">
-    <table cellpadding="0" cellspacing="0">
-        <tr>
-            <td width="99%">
-                <table cellpadding="0" cellspacing="0">
-                    <tr>
-                        <td routerLink="/">
-                            <span class="icon fa-stack fa-lg">
-                                <i class="background fa fa-circle fa-stack-2x"></i>
-                                <i class="font fa fa-home fa-stack-1x fa-inverse"></i>
-                            </span>
-                            <div class="text">Home</div>
-                        </td>
-                        <td routerLink="/job">
-                            <span class="icon fa-stack fa-lg">
-                                <i class="background fa fa-circle fa-stack-2x"></i>
-                                <i class="font fa fa-suitcase fa-stack-1x fa-inverse"></i>
-                            </span>
-                            <div class="text">Job</div>
-                        </td>
-                        <td routerLink="/job/post">
-                            <span class="icon fa-stack fa-lg">
-                                <i class="background fa fa-circle fa-stack-2x"></i>
-                                <i class="font fa fa-pencil-square-o fa-stack-1x fa-inverse"></i>
-                            </span>
-                            <div class="text">Post</div>
-                        </td>
-                        <td routerLink="/job/list">
-                            <span class="icon fa-stack fa-lg">
-                                <i class="background fa fa-circle fa-stack-2x"></i>
-                                <i class="font fa fa-list-alt fa-stack-1x fa-inverse"></i>
-                            </span>
-                            <div class="text">List</div>
-                        </td>
-                        <td *ngIf=" ! login " routerLink="/user/register">
-                            <span class="icon fa-stack fa-lg">
-                                <i class="background fa fa-circle fa-stack-2x"></i>
-                                <i class="font fa fa-user-plus fa-stack-1x fa-inverse"></i>
-                            </span>
-                            <div class="text">Register</div>
-                        </td>
-                        <td *ngIf=" login " routerLink="/user/register">
-                            <span class="icon fa-stack fa-lg">
-                                <i class="background fa fa-circle fa-stack-2x"></i>
-                                <i class="font fa fa-user-plus fa-stack-1x fa-inverse"></i>
-                            </span>
-                            <div class="text">Profile</div>
-                        </td>
+    <nav class="menus">
+        <ul class="menu">
+            <li class="home" routerLink="/">
+                <span class="icon fa-stack fa-lg">
+                    <i class="background fa fa-circle fa-stack-2x"></i>
+                    <img class="logo fa fa-stack-1x" src="assets/img/philgo-logo.png">
+                </span>
+                <div class="text">홈</div>
+            </li>
+            <li class="job" routerLink="/job">
+                <span class="icon fa-stack fa-lg">
+                    <i class="background fa fa-circle fa-stack-2x"></i>
+                    <i class="font fa fa-suitcase fa-stack-1x fa-inverse"></i>
+                </span>
+                <div class="text">Job</div>
+            </li>
+            <li class="job-post" routerLink="/job/post">
+                <span class="icon fa-stack fa-lg">
+                    <i class="background fa fa-circle fa-stack-2x"></i>
+                    <i class="font fa fa-pencil-square-o fa-stack-1x fa-inverse"></i>
+                </span>
+                <div class="text">Post</div>
+            </li>
+            <li class="job-list" routerLink="/job/list">
+                <span class="icon fa-stack fa-lg">
+                    <i class="background fa fa-circle fa-stack-2x"></i>
+                    <i class="font fa fa-list-alt fa-stack-1x fa-inverse"></i>
+                </span>
+                <div class="text">List</div>
+            </li>
+            <li class="message" *ngIf=" login " routerLink="/message">
+                <span class="icon fa-stack fa-lg">
+                    <i class="background fa fa-circle fa-stack-2x"></i>
+                    <i class="font fa fa-envelope-o fa-stack-1x fa-inverse"></i>
+                </span>
+                <div class="text">Message</div>
+            </li>
 
-                        <td *ngIf=" ! login " routerLink="/user/login">
-                            <span class="icon fa-stack fa-lg">
-                                <i class="background fa fa-circle fa-stack-2x"></i>
-                                <i class="font fa fa-user fa-stack-1x fa-inverse"></i>
-                            </span>
-                            <div>Login</div>
-                        </td>
-
-                        <td *ngIf=" login " (click)=" onClickLogout() ">
-                            <span class="icon fa-stack fa-lg">
-                                <i class="background fa fa-circle fa-stack-2x"></i>
-                                <i class="font fa fa-user fa-stack-1x fa-inverse"></i>
-                            </span>
-                            <div class="text">Logout</div>
-                        </td>
-
-                        <td routerLink="/message">
-                            <span class="icon fa-stack fa-lg">
-                                <i class="background fa fa-circle fa-stack-2x"></i>
-                                <i class="font fa fa-envelope-o fa-stack-1x fa-inverse"></i>
-                            </span>
-                            <div class="text">Message</div>
-                        </td>
+            <li class="register" *ngIf=" ! login " routerLink="/user/register">
+                <span class="icon fa-stack fa-lg">
+                    <i class="background fa fa-circle fa-stack-2x"></i>
+                    <i class="font fa fa-user-plus fa-stack-1x fa-inverse"></i>
+                </span>
+                <div class="text">Signup</div>
+            </li>
 
 
+            <li class="login" *ngIf=" ! login " routerLink="/user/login">
+                <span class="icon fa-stack fa-lg">
+                    <i class="background fa fa-circle fa-stack-2x"></i>
+                    <i class="font fa fa-user fa-stack-1x fa-inverse"></i>
+                </span>
+                <div>Login</div>
+            </li>
+            <li class="help" routerLink="/help">
+                <span class="icon fa-stack fa-lg">
+                    <i class="background fa fa-circle fa-stack-2x"></i>
+                    <i class="font fa fa-whatsapp fa-stack-1x fa-inverse"></i>
+                </span>
+                <div>Help</div>
+            </li>
 
-                        <td>
-                            <div (click)="onClickClearLocalStorage()"> clear localStorage</div>
-                        </td>
-                    </tr>
-                </table>
-            </td>
-            <td width="1%" nowrap (click)="onClickMenu()">
-                <i class="fa fa-list fa-2x"></i>
-                <div>Menu</div>
-            </td>
-        </tr>
-    </table>
+            <li class="all-menu cursor" nowrap (click)="onClickMenu( $event )">
+                <i class="icon fa fa-bars fa-inverse"></i>
+                <div class="text">Menu</div>
+            </li>
+        </ul>
+    </nav>
 </header>
-<div class="alert"></div>
+<job-main-menu [class.active]=" app.menu " style="display:none;"></job-main-menu>
+
 
