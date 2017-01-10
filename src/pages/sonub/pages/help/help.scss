@@ -4,6 +4,24 @@ help-page {
     .content .center {
         padding: 0 1em;
     }
+
+    .buttons {
+        margin-bottom: .6em;
+        button {
+            display: inline-block;
+            margin: 0;
+            padding: .4em 1em;
+            border: 1px solid #dfdfdf;
+            background-color: #fff;
+        }
+        .active {
+            background-color: blue;
+            color: white;
+        }
+    }
+    .desc {
+        margin-bottom: .2em;
+    }
 }
 
 

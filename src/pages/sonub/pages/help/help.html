@@ -6,22 +6,15 @@
       <td width="100%">
           <section class="center">
 
-            <div routerLink="/forum/qna?">
-              {{ ['Query on Q&amp;A Forum', '질문 게시판에 질문하기'] | ek }}
+            <div class="buttons">
+              <button [class.active]="post_id=='qna'" (click)="onClickPostCreate('qna')">Post a Question</button>
+              <button [class.active]="post_id=='request_to_manager'" (click)="onClickPostCreate('request_to_manager')">Inquire to admin</button>
             </div>
-
-
-            <div routerLink="/forum/request_to_manager">
-              {{ ['Query to Admin', '운영자에게 문의하기'] | ek }}
+            <div class="desc">
+              <div *ngIf=" post_id == 'qna' " [attr.post-id]=" post_id ">Your inquery will be posted in QnA Forum.</div>
+              <div *ngIf=" post_id == 'request_to_manager' " [attr.post-id]=" post_id ">Your inquery will be sent to administrator.</div>
             </div>
-
-
-            
-              <span *ngIf="post_name" class="post-name">{{ post_name  }}</span>
-              <button (click)="onClickPostCreate('qna','Post a question')">Post a Question</button>
-              <button (click)="onClickPostCreate('request_to_manager', 'Inquire to admin')">Inquire to admin</button>
-         
-            <!-- create a  post -->
+            <!-- create form -->
             <edit-component *ngIf = " showPostCreateFrom "
                             [mode]    = " 'create-post' "
                             [active]  = " true "
@@ -30,6 +23,7 @@
                             (cancel)  = " editComponentOnCancel() "
                             (success) = " editComponentOnSuccess() "
             ></edit-component>
+
         </section><!--/.center-->
       </td>
       <td *ngIf=" app.size == 'big' "><sonub-right></sonub-right></td>

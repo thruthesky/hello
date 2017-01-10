@@ -32,6 +32,7 @@ export class SonubPostListPage {
         // console.log("SonubPostListPage::constructor()");
 
         activated.params.subscribe( param => {
+            console.log("PostList::constructor::subscribe()")
             // initialize here.
             this.post_name = ''; //
             window.scrollTo( 0, 0 ); // when a forum clicked on a forum in the middle of the page, it does not scroll top. 게시판이 열려 있는 상태에서 다시 게시판을 열면 scrollTop 이 안되므로, 여기서 임의적으로 해 준다.
@@ -92,9 +93,11 @@ export class SonubPostListPage {
     /**
      * This loads only one ( 1 ) post for 'view' mode and loads a bunch of posts for that post_id. 
      */
-    loadPost(idx_post){
+    loadPost(idx_post) {
+        console.log("SonubPostListPage::loadPost("+idx_post+")");
         //this.post.debug = true;
         this.post.load(idx_post, response =>{
+            console.log("data loaded:");
             this.view = <POST> response.post;
             // console.log("Load a post for view : ", this.view );
             // console.log("Load post success on idx : ", idx_post);
@@ -149,6 +152,10 @@ export class SonubPostListPage {
               //this.endScroll();
             }
 
+            page.posts.map( post => this.posts.push( post ) );
+
+
+
             if ( page.page_no == 1 ) {
                 this.replacePush( page, option );
                 if ( page.ads !== void 0 ) this.ads = page.ads;
@@ -157,6 +164,7 @@ export class SonubPostListPage {
                 // this.removeFirstPage( option );
             }
             else this.delayPush( page );
+
         },
         error => {
             this.inPageLoading = false;
