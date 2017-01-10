@@ -138,8 +138,9 @@ export class SonubPostListPage {
 
             if ( page.page_no == 1 ) {
                 this.replacePush( page, option );
+                //if ( page.post_top_ad !== void 0 && page.post_top_ad.length ) this.post_top_ad = page.post_top_ad;
                 if ( page.ads !== void 0 ) this.ads = page.ads;
-                if ( page.post_top_ad !== void 0 && page.post_top_ad.length ) this.post_top_ad = page.post_top_ad;
+                if ( page.post_top_ad !== void 0 ) this.post_top_ad = page.post_top_ad;
                 if ( page.post_top_premium_ad !== void 0 ) this.post_top_premium_ad = page.post_top_premium_ad;
                 // this.removeFirstPage( option );
             }

@@ -22,7 +22,7 @@
             ></edit-component>
             <hr>
             <div *ngIf=" view " class="view">
-              
+
               <view-component
                 [post]="view" [root]="view"
                 [show]="true"
@@ -43,7 +43,6 @@
 
             <div *ngIf=" posts " class="pages posts">
               <div class="post" *ngFor=" let post of posts; let i = index; trackBy: post?.idx ">
-
 
                 <!-- post_top_ad -->
                 <div *ngIf=" post_top_ad && ! (i % limit) " class="post_top_ad">
