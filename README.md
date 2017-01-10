@@ -308,16 +308,14 @@ https://github.com/thruthesky/aonic
 # Installation
 
 * npm install
-* ionic serve ; To create cordova environment. There will be error. Ignore it.
-
-
-## Submodule Installation
-
-If you clone a repository which was forked, then you do not need to do 'git submodule update --init'. but may need to do 'git checkout master'.
 
 * git submodule update --init
 * git submodule foreach git branch
 * git submodule foreach git checkout master
+* ionic serve ; To create cordova environment. There will be error. Ignore it.
+
+
+
 
 ## Plugin Insallation
 ionic platform add browser
