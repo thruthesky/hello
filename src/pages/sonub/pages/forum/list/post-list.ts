@@ -105,26 +105,6 @@ export class SonubPostListPage {
         });
     }
 
-
-/*
-    beginScroll() {
-      this.scrollListener = this.renderer.listenGlobal( 'document', 'scroll', _.debounce( () => this.pageScrolled(), 50));
-    }
-    endScroll() {
-        if ( this.scrollListener ) this.scrollListener();
-    }
-    pageScrolled() {
-      console.log("scrolled:", this.scrollCount++);
-      let pages = document.querySelector(".pages");
-      if ( pages === void 0 || ! pages || pages['offsetTop'] === void 0) return; // @attention this is error handling for some reason, especially on first loading of each forum, it creates "'offsetTop' of undefined" error.
-      let pagesHeight = pages['offsetTop'] + pages['clientHeight'];
-      let pageOffset = window.pageYOffset + window.innerHeight;
-      if( pageOffset > pagesHeight - 200) { // page scrolled. the distance to the bottom is within 200 px from
-        console.log("page scroll reaches at bottom: pageOffset=" + pageOffset + ", pagesHeight=" + pagesHeight);
-        this.loadPage();
-      }
-    }*/
-
     loadPage() {
         if ( this.inPageLoading ) {
             console.info("in page loading");
