@@ -99,7 +99,7 @@ export class JobIndexPage{
 
   search() {
     if ( this.inPageLoading ) {
-      console.info("in page loading");
+      //console.info("in page loading");
       return;
     }
     this.inPageLoading = true;
@@ -127,7 +127,7 @@ export class JobIndexPage{
     //gender
     if( this.query.male != this.query.female ) {
       let gender = '';
-      console.log("Male is " + this.query.male,"Female is " + this.query.female );
+      //console.log("Male is " + this.query.male,"Female is " + this.query.female );
       gender = this.query.male ? 'm' : 'f';
       this.condition += " AND char_1 = '"+ gender +"'";
     }
@@ -139,7 +139,7 @@ export class JobIndexPage{
   private debounceDoSearch = _.debounce( () => this.doSearch(), 1000);
 
   doSearch() {
-    console.log('###############doSearch###############');
+    //console.log('###############doSearch###############');
     let page = this.page_no++;
     let data = <SEARCH_QUERY_DATA> {};
     data.fields = "idx,idx_member,gid,sub_category,post_id,text_1,text_2,text_3,int_1,int_2,int_3,int_4,char_1,varchar_1,varchar_2,varchar_3,varchar_4,varchar_6";
@@ -149,9 +149,9 @@ export class JobIndexPage{
     data.orderby = "idx desc";
     data.page = page;
     data.post = 1;
-    this.post.debug = true;
+    //this.post.debug = true;
     this.post.search( data, re => {
-      console.log("search result: ", re);
+      //console.log("search result: ", re);
       this.displayPosts( re );
     }, error => this.app.error("error on search: " + error ) );
   }
@@ -224,12 +224,12 @@ export class JobIndexPage{
 
   onClickProfession(){
     this.searchBy = (!this.searchBy.profession || this.searchBy.more ) ? {profession: true} : {};
-    console.log('SearchBy', this.searchBy);
+    //console.log('SearchBy', this.searchBy);
   }
 
   onClickLocation(){
     this.searchBy = (!this.searchBy.location || this.searchBy.more ) ? {location: true} : {};
-    console.log('SearchBy', this.searchBy);
+    //console.log('SearchBy', this.searchBy);
   }
 
   onClickMore(){

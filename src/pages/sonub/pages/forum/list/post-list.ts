@@ -132,7 +132,7 @@ export class SonubPostListPage {
               //this.endScroll();
             }
 
-            page.posts.map( post => this.posts.push( post ) );
+            //page.posts.map( post => this.posts.push( post ) );
 
 
 
