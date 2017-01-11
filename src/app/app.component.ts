@@ -11,7 +11,7 @@ declare let navigator;
   template: `
     <router-outlet (window:resize)="onResize($event)"></router-outlet>
     <template ngbModalContainer></template>
-    <div class="toast" [class.active]="toast.active">{{toast.content}}</div>
+    <div class="toast" (click)="onClickHideToast()" [class.active]="toast.active">{{toast.content}}</div>
   `
 })
 export class AppComponent implements OnInit {
@@ -120,6 +120,10 @@ export class AppComponent implements OnInit {
       }
       this.alert.open( option );
     } );
+  }
+
+  onClickHideToast(){
+    this.toast.active = false;
   }
 
 

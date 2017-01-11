@@ -31,7 +31,7 @@ job-listing {
         ul.action-group {
           right: .3em;
           bottom: 0;
-          top:initial;
+          top:auto;
           li {
               float: left;
           }
@@ -130,7 +130,7 @@ job-listing {
         @media screen and (min-width: $break-sm) {
           right: .3em;
           bottom: 0;
-          top:initial;
+          top:auto;
         }
         li {
           padding: .2em;
