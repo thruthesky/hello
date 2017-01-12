@@ -6,7 +6,7 @@
       <td width="100%">
           <section class="center">
 
-      <div *ngIf=" ! login "><h3>Please, login first</h3></div>
+      <div *ngIf=" ! login " class="login"><h4>Please, login first..</h4></div>
       <div *ngIf=" login " class="messages">
         <button (click)=" showCreateForm = true ">Send a Message</button>
         <button (click)=" onClickMakeAllRead() ">Make all read</button>

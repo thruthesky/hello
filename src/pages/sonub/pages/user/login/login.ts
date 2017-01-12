@@ -30,13 +30,15 @@ export class SonubLoginPage {
     }
     onClickLogin() {
         console.log("LoginPage::onClickLogin()");
+        if( ! this.form.id ) return this.process.setError( 'Please input user ID...' );
+        if( ! this.form.password ) return this.process.setError( 'Please enter password...' );
         this.login();
     }
 
     login() {
         //this.process.loader = true;
         //this.process.error = '';
-        this.process.startLoader();
+       this.process.startLoader();
         this.member.login( this.form,
             login => {
                 console.log('philgo login success: ', login);

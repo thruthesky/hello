@@ -1,3 +1,23 @@
+@mixin view-component-design {
+  position: relative;
+  margin-bottom: 2.5em;
+  border-bottom-right-radius: 0;
+  border: 1px solid #a9a9a9;
+  background: #f9f9f9;
+  .buttons {
+    position: absolute;
+    right: -1px;
+    bottom: -29px;
+    &>span {
+      float: left;
+      padding: .1em .4em;
+      background-color: #f9f9f9;
+      border: 1px solid #a9a9a9;
+      cursor: pointer;
+    }
+  }
+}
+
 sonub-post-list {
   display: block;
   @include color-combination( 2 );
@@ -10,24 +30,62 @@ sonub-post-list {
     }
   }
   button {
+    background-color: #f7f7f7;
+    color: #000;
     cursor: pointer;
   }
 
-  .buttons {
-    &>span {
-      cursor: pointer;
+  view-component{
+    article {
+      &.post{
+        @include view-component-design;
+      }
+      &.comment {
+        @include view-component-design;
+      }
     }
   }
+
+  edit-component {
+    .fake-textarea {
+      border: 1px solid #a9a9a9;
+      &:before {
+        margin-left: .5em;
+        content: 'Write a comment...';
+        color: #c0c0c0;
+      }
+    }
+  }
+
 
 
 
   .post-list-menu {
     /*position: fixed;
     top: $header-height + $gutter;
-    width: inherit;*/
-    display: inline-block;
-    background-color: #cdcdcd;
-
+    width: inherit;
+    */
+    position: relative;
+    display: block;
+    min-height: 36px;
+    .post-name {
+      padding: .2em .4em 0;
+      font-size: 1.5em;
+    }
+    .new-post {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      padding: .2em .8em;
+      background-color: #f9f9f9;
+      border: 1px solid #a9a9a9;
+      cursor: pointer;
+      &:before {
+        content: '\f067';
+        font-family: FontAwesome;
+        margin-right: 5px;
+      }
+    }
   }
 
   .post {

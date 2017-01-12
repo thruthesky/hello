@@ -13,7 +13,6 @@
             <table border="0">
               <tr>
                 <td colspan="2">
-                  is cordova? {{ cordova | json }}
 
                   <div class="primary-photo" (click)="onClickPrimaryPhoto()">
                     <span class="camera fa-stack fa-lg">
@@ -23,9 +22,9 @@
                     <img [src]="urlPhoto">
                     <input *ngIf=" ! cordova " type="file" name="inputFile" [(ngModel)]="inputFileValue" #file (change)="onChangeFile($event, file.value)">
                   </div><!--/primary-photo-->
-                  
 
-                  
+
+
 
 
                   <div *ngIf=" urlPhoto != urlDefault ">
@@ -69,10 +68,10 @@
               <tr>
                 <td>Gender</td>
                 <td>
-  
-    
+
+
                   <label for="inputGenderM" class="form-check-inline">
-                    
+
                     <input [(ngModel)]="form.gender" class="form-check-input" name="gender" type="radio" id="inputGenderM" value='M'>
                     Male
                   </label>
@@ -80,25 +79,25 @@
                     <input [(ngModel)]="form.gender" class="form-check-input" name="gender" type="radio" id="inputGenderF" value='F'>
                     Female
                   </label>
-  
-                  
+
+
                 </td>
               </tr>
-              
+
               <tr>
                 <td><label for="inputBirthday">Birth Day</label></td>
                 <td><input [(ngModel)]="form.birthday" class="form-control" name="birthday" type="date" id="inputBirthday"></td>
               </tr>
 
-              
+
               <tr>
                 <td></td>
                 <td>
-                  
+
                   <button *ngIf=" ! login " (click)="onClickRegister()" type="submit" class="btn btn-primary">
                     <i class="fa fa-sign-in"></i> {{ ['REGISTER', '회원가입'] | ek }}
                   </button>
-                  
+
                   <button *ngIf=" login " (click)="onClickUpdate()" type="submit" class="btn btn-primary">
                     <i class="fa fa-sign-in"></i> {{ ['UPDATE', '정보수정'] | ek }}
                   </button>
@@ -115,7 +114,7 @@
                       <strong>{{ 'error' | ln }} !</strong> {{ process.error }}
                     </div>
                   </div>
-                  
+
                 </td>
               </tr>
             </table>

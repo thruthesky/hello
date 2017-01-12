@@ -11,8 +11,28 @@
 
 sonub-message-page {
   display: block;
-  @include color-combination( 3 );
+  @include color-combination( 2 );
   font-family: "Malgun Gothic",AppleGothic,sans-serif;
+  section.center {
+      background-color: #f9f9f9;
+    border: 1px solid #a9a9a9;
+    .login {
+      border-top: 1px solid #a4be2b;
+      border-bottom: 1px solid #a4be2b;
+      h4 {
+        padding: .2em;
+        margin: 0;
+        border-top: 2px solid #92b306;
+        border-bottom: 2px solid #92b306;
+        &:before {
+          margin-right: .2em;
+          content: '\f05a';
+          font-family: FontAwesome;
+          color: #92b306;
+        }
+      }
+    }
+  }
   .messages {
     padding: 0 .3em;
     button {

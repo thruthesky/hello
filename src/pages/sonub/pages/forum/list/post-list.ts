@@ -70,7 +70,7 @@ export class SonubPostListPage {
 
     /**
      * This loads posts for a page.
-     * 
+     *
      * It does some initialization before 'loadPage()'.
      * This must be called only one time per 'visit/view'.
      * If you need to load next page, call 'loadPage()'
@@ -88,10 +88,10 @@ export class SonubPostListPage {
         // this.beginScroll();
     }
 
-    
+
 
     /**
-     * This loads only one ( 1 ) post for 'view' mode and loads a bunch of posts for that post_id. 
+     * This loads only one ( 1 ) post for 'view' mode and loads a bunch of posts for that post_id.
      */
     loadPost(idx_post) {
         console.log("SonubPostListPage::loadPost("+idx_post+")");
@@ -196,7 +196,7 @@ export class SonubPostListPage {
     }
 
     onClickPostCreate( ) {
-        this.showPostCreateFrom = true;
+        this.showPostCreateFrom = this.showPostCreateFrom ? false : true;
     }
     editComponentOnCancel() {
         this.showPostCreateFrom = false;
