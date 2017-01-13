@@ -3,12 +3,14 @@ import { ActivatedRoute } from '@angular/router';
 import { PageScroll } from './../../../../../providers/page-scroll';
 import { Post, PAGE, POSTS, POST, PAGE_OPTION, ADS, POST_TOP_ADS, POST_TOP_PREMIUM_ADS } from "../../../../../api/philgo-api/v2/post";
 import { App } from '../../../../../providers/app';
+import { Member, MEMBER_LOGIN } from '../../../../../api/philgo-api/v2/member';
 @Component({
     selector: 'sonub-post-list',
     templateUrl: 'post-list.html'
 })
 export class SonubPostListPage {
     // pages: PAGES = <PAGES> [];
+    login: MEMBER_LOGIN = null;
     posts: POSTS = <POSTS> [];
     view: POST = null;
     showPostCreateFrom: boolean = false;
@@ -25,12 +27,14 @@ export class SonubPostListPage {
 
     noMorePosts: boolean = false; // true when there are no more posts of a page.
     constructor( private post: Post,
+                 private member: Member,
                  activated: ActivatedRoute,
                  private renderer: Renderer,
                  private app: App,
                  private pageScroll: PageScroll ) {
         // console.log("SonubPostListPage::constructor()");
 
+        this.login = member.getLoginData();
         activated.params.subscribe( param => {
             console.log("PostList::constructor::subscribe()")
             // initialize here.
