@@ -18,7 +18,7 @@ export class SonubRegisterPage {
 
     login: MEMBER_LOGIN = null;
     memberData: MEMBER_DATA = null;
-    
+
     form = < MEMBER_REGISTER_DATA > {};
     process = formProcess.reset();
 
@@ -54,7 +54,7 @@ export class SonubRegisterPage {
 
         }, 3000);
     }
-    
+
 
     renderPage() {
         this.ngZone.run(() => {
@@ -75,7 +75,7 @@ export class SonubRegisterPage {
         }, error => {
             console.log('error: ', error);
         });
-        
+
     }
     setTemporaryValues(pre='') {
         let f = this.form;
@@ -94,6 +94,13 @@ export class SonubRegisterPage {
     }
 
     onClickRegister() {
+      if( ! this.form.id ) return this.process.setError( 'Please input user ID...' );
+      if( ! this.form.password ) return this.process.setError( 'Please enter password...' );
+      if( ! this.form.name ) return this.process.setError( 'Please input name...' );
+      if( ! this.form.email ) return this.process.setError( 'Please enter email...' );
+      if( ! this.form.mobile ) return this.process.setError( 'Please input mobile number...' );
+      if( ! this.form.gender ) return this.process.setError( 'Please select gender...' );
+      if( ! this.form.birthday ) return this.process.setError( 'Please input birthday...' );
         this.register();
     }
 
@@ -131,7 +138,7 @@ export class SonubRegisterPage {
 
         })
     }
-    
+
     onChangeFile(event, value) {
         this.showProgress = true;
         // if not logged in, then delete previous primary photo. If logged in, automatically deleted.
@@ -153,7 +160,7 @@ export class SonubRegisterPage {
             );
         }
     }
-    
+
     onClickPrimaryPhoto() {
         if ( ! this.cordova ) return;
         console.log("in cordova, onClickPrimaryPhoto(): ");
@@ -238,7 +245,7 @@ export class SonubRegisterPage {
         try {
             let idx = this.photoUploaded();
             if ( idx ) {
-                
+
                 console.log("deletePrimaryPhoto(). idx: ", idx );
                 let data = {
                     idx: idx,

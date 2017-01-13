@@ -31,4 +31,8 @@ export class JobHeader {
     onClickMenu() {
         this.app.menu = ! this.app.menu;
     }
+
+    onClickClearLocalStorage() {
+      localStorage.clear();
+    }
 }
