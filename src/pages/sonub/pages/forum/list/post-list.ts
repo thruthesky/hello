@@ -124,7 +124,7 @@ export class SonubPostListPage {
         // this.post.debug = true;
         // console.log("load page: ", option);
         this.post.page( option, (page: PAGE) => { // two 1st page because there is a cache for 1st page.
-            console.log("Page no: ", page);
+            // console.log("Page no: ", page);
             this.post_name = page.post_name;
             this.inPageLoading = false;
             if ( page.posts.length == 0 ) {
@@ -206,4 +206,13 @@ export class SonubPostListPage {
         this.showPostCreateFrom = false;
     }
 
+    onEditPost( post: POST ) {
+        console.log("PostList::onEditPost()", post);
+        let element = document.querySelector(`article[idx="${post.idx}"]`);
+        element.scrollIntoView();
+        //let content = document.querySelector(`section.content`);
+        //console.log("element: ", element);
+        //console.log("content: ", content);
+        //content.scrollTo( 0, element.scrollTop );
+    }
 }

@@ -27,6 +27,7 @@
                 [post]="view" [root]="view"
                 [show]="true"
                 [mode] = " 'create-comment' "
+                    (edit) = " onEditPost( $event ) "
               ></view-component>
 
               <div *ngIf=" view?.comments " class="comments">
@@ -35,6 +36,7 @@
                     [post]="comment" [root]="view"
                     [show] = "true"
                     [mode] = " 'create-comment' "
+                    (edit) = " onEditPost( $event ) "
                   ></view-component>
                 </div>
               </div><!--/.comments-->
@@ -88,6 +90,7 @@
                   [post]="post" [root]="post"
                   [show]="true"
                   [mode] = " 'create-comment' "
+                    (edit) = " onEditPost( $event ) "
                 ></view-component>
                 <div *ngIf=" post?.comments " class="comments">
                   <div class="comment" *ngFor=" let comment of post.comments; trackBy: comment?.idx ">
@@ -95,6 +98,7 @@
                       [post]="comment" [root]="post"
                       [show] = "true"
                       [mode] = " 'create-comment' "
+                    (edit) = " onEditPost( $event ) "
                     ></view-component>
                   </div>
                 </div><!--/.comments-->
