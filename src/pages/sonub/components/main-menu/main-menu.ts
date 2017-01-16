@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 //import { Alert, ALERT_OPTION } from '../../../../providers/bootstrap/alert/alert';
 import { Member, MEMBER_LOGIN } from '../../../../api/philgo-api/v2/member';
 import { App } from '../../../../providers/app';
+import { Router } from '@angular/router';
 @Component({
     selector: 'sonub-main-menu',
     templateUrl: 'main-menu.html'
@@ -9,6 +10,7 @@ import { App } from '../../../../providers/app';
 export class SonubMainMenu {
     login: MEMBER_LOGIN = null;
     constructor(
+        private router: Router,
         public app: App,
         public member: Member
     ) {
@@ -25,6 +27,7 @@ export class SonubMainMenu {
     onClickLogout() {
         this.login = null;
         this.member.logout();
+        this.router.navigateByUrl('/');
     }
 
 }

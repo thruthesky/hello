@@ -33,6 +33,9 @@ export class SonubRegisterPage {
     inputFileValue: string = null;
 
     cordova: boolean = false;
+
+    // delete
+    inDeleting: boolean = false;
     constructor(
         private member: Member,
         private data: Data,
@@ -250,8 +253,11 @@ export class SonubRegisterPage {
                 let data = {
                     idx: idx,
                     gid: this.gid
-                }
+                };
+
+                this.inDeleting = true;
                 this.data.delete( data, (re) => {
+                    this.inDeleting = false;
                     console.log("file deleted: idx: ", re.data.idx);
                     if ( silent === void 0 || silent !== true ) {
                         this.progress = 0;
@@ -260,6 +266,7 @@ export class SonubRegisterPage {
                     }
                     this.uploadData = null;
                 }, error => {
+                    this.inDeleting = false;
                     this.member.error( error );
                 } );
             }

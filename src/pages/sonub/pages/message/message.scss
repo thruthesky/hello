@@ -11,7 +11,7 @@
 
 sonub-message-page {
   display: block;
-  @include color-combination( 2 );
+  @include color-combination( 'message' );
   font-family: "Malgun Gothic",AppleGothic,sans-serif;
   section.center {
       background-color: #f9f9f9;

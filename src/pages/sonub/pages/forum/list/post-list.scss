@@ -20,7 +20,7 @@
 
 sonub-post-list {
   display: block;
-  @include color-combination( 2 );
+  @include color-combination( 'forum' );
   section.content{
     .no-more-posts {
       display: none;

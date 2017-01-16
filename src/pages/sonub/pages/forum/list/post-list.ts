@@ -17,7 +17,7 @@ export class SonubPostListPage {
     post_id: string = '';
     post_name: string = '';
     page_no: number = 0;
-    limit: number =  2;
+    limit: number =  5;
     ads: ADS = null;
     post_top_ad: POST_TOP_ADS = null;
     post_top_premium_ad: POST_TOP_PREMIUM_ADS = null;
@@ -177,7 +177,7 @@ export class SonubPostListPage {
     replacePush( page: PAGE, option: PAGE_OPTION ) {
         for( let i = 0; i < option.limit; i ++ ) {
             setTimeout( () => {
-                this.posts[i] = page.posts[i];
+                this.posts[i] = this.pre(page.posts[i]);
             }, 100 + i * 30);
         }
     }
@@ -194,8 +194,10 @@ export class SonubPostListPage {
         this.posts.splice( 0, option.limit );
         // console.log("after: ", this.posts.length);
     }
-    pre( post ) : POST {
-        post.url = this.post.getPermalink( post );
+    pre( post: POST ) : POST {
+        if ( post.idx_parent ) {
+            post.url = this.post.getPermalink( post );
+        }
         return post;
     }
 

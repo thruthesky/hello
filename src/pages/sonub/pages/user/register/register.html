@@ -23,13 +23,11 @@
                     <input *ngIf=" ! cordova " type="file" name="inputFile" [(ngModel)]="inputFileValue" #file (change)="onChangeFile($event, file.value)">
                   </div><!--/primary-photo-->
 
-
-
-
-
-                  <div *ngIf=" urlPhoto != urlDefault ">
-                    <button (click)="onDeletePhoto()">DELETE PHOTO</button>
-                  </div>
+                  <button *ngIf=" urlPhoto != urlDefault " class="delete" (click)="onDeletePhoto()">
+                    <i *ngIf=" ! inDeleting " class="fa fa-trash"></i>
+                    <i *ngIf=" inDeleting " class="fa fa-spinner fa-spin"></i>
+                    DELETE PHOTO
+                  </button>
 
                   <!-- This supports IE 9. IE 9 does not support HTML 5 -->
                   <progress *ngIf=" showProgress " class="progress" value="{{ progress }}" max="100">
