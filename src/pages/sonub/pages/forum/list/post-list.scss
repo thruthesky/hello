@@ -44,6 +44,26 @@ sonub-post-list {
         @include view-component-design;
       }
     }
+
+    .post .article-header,
+    .comment .article-header {
+      background-color: transparent;
+      font-size: .9rem;
+      .url, .date, .nickname, .idx {
+        display: inline-block;
+        padding-right: .4rem;
+      }
+      .url {
+        text-align: right;
+        .text:before {
+          margin-right: 5px;
+          content: '\f0c1';
+          font-family: FontAwesome;
+          font-size: .9rem;
+        }
+      }
+    }
+    
   }
 
   edit-component {
