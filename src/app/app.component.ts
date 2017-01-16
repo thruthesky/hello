@@ -11,7 +11,7 @@ declare let navigator;
   template: `
     <router-outlet (window:resize)="onResize($event)"></router-outlet>
     <template ngbModalContainer></template>
-    <div class="toast" (click)="onClickHideToast()" [class.active]="toast.active">{{toast.content}}</div>
+    <div class="toast" (click)="onClickHideToast()" [attr.active]="toast.active">{{toast.content}}</div>
   `
 })
 export class AppComponent implements OnInit {
@@ -44,9 +44,9 @@ export class AppComponent implements OnInit {
 
   /**
    * Do things on 'deviceready'
-   * 
+   *
    * @note only cordova will run this code.
-   * 
+   *
    */
   onDevinceReady() {
     console.log("yes, I am running in cordova.");
