@@ -100,13 +100,13 @@ export class SonubPostListPage {
     loadPost(idx_post) {
         console.log("SonubPostListPage::loadPost("+idx_post+")");
         //this.post.debug = true;
-        this.post.load(idx_post, response =>{
+        this.post.load(idx_post, response => {
             console.log("data loaded:");
             this.view = <POST> response.post;
             // console.log("Load a post for view : ", this.view );
             // console.log("Load post success on idx : ", idx_post);
             this.loadPosts( this.view.post_id );
-        }, error =>{
+        }, error => {
             this.app.error(error);
             /// this.app.error("Load post error" + error);
         });
