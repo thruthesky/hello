@@ -24,7 +24,7 @@ sonub-post-list {
   section.content{
     .no-more-posts {
       display: none;
-      &.active {
+      &[active=true] {
         display: block;
       }
     }
@@ -63,7 +63,7 @@ sonub-post-list {
         }
       }
     }
-    
+
   }
 
   edit-component {
