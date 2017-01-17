@@ -36,7 +36,7 @@
                 </span>
                 <div class="text">Job</div>
             </li>
-            
+
             <li class="message" *ngIf=" login " routerLink="/message">
                 <span class="icon fa-stack fa-lg">
                     <i class="background fa fa-circle fa-stack-2x"></i>
@@ -52,7 +52,7 @@
                 </span>
                 <div class="text">Signup</div>
             </li>
-            
+
 
             <li class="login" *ngIf=" ! login " routerLink="/user/login">
                 <span class="icon fa-stack fa-lg">
@@ -61,7 +61,7 @@
                 </span>
                 <div>Login</div>
             </li>
-            
+
 
             <li class="business" routerLink="/business">
                 <span class="icon fa-stack fa-lg">
@@ -70,7 +70,7 @@
                 </span>
                 <div>기업회원</div>
             </li>
-            
+
 
 
             <li class="help" routerLink="/help">
@@ -80,7 +80,7 @@
                 </span>
                 <div>Help</div>
             </li>
-            
+
 
 
 
@@ -91,4 +91,4 @@
         </ul>
     </nav>
 </header>
-<sonub-main-menu [class.active]=" app.menu " style="display:none;"></sonub-main-menu>
+<sonub-main-menu [class]=" app.menu ? 'active' : '' " style="display:none;"></sonub-main-menu>
