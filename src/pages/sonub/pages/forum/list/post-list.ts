@@ -195,9 +195,11 @@ export class SonubPostListPage {
         // console.log("after: ", this.posts.length);
     }
     pre( post: POST ) : POST {
-        if ( post.idx_parent ) {
-            post.url = this.post.getPermalink( post );
-        }
+
+
+        post.url = this.post.getPermalink( post );
+            
+
         return post;
     }
 
@@ -220,5 +222,9 @@ export class SonubPostListPage {
         //console.log("element: ", element);
         //console.log("content: ", content);
         //content.scrollTo( 0, element.scrollTop );
+    }
+
+    onViewComponentError( error ) {
+        this.app.error( error );
     }
 }

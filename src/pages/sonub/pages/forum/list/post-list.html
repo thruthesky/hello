@@ -30,16 +30,18 @@
                 [show]="true"
                 [mode] = " 'create-comment' "
                 (edit) = " onEditPost( $event ) "
+                (error) = " onViewComponentError( $event ) "
               ></view-component>
 
               <div *ngIf=" view?.comments " class="comments">
                 <div class="comment" *ngFor=" let comment of view.comments; trackBy: comment?.idx ">
                   <view-component
-                [login_id] = " login?.id "
+                    [login_id] = " login?.id "
                     [post]="comment" [root]="view"
                     [show] = "true"
                     [mode] = " 'create-comment' "
                     (edit) = " onEditPost( $event ) "
+                    (error) = " onViewComponentError( $event ) "
                   ></view-component>
                 </div>
               </div><!--/.comments-->
@@ -95,15 +97,17 @@
                   [show]="true"
                   [mode] = " 'create-comment' "
                     (edit) = " onEditPost( $event ) "
+                    (error) = " onViewComponentError( $event ) "
                 ></view-component>
                 <div *ngIf=" post?.comments " class="comments">
                   <div class="comment" *ngFor=" let comment of post.comments; trackBy: comment?.idx ">
                     <view-component
-                [login_id] = " login?.id "
+                      [login_id] = " login?.id "
                       [post]="comment" [root]="post"
                       [show] = "true"
                       [mode] = " 'create-comment' "
-                    (edit) = " onEditPost( $event ) "
+                      (edit) = " onEditPost( $event ) "
+                      (error) = " onViewComponentError( $event ) "
                     ></view-component>
                   </div>
                 </div><!--/.comments-->
