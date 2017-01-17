@@ -416,3 +416,12 @@ fork of withcenter
 
 새로운 소너브(웹/앱)에서만 된다.
 단, 웹에서 전송은 되지만 수신은 안된다. 웹은 모바일이 아니기 때문이다.
+
+
+
+
+#IE 9 Hashbang
+
+http://stackoverflow.com/questions/17829991/angularjs-how-to-remove-symbol-in-ie9-by-using-route
+Adding this code will make it work, but there are no further explanation on how it worked.
+*RouterModule.forRoot(ROUTES, { useHash: Boolean(history.pushState) === false });
