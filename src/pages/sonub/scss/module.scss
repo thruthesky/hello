@@ -1,6 +1,6 @@
 .toast {
     display: none;
-    &.active { display: block; }
+    &[active='true'] { display: block; }
     position: fixed;
     top: 80px;
     left: 0;
