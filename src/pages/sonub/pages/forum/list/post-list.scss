@@ -110,6 +110,15 @@ sonub-post-list {
 
   .post {
     word-break: break-all;
+    .content {
+
+      table { // some post has someting like 'table width=610', so need to make it fit.
+        width: 100%!important;
+      }
+      img {
+        width: 100%;
+      }
+    }
   }
 
 .posts {
