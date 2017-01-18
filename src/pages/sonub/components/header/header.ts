@@ -24,7 +24,7 @@ export class SonubHeader {
         this.member.logout();
     }
 
-    onClickMenu( $event ) {
+    onClickMenu( event ) {
         event.stopPropagation();
         window.scrollTo( 0, 0 );
         this.app.menu = ! this.app.menu;

@@ -16,7 +16,7 @@ export class PhilippineRegion {
   }
 
   get_province( successCallback, errorCallback) {
-    this.http.get( 'https://philgo.com/etc/location/philippines/json.php' )
+    this.http.get( 'http://philgo.com/etc/location/philippines/json.php' )
         .subscribe( data => {
             try {
                 let re = JSON.parse( data['_body'] );
@@ -30,7 +30,7 @@ export class PhilippineRegion {
   }
 
     get_cities( data, successCallback, errorCallback) {
-        this.http.get( 'https://philgo.com/etc/location/philippines/json.php?province='+data )
+        this.http.get( 'http://philgo.com/etc/location/philippines/json.php?province='+data )
             .subscribe( data => {
                 try {
                     let re = JSON.parse( data['_body'] );
