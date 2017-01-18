@@ -7,7 +7,7 @@ export const API_Token: string = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiO
 
 const cloudSettings: CloudSettings = {
   'core': {
-    'app_id': 'b3867255'
+    'app_id': '57e60f9f'
   },
   'push': {
     'sender_id': '55749236444',
