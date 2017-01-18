@@ -2,15 +2,14 @@ import { NgModule } from '@angular/core';
 
 import { CloudSettings, CloudModule } from '@ionic/cloud-angular';
 import { IonicApi } from './ionic-api';
-
-export const API_Token: string = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI1M2QwNjUzNi0yMjQ2LTRkNzAtOGY3MS1kZWYyOGViODM4NjEifQ.zcB33jlNs27u_iaaLYUIQou4EyRNcAdHRSIyhNfqr38";
+import { IONIC_PUSH_SENDER_ID } from './ionic-share';
 
 const cloudSettings: CloudSettings = {
   'core': {
-    'app_id': '57e60f9f'
+    'app_id': '3603867b'
   },
   'push': {
-    'sender_id': '55749236444',
+    'sender_id': IONIC_PUSH_SENDER_ID,
     'pluginConfig': {
       'ios': {
         'badge': true,

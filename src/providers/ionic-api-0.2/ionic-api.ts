@@ -2,19 +2,14 @@ import { Injectable } from '@angular/core';
 import { Http, Headers, RequestOptions } from '@angular/http';
 import { Push, PushToken, PushSaveTokenOptions, IPushMessage } from '@ionic/cloud-angular';
 import { Member } from '../../api/philgo-api/v2/member';
-export interface PUSH_MESSAGE {
-    token: string;
-    title: string;
-    content: string;
-};
+import { IONIC_PUSH_API_TOKEN, IONIC_PUSH_MESSAGE, IONIC_PROFILE_TAG_NAME } from '../ionic-api-0.2/ionic-share';
 @Injectable()
 export class IonicApi {
     
-    url: string = "https://api.ionic.io/"
-    API_Token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI1M2QwNjUzNi0yMjQ2LTRkNzAtOGY3MS1kZWYyOGViODM4NjEifQ.zcB33jlNs27u_iaaLYUIQou4EyRNcAdHRSIyhNfqr38"; // coming from ionic cloud ==> settings => api keys.
+    url: string = "https://api.ionic.io/";
     headers: Headers = new Headers({
         "Content-Type" : "application/json",
-        "Authorization" : "Bearer " + this.API_Token
+        "Authorization" : "Bearer " + IONIC_PUSH_API_TOKEN
     });
     options = new RequestOptions({ "headers" : this.headers });
 
@@ -83,7 +78,7 @@ export class IonicApi {
             } );;
     }
 
-    sendPushNotification( option: PUSH_MESSAGE, successCallback?: () => void, failureCallback?: (err) => void ) {
+    sendPushNotification( option: IONIC_PUSH_MESSAGE, successCallback?: () => void, failureCallback?: (err) => void ) {
 
         if ( ! option.token ) return failureCallback("input token"); // 모바일을 쓰지 않는 회원은 token 이 없다.
         if ( ! option.title ) return failureCallback("input title");
@@ -92,7 +87,7 @@ export class IonicApi {
 
         let data = {
             "tokens": [ option.token ],
-            "profile": "ionichack", // Change it to Security Profile Tag. It is TAG. Not profile name.
+            "profile": IONIC_PROFILE_TAG_NAME,
             "notification": {
                 "title" : option.title,
                 "message": option.content

@@ -144,9 +144,23 @@ export class SonubPostListPage {
                 this.replacePush( page, option );
                 //if ( page.post_top_ad !== void 0 && page.post_top_ad.length ) this.post_top_ad = page.post_top_ad;
                 if ( page.ads !== void 0 ) this.ads = page.ads;
-                if ( page.post_top_ad !== void 0 ) this.post_top_ad = page.post_top_ad;
-                if ( page.post_top_premium_ad !== void 0 ) this.post_top_premium_ad = page.post_top_premium_ad;
-                // this.removeFirstPage( option );
+                if ( page.post_top_ad !== void 0 && page.post_top_ad.length ) {
+                    for ( let ad of page.post_top_ad ) {
+                        let arrEx = this.post.explode( '%3D', ad.url );
+                        let no = arrEx[ arrEx.length -1 ];
+                        ad['ad_idx'] = no;
+                    }
+                    this.post_top_ad = page.post_top_ad;
+                    console.log(this.post_top_ad);
+                }
+                if ( page.post_top_premium_ad !== void 0 && page.post_top_premium_ad.length ) {
+                    for ( let ad of page.post_top_premium_ad ) {
+                        let arrEx = this.post.explode( '%3D', ad.url );
+                        let no = arrEx[ arrEx.length -1 ];
+                        ad['ad_idx'] = no;
+                    }
+                    this.post_top_premium_ad = page.post_top_premium_ad;
+                }
             }
             else this.delayPush( page );
 
@@ -203,13 +217,6 @@ export class SonubPostListPage {
     onClickPostCreate( ) {
         this.showPostCreateFrom = this.showPostCreateFrom ? false : true;
     }
-    editComponentOnCancel() {
-        this.showPostCreateFrom = false;
-    }
-
-    editComponentOnSuccess() {
-        this.showPostCreateFrom = false;
-    }
 
     onEditPost( post: POST ) {
         console.log("PostList::onEditPost()", post);
@@ -223,5 +230,17 @@ export class SonubPostListPage {
 
     onViewComponentError( error ) {
         this.app.error( error );
+    }
+
+    OnEditComponentError( error ) {
+        this.app.error( error );
+    }
+
+    OnEditComponentCancel() {
+        this.showPostCreateFrom = false;
+    }
+
+    OnEditComponentSuccess() {
+        this.showPostCreateFrom = false;
     }
 }

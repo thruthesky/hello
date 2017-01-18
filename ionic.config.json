@@ -1,6 +1,7 @@
 {
-  "name": "ionic-hack",
-  "app_id": "57e60f9f",
+
+  "name": "sonub",
+  "app_id": "3603867b",
   "v2": true,
   "typescript": true,
   "proxies": [

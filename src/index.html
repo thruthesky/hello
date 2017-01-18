@@ -10,7 +10,7 @@
       if ( typeof IonicDevServer != 'undefined' ) path = '/'; // live reload. source comes from desktop computer.
       else path = './'; // For production mode of mobile app, no live reload. so, <base href='./'> for app update.
     }
-    else path = '/'; // For web, change <base href=''> to <base href='/'> for reloading. 
+    else path = '/'; // For web, change <base href=''> to <base href='/'> for reloading.
     var theBase = document.getElementById("baseHref");
     theBase.href = path;
   </script>
@@ -24,7 +24,7 @@
   <link rel="icon" type="image/x-icon" href="assets/icon/favicon.ico">
   <!--No use for webapp or web woker <link rel="manifest" href="manifest.json">-->
   <meta name="theme-color" content="#4e8ef7">
-  
+
   <link href="build/main.css" rel="stylesheet">
   <link rel="stylesheet" href="assets/bootstrap-v4/bootstrap.min.css">
   <link rel="stylesheet" href="assets/font-awesome-v4/css/font-awesome.min.css">
@@ -34,7 +34,7 @@
 
   <!-- Ionic's root component and where the app will load -->
   <app-component>
-    
+
     <style>
       .app-loader { margin: 0 auto; width: 80%; max-width: 540px; text-align: center; }
       .app-loader .l { margin-bottom: 2.6em; }
@@ -44,9 +44,9 @@
       <div class="l"><img src="assets/img/philgo-loader.svg"></div>
       <div class="t"><i class="fa fa-spinner fa-spin"></i> 필고를 로딩중입니다.</div>
     </div>
-    
+
   </app-component>
-  
+
   <!-- The polyfills js is generated during the build process -->
   <script src="build/polyfills.js"></script>
 

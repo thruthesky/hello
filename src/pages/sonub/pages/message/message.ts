@@ -2,7 +2,8 @@ import { Component, Renderer } from '@angular/core';
 import { Message, MESSAGE, MESSAGES, MESSAGE_LIST, MESSAGE_FORM } from '../../../../api/philgo-api/v2/message';
 import { Member, MEMBER_LOGIN } from '../../../../api/philgo-api/v2/member';
 import { App } from '../../../../providers/app';
-import { IonicApi, PUSH_MESSAGE } from '../../../../providers/ionic-api-0.2/ionic-api';
+import { IonicApi } from '../../../../providers/ionic-api-0.2/ionic-api';
+import { IONIC_PUSH_MESSAGE } from '../../../../providers/ionic-api-0.2/ionic-share';
 import * as _ from 'lodash';
 
 @Component({
@@ -203,7 +204,7 @@ export class SonubMessagePage {
 
     sendPushNotification( re ) {
         
-        let option: PUSH_MESSAGE = {
+        let option: IONIC_PUSH_MESSAGE = {
             token: re['pushToken'],
             title: "New Message",
             content: "You have a new message. Please open the message menu."
