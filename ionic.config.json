@@ -7,7 +7,7 @@
   "proxies": [
     {
       "path": "/[a-zA-Z0-9/-_]+",
-      "proxyUrl": "http://localhost:8100/"
+      "proxyUrl": "http://192.168.13.2:8100/"
     }
   ]
 }
