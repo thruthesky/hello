@@ -22,6 +22,7 @@ export class JobHeader {
 
     onClickHeader() {
         window.scrollTo( 0, 0 );
+        if ( this.app.menu ) this.app.menu = false;
     }
     onClickLogout() {
         this.login = null;
@@ -33,6 +34,7 @@ export class JobHeader {
     }
 
     onClickClearLocalStorage() {
-      localStorage.clear();
+        this.app.alarm( "Cache data has been deleted!");
+        localStorage.clear();
     }
 }
