@@ -11,32 +11,38 @@ header {
     }
 }
 
-aside.left {
-    margin-right: $gutter;
-    width: $left_width;
-}
-
-aside.right {
-    margin-left: $gutter;
-    width: $right_width;
-}
-
 section.content {
+    position: relative;
     margin-top: $gutter;
     margin-left: auto;
     margin-right: auto;
     max-width: $content-width;
-    overflow: hidden;
-    & > .row {
-        @include no-gutter();
-        & > .left, & > .right, & > .center {
-            @include no-gutter();
-        }
-    }
-
-    @media all and ( max-width: $break-point ) {
+    @media all and ( max-width: $break-point ) { // padding on content when it is small.
         padding: $gutter;
     }
 }
 
 
+/** LAYOUT FOR LARGE DEVICE or Browser */
+aside.left {
+    margin-right: $gutter;
+    float: left;
+    width: $left_width;
+}
+
+aside.right {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-left: $gutter;
+    width: $right_width;
+}
+
+section.center {
+    @media all and ( min-width: $break-point ) {
+        position: relative;
+        margin-right: $right_width + $gutter;
+        overflow: auto;
+    }
+}
+/** END OF LAYOUT FOR LARGE DEVICE */

@@ -1,10 +1,7 @@
 <sonub-header></sonub-header>
 <section class="content">
-  <table width="100%" cellpadding="0" cellspacing="0">
-    <tr valign="top">
-      <td *ngIf=" app.size == 'big' "><sonub-left></sonub-left></td>
-      <td width="100%">
-          <section class="center">
+  <sonub-left *ngIf=" app.size == 'big' "></sonub-left>
+  <section class="center">
 
             <div class="post-list-menu">
               <div *ngIf="post_name" class="post-name">{{ post_name }}</div>
@@ -108,10 +105,8 @@
             </div><!--/.posts-->
             <div [attr.active]=" ! noMorePosts " class="in-page-loading"><i class="fa fa-spinner fa-spin"></i> Loading ...</div>
             <div [attr.active]=" noMorePosts " class="no-more-posts">No more posts</div>
-        </section><!--/.center-->
-      </td>
-      <td *ngIf=" app.size == 'big' "><sonub-right></sonub-right></td>
-    </tr>
-  </table>
-
+        
+        
+          </section><!--/.center-->
+  <sonub-right *ngIf=" app.size == 'big' "></sonub-right>
 </section><!--/section.content-->

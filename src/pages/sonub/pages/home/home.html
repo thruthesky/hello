@@ -1,10 +1,7 @@
 <sonub-header></sonub-header>
 <section class="content">
-  <table width="100%" cellpadding="0" cellspacing="0">
-    <tr valign="top">
-      <td *ngIf=" app.size == 'big' "><sonub-left></sonub-left></td>
-      <td width="100%">
-          <section class="center">
+  <sonub-left *ngIf=" app.size == 'big' "></sonub-left>
+  <section class="center">
             <sonub-news class="news"></sonub-news>
             <div class="main-banner">
               <img src="assets/img/ads.png">
@@ -12,16 +9,11 @@
             <sonub-sales></sonub-sales>
             <latest-post-component></latest-post-component>
             <sonub-latest-photo
-              #sonubLatestPhoto
-              [post_id]   = " 'freetalk' "
-              [limit]     = " 20 "
+                #sonubLatestPhoto
+                [post_id]   = " 'freetalk' "
+                [limit]     = " 20 "
             ></sonub-latest-photo>
-          
             <div class="in-page-loading"><i class="fa fa-spinner fa-spin"></i> Loading ...</div>
-          </section><!--/.center-->
-      </td>
-      <td *ngIf=" app.size == 'big' "><sonub-right></sonub-right></td>
-    </tr>
-  </table>
-
+  </section><!--/.center-->
+  <sonub-right *ngIf=" app.size == 'big' "></sonub-right>
 </section><!--/section.content-->

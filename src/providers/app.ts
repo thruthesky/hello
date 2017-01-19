@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { AppComponent } from '../app/app.component';
 //declare let navigator;
 import { Alert, ALERT_OPTION } from '../providers/bootstrap/alert/alert';
+const BREAK_POINT = 760; // it should match in vars.scss
 @Injectable()
 export class App {
     appComponent: AppComponent = null;
@@ -22,7 +23,7 @@ export class App {
         return this._width;
     }
     get size() {
-        if ( this.width < 760 ) return 'small';
+        if ( this.width < BREAK_POINT ) return 'small';
         else return 'big';
     }
 
