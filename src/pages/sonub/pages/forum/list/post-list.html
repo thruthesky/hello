@@ -88,7 +88,8 @@
                     (edit) = " onEditPost( $event ) "
                     (error) = " onViewComponentError( $event ) "
                 ></view-component>
-                <div *ngIf=" post?.comments " class="comments">
+                <div (click)=" post['comments_more'] = true "> Show more comments.</div>
+                <div *ngIf=" post?.comments " class="comments" [class.more]=" !! post?.comments_more " >
                   <div class="comment" *ngFor=" let comment of post.comments; trackBy: comment?.idx ">
                     <view-component
                       [login_id] = " login?.id "

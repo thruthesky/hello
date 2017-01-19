@@ -253,3 +253,24 @@ sonub-post-list {
         }
     }
 }
+
+
+.post .comments {
+  .comment {
+    display: none;
+
+    &:last-child,
+    &:nth-last-child(2),
+    &:nth-last-child(3) {
+      display: block;
+    }
+
+  }
+
+  &.more {
+    .comment {
+
+    display: block;
+    }
+  }
+}
