@@ -53,7 +53,7 @@ const appRoutes: Routes = [
 
 @NgModule({
     imports: [
-      RouterModule.forRoot(appRoutes, { useHash: Boolean(history.pushState) === false })
+      RouterModule.forRoot(appRoutes, { useHash: ! history.pushState })
     ],
     exports: [
         RouterModule
