@@ -17,7 +17,7 @@ export class SonubPostListPage {
     post_id: string = '';
     post_name: string = '';
     page_no: number = 0;
-    limit: number =  15;
+    limit: number =  20;
     ads: ADS = null;
     post_top_ad: POST_TOP_ADS = null;
     post_top_premium_ad: POST_TOP_PREMIUM_ADS = null;
