@@ -1,13 +1,15 @@
 <sonub-header></sonub-header>
 <section class="content">
+  <sonub-left *ngIf=" app.size == 'big' "></sonub-left>
+  <section class="center">
 
     <h1>Sonub Forum Page</h1>
-    
+
     <a routerLink="/forum/greeting">Greetings</a><br />
     <a routerLink="/forum/qna">QnA Forum</a><br />
     <a routerLink="/forum/job">1st Forum</a><br />
     <a routerLink="/forum/jobs">2nd Forum</a>
 
-
-</section>
-<sonub-footer></sonub-footer>
+  </section><!--/.center-->
+  <sonub-right *ngIf=" app.size == 'big' "></sonub-right>
+</section><!--/section.content-->

@@ -199,7 +199,7 @@ sonub-post-list {
       }
     }
     .text {
-      
+
         color: #000;
         text-decoration: none;
         .subject {
@@ -217,7 +217,7 @@ sonub-post-list {
           height: 20px;
           overflow: hidden;
         }
-      
+
     }
   }
 }
@@ -225,7 +225,7 @@ sonub-post-list {
 
 /**
  *
- * 
+ *
  *
  */
 .posts .ads {
@@ -255,22 +255,29 @@ sonub-post-list {
 }
 
 
-.post .comments {
-  .comment {
-    display: none;
+.post, .view {
+  .show-more {
+    cursor: pointer;
+  }
+  .comments {
+    .comment {
+      display: none;
 
-    &:last-child,
-    &:nth-last-child(2),
-    &:nth-last-child(3) {
-      display: block;
+      &:last-child,
+      &:nth-last-child(2),
+      &:nth-last-child(3),
+      &:nth-last-child(4),
+      &:nth-last-child(5){
+        display: block;
+      }
+
     }
 
-  }
+    &.more {
+      .comment {
 
-  &.more {
-    .comment {
-
-    display: block;
+        display: block;
+      }
     }
   }
 }

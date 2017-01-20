@@ -1,10 +1,7 @@
 <sonub-header></sonub-header>
 <section class="content">
-  <table width="100%" cellpadding="0" cellspacing="0">
-    <tr valign="top">
-      <td *ngIf=" app.size == 'big' "><sonub-left></sonub-left></td>
-      <td width="100%">
-          <section class="center">
+  <sonub-left *ngIf=" app.size == 'big' "></sonub-left>
+  <section class="center">
 
           <h1 *ngIf=" ! login ">{{ ['User Registration', '회원가입'] | ek }}</h1>
           <h1 *ngIf=" login ">{{ ['Account Update', '회원 정보 수정'] | ek }}</h1>
@@ -119,10 +116,7 @@
 
 
           </form>
-          </section><!--/.center-->
-      </td>
-      <td *ngIf=" app.size == 'big' "><sonub-right></sonub-right></td>
-    </tr>
-  </table>
-
+  </section><!--/.center-->
+  <sonub-right *ngIf=" app.size == 'big' "></sonub-right>
 </section><!--/section.content-->
+

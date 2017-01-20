@@ -29,8 +29,8 @@
                 (edit) = " onEditPost( $event ) "
                 (error) = " onViewComponentError( $event ) "
               ></view-component>
-
-              <div *ngIf=" view?.comments " class="comments">
+              <div class="show-more" (click)=" view['comments_more'] = true " *ngIf="view?.comments?.length > 5"> Show more comments.</div>
+              <div *ngIf=" view?.comments " class="comments" [class.more]=" !! view?.comments_more ">
                 <div class="comment" *ngFor=" let comment of view.comments; trackBy: comment?.idx ">
                   <view-component
                     [login_id] = " login?.id "
@@ -88,7 +88,7 @@
                     (edit) = " onEditPost( $event ) "
                     (error) = " onViewComponentError( $event ) "
                 ></view-component>
-                <div (click)=" post['comments_more'] = true "> Show more comments.</div>
+                <div class="show-more" (click)=" post['comments_more'] = true " *ngIf="post?.comments?.length > 5"> Show more comments.</div>
                 <div *ngIf=" post?.comments " class="comments" [class.more]=" !! post?.comments_more " >
                   <div class="comment" *ngFor=" let comment of post.comments; trackBy: comment?.idx ">
                     <view-component
@@ -106,8 +106,7 @@
             </div><!--/.posts-->
             <div [attr.active]=" ! noMorePosts " class="in-page-loading"><i class="fa fa-spinner fa-spin"></i> Loading ...</div>
             <div [attr.active]=" noMorePosts " class="no-more-posts">No more posts</div>
-        
-        
-          </section><!--/.center-->
+
+  </section><!--/.center-->
   <sonub-right *ngIf=" app.size == 'big' "></sonub-right>
 </section><!--/section.content-->

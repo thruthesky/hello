@@ -1,10 +1,7 @@
 <sonub-header></sonub-header>
 <section class="content">
-  <table width="100%" cellpadding="0" cellspacing="0">
-    <tr valign="top">
-      <td *ngIf=" app.size == 'big' "><sonub-left></sonub-left></td>
-      <td width="100%">
-          <section class="center">
+  <sonub-left *ngIf=" app.size == 'big' "></sonub-left>
+  <section class="center">
 
 
                     <h1>{{ title }} </h1>
@@ -12,13 +9,8 @@
                     <br>
                     url: {{ url }}
 
-
-        </section><!--/.center-->
-      </td>
-      <td *ngIf=" app.size == 'big' "><sonub-right></sonub-right></td>
-    </tr>
-  </table>
-
+  </section><!--/.center-->
+  <sonub-right *ngIf=" app.size == 'big' "></sonub-right>
 </section><!--/section.content-->
 
 

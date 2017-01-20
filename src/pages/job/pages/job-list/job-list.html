@@ -1,10 +1,7 @@
 <job-header></job-header>
 <section class="content">
-  <table width="100%" cellpadding="0" cellspacing="0">
-    <tr valign="top">
-      <td *ngIf=" app.size == 'big' "><job-left></job-left></td>
-      <td width="100%">
-        <section class="center">
+  <job-left *ngIf=" app.size == 'big' "></job-left>
+  <section class="center">
 
           <job-listing
                   [pages]="pages" [root]="pages"
@@ -14,10 +11,6 @@
 
           <div [class.active]=" ! noMorePosts " class="no-more-posts in-page-loading"><i class="fa fa-spinner fa-spin"></i> Loading ...</div>
           <div [class.active]=" noMorePosts " class="no-more-posts">No more posts</div>
-        </section><!--/.center-->
-      </td>
-      <td *ngIf=" app.size == 'big' "><job-right></job-right></td>
-    </tr>
-  </table>
-
+  </section><!--/.center-->
+  <job-right *ngIf=" app.size == 'big' "></job-right>
 </section><!--/section.content-->
