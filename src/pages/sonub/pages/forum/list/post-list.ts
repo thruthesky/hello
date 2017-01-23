@@ -220,7 +220,7 @@ export class SonubPostListPage {
 
     onEditPost( post: POST ) {
         console.log("PostList::onEditPost()", post);
-        let element = document.querySelector(`article[idx="${post.idx}"]`);
+        let element:HTMLElement = <HTMLElement>document.querySelector(`article[idx="${post.idx}"]`);
         element.scrollIntoView();
         //let content = document.querySelector(`section.content`);
         //console.log("element: ", element);

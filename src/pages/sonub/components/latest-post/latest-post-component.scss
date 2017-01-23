@@ -1,7 +1,7 @@
 @mixin title_icon( $icon ) {
     .title:before {
         font-family: "FontAwesome";
-        padding-right : 3px; 
+        padding-right : 3px;
         content: $icon;
     }
 }
@@ -11,7 +11,10 @@ latest-post-component {
     display: block;
 }
 .latest-posts {
-    
+    div.col {
+      float: left;
+      width: 50%;
+    }
     .title, .post {
         font-family: Gulim,AppleGothic,"Malgun Gothic", Arial, Helvetica, sans-serif;
         font-size: 12px;
@@ -31,7 +34,7 @@ latest-post-component {
     }
 
     .posts {
-        padding-left:0.5em;   
+        padding-left:0.5em;
         .post {
             position: relative;
             padding: .2em;
@@ -63,8 +66,8 @@ latest-post-component {
                     top: -.1em;
                     left: -.4em;
                 }
-                
-                &[length="1"] { 
+
+                &[length="1"] {
                     background-color: #ccc;
                     i {
                         left: .3em;
@@ -82,7 +85,7 @@ latest-post-component {
         }
     }
 
-    
+
 }//latest component
 
 

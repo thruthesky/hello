@@ -1,28 +1,24 @@
 <div class="title" *ngIf="title">{{ title }}</div>
 <div *ngIf=" posts " class="posts">
   <div *ngFor=" let post of posts " routerLink="{{ post.url }}" class="post">
-    <table>
-      <tr>
-        <td class="left" *ngIf="post?.photos?.length">
-          <div class="photo" *ngIf="post.photos[0]?.url_thumbnail">
-            <img [src]="post.photos[0]?.url_thumbnail">
-          </div>
-        </td>
-        <td class="right">
-          <div class="info">
-            <span class="name">{{post.user_name}}</span><span>Date:{{post.date}} Viewed:{{post.no_of_view}}</span>
-          </div>
-          <div class="subject">
-            <span class="title">{{ post.subject }}</span><span *ngIf="post.no_of_comment">({{post.no_of_comment}})</span>
-          </div>
-          <div class="content" *ngIf="post.content">
-            <span>{{post.content}}</span>
-          </div>
-          <div class="comment" *ngIf="post?.comments?.length">
-            <span>{{post.comments[0].content}}</span>
-          </div>
-        </td>
-      </tr>
-    </table>
+    <div class="left" *ngIf="post?.photos?.length">
+      <div class="photo" *ngIf="post.photos[0]?.url_thumbnail">
+        <img [src]="post.photos[0]?.url_thumbnail">
+      </div>
+    </div>
+    <div class="right">
+      <div class="info">
+        <span class="name">{{post.user_name}}</span><span>Date:{{post.date}} Viewed:{{post.no_of_view}}</span>
+      </div>
+      <div class="subject">
+        <span class="title">{{ post.subject }}</span><span *ngIf="post.no_of_comment">({{post.no_of_comment}})</span>
+      </div>
+      <div class="content" *ngIf="post.content">
+        <span>{{post.content}}</span>
+      </div>
+      <div class="comment" *ngIf="post?.comments?.length">
+        <span>{{post.comments[0].content}}</span>
+      </div>
+    </div>
   </div>
 </div>
