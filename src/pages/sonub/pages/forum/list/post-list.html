@@ -29,10 +29,41 @@
         (edit) = " onEditPost( $event ) "
         (error) = " onViewComponentError( $event ) "
       ></view-component>
-      <div class="show-more" (click)=" view['comments_more'] = true "   *ngIf="view?.comments?.length > 5 && !view['comments_more']"> Show more comments.</div>
+      <!--div class="show-more" (click)=" view['comments_more'] = true "   *ngIf="view?.comments?.length > 5 && !view['comments_more']"> Show more comments.</div>
       <div class="comments">
         <ng-container *ngFor=" let comment of view?.comments; trackBy: comment?.idx; let i = index; ">
           <div class="comment" *ngIf="i >= (view?.comments.length - 1) || !!view?.comments_more">
+            <view-component
+              [login_id] = " login?.id "
+              [post]="comment" [root]="view"
+              [show] = "true"
+              [mode] = " 'create-comment' "
+              (edit) = " onEditPost( $event ) "
+              (error) = " onViewComponentError( $event ) "
+            ></view-component>
+          </div>
+        </ng-container>
+      </div><!--/.comments-->
+
+      <div class="show-more"
+           (click)=" view['remaining_comment'] = view?.comments "
+           *ngIf="view?.comments?.length > 5 && !view['remaining_comment']"
+      > Show more comments.</div>
+      <div class="comments">
+        <ng-container *ngIf="view['remaining_comment']?.length">
+          <div class="comment" *ngFor=" let comment of view['remaining_comment']; trackBy: comment?.idx;">
+            <view-component
+              [login_id] = " login?.id "
+              [post]="comment" [root]="view"
+              [show] = "true"
+              [mode] = " 'create-comment' "
+              (edit) = " onEditPost( $event ) "
+              (error) = " onViewComponentError( $event ) "
+            ></view-component>
+          </div>
+        </ng-container>
+        <ng-container *ngIf="view['last_five_comment']">
+          <div class="comment" *ngFor=" let comment of view['last_five_comment']; trackBy: comment?.idx;">
             <view-component
               [login_id] = " login?.id "
               [post]="comment" [root]="view"

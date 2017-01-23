@@ -13,6 +13,14 @@
     else path = '/'; // For web, change <base href=''> to <base href='/'> for reloading.
     var theBase = document.getElementById("baseHref");
     theBase.href = path;
+
+
+
+    var myNav = navigator.userAgent.toLowerCase();
+    var IE = (myNav.indexOf('msie') != -1) ? parseInt(myNav.split('msie')[1]) : false;
+    if (IE && IE <= 8) {
+      alert('Your Browser is IE 8 or older version...\n Please update or change your browser...');
+    }
   </script>
 
   <meta charset="UTF-8">
@@ -40,7 +48,7 @@
       .app-loader .l { margin-bottom: 2.6em; }
       .app-loader .l img { display: block; width: 100%; }
     </style>
-    <div class="app-loader">
+    <div class="app-loader" id="app-loader">
       <div class="l"><img src="assets/img/philgo-loader.svg"></div>
       <div class="t"><i class="fa fa-spinner fa-spin"></i> 필고를 로딩중입니다.</div>
     </div>
@@ -55,6 +63,12 @@
 
 
 <script>
+
+  if (IE && IE <= 8) {
+    var notice = document.getElementById("app-loader");
+    notice.innerHTML ='Your Browser is IE 8 or older version...<br> Please update or change your browser...';
+  }
+
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
