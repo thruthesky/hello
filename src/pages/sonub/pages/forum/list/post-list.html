@@ -45,13 +45,10 @@
         </ng-container>
       </div><!--/.comments-->
 
-      <div class="show-more"
-           (click)=" view['remaining_comment'] = view?.comments "
-           *ngIf="view?.comments?.length > 5 && !view['remaining_comment']"
-      > Show more comments.</div>
+      <div class="show-more" *ngIf="view?.comments?.length && !view['more']" (click)="view['more'] = true">Show {{ view?.comments?.length }} more comments.</div>
       <div class="comments">
-        <ng-container *ngIf="view['remaining_comment']?.length">
-          <div class="comment" *ngFor=" let comment of view['remaining_comment']; trackBy: comment?.idx;">
+        <ng-container *ngIf=" view['more'] ">
+          <div class="comment" *ngFor=" let comment of view['comments']; trackBy: comment?.idx;">
             <view-component
               [login_id] = " login?.id "
               [post]="comment" [root]="view"
