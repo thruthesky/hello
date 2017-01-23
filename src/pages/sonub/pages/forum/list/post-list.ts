@@ -110,6 +110,7 @@ export class SonubPostListPage {
       }
       else {
         this.view['last_five_comment'] = response.post['comments'];
+        response.post['comments'] = null;
       }
 
 
