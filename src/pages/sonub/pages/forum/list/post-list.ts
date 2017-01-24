@@ -103,16 +103,19 @@ export class SonubPostListPage {
     //this.post.debug = true;
     this.post.load(idx_post, response => {
       console.log("data loaded:");
-      this.view = <POST> response.post;
-      if(response.post['comments']) {
-        if ( response.post['comments'].length > 5 ) {
-          this.view['last_five_comment'] = response.post['comments'].splice(response.post['comments'].length - 5, 5);
-        }
-        else {
-          this.view['last_five_comment'] = response.post['comments'];
-          response.post['comments'] = null;
-        }
-      }
+      this.view = this.pre( <POST> response.post );
+      
+      
+      // @deprecared - 
+      // if(response.post['comments']) {
+      //   if ( response.post['comments'].length > 5 ) {
+      //     this.view['last_five_comment'] = response.post['comments'].splice(response.post['comments'].length - 5, 5);
+      //   }
+      //   else {
+      //     this.view['last_five_comment'] = response.post['comments'];
+      //     response.post['comments'] = null;
+      //   }
+      // }
 
 
 
@@ -224,8 +227,17 @@ export class SonubPostListPage {
   }
   pre( post: POST ) : POST {
     if ( post === void 0 ) return null; // this error really happened.
-    post['url'] = this.post.getPermalink( post );
 
+    if ( post.idx_parent !== void 0 ) {
+      post['url'] = this.post.getPermalink( post );
+    }
+    
+
+    
+
+/**
+ * @deprecared - divide comments into two.
+ * 
     if(post['comments']){
       if( post['comments'].length > 5 ) {
         post['last_five_comment'] = post['comments'].splice(post['comments'].length - 5, 5);
@@ -235,8 +247,27 @@ export class SonubPostListPage {
         post['comments'] = null;
       }
     }
-
+*/
     return post;
+  }
+
+
+
+  hideCommentsUntil( post ) {
+    let len = post['comments'].length;
+    if ( len > 5 ) {
+      return post['comments'].slice( 0, len - 5 );
+    }
+  }
+  lastFiveComments( post: POST ) {
+
+    if ( post['comments'] && post['comments'].length ) {
+      let len = post['comments'].length;
+      if ( len - 5 > 0 ) {
+        return post['comments'].slice( len -5, len );
+      }
+    }
+    return post['comments'];
   }
 
   onClickPostCreate( ) {

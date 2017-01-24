@@ -12,7 +12,7 @@ import { SonubModule } from "../pages/sonub/sonub.module";
 
 import { JobModule } from "../pages/job/app/job.module";
 
-import { IonicApiModule } from "../providers/ionic-api-0.2/ionic-api.module";
+// import { IonicApiModule } from "../providers/ionic-api-0.2/ionic-api.module"; // removed by Mr. Song.
 
 
 import { PageScroll } from '../providers/page-scroll';
@@ -27,7 +27,7 @@ import { BootstrapModule } from '../providers/bootstrap/bootstrap';
   imports: [
     BrowserModule,
     AppRouteModule,
-    IonicApiModule,
+//    IonicApiModule,
     SonubModule,
     JobModule,
     BootstrapModule

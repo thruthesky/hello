@@ -4,7 +4,7 @@ import { formProcess } from '../../../../../etc/share';
 import { Member, MEMBER_LOGIN_DATA } from '../../../../../api/philgo-api/v2/member';
 import { App } from '../../../../../providers/app';
 import { LanguagePipe } from '../../../../../pipes/language/language.pipe';
-import { IonicApi } from '../../../../../providers/ionic-api-0.2/ionic-api';
+//import { IonicApi } from '../../../../../providers/ionic-api-0.2/ionic-api';
 @Component({
     selector: 'sonub-login-page',
     templateUrl: 'login.html'
@@ -18,7 +18,7 @@ export class SonubLoginPage {
 //        private auth: FirebaseAuth,
         private ln: LanguagePipe,
         private router: AppRouter,
-        private ionic: IonicApi,
+//        private ionic: IonicApi,
         public app: App
     ) {
 
@@ -42,7 +42,7 @@ export class SonubLoginPage {
         this.member.login( this.form,
             login => {
                 console.log('philgo login success: ', login);
-                this.ionic.registerPushNotification( s => s, e => e );
+//                this.ionic.registerPushNotification( s => s, e => e );
                 this.router.go('/');
                 // this.loginFirebase( login );
             },
