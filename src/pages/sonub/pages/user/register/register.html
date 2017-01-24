@@ -3,119 +3,100 @@
   <sonub-left *ngIf=" app.size == 'big' "></sonub-left>
   <section class="center">
 
-          <h1 *ngIf=" ! login ">{{ ['User Registration', '회원가입'] | ek }}</h1>
-          <h1 *ngIf=" login ">{{ ['Account Update', '회원 정보 수정'] | ek }}</h1>
+    <h1 *ngIf=" ! login ">{{ ['User Registration', '회원가입'] | ek }}</h1>
+    <h1 *ngIf=" login ">{{ ['Account Update', '회원 정보 수정'] | ek }}</h1>
 
-          <form>
-            <table border="0">
-              <tr>
-                <td colspan="2">
-
-                  <div class="primary-photo" (click)="onClickPrimaryPhoto()">
+    <form>
+      <div class="photo-container">
+        <div class="primary-photo" (click)="onClickPrimaryPhoto()">
                     <span class="camera fa-stack fa-lg">
                       <i class="fa fa-circle fa-stack-2x"></i>
                       <i class="fa fa-camera fa-stack-1x fa-inverse"></i>
                     </span>
-                    <img [src]="urlPhoto">
-                    <input *ngIf=" ! cordova " type="file" name="inputFile" [(ngModel)]="inputFileValue" #file (change)="onChangeFile($event, file.value)">
-                  </div><!--/primary-photo-->
+          <img [src]="urlPhoto">
+          <input *ngIf=" ! cordova " type="file" name="inputFile" [(ngModel)]="inputFileValue" #file (change)="onChangeFile($event, file.value)">
+        </div><!--/primary-photo-->
 
-                  <button *ngIf=" urlPhoto != urlDefault " class="delete" (click)="onDeletePhoto()">
-                    <i *ngIf=" ! inDeleting " class="fa fa-trash"></i>
-                    <i *ngIf=" inDeleting " class="fa fa-spinner fa-spin"></i>
-                    DELETE PHOTO
-                  </button>
+        <button *ngIf=" urlPhoto != urlDefault " class="delete" (click)="onDeletePhoto()">
+          <i *ngIf=" ! inDeleting " class="fa fa-trash"></i>
+          <i *ngIf=" inDeleting " class="fa fa-spinner fa-spin"></i>
+          DELETE PHOTO
+        </button>
 
-                  <!-- This supports IE 9. IE 9 does not support HTML 5 -->
-                  <progress *ngIf=" showProgress " class="progress" value="{{ progress }}" max="100">
-                    <div class="progress">
-                      <span class="progress-bar" [style.width]="widthProgress"></span>
-                    </div>
-                  </progress>
+        <!-- This supports IE 9. IE 9 does not support HTML 5 -->
+        <progress *ngIf=" showProgress " class="progress" value="{{ progress }}" max="100">
+          <div class="progress">
+            <span class="progress-bar" [style.width]="widthProgress"></span>
+          </div>
+        </progress>
+      </div>
 
-                </td>
-              </tr>
+      <div *ngIf=" ! login " class="row-container">
+        <label for="inputID" class="text">User ID</label>
+        <div class="input"><input [(ngModel)]="form.id" class="form-control" name="id" type="text" id="inputID" placeholder="Input User ID" autocomplete="off"></div>
+      </div>
+      <div *ngIf=" ! login " class="row-container">
+        <label for="inputPassword" class="text">Password</label>
+        <div class="input"><input [(ngModel)]="form.password" class="form-control" name="password" type="password" id="inputPassword" placeholder="Input Password" autocomplete="off"></div>
+      </div>
+      <div class="row-container">
+        <label for="inputName" class="text">Name</label>
+        <div class="input"><input [(ngModel)]="form.name" class="form-control" name="name" type="text" id="inputName" placeholder="Input Name" autocomplete="off"></div>
+      </div>
+      <div class="row-container">
+        <label for="inputEmail" class="text">Email</label>
+        <div class="input"><input [(ngModel)]="form.email" class="form-control" name="email" type="email" id="inputEmail" placeholder="Input Email" autocomplete="off"></div>
+      </div>
+      <div class="row-container">
+        <label for="inputMobile" class="text">Mobile</label>
+        <div class="input">
+          <input [(ngModel)]="form.mobile" class="form-control" name="mobile" type="number" id="inputMobile" placeholder="Input your phone number." autocomplete="off">
+          <div class="text-muted">Input digits only</div>
+        </div>
+      </div>
 
-              <tr *ngIf=" ! login ">
-                <td><label for="inputID">User ID</label></td>
-                <td><input [(ngModel)]="form.id" class="form-control" name="id" type="text" id="inputID" placeholder="Input User ID" autocomplete="off"></td>
-              </tr>
-              <tr *ngIf=" ! login ">
-                <td><label for="inputPassword">Password</label></td>
-                <td><input [(ngModel)]="form.password" class="form-control" name="password" type="password" id="inputPassword" placeholder="Input Password" autocomplete="off"></td>
-              </tr>
-              <tr>
-                <td><label for="inputName">Name</label></td>
-                <td><input [(ngModel)]="form.name" class="form-control" name="name" type="text" id="inputName" placeholder="Input Name" autocomplete="off"></td>
-              </tr>
-              <tr>
-                <td><label for="inputEmail">Email</label></td>
-                <td><input [(ngModel)]="form.email" class="form-control" name="email" type="email" id="inputEmail" placeholder="Input Email" autocomplete="off"></td>
-              </tr>
-              <tr>
-                <td><label for="inputMobile">Mobile</label></td>
-                <td>
-                  <input [(ngModel)]="form.mobile" class="form-control" name="mobile" type="number" id="inputMobile" placeholder="Input your phone number." autocomplete="off">
-                  <div class="text-muted">Input digits only</div>
-                </td>
-              </tr>
+      <div class="row-container">
+        <label class="text">Gender</label>
+        <div class="input">
+          <label for="inputGenderM" class="form-check-inline">
+            <input [(ngModel)]="form.gender" class="form-check-input" name="gender" type="radio" id="inputGenderM" value='M'>
+            Male
+          </label>
+          <label for="inputGenderF" class="form-check-inline">
+            <input [(ngModel)]="form.gender" class="form-check-input" name="gender" type="radio" id="inputGenderF" value='F'>
+            Female
+          </label>
+        </div>
+      </div>
 
-              <tr>
-                <td>Gender</td>
-                <td>
-
-
-                  <label for="inputGenderM" class="form-check-inline">
-
-                    <input [(ngModel)]="form.gender" class="form-check-input" name="gender" type="radio" id="inputGenderM" value='M'>
-                    Male
-                  </label>
-                  <label for="inputGenderF" class="form-check-inline">
-                    <input [(ngModel)]="form.gender" class="form-check-input" name="gender" type="radio" id="inputGenderF" value='F'>
-                    Female
-                  </label>
-
-
-                </td>
-              </tr>
-
-              <tr>
-                <td><label for="inputBirthday">Birth Day</label></td>
-                <td><input [(ngModel)]="form.birthday" class="form-control" name="birthday" type="date" id="inputBirthday"></td>
-              </tr>
+      <div class="row-container">
+        <label for="inputBirthday" class="text">Birth Day</label>
+        <div class="input"><input [(ngModel)]="form.birthday" class="form-control" name="birthday" type="date" id="inputBirthday"></div>
+      </div>
 
 
-              <tr>
-                <td></td>
-                <td>
+      <div  class="row-container buttons">
+        <button *ngIf=" ! login " (click)="onClickRegister()" type="submit" class="btn btn-primary">
+          <i class="fa fa-sign-in"></i> {{ ['REGISTER', '회원가입'] | ek }}
+        </button>
+        <button *ngIf=" login " (click)="onClickUpdate()" type="submit" class="btn btn-primary">
+          <i class="fa fa-sign-in"></i> {{ ['UPDATE', '정보수정'] | ek }}
+        </button>
+        <button routerLink="/" type="button" class="btn btn-secondary">
+          <i class="fa fa-times"></i> {{ ['Cancel', '취소'] | ek }}
+        </button>
 
-                  <button *ngIf=" ! login " (click)="onClickRegister()" type="submit" class="btn btn-primary">
-                    <i class="fa fa-sign-in"></i> {{ ['REGISTER', '회원가입'] | ek }}
-                  </button>
+      </div>
 
-                  <button *ngIf=" login " (click)="onClickUpdate()" type="submit" class="btn btn-primary">
-                    <i class="fa fa-sign-in"></i> {{ ['UPDATE', '정보수정'] | ek }}
-                  </button>
-
-
-                  <button routerLink="/" type="button" class="btn btn-secondary">
-                    <i class="fa fa-times"></i> {{ ['Cancel', '취소'] | ek }}
-                  </button>
-                  <div class="process">
-                    <div *ngIf=" process.loader ">
-                      <i class="fa fa-spinner fa-spin"></i> Connecting to server ...
-                    </div>
-                    <div *ngIf=" process.error " class="alert alert-danger" role="alert">
-                      <strong>{{ 'error' | ln }} !</strong> {{ process.error }}
-                    </div>
-                  </div>
-
-                </td>
-              </tr>
-            </table>
-
-
-          </form>
+      <div class="process">
+        <div *ngIf=" process.loader ">
+          <i class="fa fa-spinner fa-spin"></i> Connecting to server ...
+        </div>
+        <div *ngIf=" process.error " class="alert alert-danger" role="alert">
+          <strong>{{ 'error' | ln }} !</strong> {{ process.error }}
+        </div>
+      </div>
+    </form>
   </section><!--/.center-->
   <sonub-right *ngIf=" app.size == 'big' "></sonub-right>
 </section><!--/section.content-->
