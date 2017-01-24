@@ -1,89 +1,90 @@
 @mixin title_icon( $icon ) {
-    .title:before {
-        font-family: "FontAwesome";
-        padding-right : 3px;
-        content: $icon;
-    }
+  .title:before {
+    font-family: "FontAwesome";
+    padding-right : 3px;
+    content: $icon;
+  }
 }
 
 
 latest-post-component {
-    display: block;
+  display: block;
 }
 .latest-posts {
-    div.col {
-      float: left;
-      width: 50%;
-    }
-    .title, .post {
-        font-family: Gulim,AppleGothic,"Malgun Gothic", Arial, Helvetica, sans-serif;
-        font-size: 12px;
-        cursor: pointer;
-    }
+  div.col {
+    float: left;
+    width: 50%;
+  }
+  .title, .post {
+    font-family: Gulim,AppleGothic,"Malgun Gothic", Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    cursor: pointer;
+  }
 
-    .freetalk       { @include title_icon( '\f0f4' ); }
-    .qna            { @include title_icon( '\f059' ); }
-    .buyandsell     { @include title_icon( '\f290' ); }
+  .freetalk       { @include title_icon( '\f0f4' ); }
+  .qna            { @include title_icon( '\f059' ); }
+  .buyandsell     { @include title_icon( '\f290' ); }
 
-    .title {
-        margin-bottom: 2px;
-        padding: .7em 0 .3em .3em;
-        border-bottom: 2px solid #e2e2e2;
-        color:#5a5a5a;
-        vertical-align: middle;
-    }
+  .title {
+    margin-bottom: 2px;
+    padding: .7em 0 .3em .3em;
+    border-bottom: 2px solid #e2e2e2;
+    color:#5a5a5a;
+    vertical-align: middle;
+  }
 
-    .posts {
-        padding-left:0.5em;
-        .post {
-            position: relative;
-            padding: .2em;
-            height: 2em;
-            overflow: hidden;
-            font-size: 9pt;
-            color: #5a5a5a;
-            &:before {
-                margin: 0;
-                padding: 0;
-                content: "• ";
-                font-weight: bold;
-                font-size :13px;
-                color: #bababa;
-            }
-            .no-of-comment {
-                position: absolute;
-                top: .45em;
-                right: .2em;
-                width: 1.4em;
-                height: 1.4em;
-                border-radius: 50%;
-                color: white;
-                background-color: #b44;
-                &[no="0"] { display: none; }
-                font-size: .9em;
-                i {
-                    position: absolute;
-                    top: -.1em;
-                    left: -.4em;
-                }
-
-                &[length="1"] {
-                    background-color: #ccc;
-                    i {
-                        left: .3em;
-                    }
-                }
-                &[length="2"] {
-                    background-color: #559;
-                    i {
-                        left: .05em;
-                    }
-                }
-
-            }
-
+  .posts {
+    padding-left:0.5em;
+    .post {
+      position: relative;
+      padding: .2em;
+      height: 2em;
+      overflow: hidden;
+      font-size: 9pt;
+      color: #5a5a5a;
+      clear: both;
+      &:before {
+        margin: 0;
+        padding: 0;
+        content: "• ";
+        font-weight: bold;
+        font-size :13px;
+        color: #bababa;
+      }
+      .no-of-comment {
+        position: absolute;
+        top: .45em;
+        right: .2em;
+        width: 1.4em;
+        height: 1.4em;
+        border-radius: 50%;
+        color: white;
+        background-color: #b44;
+        &[no="0"] { display: none; }
+        font-size: .9em;
+        i {
+          position: absolute;
+          top: -.1em;
+          left: -.4em;
         }
+
+        &[length="1"] {
+          background-color: #ccc;
+          i {
+            left: .3em;
+          }
+        }
+        &[length="2"] {
+          background-color: #559;
+          i {
+            left: .05em;
+          }
+        }
+
+      }
+
     }
+  }
 
 
 }//latest component

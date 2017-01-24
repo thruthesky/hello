@@ -29,22 +29,6 @@
         (edit) = " onEditPost( $event ) "
         (error) = " onViewComponentError( $event ) "
       ></view-component>
-      <!--div class="show-more" (click)=" view['comments_more'] = true "   *ngIf="view?.comments?.length > 5 && !view['comments_more']"> Show more comments.</div>
-      <div class="comments">
-        <ng-container *ngFor=" let comment of view?.comments; trackBy: comment?.idx; let i = index; ">
-          <div class="comment" *ngIf="i >= (view?.comments.length - 1) || !!view?.comments_more">
-            <view-component
-              [login_id] = " login?.id "
-              [post]="comment" [root]="view"
-              [show] = "true"
-              [mode] = " 'create-comment' "
-              (edit) = " onEditPost( $event ) "
-              (error) = " onViewComponentError( $event ) "
-            ></view-component>
-          </div>
-        </ng-container>
-      </div><!--/.comments-->
-
       <div class="show-more" *ngIf="view?.comments?.length && !view['more']" (click)="view['more'] = true">Show {{ view?.comments?.length }} more comments.</div>
       <div class="comments">
         <ng-container *ngIf=" view['more'] ">
@@ -118,10 +102,24 @@
           (edit) = " onEditPost( $event ) "
           (error) = " onViewComponentError( $event ) "
         ></view-component>
-        <div class="show-more" (click)=" post['comments_more'] = true " *ngIf="post?.comments?.length > 5 && !post['comments_more']"> Show more comments.</div>
+
+
+        <div class="show-more" *ngIf="post?.comments?.length && !post['more']" (click)="post['more'] = true">Show {{ post?.comments?.length }} more comments.</div>
         <div class="comments">
-          <ng-container  *ngFor=" let comment of post?.comments; trackBy: comment?.idx; let i = index; ">
-            <div class="comment" *ngIf="i >= (post?.comments.length - 5) || !!post?.comments_more">
+          <ng-container *ngIf=" post['more'] ">
+            <div class="comment" *ngFor=" let comment of post['comments']; trackBy: comment?.idx;">
+              <view-component
+                [login_id] = " login?.id "
+                [post]="comment" [root]="post"
+                [show] = "true"
+                [mode] = " 'create-comment' "
+                (edit) = " onEditPost( $event ) "
+                (error) = " onViewComponentError( $event ) "
+              ></view-component>
+            </div>
+          </ng-container>
+          <ng-container *ngIf="post['last_five_comment']">
+            <div class="comment" *ngFor=" let comment of post['last_five_comment']; trackBy: comment?.idx;">
               <view-component
                 [login_id] = " login?.id "
                 [post]="comment" [root]="post"

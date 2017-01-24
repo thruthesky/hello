@@ -4,7 +4,6 @@ import { PageScroll } from './../../../../../providers/page-scroll';
 import { Post, PAGE, POSTS, POST, PAGE_OPTION, ADS, POST_TOP_ADS, POST_TOP_PREMIUM_ADS } from "../../../../../api/philgo-api/v2/post";
 import { App } from '../../../../../providers/app';
 import { Member, MEMBER_LOGIN } from '../../../../../api/philgo-api/v2/member';
-import * as _ from 'lodash';
 
 @Component({
   selector: 'sonub-post-list',
@@ -105,17 +104,19 @@ export class SonubPostListPage {
     this.post.load(idx_post, response => {
       console.log("data loaded:");
       this.view = <POST> response.post;
-      if(response.post['comments'].length && response.post['comments'].length > 5 ) {
-        this.view['last_five_comment'] = response.post['comments'].splice(response.post['comments'].length - 5, 5);
+      if(response.post['comments']) {
+        if ( response.post['comments'].length > 5 ) {
+          this.view['last_five_comment'] = response.post['comments'].splice(response.post['comments'].length - 5, 5);
+        }
+        else {
+          this.view['last_five_comment'] = response.post['comments'];
+          response.post['comments'] = null;
+        }
       }
-      else {
-        this.view['last_five_comment'] = response.post['comments'];
-        response.post['comments'] = null;
-      }
 
 
 
-      console.log("Load a post for view : ", this.view );
+      //console.log("Load a post for view : ", this.view );
       // console.log("Load post success on idx : ", idx_post);
 
       this.loadPosts( this.view.post_id );
@@ -224,6 +225,17 @@ export class SonubPostListPage {
   pre( post: POST ) : POST {
     if ( post === void 0 ) return null; // this error really happened.
     post['url'] = this.post.getPermalink( post );
+
+    if(post['comments']){
+      if( post['comments'].length > 5 ) {
+        post['last_five_comment'] = post['comments'].splice(post['comments'].length - 5, 5);
+      }
+      else {
+        post['last_five_comment'] = post['comments'];
+        post['comments'] = null;
+      }
+    }
+
     return post;
   }
 
