@@ -232,7 +232,7 @@ export class SonubPostListPage {
       post['url'] = this.post.getPermalink( post );
     }
     
-
+    
     
 
 /**
@@ -253,22 +253,6 @@ export class SonubPostListPage {
 
 
 
-  hideCommentsUntil( post ) {
-    let len = post['comments'].length;
-    if ( len > 5 ) {
-      return post['comments'].slice( 0, len - 5 );
-    }
-  }
-  lastFiveComments( post: POST ) {
-
-    if ( post['comments'] && post['comments'].length ) {
-      let len = post['comments'].length;
-      if ( len - 5 > 0 ) {
-        return post['comments'].slice( len -5, len );
-      }
-    }
-    return post['comments'];
-  }
 
   onClickPostCreate( ) {
     this.showPostCreateFrom = this.showPostCreateFrom ? false : true;
