@@ -2,8 +2,8 @@ import { Component, Renderer } from '@angular/core';
 import { Message, MESSAGE, MESSAGES, MESSAGE_LIST, MESSAGE_FORM } from '../../../../api/philgo-api/v2/message';
 import { Member, MEMBER_LOGIN } from '../../../../api/philgo-api/v2/member';
 import { App } from '../../../../providers/app';
-import { IonicApi } from '../../../../providers/ionic-api-0.2/ionic-api';
-import { IONIC_PUSH_MESSAGE } from '../../../../providers/ionic-api-0.2/ionic-share';
+//import { IonicApi } from '../../../../providers/ionic-api-0.2/ionic-api';
+//import { IONIC_PUSH_MESSAGE } from '../../../../providers/ionic-api-0.2/ionic-share';
 import * as _ from 'lodash';
 
 @Component({
@@ -30,7 +30,7 @@ export class SonubMessagePage {
         private message: Message,
         private member: Member,
         private renderer: Renderer,
-        private ionic: IonicApi
+     //   private ionic: IonicApi
     ) {
         console.log("SonubMessagePage::constructor()");
 
@@ -190,8 +190,8 @@ export class SonubMessagePage {
                 this.form.content = '';
                 this.showCreateForm = false;
                 console.log(re);
-                this.sendPushNotification( re );
-                
+               //this.sendPushNotification( re );
+
             }
             else {
                 this.app.error("Message sending error");
@@ -203,7 +203,7 @@ export class SonubMessagePage {
     }
 
     sendPushNotification( re ) {
-        
+        /*
         let option: IONIC_PUSH_MESSAGE = {
             token: re['pushToken'],
             title: "New Message",
@@ -215,7 +215,7 @@ export class SonubMessagePage {
         }, err => {
             console.error("push notification error: ", err);
         });
-
+*/
     }
 
     onClickMakeAllRead() {

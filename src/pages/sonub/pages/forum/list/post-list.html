@@ -32,7 +32,7 @@
       <div class="show-more" *ngIf="!view?.more && view?.no_of_comment > 5" (click)="view['more']=true" >Show {{ view?.no_of_comment && view?.no_of_comment > 5 ? view?.no_of_comment - 5 : 0 }} more comments.</div>
       <div class="comments" *ngIf="view?.comments?.length">
 
-          <ng-container class="comment" *ngFor=" let comment of view['comments'] let i = index; trackBy: comment?.idx;">
+          <ng-container class="comment" *ngFor=" let comment of view['comments']; let i = index; trackBy: comment?.idx;">
             <view-component
               *ngIf="i < view['comments'].length - view['no_of_comment'] || i >= view['no_of_comment'] - 5 || view['more'] "
               [login_id] = " login?.id "
@@ -98,7 +98,7 @@
           <ng-container>
             <div class="comment" *ngFor=" let comment of post['comments']; let i = index; trackBy: comment?.idx;">
               <view-component
-                *ngIf=" i >= post['no_of_comment'] - 5 || post['more'] "
+                *ngIf="i < post['comments'].length - post['no_of_comment'] || i >= post['no_of_comment'] - 5 || post['more'] "
                 [login_id] = " login?.id "
                 [post]="comment" [root]="post"
                 [show] = "true"
