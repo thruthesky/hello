@@ -34,7 +34,7 @@
 
           <ng-container class="comment" *ngFor=" let comment of view['comments'] let i = index; trackBy: comment?.idx;">
             <view-component
-              *ngIf=" i >= view['no_of_comment'] - 5 || view['more'] "
+              *ngIf="i < view['comments'].length - view['no_of_comment'] || i >= view['no_of_comment'] - 5 || view['more'] "
               [login_id] = " login?.id "
               [post]="comment" [root]="view"
               [show] = "true"

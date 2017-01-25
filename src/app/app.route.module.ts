@@ -38,13 +38,18 @@ const appRoutes: Routes = [
     /** Sonub Pages **/
     { path: 'user/register', component: SonubRegisterPage },
     { path: 'user/login', component: SonubLoginPage },
-    { path: "forum", component: SonubForumIndexPage },
-    { path: "forum/:post_id", component: SonubPostListPage },
-    { path: "article/:idx_post", component: SonubPostListPage },
+
     { path: "message", component: SonubMessagePage },
     { path: "business", component: SonubBusinessPage },
     { path: "help", component: SonubHelpPage },
 
+
+    /** Sonub forum routes */
+    { path: "forum", component: SonubForumIndexPage },
+    { path: "forum/:post_id", component: SonubPostListPage },
+    { path: "forum/:post_id/:idx_post", component: SonubPostListPage },
+    { path: "article/:idx_post", component: SonubPostListPage },
+    
     { path: '', component: SonubHomePage },
 
     /** Default Base Pages **/

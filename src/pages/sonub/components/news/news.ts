@@ -31,7 +31,7 @@ export class SonubNews {
         // console.log("latest: ", page);
         page.posts.map( ( v:any, i ) => {
           setTimeout( () => {
-            v.url = this.post.getLink( v );
+            v.url = this.post.getPostUri( v );
             this.posts.push( v );
           }, i * 50 );
         } );

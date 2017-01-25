@@ -31,7 +31,7 @@ export class JobBuyAndSell {
         this.posts = [];
         posts.map((v: any, i) => {
           setTimeout(() => {
-            v.url = this.post.getLink(v);
+            v.url = this.post.getPostUri(v);
             v.date = this.post.getDateTime( v.stamp);
             this.posts.push(v);
           }, i * 50);

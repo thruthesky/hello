@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, NgZone } from '@angular/core';
 import { AppComponent } from '../app/app.component';
 //declare let navigator;
 import { Alert, ALERT_OPTION } from '../providers/bootstrap/alert/alert';
@@ -9,7 +9,7 @@ export class App {
     _width: number = 0;
     menu: boolean = false;
     page: string = null; // current page tag(name or id)
-    constructor( private alertService: Alert ) {
+    constructor( private alertService: Alert, private ngZone: NgZone ) {
         // console.log("App::constructor()");
     }
     /**
@@ -17,6 +17,7 @@ export class App {
      */
     setWidth( width ) {
         this._width = width;
+        this.renderPage();
         // console.log("setWidth(): ", this._width);
     }
     get width() {
@@ -92,4 +93,9 @@ export class App {
         setTimeout( () => this.appComponent.toast.active = false, 1000 );
     }
     
+    renderPage() {
+        this.ngZone.run( () => {
+
+        });
+    }
 }

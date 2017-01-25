@@ -40,7 +40,7 @@ export class SonubLatestPhoto {
       //this.posts = [];
       posts.map( ( v:POST, i ) => {
         setTimeout( () => {
-          v.url = this.post.getLink( v );
+          v.url = this.post.getPostUri( v );
           v['date'] = this.post.getDateTime( v.stamp );
           v.content = this.post.strip_tags( v.content );
           if ( v.comments && v.comments.length ) {

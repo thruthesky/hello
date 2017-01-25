@@ -15,8 +15,8 @@ export class SonubPostListPage {
   posts: POSTS = <POSTS> [];
   view: POST = null;
   showPostCreateFrom: boolean = false;
-  post_id: string = '';
-  post_name: string = '';
+  post_id: string = ''; // forum ( post ) id.
+  post_name: string = ''; // forum name.
   page_no: number = 0;
   limit: number =  20;
   ads: ADS = null;
@@ -38,17 +38,25 @@ export class SonubPostListPage {
     this.login = member.getLoginData();
     activated.params.subscribe( param => {
       console.log("PostList::constructor::subscribe()")
-      // initialize here.
-      this.post_name = ''; //
+      
+      // clear everything and initialize here.
+      this.post_id = null;
+      this.post_name = null; //
       window.scrollTo( 0, 0 ); // when a forum clicked on a forum in the middle of the page, it does not scroll top. 게시판이 열려 있는 상태에서 다시 게시판을 열면 scrollTop 이 안되므로, 여기서 임의적으로 해 준다.
       this.clearAds(); // it must be here to clear previous forum's ads.
-      this.posts = <POSTS> [];
+      this.posts = <POSTS> []; // clear
+      
+      
+      
+      
+      
       if ( param['post_id'] !== void 0 ) {
         this.loadPosts( param['post_id'] );
       }
-      else if ( param['idx_post'] !== void 0 ) {
+      if ( param['idx_post'] !== void 0 ) {
         this.loadPost( param['idx_post'] );
       }
+
     } );
   }
 
@@ -122,7 +130,7 @@ export class SonubPostListPage {
       //console.log("Load a post for view : ", this.view );
       // console.log("Load post success on idx : ", idx_post);
 
-      this.loadPosts( this.view.post_id );
+      if ( ! this.post_id ) this.loadPosts( this.view.post_id );
     }, error => {
       this.app.error(error);
       /// this.app.error("Load post error" + error);
@@ -227,7 +235,6 @@ export class SonubPostListPage {
   }
   pre( post: POST ) : POST {
     if ( post === void 0 ) return null; // this error really happened.
-
     if ( post.idx_parent !== void 0 ) {
       post['url'] = this.post.getPermalink( post );
     }
