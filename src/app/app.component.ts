@@ -1,9 +1,9 @@
 import { Component, ViewChild, OnInit } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 //import { Deploy, DeployDownloadOptions } from '@ionic/cloud-angular';
 //import { IonicApi } from '../providers/ionic-api-0.2/ionic-api';
 import { App } from '../providers/app';
-import { Alert, ALERT_OPTION } from '../providers/bootstrap/alert/alert';
+//import { Alert } from '../providers/bootstrap/alert/alert';
 // import { parse_url } from '../etc/function';
 declare let navigator;
 @Component({
@@ -21,11 +21,11 @@ export class AppComponent implements OnInit {
   toast: { active: boolean; content: string; } = { active: false, content: null };
   constructor(
       private router: Router,
-      private activatedRoute: ActivatedRoute,
+//      private activatedRoute: ActivatedRoute,
 //      public deploy: Deploy,
 //      private ionic: IonicApi,
       public app: App,
-      private alert: Alert
+//      private alert: Alert
   ) {
     app.appComponent = this;
     router.events.subscribe(event => {
