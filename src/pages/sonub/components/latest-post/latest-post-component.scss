@@ -9,6 +9,7 @@
 
 latest-post-component {
   display: block;
+  overflow: auto;
 }
 .latest-posts {
   div.col {
@@ -17,7 +18,6 @@ latest-post-component {
   }
   .title, .post {
     font-family: Gulim,AppleGothic,"Malgun Gothic", Arial, Helvetica, sans-serif;
-    font-size: 12px;
     cursor: pointer;
   }
 
@@ -37,12 +37,12 @@ latest-post-component {
     padding-left:0.5em;
     .post {
       position: relative;
-      padding: .2em;
-      height: 2em;
+      padding: .3em;
+      height: 1.6rem;
       overflow: hidden;
-      font-size: 9pt;
       color: #5a5a5a;
       clear: both;
+      font-size: .9rem;
       &:before {
         margin: 0;
         padding: 0;

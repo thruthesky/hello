@@ -5,10 +5,19 @@
 
       <div *ngIf=" ! login " class="login"><h4>Please, login first..</h4></div>
       <div *ngIf=" login " class="messages">
-        <button (click)=" showCreateForm = true ">Send a Message</button>
-        <button (click)=" onClickMakeAllRead() ">Make all read</button>
-        <input *ngIf=" showSearchForm " name="key" [(ngModel)]="key">
-        <button (click)=" onClickSearchFormSubmit() ">Search</button>
+
+
+        <div class="top-menu">
+          <div class="buttons">
+            <button (click)=" showCreateForm = true ">Send Message</button>
+            <button (click)=" onClickMakeAllRead() ">Make all read</button>
+            <button *ngIf=" ! showSearchForm " (click)=" onClickSearchFormSubmit() ">Search</button>
+          </div>
+          <div *ngIf=" showSearchForm " class="search" >
+            <input name="key" [(ngModel)]="key">
+            <button (click)=" onClickSearchFormSubmit() ">Search</button>
+          </div>
+        </div>
 
         <div *ngIf="showCreateForm" class="create-form">
           <input name="id_recv" [(ngModel)]="form.id_recv" placeholder="User ID">

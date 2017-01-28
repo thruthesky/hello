@@ -1,20 +1,6 @@
 @mixin view-component-design {
-  position: relative;
-  margin-bottom: 2.5em;
-  border-bottom-right-radius: 0;
-  // border: 1px solid #a9a9a9;
-  .buttons {
-    position: absolute;
-    right: -1px;
-    bottom: -29px;
-    &>span {
-      float: left;
-      padding: .1em .4em;
-      background-color: #f9f9f9;
-      border: 1px solid #a9a9a9;
-      cursor: pointer;
-    }
-  }
+  border-radius: .2em;
+
 }
 
 sonub-post-list {
@@ -28,55 +14,36 @@ sonub-post-list {
       }
     }
   }
-  button {
-    background-color: #f7f7f7;
-    color: #000;
-    cursor: pointer;
-  }
 
-  view-component{
-    article {
-      &.post{
-        @include view-component-design;
-  background: #f0f0f0;
-      }
-      &.comment {
-        @include view-component-design;
-  background: #e0e0e0;
-      }
-    }
 
-    .post .article-header,
-    .comment .article-header {
+edit-component {
+  display: block;
+  margin-top: .6em;
+  margin-bottom: 1em;
+  .center {
+    padding-top: .3em;
+    .files {
       background-color: transparent;
-      font-size: .9rem;
-      .url, .date, .nickname, .idx {
-        display: inline-block;
-        padding-right: .4rem;
-      }
-      .url {
-        text-align: right;
-        .text:before {
-          margin-right: 5px;
-          content: '\f0c1';
-          font-family: FontAwesome;
-          font-size: .9rem;
-        }
-      }
-    }
-
-  }
-
-  edit-component {
-    .fake-textarea {
-      border: 1px solid #a9a9a9;
-      &:before {
-        margin-left: .5em;
-        content: 'Write a comment...';
-        color: #c0c0c0;
-      }
     }
   }
+  .fake-textarea {
+    padding: .14em 0;
+    border: 1px solid #a9a9a9;
+    &:before {
+      margin-left: .5em;
+      content: 'Write a comment...';
+      color: #c0c0c0;
+    }
+  }
+  .right {
+    button {
+      border: 0;
+      border-radius: .2em;
+      background-color: #ccc;
+      color: #344;
+    }
+  }
+}
 
 
 
@@ -205,7 +172,6 @@ sonub-post-list {
         text-decoration: none;
         .subject {
           font-weight: bold;
-          font-size: 10pt;
           font-family: "Malgun Gothic",AppleGothic,sans-serif;
           line-height: 22px;
           height: 22px;
@@ -213,7 +179,6 @@ sonub-post-list {
         }
         .sub_subject {
           line-height: 20px;
-          font-size: 9pt;
           font-family: "Malgun Gothic",AppleGothic,sans-serif;
           height: 20px;
           overflow: hidden;
@@ -281,4 +246,62 @@ sonub-post-list {
       }
     }
   }*/
+}
+
+
+
+view-component {
+  article {
+    &.post {
+      @include view-component-design;
+      background: #f0f0f0;
+      .content {
+        margin-top: .4em;
+        padding: .4em;
+        background-color: white;
+      }
+    }
+    &.comment {
+      @include view-component-design;
+      background: #e9e9e9;
+      .content {
+        margin-top: .4em;
+        padding: .4em;
+        background-color: white;
+      }
+    }
+  }
+  .post .article-header,
+  .comment .article-header {
+    background-color: transparent;
+    font-size: .9rem;
+    .url, .date, .nickname, .idx {
+      display: inline-block;
+      padding-right: .4rem;
+    }
+    .url {
+      text-align: right;
+      .text:before {
+        margin-right: 5px;
+        content: '\f0c1';
+        font-family: FontAwesome;
+        font-size: .9rem;
+      }
+    }
+  }
+  .buttons {
+    display: block;
+    margin-top: .6em;
+    span {
+      color: #366;
+      &:before {
+        display: inline-block;
+        padding-right: .2em;
+        content: '•';
+      }
+      &:first-child:before {
+        display: none;
+      }
+    }
+  }
 }

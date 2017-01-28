@@ -1,6 +1,6 @@
 @mixin title-icon( $icon ) {
   &:before {
-    padding-right : 3px;
+    padding-right : .3em;
     content: $icon;
     font-family: "FontAwesome";
     color:dimgrey;
@@ -11,12 +11,14 @@
 
 sonub-message-page {
   display: block;
+  font-size: 12pt;
   @include color-combination( 'message' );
   font-family: "Malgun Gothic",AppleGothic,sans-serif;
   section.center {
-      background-color: #f9f9f9;
-    border: 1px solid #a9a9a9;
-    .login {
+    background-color: #f9f9f9;
+    border: 0;
+
+    .login { /** show login message if the user did not logged in */
       border-top: 1px solid #a4be2b;
       border-bottom: 1px solid #a4be2b;
       h4 {
@@ -32,21 +34,16 @@ sonub-message-page {
         }
       }
     }
+
   }
   .messages {
     padding: 0 .3em;
-    button {
-      cursor: pointer;
-    }
-
     .message{
       position: relative;
 
       padding: 0.2em;
       border-top: 1px solid #dfdfdf;
       background: #fefefe;
-
-      font-size: 0.75em;
 
       &:nth-child(odd){
         background-color: #f5f8fa;
@@ -85,16 +82,34 @@ sonub-message-page {
       float: right;
     }
 
-    .content{
-
+    .content {
+      margin-bottom: .4em;
       padding:1em;
-
-      border: 1px solid #dfdfdf;
       overflow-y: hidden;
+      line-height: 200%;
+      background-color: #e4e9ef;
     }
 
+    .top-menu {
+      margin-bottom: 1em;
+        button {
+          padding: .3em .8em .2em;
+          border: 0;
+          border-radius: .14em;
+          background-color: #495559;
+          color: white;
+          cursor: pointer;
+          font-size: .85rem;
+        }
+      .search {
+        margin-top: .6em;
+        button {
+          font-size: .9rem;
+        }
+      }
+    }
 
-    .menu{
+    .menu {
       float: right;
       overflow: auto;
       overflow-x: hidden;
@@ -104,12 +119,9 @@ sonub-message-page {
       .reply      { @include title-icon( '\f112' ); }
       .delete     { @include title-icon( '\f014' ); }
 
-      button{
-        float: left;
-        padding: 5px 10px;
-
-        line-height: 17px;
-        border: 1px solid #d7d7d7;
+      button {
+        padding: .3em .6em .2em;
+        border: 0;
         background-color: #f5f5f5!important;
         color: black;
 
@@ -117,7 +129,7 @@ sonub-message-page {
         font-size: 0.9em;
         cursor :pointer;
 
-        &:hover{
+        &:hover {
           color:blue;
         }
 
