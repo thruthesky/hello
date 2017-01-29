@@ -13,13 +13,6 @@
     else path = '/'; // For web, change <base href=''> to <base href='/'> for reloading.
     var theBase = document.getElementById("baseHref");
     theBase.href = path;
-
-
-    var myNav = navigator.userAgent.toLowerCase();
-    var IE = (myNav.indexOf('msie') != -1) ? parseInt(myNav.split('msie')[1]) : false;
-    if (IE && IE <= 9) {
-      alert('Your Browser is IE 8 or older version...\n Please update or change your browser...');
-    }
   </script>
 
   <meta charset="UTF-8">
@@ -53,7 +46,15 @@
     </div>
 
   </app-component>
-
+<script>
+  var myNav = navigator.userAgent.toLowerCase();
+  var IE = (myNav.indexOf('msie') != -1) ? parseInt(myNav.split('msie')[1]) : false;
+  if ( 1 || IE && IE <= 9) {
+    var notice = document.querySelector("app-component").remove();
+    var body = document.querySelector("body");
+    body.innerHTML ='Your Browser is IE 8 or older version...<br> Please update or change your browser...';
+  }
+</script>
   <!-- The polyfills js is generated during the build process -->
   <script src="build/polyfills.js"></script>
 
@@ -63,10 +64,6 @@
 
 <script>
 
-  if (IE && IE <= 9) {
-    var notice = document.getElementById("app-loader");
-    notice.innerHTML ='Your Browser is IE 8 or older version...<br> Please update or change your browser...';
-  }
 
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

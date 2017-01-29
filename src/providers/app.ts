@@ -90,7 +90,7 @@ export class App {
     toast( option ) {
         this.appComponent.toast.active = true;;
         this.appComponent.toast.content = option.content;
-        setTimeout( () => this.appComponent.toast.active = false, 1000 );
+        setTimeout( () => this.appComponent.toast.active = false, 5000 );
     }
     
     renderPage() {
