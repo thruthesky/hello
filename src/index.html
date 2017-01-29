@@ -49,12 +49,9 @@
 <script>
   var myNav = navigator.userAgent.toLowerCase();
   var IE = (myNav.indexOf('msie') != -1) ? parseInt(myNav.split('msie')[1]) : false;
-  if ( 1 || IE && IE <= 9) {
-    var notice = document.querySelector("app-component").remove();
-    var body = document.querySelector("body");
-    body.innerHTML ='Your Browser is IE 8 or older version...<br> Please update or change your browser...';
-  }
+  if ( IE && IE <= 9) location.href="assets/html/browser-not-support.html";
 </script>
+
   <!-- The polyfills js is generated during the build process -->
   <script src="build/polyfills.js"></script>
 
