@@ -29,6 +29,7 @@ import { SonubMainMenu } from './components/main-menu/main-menu';
 import { FileNotFoundPage } from './pages/file-not-found/file-not-found';
 import { SonubBusinessPage } from './pages/business/business';
 import { SonubHelpPage } from './pages/help/help';
+import { SonubEventPage } from './pages/event/event';
 
 // services
 import { ForumService } from './providers/forum'
@@ -62,6 +63,7 @@ import { SafeHTMLPipeModule } from '../../pipes/security/security.pipe.module';
         SonubMainMenu,
         SonubBusinessPage,
         SonubHelpPage,
+        SonubEventPage,
         FileNotFoundPage
     ],
     imports: [

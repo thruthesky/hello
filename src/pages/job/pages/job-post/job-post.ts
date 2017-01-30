@@ -134,9 +134,15 @@ export class JobPostPage{
     this.errorOnPost = null;
     if(this.form['varchar_5']) {
       let str = this.form['varchar_5'].split('-');
-      this.form['int_2'] = parseInt(str[0]); //year
-      this.form['int_3'] = parseInt(str[1]); //month
-      this.form['int_4'] = parseInt(str[2]); //day
+
+      // this.form['int_2'] = parseInt(str[0]); //year
+      // this.form['int_3'] = parseInt(str[1]); //month
+      // this.form['int_4'] = parseInt(str[2]); //day
+
+      // edited by Mr. Song. Type conversion error. int_2 is actually a string. not a number.
+      this.form['int_2'] = str[0]; //year
+      this.form['int_3'] = str[1]; //month
+      this.form['int_4'] = str[2]; //day
     }
     if(this.form.idx) {
       this.updatePost();
@@ -259,7 +265,10 @@ export class JobPostPage{
   onSuccessFileUpload (re: FILE_UPLOAD_RESPONSE) {
     console.log('re.data: ', re.data);
     this.deleteFile( this.form.photos[0] );
-    this.form.photos =  re.data;
+    //this.form.photos =  re.data;
+
+    // Edited by Mr. Song. this.form.photos is an Array but re.data is an Object.
+    this.form.photos.push( re.data );
     this.urlPhoto = re.data.url_thumbnail;
     this.showProgress = false;
     this.renderPage();
