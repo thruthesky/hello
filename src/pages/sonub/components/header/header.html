@@ -1,5 +1,5 @@
 <header class="navbar fixed-top" (click)="onClickHeader()">
-    <nav class="menus">
+    <div class="menus">
         <ul class="menu">
             <li class="home" routerLink="/">
                 <span class="icon fa-stack fa-lg">
@@ -90,6 +90,6 @@
                 <div class="text">Menu</div>
             </li>
         </ul>
-    </nav>
+    </div>
 </header>
 <sonub-main-menu [class]=" app.menu ? 'active' : '' " style="display:none;"></sonub-main-menu>

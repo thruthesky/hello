@@ -5,6 +5,9 @@ header {
     height: $header-height;
     overflow: hidden;
     .menus {
+        display: block;
+        margin: 0 auto;
+        width: 100%;
         max-width: $content-width;
     }
 }
