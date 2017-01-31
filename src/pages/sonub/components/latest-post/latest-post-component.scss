@@ -11,6 +11,7 @@ latest-post-component {
   display: block;
 }
 .latest-posts {
+  overflow: auto;
   div.col {
     float: left;
     width: 50%;
