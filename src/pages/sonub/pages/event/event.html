@@ -1,0 +1,13 @@
+<sonub-header></sonub-header>
+<section class="content">
+  <sonub-left *ngIf=" app.size == 'big' "></sonub-left>
+  <section class="center">
+
+      <div (click)=" onClickEvent('just-test') ">헬로필 알파 테스트 이벤트 2월 말까지. 5천 포인트.</div>
+      <div (click)=" onClickEvent('dev-test') ">헬로필 베타 테스트 이벤트 3월 1일 부터 3월 말까지. 6천 포인트.</div>
+      <div (click)=" onClickEvent('final-test') ">헬로필 정식 테스트 이벤트 4월 1일 부터 4월 말까지. 7천 포인트.</div>
+
+  </section><!--/.center-->
+  <sonub-right *ngIf=" app.size == 'big' "></sonub-right>
+</section><!--/section.content-->
+
