@@ -11,14 +11,13 @@ export class SonubHelpPage {
     constructor(
         public app: App
     ) {
-
     }
 
 
-     onClickPostCreate( post_id ) {
+    onClickPostCreate( post_id ) {
         this.post_id = post_id;
         this.showPostCreateFrom = true;
-     }
+    }
 
 
     editComponentOnCancel() {

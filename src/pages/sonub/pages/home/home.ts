@@ -10,7 +10,7 @@ import { App } from '../../../../providers/app';
 export class SonubHomePage {
     forums;
     forum_group;
-    page_no: number = 1;
+    page_no: number = 0;
     @ViewChild('sonubLatestPhoto') sonubLatestPhoto: SonubLatestPhoto;
     constructor(
         forum: ForumService,
@@ -33,6 +33,7 @@ export class SonubHomePage {
     ngOnInit() {
         this.pageScroll.watch( this.renderer, no => {
             this.page_no ++;
+            console.log("ngOnInit() => pageScroll() => no: ", this.page_no);
             this.sonubLatestPhoto.loadPage( this.page_no );
         } );
     }
