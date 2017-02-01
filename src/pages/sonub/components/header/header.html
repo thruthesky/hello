@@ -1,35 +1,35 @@
 <header class="navbar fixed-top" (click)="onClickHeader()">
     <div class="menus">
         <ul class="menu">
-            <li class="home" routerLink="/">
+            <li class="home" (click)="onClickRoute('/')">
                 <span class="icon fa-stack fa-lg">
                     <i class="background fa fa-circle fa-stack-2x"></i>
                     <img class="logo fa fa-stack-1x" src="assets/img/philgo-logo.png">
                 </span>
                 <div class="text">홈</div>
             </li>
-            <li class="discussion" routerLink="/forum/freetalk">
+            <li class="discussion" (click)="onClickRoute('/forum/freetalk')">
                 <span class="icon fa-stack fa-lg">
                     <i class="background fa fa-circle fa-stack-2x"></i>
                     <i class="font fa fa-comments fa-stack-1x fa-inverse"></i>
                 </span>
                 <div class="text">Talk</div>
             </li>
-            <li class="qna" routerLink="/forum/qna">
+            <li class="qna" (click)="onClickRoute('/forum/qna')" >
                 <span class="icon fa-stack fa-lg">
                     <i class="background fa fa-circle fa-stack-2x"></i>
                     <i class="font fa fa-question fa-stack-1x fa-inverse"></i>
                 </span>
                 <div class="text">QnA</div>
             </li>
-            <li class="buyandsell" routerLink="/forum/buyandsell">
+            <li class="buyandsell" (click)="onClickRoute('/forum/buyandsell')">
                 <span class="icon fa-stack fa-lg">
                     <i class="background fa fa-circle fa-stack-2x"></i>
                     <i class="font fa fa-shopping-basket fa-stack-1x fa-inverse"></i>
                 </span>
                 <div class="text">Market</div>
             </li>
-            <li class="job" routerLink="/job">
+            <li class="job" (click)="onClickRoute('/job')" routerLink="">
                 <span class="icon fa-stack fa-lg">
                     <i class="background fa fa-circle fa-stack-2x"></i>
                     <i class="font fa fa-suitcase fa-stack-1x fa-inverse"></i>
@@ -37,7 +37,7 @@
                 <div class="text">Job</div>
             </li>
 
-            <li class="message" *ngIf=" login " routerLink="/message">
+            <li class="message" *ngIf=" login " (click)="onClickRoute('/message')" >
                 <span class="icon fa-stack fa-lg">
                     <i class="background fa fa-circle fa-stack-2x"></i>
                     <i class="font fa fa-envelope-o fa-stack-1x fa-inverse"></i>
@@ -45,7 +45,7 @@
                 <div class="text">Message</div>
             </li>
 
-            <li class="register" *ngIf=" ! login " routerLink="/user/register">
+            <li class="register" *ngIf=" ! login " (click)="onClickRoute('/user/register')">
                 <span class="icon fa-stack fa-lg">
                     <i class="background fa fa-circle fa-stack-2x"></i>
                     <i class="font fa fa-user-plus fa-stack-1x fa-inverse"></i>
@@ -54,7 +54,7 @@
             </li>
 
 
-            <li class="login" *ngIf=" ! login " routerLink="/user/login">
+            <li class="login" *ngIf=" ! login " (click)="onClickRoute('/user/login')">
                 <span class="icon fa-stack fa-lg">
                     <i class="background fa fa-circle fa-stack-2x"></i>
                     <i class="font fa fa-user fa-stack-1x fa-inverse"></i>
@@ -74,7 +74,7 @@
 -->
 
 
-            <li class="help" routerLink="/help">
+            <li class="help" (click)="onClickRoute('/help')">
                 <span class="icon fa-stack fa-lg">
                     <i class="background fa fa-circle fa-stack-2x"></i>
                     <i class="font fa fa-whatsapp fa-stack-1x fa-inverse"></i>

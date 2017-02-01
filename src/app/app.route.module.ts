@@ -26,6 +26,9 @@ import { JobListPage } from "../pages/job/pages/job-list/job-list";
 import { JobPostPage } from "../pages/job/pages/job-post/job-post";
 import { JobViewPage } from "../pages/job/pages/job-view/job-view";
 
+
+import {SonubReloadPage} from "../pages/sonub/pages/reload/reload";
+
 const appRoutes: Routes = [
 
     /** Job Pages **/
@@ -51,7 +54,11 @@ const appRoutes: Routes = [
     { path: "forum/:post_id", component: SonubPostListPage },
     { path: "forum/:post_id/:idx_post", component: SonubPostListPage },
     { path: "article/:idx_post", component: SonubPostListPage },
-    
+
+
+    { path: "reload/:url", component: SonubReloadPage },
+    { path: "reload", component: SonubReloadPage },
+
     { path: '', component: SonubHomePage },
 
     /** Default Base Pages **/

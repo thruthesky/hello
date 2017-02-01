@@ -2,27 +2,27 @@
 <section class="content">
   <sonub-left *ngIf=" app.size == 'big' "></sonub-left>
   <section class="center">
-            <sonub-news class="news"></sonub-news>
+    <sonub-news class="news"></sonub-news>
 
 
     <div class="kakao-friend" style="margin-bottom: .6em;">
       <a href="http://plus.kakao.com/home/mp8iqm63" target="_blank">
-      <img style="width:100%;" src="./assets/img/kakaotalk.png"></a>
+        <img style="width:100%;" src="./assets/img/kakaotalk.png"></a>
     </div>
 
-            <div class="main-banner">
-              <img src="assets/img/ads.png">
-            </div>
-            <sonub-sales></sonub-sales>
-            <hr>
-            <latest-post-component></latest-post-component>
-            <hr>
-            <sonub-latest-photo
-                #sonubLatestPhoto
-                [post_id]   = " 'freetalk' "
-                [limit]     = " 20 "
-            ></sonub-latest-photo>
-            <div class="in-page-loading"><i class="fa fa-spinner fa-spin"></i> Loading ...</div>
+    <div class="main-banner">
+      <img src="assets/img/ads.png">
+    </div>
+    <sonub-sales></sonub-sales>
+    <hr>
+    <latest-post-component></latest-post-component>
+    <hr>
+    <sonub-latest-photo
+      #sonubLatestPhoto
+      [post_id]   = " 'freetalk' "
+      [limit]     = " 20 "
+    ></sonub-latest-photo>
+    <div class="in-page-loading"><i class="fa fa-spinner fa-spin"></i> Loading ...</div>
   </section><!--/.center-->
   <sonub-right *ngIf=" app.size == 'big' "></sonub-right>
 </section><!--/section.content-->
