@@ -290,4 +290,8 @@ export class SonubPostListPage {
   OnEditComponentSuccess() {
     this.showPostCreateFrom = false;
   }
+
+  onViewComponentShowImage( url ) {
+    this.app.imageFullView( url );
+  }
 }

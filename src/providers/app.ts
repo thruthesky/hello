@@ -1,7 +1,7 @@
 import { Injectable, NgZone } from '@angular/core';
 import { AppComponent } from '../app/app.component';
 //declare let navigator;
-import { Alert, ALERT_OPTION } from '../providers/bootstrap/alert/alert';
+import { Alert, ALERT_OPTION, IMAGE_OPTION } from '../providers/bootstrap/alert/alert';
 const BREAK_POINT = 760; // it should match in vars.scss
 @Injectable()
 export class App {
@@ -32,14 +32,14 @@ export class App {
      * @warning This may return false if this is called before 'deviceready'event fired.
      *  so, be sure you call it after 'deviceready' event.
      */
-    isCordova () { 
+    isCordova () {
         if ( !! window['cordova'] ) return true;
         if ( document.URL.indexOf('http://') === -1 && document.URL.indexOf('https://') === -1 ) return true;
         return false;
     }
 
     // addBackButtonEventListener() {
-        
+
     //     document.addEventListener("backbutton", () => {
     //         a lert( this.page );
     //         if ( this.page == 'home' ) {
@@ -52,11 +52,23 @@ export class App {
     // }
 
 
-    
+
     private showModal( option: ALERT_OPTION ) {
         this.alertService.open( option, () => {
             console.info("alert OK");
         });
+    }
+
+    private showImageModal( option: IMAGE_OPTION ) {
+      this.alertService.openImage( option );
+    }
+
+
+    imageFullView( url ) {
+      let option: IMAGE_OPTION = {
+        url : url
+      };
+      this.showImageModal( option );
     }
 
     error( content ) {
@@ -92,7 +104,7 @@ export class App {
         this.appComponent.toast.content = option.content;
         setTimeout( () => this.appComponent.toast.active = false, 5000 );
     }
-    
+
     renderPage() {
         this.ngZone.run( () => {
 

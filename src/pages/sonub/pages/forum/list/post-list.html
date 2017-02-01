@@ -28,6 +28,7 @@
         [mode] = " 'create-comment' "
         (edit) = " onEditPost( $event ) "
         (error) = " onViewComponentError( $event ) "
+        (showImage) = " onViewComponentShowImage( $event ) "
       ></view-component>
       <div class="show-more" *ngIf="!view?.more && view?.no_of_comment > 5" (click)="view['more']=true" >Show {{ view?.no_of_comment && view?.no_of_comment > 5 ? view?.no_of_comment - 5 : 0 }} more comments.</div>
       <div class="comments" *ngIf="view?.comments?.length">
@@ -40,6 +41,7 @@
               [mode] = " 'create-comment' "
               (edit) = " onEditPost( $event ) "
               (error) = " onViewComponentError( $event ) "
+              (showImage) = " onViewComponentShowImage( $event ) "
             ></view-component>
           </ng-container>
       </div><!--/.comments-->
@@ -87,6 +89,7 @@
           [mode] = " 'create-comment' "
           (edit) = " onEditPost( $event ) "
           (error) = " onViewComponentError( $event ) "
+          (showImage) = " onViewComponentShowImage( $event ) "
         ></view-component>
 
 
@@ -102,6 +105,7 @@
                 [mode] = " 'create-comment' "
                 (edit) = " onEditPost( $event ) "
                 (error) = " onViewComponentError( $event ) "
+                (showImage) = " onViewComponentShowImage( $event ) "
               ></view-component>
             </div>
           </ng-container>
