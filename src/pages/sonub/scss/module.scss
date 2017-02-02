@@ -19,9 +19,23 @@
 }
 
 
+ngb-modal-window .modal-dialog {
+  max-width: 700px;
+  text-align: center;
+  .modal-content {
+    border: 0;
+    background-color: transparent;
+    image-modal {
 
-image-modal {
-  img {
-    max-width: 100%;
+      .modal-body {
+        padding: 0;
+        img {
+          max-width: 100%;
+        }
+      }
+    }
   }
 }
+
+
+
