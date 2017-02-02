@@ -19,19 +19,20 @@
     ></edit-component>
     <hr>
     <div *ngIf=" view " class="view">
-      <i class="fa fa-times close-post" (click)="view = ''"></i>
-      <view-component
-        [login_id] = " login?.id "
-        [post]="view"
-        [root]="view"
-        [show]="true"
-        [mode] = " 'create-comment' "
-        (edit) = " onEditPost( $event ) "
-        (error) = " onViewComponentError( $event ) "
-        (showImage) = " onViewComponentShowImage( $event ) "
+      <i class="show-hide fa" [ngClass]="{ 'fa-expand' : view?.minimize, 'fa-compress' : !view?.minimize}"(click)="view.minimize = !view.minimize"></i>
+      <view-component [ngClass]= "{ 'minimize' : view?.minimize }"
+                      [login_id] = " login?.id "
+                      [post]="view"
+                      [root]="view"
+                      [show]="true"
+                      [mode] = " 'create-comment' "
+                      (edit) = " onEditPost( $event ) "
+                      (error) = " onViewComponentError( $event ) "
+                      (showImage) = " onViewComponentShowImage( $event ) "
       ></view-component>
-      <div class="show-more" *ngIf="!view?.more && view?.no_of_comment > 5" (click)="view['more']=true" >Show {{ view?.no_of_comment && view?.no_of_comment > 5 ? view?.no_of_comment - 5 : 0 }} more comments.</div>
-      <div class="comments" *ngIf="view?.comments?.length">
+      <ng-container *ngIf="!view?.minimize">
+        <div class="show-more" *ngIf="!view?.more && view?.no_of_comment > 5" (click)="view['more']=true" >Show {{ view?.no_of_comment && view?.no_of_comment > 5 ? view?.no_of_comment - 5 : 0 }} more comments.</div>
+        <div class="comments" *ngIf="view?.comments?.length">
           <ng-container class="comment" *ngFor=" let comment of view['comments']; let i = index; trackBy: comment?.idx;">
             <view-component
               *ngIf="i < view['comments'].length - view['no_of_comment'] || i >= view['no_of_comment'] - 5 || view['more'] "
@@ -44,7 +45,8 @@
               (showImage) = " onViewComponentShowImage( $event ) "
             ></view-component>
           </ng-container>
-      </div><!--/.comments-->
+        </div><!--/.comments-->
+      </ng-container>
     </div><!--/.view-->
 
 
@@ -81,36 +83,38 @@
             <div class="text">{{ ad.subject }}</div>
           </div>
         </div><!-- ads -->
-        <div class="post-view" *ngIf="post?.idx"><i class="fa fa-times close-post" (click)="post.idx = ''"></i>
-        <view-component
-          [login_id] = " login?.id "
-          [post]="post" [root]="post"
-          [show]="true"
-          [mode] = " 'create-comment' "
-          (edit) = " onEditPost( $event ) "
-          (error) = " onViewComponentError( $event ) "
-          (showImage) = " onViewComponentShowImage( $event ) "
-        ></view-component>
+        <div class="post-view" *ngIf="post?.idx">
+          <i class="show-hide fa" [ngClass]="{ 'fa-expand' : post?.minimize, 'fa-compress' : !post?.minimize}"(click)="post.minimize = !post.minimize"></i>
+          <view-component [ngClass]= "{ 'minimize' : post?.minimize }"
+                          [login_id] = " login?.id "
+                          [post]="post" [root]="post"
+                          [show]="true"
+                          [mode] = " 'create-comment' "
+                          (edit) = " onEditPost( $event ) "
+                          (error) = " onViewComponentError( $event ) "
+                          (showImage) = " onViewComponentShowImage( $event ) "
+          ></view-component>
 
-
-        <div class="show-more" *ngIf="!post?.more && post?.no_of_comment > 5" (click)="post['more']=true">Show {{ post?.no_of_comment && post?.no_of_comment > 5 ? post?.no_of_comment - 5 : 0 }} more comments.</div>
-        <div class="comments" *ngIf="post?.comments?.length">
-          <ng-container>
-            <div class="comment" *ngFor=" let comment of post['comments']; let i = index; trackBy: comment?.idx;">
-              <view-component
-                *ngIf="i < post['comments'].length - post['no_of_comment'] || i >= post['no_of_comment'] - 5 || post['more'] "
-                [login_id] = " login?.id "
-                [post]="comment" [root]="post"
-                [show] = " false "
-                [mode] = " 'create-comment' "
-                (edit) = " onEditPost( $event ) "
-                (error) = " onViewComponentError( $event ) "
-                (showImage) = " onViewComponentShowImage( $event ) "
-              ></view-component>
-            </div>
+          <ng-container *ngIf="!post?.minimize">
+            <div class="show-more" *ngIf="!post?.more && post?.no_of_comment > 5" (click)="post['more']=true">Show {{ post?.no_of_comment && post?.no_of_comment > 5 ? post?.no_of_comment - 5 : 0 }} more comments.</div>
+            <div class="comments" *ngIf="post?.comments?.length">
+              <ng-container>
+                <div class="comment" *ngFor=" let comment of post['comments']; let i = index; trackBy: comment?.idx;">
+                  <view-component
+                    *ngIf="i < post['comments'].length - post['no_of_comment'] || i >= post['no_of_comment'] - 5 || post['more'] "
+                    [login_id] = " login?.id "
+                    [post]="comment" [root]="post"
+                    [show] = " false "
+                    [mode] = " 'create-comment' "
+                    (edit) = " onEditPost( $event ) "
+                    (error) = " onViewComponentError( $event ) "
+                    (showImage) = " onViewComponentShowImage( $event ) "
+                  ></view-component>
+                </div>
+              </ng-container>
+            </div><!--/.comments-->
           </ng-container>
-        </div><!--/.comments-->
-        </div>
+        </div><!--/.post-view-->
       </div><!--/.post-->
 
     </div><!--/.posts-->

@@ -247,14 +247,43 @@ edit-component {
 
 .post, .view, .post-view {
   position: relative;
-  .close-post {
+  .show-hide.fa {
     position: absolute;
-    top: 8px;
-    right: 8px;
+    top: .7em;
+    right: .7em;
     z-index: 100;
+    font-size: 1.2em;
+    font-weight: bold;
     cursor: pointer;
   }
 }
+
+
+
+/******** SHOW-HIDE POST *******/
+
+view-component {
+  &.minimize {
+    article {
+      &.post {
+        padding-top: .8em;
+        overflow: hidden;
+        height: 65px;
+        h2 {
+          font-size: 1em;
+          font-weight: bold;
+        }
+        .article-header {
+          .url {
+            visibility: hidden;
+          }
+        }
+
+      }
+    }
+  }
+}
+
 
 
 
