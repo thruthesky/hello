@@ -33,7 +33,7 @@ export class SonubPostListPage {
                private renderer: Renderer,
                private app: App,
                private pageScroll: PageScroll ) {
-    // console.log("SonubPostListPage::constructor()");
+    console.log("SonubPostListPage::constructor()");
 
     this.login = member.getLoginData();
     activated.params.subscribe( param => {
@@ -107,10 +107,10 @@ export class SonubPostListPage {
    * This loads only one ( 1 ) post for 'view' mode and loads a bunch of posts for that post_id.
    */
   loadPost(idx_post) {
-    console.log("SonubPostListPage::loadPost("+idx_post+")");
+    // console.log("SonubPostListPage::loadPost("+idx_post+")");
     //this.post.debug = true;
     this.post.load(idx_post, response => {
-      console.log("data loaded:");
+      // console.log("data loaded:");
       this.view = this.pre( <POST> response.post );
 
 
@@ -176,7 +176,7 @@ export class SonubPostListPage {
               ad['ad_idx'] = no;
             }
             this.post_top_ad = page.post_top_ad;
-            console.log(this.post_top_ad);
+            // console.log(this.post_top_ad);
           }
           if ( page.post_top_premium_ad !== void 0 && page.post_top_premium_ad.length ) {
             for ( let ad of page.post_top_premium_ad ) {
@@ -188,7 +188,7 @@ export class SonubPostListPage {
           }
         }
         else this.delayPush( page );
-        console.log('################', this.posts);
+        //console.log('################', this.posts);
       },
       error => {
         this.inPageLoading = false;

@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 import { ActivatedRoute, Router,} from '@angular/router';
 import { Location } from '@angular/common';
 @Component({
-  selector: 'reload',
-  template: '<span></span>'
+  selector: 'reload-page',
+  template: ''
 })
 export class SonubReloadPage {
   url : string = null;
@@ -17,9 +17,8 @@ export class SonubReloadPage {
         location.back();
       }
       else{
-        this.router.navigateByUrl( '/' );
+        this.router.navigateByUrl( '/' ); // fail safe.
       }
     } );
   }
-
 }

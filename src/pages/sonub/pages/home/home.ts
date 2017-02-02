@@ -18,6 +18,10 @@ export class SonubHomePage {
         private renderer: Renderer,
         public app: App
     ) {
+
+
+
+
         // app.alarm("App Alert Content!");
         this.forums = forum.forums;
         this.forum_group = Object.keys( this.forums );

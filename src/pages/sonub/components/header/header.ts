@@ -35,7 +35,8 @@ export class SonubHeader {
 
     onClickRoute( url ) {
       console.log('#########activeroute', url);
-
+      
+      
       let active = this.router.isActive( url, true);
       if(active) {
         this.router.navigate( ['reload',  url] );
