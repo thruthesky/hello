@@ -38,18 +38,18 @@ export class SonubPostListPage {
     this.login = member.getLoginData();
     activated.params.subscribe( param => {
       console.log("PostList::constructor::subscribe()")
-      
+
       // clear everything and initialize here.
       this.post_id = null;
       this.post_name = null; //
       window.scrollTo( 0, 0 ); // when a forum clicked on a forum in the middle of the page, it does not scroll top. 게시판이 열려 있는 상태에서 다시 게시판을 열면 scrollTop 이 안되므로, 여기서 임의적으로 해 준다.
       this.clearAds(); // it must be here to clear previous forum's ads.
       this.posts = <POSTS> []; // clear
-      
-      
-      
-      
-      
+
+
+
+
+
       if ( param['post_id'] !== void 0 ) {
         this.loadPosts( param['post_id'] );
       }
@@ -112,9 +112,9 @@ export class SonubPostListPage {
     this.post.load(idx_post, response => {
       console.log("data loaded:");
       this.view = this.pre( <POST> response.post );
-      
-      
-      // @deprecared - 
+
+
+      // @deprecared -
       // if(response.post['comments']) {
       //   if ( response.post['comments'].length > 5 ) {
       //     this.view['last_five_comment'] = response.post['comments'].splice(response.post['comments'].length - 5, 5);
@@ -188,7 +188,7 @@ export class SonubPostListPage {
           }
         }
         else this.delayPush( page );
-
+        console.log('################', this.posts);
       },
       error => {
         this.inPageLoading = false;
@@ -238,13 +238,13 @@ export class SonubPostListPage {
     if ( post.idx_parent !== void 0 ) {
       post['url'] = this.post.getPermalink( post );
     }
-    
-    
-    
+
+
+
 
 /**
  * @deprecared - divide comments into two.
- * 
+ *
     if(post['comments']){
       if( post['comments'].length > 5 ) {
         post['last_five_comment'] = post['comments'].splice(post['comments'].length - 5, 5);
@@ -289,5 +289,9 @@ export class SonubPostListPage {
 
   OnEditComponentSuccess() {
     this.showPostCreateFrom = false;
+  }
+
+  onViewComponentShowImage( url ) {
+    this.app.imageFullView( url );
   }
 }

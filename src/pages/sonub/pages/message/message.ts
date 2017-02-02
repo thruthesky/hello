@@ -133,7 +133,7 @@ export class SonubMessagePage {
         () => {
             console.log("message list complete");
         });
-      //console.log("messages::", this.messages);
+      console.log("messages::", this.messages);
     }
 
 
@@ -154,27 +154,10 @@ export class SonubMessagePage {
 
      processMessageDate(data: MESSAGE_LIST){
             data.messages.map( message  => {
-                message['date_created'] = this.getDate( message['stamp_created'] );
+                message['date_created'] = this.member.getDateTime( message['stamp_created'] );
                 //console.log('stamp', message['stamp_created'] )
             });
      }
-
-
-
-     getDate( stamp ) {
-            let m = parseInt(stamp) * 1000;
-            let d = new Date( m );
-
-            let date: string;
-            date = d.getFullYear() + "-";
-            date += this.addZero(d.getMonth()) + "-";
-            date += this.addZero(d.getDate()) + " ";
-            date += this.addZero(d.getHours()) + ":";
-            date += this.addZero(d.getMinutes());
-
-            return date;
-     }
-
 
 
     addZero(i : number){

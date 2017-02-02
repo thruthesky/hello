@@ -40,6 +40,7 @@ import { SonubMessagePage } from './pages/message/message';
 import { BootstrapModule } from '../../providers/bootstrap/bootstrap';
 
 import { SafeHTMLPipeModule } from '../../pipes/security/security.pipe.module';
+import { SonubReloadPage } from "./pages/reload/reload";
 
 @NgModule( {
     declarations: [
@@ -64,7 +65,8 @@ import { SafeHTMLPipeModule } from '../../pipes/security/security.pipe.module';
         SonubBusinessPage,
         SonubHelpPage,
         SonubEventPage,
-        FileNotFoundPage
+        FileNotFoundPage,
+        SonubReloadPage
     ],
     imports: [
         BrowserModule,

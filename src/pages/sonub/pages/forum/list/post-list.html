@@ -19,7 +19,7 @@
     ></edit-component>
     <hr>
     <div *ngIf=" view " class="view">
-
+      <i class="fa fa-times close-post" (click)="view = ''"></i>
       <view-component
         [login_id] = " login?.id "
         [post]="view"
@@ -28,6 +28,7 @@
         [mode] = " 'create-comment' "
         (edit) = " onEditPost( $event ) "
         (error) = " onViewComponentError( $event ) "
+        (showImage) = " onViewComponentShowImage( $event ) "
       ></view-component>
       <div class="show-more" *ngIf="!view?.more && view?.no_of_comment > 5" (click)="view['more']=true" >Show {{ view?.no_of_comment && view?.no_of_comment > 5 ? view?.no_of_comment - 5 : 0 }} more comments.</div>
       <div class="comments" *ngIf="view?.comments?.length">
@@ -40,6 +41,7 @@
               [mode] = " 'create-comment' "
               (edit) = " onEditPost( $event ) "
               (error) = " onViewComponentError( $event ) "
+              (showImage) = " onViewComponentShowImage( $event ) "
             ></view-component>
           </ng-container>
       </div><!--/.comments-->
@@ -48,9 +50,8 @@
 
     <div *ngIf=" posts " class="pages posts">
       <div class="post" *ngFor=" let post of posts; let i = index; trackBy: post?.idx ">
-
         <!-- post_top_ad -->
-        <div *ngIf=" post_top_ad && ! (i % limit) " class="post_top_ad">
+        <div *ngIf=" post_top_ad && ! (i % limit) && post?.idx " class="post_top_ad">
           <div *ngFor=" let top_ad of post_top_ad " class="top_ad"  routerLink="/article/{{ top_ad.ad_idx }}">
             <div class="image">
               <img [src]="top_ad.src" *ngIf="top_ad?.src">
@@ -59,7 +60,7 @@
         </div><!-- post_top_ad -->
 
         <!-- post_top_preminum -->
-        <div *ngIf=" post_top_premium_ad && ! (i % limit) " class="post_top_premium_ad">
+        <div *ngIf=" post_top_premium_ad && ! (i % limit) && post?.idx " class="post_top_premium_ad">
           <div *ngFor=" let premium_ad of post_top_premium_ad " class="top_premium_ad" routerLink="/article/{{ premium_ad.ad_idx }}">
             <div class="image">
               <img [src]="premium_ad.src" *ngIf="premium_ad?.src">
@@ -72,7 +73,7 @@
         </div><!-- post_top_preminum -->
 
         <!-- ads -->
-        <div *ngIf=" ads && ! (i % limit) " class="ads">
+        <div *ngIf=" ads && ! (i % limit) && post?.idx " class="ads">
           <div *ngFor=" let ad of ads " class="ad" routerLink="/article/{{ ad.idx }}">
             <div class="photo">
               <img [src]="ad.src_thumbnail" *ngIf="ad?.src_thumbnail">
@@ -80,7 +81,7 @@
             <div class="text">{{ ad.subject }}</div>
           </div>
         </div><!-- ads -->
-
+        <div class="post-view" *ngIf="post?.idx"><i class="fa fa-times close-post" (click)="post.idx = ''"></i>
         <view-component
           [login_id] = " login?.id "
           [post]="post" [root]="post"
@@ -88,6 +89,7 @@
           [mode] = " 'create-comment' "
           (edit) = " onEditPost( $event ) "
           (error) = " onViewComponentError( $event ) "
+          (showImage) = " onViewComponentShowImage( $event ) "
         ></view-component>
 
 
@@ -103,10 +105,12 @@
                 [mode] = " 'create-comment' "
                 (edit) = " onEditPost( $event ) "
                 (error) = " onViewComponentError( $event ) "
+                (showImage) = " onViewComponentShowImage( $event ) "
               ></view-component>
             </div>
           </ng-container>
         </div><!--/.comments-->
+        </div>
       </div><!--/.post-->
 
     </div><!--/.posts-->

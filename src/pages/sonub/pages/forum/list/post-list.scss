@@ -98,6 +98,7 @@ edit-component {
         img {
             max-width: 100%;
             max-height: 800px;
+            cursor: pointer;
         }
         &[no-files='2'] {
             img {
@@ -221,31 +222,33 @@ edit-component {
 }
 
 
-.post, .view {
+.post, .view, .post-view {
+  position: relative;
   .show-more {
+    text-align: center;
+    font-size: 1.1em;
+    font-weight: 500;
+    border: 3px solid #eeeeee;
+    border-radius: 2px;
+    cursor: pointer;
+    &:before {
+      margin-right: 5px;
+      content: '\f103';
+      font-family: FontAwesome;
+      font-size: 1.1em;
+      font-weight: bold;
+    }
+    &:hover {
+      background-color: #eeeeee;
+    }
+  }
+  .close-post {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    z-index: 100;
     cursor: pointer;
   }
-  /*.comments {
-    .comment {
-      display: none;
-
-      &:last-child,
-      &:nth-last-child(2),
-      &:nth-last-child(3),
-      &:nth-last-child(4),
-      &:nth-last-child(5){
-        display: block;
-      }
-
-    }
-
-    &.more {
-      .comment {
-
-        display: block;
-      }
-    }
-  }*/
 }
 
 

@@ -2,9 +2,10 @@ import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { Alert } from './alert/alert';
 import { AlertContent } from './alert/alert-content';
+import { ImageModal } from "./modal/image";
 @NgModule({
-    declarations: [ AlertContent ], // component declarations
-    entryComponents: [ AlertContent ],
+    declarations: [ AlertContent, ImageModal ], // component declarations
+    entryComponents: [ AlertContent, ImageModal ],
     imports: [
         NgbModule.forRoot() // for ng-bootstrap registration
     ],
