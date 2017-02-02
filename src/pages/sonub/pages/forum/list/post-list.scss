@@ -221,27 +221,31 @@ edit-component {
     }
 }
 
+/******** SHOW MORE COMMENS *******/
 
-.post, .view, .post-view {
-  position: relative;
-  .show-more {
-    text-align: center;
-    font-size: 1.1em;
-    font-weight: 500;
-    border: 3px solid #eeeeee;
-    border-radius: 2px;
-    cursor: pointer;
+
+
+.post .show-more {
+  color: darkslategrey;
+  cursor: pointer;
     &:before {
-      margin-right: 5px;
+      display: block;
+      float: left;
+      margin: .014rem .4rem 0 0;
       content: '\f103';
       font-family: FontAwesome;
       font-size: 1.1em;
       font-weight: bold;
+      color: darkslategrey;
     }
     &:hover {
-      background-color: #eeeeee;
+      color: #366;
     }
   }
+  
+
+.post, .view, .post-view {
+  position: relative;
   .close-post {
     position: absolute;
     top: 8px;
