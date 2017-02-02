@@ -59,6 +59,23 @@ export class App {
         });
     }
 
+    warning( content: string ) {
+        let option: ALERT_OPTION = {
+            title: "WARNING",
+            content: content,
+            class: 'warning'
+        };
+        this.showModal( option );
+    }
+    alarm( content: string ) {
+        let option: ALERT_OPTION = {
+            title: "ALARM",
+            content: content,
+            class: 'alarm'
+        };
+        this.showModal( option );
+    }
+
     error( content ) {
         let option: ALERT_OPTION = {
             title: "ERROR",
@@ -70,22 +87,6 @@ export class App {
         this.toast( option );
     }
 
-    warning( content ) {
-        let option: ALERT_OPTION = {
-            title: "WARNING",
-            content: content,
-            class: 'warning'
-        };
-        this.showModal( option );
-    }
-    alarm( content ) {
-        let option: ALERT_OPTION = {
-            title: "ALARM",
-            content: content,
-            class: 'alarm'
-        };
-        this.showModal( option );
-    }
 
     toast( option ) {
         this.appComponent.toast.active = true;;
