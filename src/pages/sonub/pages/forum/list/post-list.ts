@@ -110,7 +110,8 @@ export class SonubPostListPage {
     console.log("SonubPostListPage::loadPost("+idx_post+")");
     //this.post.debug = true;
     this.post.load(idx_post, response => {
-      console.log("data loaded:");
+      console.log("data loaded:", response);
+      if( ! response.post.idx ) return this.app.error("Post Not Found...");
       this.view = this.pre( <POST> response.post );
 
 
