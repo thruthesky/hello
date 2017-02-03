@@ -23,6 +23,7 @@ edit-component {
   .center {
     padding-top: .3em;
     .files {
+      overflow: auto;
       background-color: transparent;
     }
   }
