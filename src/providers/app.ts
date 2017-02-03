@@ -67,6 +67,7 @@ export class App {
 
     imageFullView( url ) {
       let option: IMAGE_OPTION = {
+        'class': 'full-image',
         url : url
       };
       this.showImageModal( option );

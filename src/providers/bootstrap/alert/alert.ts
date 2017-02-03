@@ -9,7 +9,7 @@ export interface ALERT_OPTION {
 }
 
 export interface IMAGE_OPTION {
-
+    'class'?: string;
     url : string;
 }
 
@@ -44,8 +44,10 @@ export class Alert {
 
     openImage( option: IMAGE_OPTION) {
 
+    let modalOption = {};
+    if ( option.class ) modalOption['windowClass'] = option.class;
       let modalRef = this.modalService
-        .open( ImageModal );
+        .open( ImageModal, modalOption );
 
       modalRef.componentInstance['url'] = option.url;
 
