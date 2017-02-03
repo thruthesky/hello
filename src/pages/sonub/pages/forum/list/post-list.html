@@ -83,6 +83,9 @@
             <div class="text">{{ ad.subject }}</div>
           </div>
         </div><!-- ads -->
+
+
+        <!-- post -->
         <div class="post-view" *ngIf="post?.idx">
           <i class="show-hide fa" [ngClass]="{ 'fa-expand' : post?.minimize, 'fa-compress' : !post?.minimize}"(click)="post.minimize = !post.minimize"></i>
           <view-component [ngClass]= "{ 'minimize' : post?.minimize }"

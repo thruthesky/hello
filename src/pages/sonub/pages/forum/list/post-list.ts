@@ -90,9 +90,10 @@ export class SonubPostListPage {
    */
   loadPosts( post_id: string ) {
     this.post_id = post_id;
-    this.post_id = this.post_id.replace('--', ',');
+    
     this.page_no = 0;
     if ( this.post_id ) {
+      this.post_id = this.post_id.replace('--', ','); // @deprecated. do not use "freetalk,qna,knowhow" to search many forums. // it will be removed soon.
       this.loadPage();
     }
     else {
@@ -110,8 +111,10 @@ export class SonubPostListPage {
     // console.log("SonubPostListPage::loadPost("+idx_post+")");
     //this.post.debug = true;
     this.post.load(idx_post, response => {
-      // console.log("data loaded:");
+
+      console.log("data loaded:", response);
       this.view = this.pre( <POST> response.post );
+      if ( this.view == null ) return this.app.error("Post Not Found...");
 
 
       // @deprecared -
@@ -233,8 +236,16 @@ export class SonubPostListPage {
     this.posts.splice( 0, option.limit );
     // console.log("after: ", this.posts.length);
   }
+
+
+  /**
+   * @return POST DATA or null if the post is wrong/malformed.
+   */
   pre( post: POST ) : POST {
     if ( post === void 0 ) return null; // this error really happened.
+    if ( post.idx === void 0 || ! post.idx ) return null;
+
+
     if ( post.idx_parent !== void 0 ) {
       post['url'] = this.post.getPermalink( post );
     }

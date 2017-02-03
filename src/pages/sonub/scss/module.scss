@@ -18,6 +18,9 @@
 
 }
 
+ngb-modal-backdrop.modal-backdrop.show {
+  opacity: .7;
+}
 
 ngb-modal-window.full-image .modal-dialog {
   max-width: 700px;
@@ -31,6 +34,7 @@ ngb-modal-window.full-image .modal-dialog {
         padding: 0;
         img {
           max-width: 100%;
+          border: 2px solid white;
         }
       }
     }
