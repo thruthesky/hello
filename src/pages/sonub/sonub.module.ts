@@ -30,6 +30,7 @@ import { FileNotFoundPage } from './pages/file-not-found/file-not-found';
 import { SonubBusinessPage } from './pages/business/business';
 import { SonubHelpPage } from './pages/help/help';
 import { SonubEventPage } from './pages/event/event';
+import { SonubSettingPage } from './pages/setting/setting';
 
 // services
 import { ForumService } from './providers/forum'
@@ -66,7 +67,8 @@ import { SonubReloadPage } from "./pages/reload/reload";
         SonubHelpPage,
         SonubEventPage,
         FileNotFoundPage,
-        SonubReloadPage
+        SonubReloadPage,
+        SonubSettingPage
     ],
     imports: [
         BrowserModule,

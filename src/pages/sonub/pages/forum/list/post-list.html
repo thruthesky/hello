@@ -28,6 +28,7 @@
                       [mode] = " 'create-comment' "
                       (edit) = " onEditPost( $event ) "
                       (error) = " onViewComponentError( $event ) "
+                          (notice) = " onViewComponentNotice( $event ) "
                       (showImage) = " onViewComponentShowImage( $event ) "
       ></view-component>
       <ng-container *ngIf="!view?.minimize">
@@ -42,6 +43,7 @@
               [mode] = " 'create-comment' "
               (edit) = " onEditPost( $event ) "
               (error) = " onViewComponentError( $event ) "
+                          (notice) = " onViewComponentNotice( $event ) "
               (showImage) = " onViewComponentShowImage( $event ) "
             ></view-component>
           </ng-container>
@@ -95,6 +97,7 @@
                           [mode] = " 'create-comment' "
                           (edit) = " onEditPost( $event ) "
                           (error) = " onViewComponentError( $event ) "
+                          (notice) = " onViewComponentNotice( $event ) "
                           (showImage) = " onViewComponentShowImage( $event ) "
           ></view-component>
 
@@ -111,6 +114,7 @@
                     [mode] = " 'create-comment' "
                     (edit) = " onEditPost( $event ) "
                     (error) = " onViewComponentError( $event ) "
+                    (notice) = " onViewComponentNotice( $event ) "
                     (showImage) = " onViewComponentShowImage( $event ) "
                   ></view-component>
                 </div>

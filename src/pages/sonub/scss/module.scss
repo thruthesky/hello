@@ -15,8 +15,30 @@
         font-family: 'FontAwesome';
         content: '\f071';
     }
-
 }
+
+.toast.error {
+    background-color: darkgoldenrod;
+    color: white;
+    &:before {
+        margin-right: .6em;
+        font-family: 'FontAwesome';
+        content: '\f071';
+    }
+}
+
+
+.toast.notice {
+    background-color: lightslategray;
+    color: white;
+    &:before {
+        margin-right: .6em;
+        font-family: 'FontAwesome';
+        content: '\f071';
+    }
+}
+
+
 
 ngb-modal-backdrop.modal-backdrop.show {
   opacity: .7;

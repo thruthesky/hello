@@ -1,0 +1,31 @@
+<sonub-header></sonub-header>
+<section class="content">
+  <sonub-left *ngIf=" app.size == 'big' "></sonub-left>
+  <section class="center">
+      
+
+      {{
+          [ 'Choose your language', '언어를 선택하십시오.' ] | ek
+      }}
+      <fieldset>
+          <label>
+              <input type="radio" name="language" (click)="onClickLanguage('en')" [checked]="language=='en'"> {{ ['English', '영어'] | ek }}
+          </label>
+          
+          <label>
+              <input type="radio" name="language" (click)="onClickLanguage('ko')" [checked]="language=='ko'"> {{ ['Korean', '한국어'] | ek }}
+          </label>
+      </fieldset>
+      
+
+    <div  (click)="onClickClearLocalStorage()">
+        <div class="icon">
+            <i class="fa fa-gears"></i>
+        </div>
+        <span>{{ ['Clear Cache', '캐시삭제'] | ek }}</span>
+    </div>
+
+      
+    </section><!--/.center-->
+  <sonub-right *ngIf=" app.size == 'big' "></sonub-right>
+</section><!--/section.content-->

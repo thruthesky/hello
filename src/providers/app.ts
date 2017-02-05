@@ -1,5 +1,6 @@
 import { Injectable, NgZone } from '@angular/core';
 import { AppComponent } from '../app/app.component';
+import { LanguagePipe } from '../pipes/language/language.pipe';
 //declare let navigator;
 import { Alert, ALERT_OPTION, IMAGE_OPTION } from '../providers/bootstrap/alert/alert';
 const BREAK_POINT = 760; // it should match in vars.scss
@@ -9,9 +10,13 @@ export class App {
     _width: number = 0;
     menu: boolean = false;
     page: string = null; // current page tag(name or id)
-    constructor( private alertService: Alert, private ngZone: NgZone ) {
+    constructor( private alertService: Alert,
+        private ln: LanguagePipe,
+        private ngZone: NgZone ) {
         // console.log("App::constructor()");
     }
+
+
     /**
      * Everytime window resizes, this is set.
      */
@@ -54,6 +59,7 @@ export class App {
 
 
     private showModal( option: ALERT_OPTION ) {
+        option.content = this.ln.t( option.content );
         this.alertService.open( option, () => {
             console.info("alert OK");
         });
@@ -97,15 +103,25 @@ export class App {
             class: 'error'
         };
         console.log(option);
-        // this.showModal( option );
+        this.toast( option );
+    }
+
+    notice( content ) {
+        let option: ALERT_OPTION = {
+            title: "NOTICE",
+            content: content,
+            class: 'notice'
+        };
+        console.log(option);
         this.toast( option );
     }
 
 
     toast( option ) {
-        this.appComponent.toast.active = true;;
-        this.appComponent.toast.content = option.content;
-        setTimeout( () => this.appComponent.toast.active = false, 5000 );
+        this.appComponent.toast.class = option.class;
+        this.appComponent.toast.active = true;
+        this.appComponent.toast.content = this.ln.t(option.content);
+        setTimeout( () => this.appComponent.toast.active = false, 350000 );
     }
 
     renderPage() {

@@ -20,7 +20,7 @@
         <button *ngIf=" urlPhoto != urlDefault " class="delete" (click)="onDeletePhoto()">
           <i *ngIf=" ! inDeleting " class="fa fa-trash"></i>
           <i *ngIf=" inDeleting " class="fa fa-spinner fa-spin"></i>
-          DELETE PHOTO
+          {{ ['DELETE PHOTO', '사진 삭제'] | ek }}
         </button>
 
         <!-- This supports IE 9. IE 9 does not support HTML 5 -->
@@ -32,45 +32,45 @@
       </div>
 
       <div *ngIf=" ! login " class="row-container">
-        <label for="inputID" class="text">User ID</label>
+        <label for="inputID" class="text">{{ ['User ID', '아이디'] | ek }}</label>
         <div class="input"><input [(ngModel)]="form.id" class="form-control" name="id" type="text" id="inputID" placeholder="Input User ID" autocomplete="off"></div>
       </div>
       <div *ngIf=" ! login " class="row-container">
-        <label for="inputPassword" class="text">Password</label>
+        <label for="inputPassword" class="text">{{ ['Password', '비밀번호'] | ek }}</label>
         <div class="input"><input [(ngModel)]="form.password" class="form-control" name="password" type="password" id="inputPassword" placeholder="Input Password" autocomplete="off"></div>
       </div>
       <div class="row-container">
-        <label for="inputName" class="text">Name</label>
+        <label for="inputName" class="text">{{ ['Name', '이름'] | ek }}</label>
         <div class="input"><input [(ngModel)]="form.name" class="form-control" name="name" type="text" id="inputName" placeholder="Input Name" autocomplete="off"></div>
       </div>
       <div class="row-container">
-        <label for="inputEmail" class="text">Email</label>
+        <label for="inputEmail" class="text">{{ ['Email', '이메일'] | ek }}</label>
         <div class="input"><input [(ngModel)]="form.email" class="form-control" name="email" type="email" id="inputEmail" placeholder="Input Email" autocomplete="off"></div>
       </div>
       <div class="row-container">
-        <label for="inputMobile" class="text">Mobile</label>
+        <label for="inputMobile" class="text">{{ ['Mobile', '모바일'] | ek }}</label>
         <div class="input">
           <input [(ngModel)]="form.mobile" class="form-control" name="mobile" type="number" id="inputMobile" placeholder="Input your phone number." autocomplete="off">
-          <div class="text-muted">Input digits only</div>
+          <div class="text-muted">{{ ['Input digits only', '숫자만 입력하세요.'] | ek }}</div>
         </div>
       </div>
 
       <div class="row-container">
-        <label class="text">Gender</label>
+        <label class="text">{{ ['Gender','성별'] | ek }}</label>
         <div class="input">
           <label for="inputGenderM" class="form-check-inline">
             <input [(ngModel)]="form.gender" class="form-check-input" name="gender" type="radio" id="inputGenderM" value='M'>
-            Male
+            {{ ['Male','남'] | ek }}
           </label>
           <label for="inputGenderF" class="form-check-inline">
             <input [(ngModel)]="form.gender" class="form-check-input" name="gender" type="radio" id="inputGenderF" value='F'>
-            Female
+            {{ ['Female','여'] | ek }}
           </label>
         </div>
       </div>
 
       <div class="row-container">
-        <label for="inputBirthday" class="text">Birth Day</label>
+        <label for="inputBirthday" class="text">{{ ['Birth Day','생년월일'] | ek }}</label>
         <div class="input"><input [(ngModel)]="form.birthday" class="form-control" name="birthday" type="date" id="inputBirthday"></div>
       </div>
 
@@ -90,7 +90,7 @@
 
       <div class="process">
         <div *ngIf=" process.loader ">
-          <i class="fa fa-spinner fa-spin"></i> Connecting to server ...
+          <i class="fa fa-spinner fa-spin"></i> {{ ['Connecting to server ...','회원 가입 중...'] | ek }}
         </div>
         <div *ngIf=" process.error " class="alert alert-danger" role="alert">
           <strong>{{ 'error' | ln }} !</strong> {{ process.error }}

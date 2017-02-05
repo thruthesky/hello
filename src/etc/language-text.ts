@@ -73,4 +73,11 @@ export let languageText = {
     'forum.internet':   { en: 'Internet', ko: '인터넷 컴퓨터'},
     'forum.newcomer':   { en: 'Newcomer Reminders', ko: '필리핀 초보 필독'},
 
+
+
+
+    /** ERRRO MESSAGE FOR FORUMS - 게시판 관련 에러 메세지 */
+    'already-reported':         { en: 'This post is already reported.', ko: '이미 신고된 포스트입니다.' },
+    'report-success':           { en: 'You have reported successfully.', ko: '글을 신고하였습니다.' },
+    'user-id-is-empty-login-first':     { en: 'Please, login first!', ko: '회원 로그인을 먼저하십시오.' }
 };

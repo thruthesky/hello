@@ -1,0 +1,13 @@
+setting-page {
+  display: block;
+  @include color-combination( 1 );
+  .news {
+    margin-bottom: .6em;
+  }
+  .main-banner {
+    margin-bottom: .6em;
+    img {
+      width: 100%;
+    }
+  }
+}

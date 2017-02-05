@@ -287,7 +287,13 @@ export class SonubPostListPage {
   }
 
   onViewComponentError( error ) {
+    //console.error("onViewComponentError:", error);
     this.app.error( error );
+  }
+
+  onViewComponentNotice( error ) {
+    //console.info("onViewComponentNotice:", error);
+    this.app.notice( error );
   }
 
   OnEditComponentError( error ) {

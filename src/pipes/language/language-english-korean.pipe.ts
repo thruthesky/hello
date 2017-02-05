@@ -4,7 +4,7 @@
  * @see ./README.md for details
  */
 import { Injectable, Pipe, PipeTransform } from '@angular/core';
-import { Config } from '../../etc/config';
+import { Config, SETTING_LANGUAGE } from '../../etc/config';
 
 @Pipe({
   name: 'ek'
@@ -16,10 +16,10 @@ export class LanguageEnglishKoreanPipe implements PipeTransform {
 
 
     if ( code === void 0 ) return 'code undefined';
-    let language_code = Config.language;
-
+    
+    
     let str;
-    if ( language_code == 'en' ) str = code[0];
+    if ( this.language() == 'en' ) str = code[0];
     else str = code[1];
     for( let i in args ) {
       str = str.replace('#' + i, args[i]);
@@ -27,6 +27,14 @@ export class LanguageEnglishKoreanPipe implements PipeTransform {
     //console.log('str: ', str);
     return str;
 
+  }
+
+
+  language() {
+    let language_code = Config.language;
+    let lc = localStorage.getItem( SETTING_LANGUAGE );
+    if ( lc ) language_code = lc;
+    return lc;
   }
 
 
