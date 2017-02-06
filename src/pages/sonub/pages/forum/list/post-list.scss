@@ -269,7 +269,7 @@ view-component {
       &.post {
         padding-top: .8em;
         overflow: hidden;
-        height: 65px;
+        height: 4em;
         h2 {
           font-size: 1em;
           font-weight: bold;
@@ -325,6 +325,9 @@ view-component {
         font-family: FontAwesome;
         font-size: .9rem;
       }
+    }
+    .nickname b, .url b {
+      cursor: pointer;
     }
   }
   .buttons {

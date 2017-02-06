@@ -19,8 +19,8 @@
                     (success) = " OnEditComponentSuccess() "
     ></edit-component>
     <hr>
-    <div *ngIf=" view " class="view">
-      <i class="show-hide fa" [ngClass]="{ 'fa-expand' : view?.minimize, 'fa-compress' : !view?.minimize}"(click)="view.minimize = !view.minimize"></i>
+    <div *ngIf=" view " class="view" (click)="view.minimize = false">
+      <i class="show-hide fa" [ngClass]="{ 'fa-expand' : view?.minimize, 'fa-compress' : !view?.minimize}" (click)=" onClickFold( $event , view ) "></i>
       <view-component [ngClass]= "{ 'minimize' : view?.minimize }"
                       [login_id] = " login?.id "
                       [post]="view"
@@ -29,8 +29,9 @@
                       [mode] = " 'create-comment' "
                       (edit) = " onEditPost( $event ) "
                       (error) = " onViewComponentError( $event ) "
-                          (notice) = " onViewComponentNotice( $event ) "
+                      (notice) = " onViewComponentNotice( $event ) "
                       (showImage) = " onViewComponentShowImage( $event ) "
+                      (memberInfo)=" onEditComponentShowMemberInfo( $event )"
       ></view-component>
       <ng-container *ngIf="!view?.minimize">
         <div class="show-more" *ngIf="!view?.more && view?.no_of_comment > 5" (click)="view['more']=true" >Show {{ view?.no_of_comment && view?.no_of_comment > 5 ? view?.no_of_comment - 5 : 0 }} more comments.</div>
@@ -44,8 +45,9 @@
               [mode] = " 'create-comment' "
               (edit) = " onEditPost( $event ) "
               (error) = " onViewComponentError( $event ) "
-                          (notice) = " onViewComponentNotice( $event ) "
+              (notice) = " onViewComponentNotice( $event ) "
               (showImage) = " onViewComponentShowImage( $event ) "
+              (memberInfo)=" onEditComponentShowMemberInfo( $event )"
             ></view-component>
           </ng-container>
         </div><!--/.comments-->
@@ -89,8 +91,8 @@
 
 
         <!-- post -->
-        <div class="post-view" *ngIf="post?.idx">
-          <i class="show-hide fa" [ngClass]="{ 'fa-expand' : post?.minimize, 'fa-compress' : !post?.minimize}"(click)="post.minimize = !post.minimize"></i>
+        <div class="post-view" *ngIf="post?.idx" (click)="post.minimize = false">
+          <i class="show-hide fa" [ngClass]="{ 'fa-expand' : post?.minimize, 'fa-compress' : !post?.minimize}" (click)=" onClickFold( $event , post ) "></i>
           <view-component [ngClass]= "{ 'minimize' : post?.minimize }"
                           [login_id] = " login?.id "
                           [post]="post" [root]="post"
@@ -100,6 +102,7 @@
                           (error) = " onViewComponentError( $event ) "
                           (notice) = " onViewComponentNotice( $event ) "
                           (showImage) = " onViewComponentShowImage( $event ) "
+                          (memberInfo)=" onEditComponentShowMemberInfo( $event )"
           ></view-component>
 
           <ng-container *ngIf="!post?.minimize">
@@ -117,6 +120,7 @@
                     (error) = " onViewComponentError( $event ) "
                     (notice) = " onViewComponentNotice( $event ) "
                     (showImage) = " onViewComponentShowImage( $event ) "
+                    (memberInfo)=" onEditComponentShowMemberInfo( $event )"
                   ></view-component>
                 </div>
               </ng-container>

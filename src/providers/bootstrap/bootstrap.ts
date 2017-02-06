@@ -3,9 +3,11 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { Alert } from './alert/alert';
 import { AlertContent } from './alert/alert-content';
 import { ImageModal } from "./modal/image";
+import { MemberInfoModal } from "./modal/member-info";
+
 @NgModule({
-    declarations: [ AlertContent, ImageModal ], // component declarations
-    entryComponents: [ AlertContent, ImageModal ],
+    declarations: [ AlertContent, ImageModal, MemberInfoModal ], // component declarations
+    entryComponents: [ AlertContent, ImageModal, MemberInfoModal ],
     imports: [
         NgbModule.forRoot() // for ng-bootstrap registration
     ],

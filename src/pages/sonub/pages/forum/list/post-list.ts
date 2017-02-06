@@ -93,7 +93,7 @@ export class SonubPostListPage {
    */
   loadPosts( post_id: string ) {
     this.post_id = post_id;
-    
+
     this.page_no = 0;
     if ( this.post_id ) {
       this.post_id = this.post_id.replace('--', ','); // @deprecated. do not use "freetalk,qna,knowhow" to search many forums. // it will be removed soon.
@@ -313,5 +313,14 @@ export class SonubPostListPage {
 
   onViewComponentShowImage( url ) {
     this.app.imageFullView( url );
+  }
+
+  onEditComponentShowMemberInfo( post ) {
+    this.app.memberInfoView( post );
+  }
+
+  onClickFold( event, post ) {
+    event.stopPropagation();
+    post.minimize = !post.minimize;
   }
 }
