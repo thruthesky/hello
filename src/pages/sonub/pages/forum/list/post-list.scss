@@ -263,26 +263,27 @@ edit-component {
 
 /******** SHOW-HIDE POST *******/
 
-view-component {
-  &.minimize {
-    article {
-      &.post {
-        padding-top: .8em;
-        overflow: hidden;
-        height: 4em;
-        h2 {
-          font-size: 1em;
-          font-weight: bold;
-        }
-        .article-header {
-          .url {
-            visibility: hidden;
-          }
-        }
+view-component.minimize {
+    article.post .content, .buttons, edit-component { display: none; }
+    
 
-      }
-    }
-  }
+    // article {
+    //   &.post {
+    //     padding-top: .8em;
+    //     overflow: hidden;
+    //     //height: 4em;
+    //     h2 {
+    //       font-size: 1em;
+    //       font-weight: bold;
+    //     }
+    //     .article-header {
+    //       .url {
+    //         visibility: hidden;
+    //       }
+    //     }
+
+    //   }
+    
 }
 
 
