@@ -17,7 +17,6 @@ export let languageText = {
     'forum.news':       { en: 'News', ko: '뉴스' },
     'forum.info':       { en: 'Info', ko: '필리핀 정보' },
 
-
     'forum.greeting':   { en: 'Greetings', ko: '가입인사'},
     'forum.knowhow':   { en: 'Know How', ko: '경험담'},
     'forum.wanted':   { en: 'Jobs', ko: '구인구직'},
@@ -39,8 +38,6 @@ export let languageText = {
     'forum.rent':   { en: 'Rent', ko: '주택임대'},
     'forum.cars':   { en: 'Cars', ko: '중고차'},
     'forum.boarding_house':   { en: 'Boarding House', ko: '하숙집'},
-
-
 
     'forum.tagalog':   { en: 'Tagalog', ko: '따갈로그어'},
     'forum.document':   { en: 'Document', ko: '필리핀 문서'},
@@ -74,10 +71,23 @@ export let languageText = {
     'forum.newcomer':   { en: 'Newcomer Reminders', ko: '필리핀 초보 필독'},
 
 
+    /** Commands, Button Text, 명령어, 버튼 명령 */
 
+    'Submit' :          { en: 'Submit', ko: '전송' },
+    'Save' :          { en: 'Save', ko: '저장' },
+    'Upload' :          { en: 'Upload', ko: '업로드' },
+    'Cancel' :          { en: 'Cancel', ko: '취소' },
 
     /** ERRRO MESSAGE FOR FORUMS - 게시판 관련 에러 메세지 */
     'already-reported':         { en: 'This post is already reported.', ko: '이미 신고된 포스트입니다.' },
     'report-success':           { en: 'You have reported successfully.', ko: '글을 신고하였습니다.' },
-    'user-id-is-empty-login-first':     { en: 'Please, login first!', ko: '회원 로그인을 먼저하십시오.' }
+    'user-id-is-empty-login-first':     { en: 'Please, login first!', ko: '회원 로그인을 먼저하십시오.' },
+    "You have no internet. Or your internet is too slow.":
+        { en: "You have no internet. Or your internet is too slow.",
+          ko: "인터넷이 연결되지 않았거나 매우 느립니다."
+        },
+    "Internet Problem. You have no Internet or very slow Internet!":
+        { en: "You have no internet. Or your internet is too slow.",
+          ko: "인터넷이 연결되지 않았거나 매우 느립니다."
+        },
 };

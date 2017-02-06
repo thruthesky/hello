@@ -22,6 +22,7 @@ export class SonubSettingPage {
         this.language = language;
 
         this.router.navigate( ['reload',  '/setting'] );
+        // this.app.renderPage();
     }
 
 

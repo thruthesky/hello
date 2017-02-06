@@ -1,6 +1,7 @@
 import { Injectable, NgZone } from '@angular/core';
 import { AppComponent } from '../app/app.component';
 import { LanguagePipe } from '../pipes/language/language.pipe';
+import { Config, SETTING_LANGUAGE } from '../etc/config';
 //declare let navigator;
 import { Alert, ALERT_OPTION, IMAGE_OPTION } from '../providers/bootstrap/alert/alert';
 const BREAK_POINT = 760; // it should match in vars.scss
@@ -129,4 +130,13 @@ export class App {
 
         });
     }
+
+
+    language() : string {
+        let language_code = Config.language;
+        let lc = localStorage.getItem( SETTING_LANGUAGE );
+        if ( lc ) language_code = lc;
+        return lc;
+    }
+
 }
