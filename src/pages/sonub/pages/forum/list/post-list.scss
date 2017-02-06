@@ -16,35 +16,35 @@ sonub-post-list {
   }
 
 
-edit-component {
-  display: block;
-  margin-top: .6em;
-  margin-bottom: 1em;
-  .center {
-    padding-top: .3em;
-    .files {
-      overflow: auto;
-      background-color: transparent;
+  edit-component {
+    display: block;
+    margin-top: .6em;
+    margin-bottom: 1em;
+    .center {
+      padding-top: .3em;
+      .files {
+        overflow: auto;
+        background-color: transparent;
+      }
+    }
+    .fake-textarea {
+      padding: .14em 0;
+      border: 1px solid #a9a9a9;
+      &:before {
+        margin-left: .5em;
+        content: 'Write a comment...';
+        color: #c0c0c0;
+      }
+    }
+    .right {
+      button {
+        border: 0;
+        border-radius: .2em;
+        background-color: #ccc;
+        color: #344;
+      }
     }
   }
-  .fake-textarea {
-    padding: .14em 0;
-    border: 1px solid #a9a9a9;
-    &:before {
-      margin-left: .5em;
-      content: 'Write a comment...';
-      color: #c0c0c0;
-    }
-  }
-  .right {
-    button {
-      border: 0;
-      border-radius: .2em;
-      background-color: #ccc;
-      color: #344;
-    }
-  }
-}
 
 
 
@@ -80,7 +80,7 @@ edit-component {
   // word-break all
   .post .content,
   .comment .content {
-      word-break: break-all;
+    word-break: break-all;
   }
   .post {
     .content {
@@ -93,28 +93,28 @@ edit-component {
     }
   }
 
-.posts {
+  .posts {
 
     .uploaded-files {
+      img {
+        max-width: 100%;
+        max-height: 800px;
+        cursor: pointer;
+      }
+      &[no-files='2'] {
         img {
-            max-width: 100%;
-            max-height: 800px;
-            cursor: pointer;
+          width: 50%;
+          max-height: 360px;
         }
-        &[no-files='2'] {
-            img {
-                width: 50%;
-                max-height: 360px;
-            }
+      }
+      @for $i from 3 through 20 {
+        &[no-files='#{$i}'] {
+          img {
+            max-width: 33.3%;
+            max-height: 240px;
+          }
         }
-        @for $i from 3 through 20 {
-            &[no-files='#{$i}'] {
-                img {
-                    max-width: 33.3%;
-                    max-height: 240px;
-                }
-            }
-        }
+      }
     }
 
 
@@ -140,10 +140,10 @@ edit-component {
       padding: 2px;
       margin-left: 5px;
       border: 1px solid #d3d3d3;
-        img {
-          width:100%;
-          height:auto;
-        }
+      img {
+        width:100%;
+        height:auto;
+      }
     }
   }
 }
@@ -170,21 +170,21 @@ edit-component {
     }
     .text {
 
-        color: #000;
-        text-decoration: none;
-        .subject {
-          font-weight: bold;
-          font-family: "Malgun Gothic",AppleGothic,sans-serif;
-          line-height: 22px;
-          height: 22px;
-          overflow: hidden;
-        }
-        .sub_subject {
-          line-height: 20px;
-          font-family: "Malgun Gothic",AppleGothic,sans-serif;
-          height: 20px;
-          overflow: hidden;
-        }
+      color: #000;
+      text-decoration: none;
+      .subject {
+        font-weight: bold;
+        font-family: "Malgun Gothic",AppleGothic,sans-serif;
+        line-height: 22px;
+        height: 22px;
+        overflow: hidden;
+      }
+      .sub_subject {
+        line-height: 20px;
+        font-family: "Malgun Gothic",AppleGothic,sans-serif;
+        height: 20px;
+        overflow: hidden;
+      }
 
     }
   }
@@ -197,29 +197,29 @@ edit-component {
  *
  */
 .posts .ads {
-    .ad {
-        padding: .6em .3em .6em .8rem;
-        overflow: auto;
-        background-color: #e0e0e0;
-        &:nth-child(odd) {
-          background-color: #afbfbf;
-        }
-        a {
-          color: #000;
-        }
-        img {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-        }
-        .photo {
-          float: left;
-        }
-        .text {
-          padding: .5rem 0 0 60px;
-          font-size: .9rem;
-        }
+  .ad {
+    padding: .6em .3em .6em .8rem;
+    overflow: auto;
+    background-color: #e0e0e0;
+    &:nth-child(odd) {
+      background-color: #afbfbf;
     }
+    a {
+      color: #000;
+    }
+    img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+    }
+    .photo {
+      float: left;
+    }
+    .text {
+      padding: .5rem 0 0 60px;
+      font-size: .9rem;
+    }
+  }
 }
 
 /******** SHOW MORE COMMENS *******/
@@ -264,26 +264,13 @@ edit-component {
 /******** SHOW-HIDE POST *******/
 
 view-component.minimize {
-    article.post .content, .buttons, edit-component { display: none; }
-    
-
-    // article {
-    //   &.post {
-    //     padding-top: .8em;
-    //     overflow: hidden;
-    //     //height: 4em;
-    //     h2 {
-    //       font-size: 1em;
-    //       font-weight: bold;
-    //     }
-    //     .article-header {
-    //       .url {
-    //         visibility: hidden;
-    //       }
-    //     }
-
-    //   }
-    
+  article.post .content, .uploaded-files, .buttons, edit-component {
+    display: none;
+  }
+  article.post h2 {
+      font-size: 1.2em;
+      font-weight: bold;
+  }
 }
 
 
