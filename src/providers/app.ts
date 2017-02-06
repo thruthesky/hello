@@ -2,7 +2,7 @@ import { Injectable, NgZone } from '@angular/core';
 import { AppComponent } from '../app/app.component';
 import { LanguagePipe } from '../pipes/language/language.pipe';
 //declare let navigator;
-import { Alert, ALERT_OPTION, IMAGE_OPTION } from '../providers/bootstrap/alert/alert';
+import { Alert, ALERT_OPTION, IMAGE_OPTION, MEMBER_OPTION } from '../providers/bootstrap/alert/alert';
 const BREAK_POINT = 760; // it should match in vars.scss
 @Injectable()
 export class App {
@@ -70,6 +70,10 @@ export class App {
       this.alertService.openImage( option );
     }
 
+    private showMemberInfoModal( option: MEMBER_OPTION ) {
+      this.alertService.openMemberInfo( option );
+    }
+
 
     imageFullView( url ) {
       let option: IMAGE_OPTION = {
@@ -77,6 +81,14 @@ export class App {
         url : url
       };
       this.showImageModal( option );
+    }
+
+    memberInfoView( post ) {
+      let option: MEMBER_OPTION = {
+        'class': 'member-info',
+        nickname : post.member.nickname
+      };
+      this.showMemberInfoModal( option );
     }
 
     warning( content ) {

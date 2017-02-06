@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { AlertContent } from './alert-content';
 import { ImageModal } from '../modal/image';
+import {MemberInfoModal} from "../modal/member-info";
 export interface ALERT_OPTION {
     title: string;
     content: string;
@@ -12,6 +13,12 @@ export interface IMAGE_OPTION {
     'class'?: string;
     url : string;
 }
+
+export interface MEMBER_OPTION {
+  'class'?: string;
+  nickname : string;
+}
+
 
 @Injectable()
 export class Alert {
@@ -50,6 +57,17 @@ export class Alert {
         .open( ImageModal, modalOption );
 
       modalRef.componentInstance['url'] = option.url;
+
+    }
+
+    openMemberInfo( option: MEMBER_OPTION) {
+
+        let modalOption = {};
+        if ( option.class ) modalOption['windowClass'] = option.class;
+        let modalRef = this.modalService
+          .open( MemberInfoModal, modalOption );
+
+        modalRef.componentInstance['nickname'] = option.nickname;
 
     }
 }
