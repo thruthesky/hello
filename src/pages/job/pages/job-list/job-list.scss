@@ -11,6 +11,7 @@ job-list {
     }
   }
   .content {
+    font-size: .8rem;
     .no-more-posts {
       display: none;
       &.active {
@@ -27,7 +28,6 @@ job-list {
         margin-bottom: 5px;
       }
     }
-    font-size: .8rem;
     nav {
       button {
         padding-top: .4em;
@@ -47,7 +47,7 @@ job-list {
       .range.col-xs-4 {
         padding: 0;
         .form-control {
-          padding: .5rem .25rem;
+          padding: .5em .25em;
 
         }
       }

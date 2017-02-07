@@ -12,15 +12,18 @@ job-index {
   }
 
   section.center{
-    font-size: .8rem;
     .no-more-posts {
       display: none;
+      margin: 1em;
+      text-align: center;
+      font-size: 1.2em;
       &.active {
         display: block;
       }
     }
-    nav {
-      padding-top: 10px;
+    nav.search-option {
+      padding: .8em 0;
+      text-align: center;
       button {
         padding-top: .4em;
         padding-bottom: .4em;
@@ -28,29 +31,68 @@ job-index {
         border-radius: 0;
         width: 32%;
       }
+    }
+    .search-form {
+      position: relative;
+      margin: 0 .4em .8em;
+      padding: .5em;
+      border: 1px solid #d3d3d3;
+      background-color: white;
+      .row-container {
+        margin-bottom: .8em;
+        .text {
+          float: left;
+          width: 8em;
+          margin: 0;
+          padding: 0.4em 0;
+          &.range {
+            width: 4em;
+          }
+        }
+        .input {
+          margin-left: 8em;
+          &.range {
+            margin-left: 4em;
+            margin-bottom: .5em;
+          }
+        }
+        .form-check-inline{
+          padding: 0.4em 0;
+          margin-bottom: 0;
+        }
+        .form-check-input {
+          padding: 0.4em 0;
+          margin-left: 0;
+        }
+        &.buttons {
+          text-align: center;
+          button {
+            width: 40%;
+            margin: 0 .5em;
+          }
+        }
+      }
       .close.fa-times {
         position: absolute;
         top: .5rem;
         right: .5rem;
       }
-      label {
-        padding: 0;
-      }
-      .range.col-xs-4 {
-        padding: 0;
-        .form-control {
-          padding: .5rem .25rem;
 
-        }
-      }
     }
-    .row {
-      margin-left: 0;
-      margin-right: 0;
-    }
+
     .pages {
       width: 100%;
       display: inline-block;
+      font-size: .8em;
+      .search-info {
+        margin: 0 .4em .8em;
+        padding: .5em;
+        border: 1px solid #d3d3d3;
+        background-color: white;
+        span {
+          font-size: 1.2em;
+        }
+      }
     }
 
   }

@@ -2,29 +2,29 @@
 <section class="content">
   <job-left *ngIf=" app.size == 'big' "></job-left>
   <section class="center">
-          <nav>
+          <nav class="search-option">
             <button type="button" class="btn btn-primary btn-sm" (click)="onClickProfession()">Profession</button>
             <button type="button" class="btn btn-primary btn-sm" (click)="onClickLocation()">Location</button>
             <button type="button" class="btn btn-primary btn-sm" (click)="onClickMore()">More Option</button>
           </nav>
-          <br>
-          <nav class="search-form card card-block" *ngIf=" (searchBy | json) != '{}' ">
 
-            <div class="form-group row" *ngIf=" searchBy.more ">
-              <label class="col-xs-3 col-form-label">Gender</label>
-              <div class="col-xs-9">
-                <label class="form-check-inline col-xs-5">
+          <nav class="search-form" *ngIf=" (searchBy | json) != '{}' ">
+
+            <div class="row-container" *ngIf=" searchBy.more ">
+              <label class="text">Gender</label>
+              <div class="input">
+                <label class="form-check-inline">
                   <input type="checkbox" name="genderRadio" id="male" [(ngModel)]="query.male" (change)="search()"> Male
                 </label>
-                <label class="form-check-inline col-xs-5">
+                <label class="form-check-inline">
                   <input type="checkbox" name="genderRadio" id="female" [(ngModel)]="query.female" (change)="search()"> Female
                 </label>
               </div>
             </div>
 
-            <div class="form-group row" *ngIf=" searchBy.more ">
-              <label class="col-xs-3" for="workExperience">Experience</label>
-              <div class="col-xs-9">
+            <div class="row-container" *ngIf=" searchBy.more ">
+              <label class="text" for="workExperience">Experience</label>
+              <div class="input">
                 <select class="form-control" id="workExperience" name="workExperience" [(ngModel)]="query.int_1" (change)="search()">
                   <option value="all">All</option>
                   <option value="0">No Work Experience</option>
@@ -33,9 +33,9 @@
               </div>
             </div>
 
-            <div class="form-group row" *ngIf=" searchBy.profession ">
-              <label class="col-xs-3 col-form-label"  for="workProfession">Profession</label>
-              <div class="col-xs-9">
+            <div class="row-container" *ngIf=" searchBy.profession ">
+              <label class="text"  for="workProfession">Profession</label>
+              <div class="input">
                 <select class="form-control" id="workProfession" name="workProfession" [(ngModel)]="query.sub_category" (change)="search()">
                   <option value="all">All</option>
                   <option value="housemaid">House Maid</option>
@@ -44,9 +44,9 @@
               </div>
             </div>
 
-            <div class="form-group row" *ngIf=" searchBy.location ">
-              <label class="col-xs-3 col-form-label">Province</label>
-              <div class="col-xs-9">
+            <div class="row-container" *ngIf=" searchBy.location ">
+              <label class="text">Province</label>
+              <div class="input">
                 <select class="form-control" id="searchByProvince" name="province" [(ngModel)]="query.varchar_2" (change)="onClickProvince()">
                   <option value="all">All</option>
                   <option *ngFor="let province of provinces" [value]="province">{{province}}</option>
@@ -54,9 +54,9 @@
               </div>
             </div>
 
-            <div class="form-group row" *ngIf="showCities && searchBy.location">
-              <label class="col-xs-3 col-form-label" *ngIf="showCities">City</label>
-              <div class="col-xs-9">
+            <div class="row-container" *ngIf="showCities && searchBy.location">
+              <label class="text" *ngIf="showCities">City</label>
+              <div class="input">
                 <select class="form-control" id="searchByCities" name="city" [(ngModel)]="query.varchar_3" (change)="search()">
                   <option value="all">All</option>
                   <option *ngFor="let key of cityKeys" [value]="key">{{cities[key]}}</option>
@@ -64,18 +64,18 @@
               </div>
             </div>
 
-            <div class="form-group row" *ngIf=" searchBy.more ">
-              <label class="col-xs-3 col-form-label">Age Range</label>
-              <div class="col-xs-9">
-                <label class="col-xs-2">Min</label>
-                <div class="range col-xs-4">
+            <div class="row-container" *ngIf=" searchBy.more ">
+              <label class="text">Age Range</label>
+              <div class="input">
+                <label class="range text">Min</label>
+                <div class="range input">
                   <select class="form-control" id="searchByMinAge" name="minAge" [(ngModel)]="minAgeSelected" (change)="minRangeChange()">
                     <option [value]="minAge">{{minAge}}</option>
                     <option *ngFor="let min of minAgeRange" [value]="min+minAge">{{min+minAge}}</option>
                   </select>
                 </div>
-                <label class="col-xs-2">Max</label>
-                <div class="range col-xs-4">
+                <label class="range text">Max</label>
+                <div class="range input">
                   <select class="form-control" id="searchByMaxAge" name="maxAge" [(ngModel)]="maxAgeSelected" (change)="maxRangeChange()">
                     <option *ngFor="let max of maxAgeRange" [value]="max+betweenAge">{{max+betweenAge}}</option>
                     <option [value]="maxAge">{{maxAge}}</option>
@@ -84,9 +84,9 @@
               </div>
             </div>
 
-            <div class="form-group row" *ngIf=" searchBy.more ">
-              <label for="name" class="col-xs-3 col-form-label">Name</label>
-              <div class="col-xs-9">
+            <div class="row-container" *ngIf=" searchBy.more ">
+              <label for="name" class="text">Name</label>
+              <div class="input">
                 <input class="form-control" type="text" id="name"  [(ngModel)]="query.name" (keyup)="onChange()" placeholder="Input Name...">
               </div>
             </div>
@@ -95,10 +95,10 @@
           </nav>
 
           <div *ngIf=" pages?.length " class="pages">
-            <div class="card card-block">
-              Searching:
+            <div class="search-info">
+              <span>Searching:</span>
               <span *ngIf="query.sub_category">{{query.sub_category}} job with </span>
-              Age between {{ minAgeSelected }} and {{ maxAgeSelected }}
+              <span>Age between {{ minAgeSelected }} and {{ maxAgeSelected }}</span>
               <span *ngIf="query.male">and Male</span>
               <span *ngIf="query.female">and Female</span>
               <span *ngIf="query.int_1 != 'all'">and {{query.int_1}} year of experience</span>
