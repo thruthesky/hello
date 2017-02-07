@@ -9,20 +9,20 @@
 
         <div class="top-menu">
           <div class="buttons">
-            <button (click)=" showCreateForm = true ">Send Message</button>
-            <button (click)=" onClickMakeAllRead() ">Make all read</button>
-            <button *ngIf=" ! showSearchForm " (click)=" onClickSearchFormSubmit() ">Search</button>
+            <button (click)=" showCreateForm = true ">{{ ['Send Message','쪽지 전송'] | ek }}</button>
+            <button (click)=" onClickMakeAllRead() ">{{ ['Make all read','전체 쪽지 읽음 표시'] | ek }}</button>
+            <button *ngIf=" ! showSearchForm " (click)=" onClickSearchFormSubmit() ">{{ ['Search','검색'] | ek }}</button>
           </div>
           <div *ngIf=" showSearchForm " class="search" >
             <input name="key" [(ngModel)]="key">
-            <button (click)=" onClickSearchFormSubmit() ">Search</button>
+            <button (click)=" onClickSearchFormSubmit() ">{{ ['Search','검색'] | ek }}</button>
           </div>
         </div>
 
         <div *ngIf="showCreateForm" class="create-form">
           <input name="id_recv" [(ngModel)]="form.id_recv" placeholder="User ID">
           <textarea name="content" [(ngModel)]="form.content" placeholder="Content"></textarea>
-          <button (click)="onClickCreateFormSubmit()">SUBMIT</button>
+          <button (click)="onClickCreateFormSubmit()">{{ ['SUBMIT','전송'] | ek }}</button>
         </div>
 
         <div class="pages">
@@ -42,14 +42,14 @@
 
                 <div *ngIf=" message.showReplyForm ">
                   <textarea name="content" [(ngModel)]="form.content" placeholder="Content"></textarea>
-                  <button (click)="onClickReplyFormSubmit(message)">SUBMIT</button>
+                  <button (click)="onClickReplyFormSubmit(message)">{{ ['SUBMIT','전송'] | ek }}</button>
                 </div>
 
 
                 <div class="menu" >
-                  <button class="hide menu-item" (click)="onClickHideContent(message)" >HIDE</button>
-                  <button class="reply menu-item" (click)=" message.showReplyForm = true ">REPLY</button>
-                  <button class="delete menu-item"  (click)="onClickDelete( message )">DELETE</button>
+                  <button class="hide menu-item" (click)="onClickHideContent(message)" >{{ ['HIDE','숨기기'] | ek }}</button>
+                  <button class="reply menu-item" (click)=" message.showReplyForm = true ">{{ ['REPLY','답변'] | ek }}</button>
+                  <button class="delete menu-item"  (click)="onClickDelete( message )">{{ ['DELETE','삭제'] | ek }}</button>
                 </div>
               </div>
 
@@ -57,8 +57,8 @@
           </ng-container>
         </div>
 
-        <div *ngIf=" inPageLoading " class="in-page-loading"><i class="fa fa-spinner fa-spin"></i> Loading ...</div>
-        <div *ngIf=" noMorePosts " class="no-more-posts">No more message</div>
+        <div *ngIf=" inPageLoading " class="in-page-loading"><i class="fa fa-spinner fa-spin"></i> {{ ['Loading','로딩중'] | ek }} ...</div>
+        <div *ngIf=" noMorePosts " class="no-more-posts">{{ ['No more message','더 이상 메세지가 없습니다.'] | ek }}</div>
       </div>
   </section><!--/.center-->
   <sonub-right *ngIf=" app.size == 'big' "></sonub-right>

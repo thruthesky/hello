@@ -33,11 +33,11 @@ import {SonubReloadPage} from "../pages/sonub/pages/reload/reload";
 const appRoutes: Routes = [
 
     /** Job Pages **/
-    { path: "job", component: JobIndexPage },
     { path: "job/post", component: JobPostPage },
     { path: "job/post/:idx", component: JobPostPage },
     { path: "job/list", component: JobListPage },
     { path: "job/view/:idx", component: JobViewPage },
+    { path: "job", component: JobIndexPage },
 
 
     /** Sonub Pages **/
@@ -52,10 +52,11 @@ const appRoutes: Routes = [
 
 
     /** Sonub forum routes */
-    { path: "forum", component: SonubForumIndexPage },
-    { path: "forum/:post_id", component: SonubPostListPage },
+    { path: "forum/user/:user_id", component: SonubPostListPage },
     { path: "forum/:post_id/:idx_post", component: SonubPostListPage },
+    { path: "forum/:post_id", component: SonubPostListPage },
     { path: "article/:idx_post", component: SonubPostListPage },
+    { path: "forum", component: SonubForumIndexPage },
 
 
     { path: "reload/:url", component: SonubReloadPage },

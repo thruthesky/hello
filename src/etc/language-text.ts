@@ -90,4 +90,5 @@ export let languageText = {
         { en: "You have no internet. Or your internet is too slow.",
           ko: "인터넷이 연결되지 않았거나 매우 느립니다."
         },
+    'wrong-post-id':    { en: 'Wrong post id', ko: '잘못된 게시판 아이디' }
 };

@@ -18,6 +18,7 @@ export class SonubPostListPage {
   showPostCreateFrom: boolean = false;
   post_id: string = ''; // forum ( post ) id.
   post_name: string = ''; // forum name.
+  user_id: string = ''; // post list by user id.
   page_no: number = 0;
   limit: number =  20;
   ads: ADS = null;
@@ -53,12 +54,19 @@ export class SonubPostListPage {
 
 
 
-      if ( param['post_id'] !== void 0 ) {
-        this.loadPosts( param['post_id'] );
+      if ( param['user_id'] !== void 0 ) {
+        this.loadUserPosts( param['user_id'] );
       }
-      if ( param['idx_post'] !== void 0 ) {
-        this.loadPost( param['idx_post'] );
+      else {
+        if ( param['post_id'] !== void 0 ) {
+          this.loadPosts( param['post_id'] );
+        }
+        if ( param['idx_post'] !== void 0 ) {
+          this.loadPost( param['idx_post'] );
+        }
       }
+      
+
 
     } );
   }
@@ -106,6 +114,12 @@ export class SonubPostListPage {
   }
 
 
+  loadUserPosts( user_id: string ) {
+    this.user_id = user_id;
+    this.loadPage();
+  }
+
+
 
   /**
    * This loads only one ( 1 ) post for 'view' mode and loads a bunch of posts for that post_id.
@@ -118,18 +132,6 @@ export class SonubPostListPage {
       console.log("data loaded:", response);
       this.view = this.pre( <POST> response.post );
       if ( this.view == null ) return this.app.error("Post Not Found...");
-
-
-      // @deprecared -
-      // if(response.post['comments']) {
-      //   if ( response.post['comments'].length > 5 ) {
-      //     this.view['last_five_comment'] = response.post['comments'].splice(response.post['comments'].length - 5, 5);
-      //   }
-      //   else {
-      //     this.view['last_five_comment'] = response.post['comments'];
-      //     response.post['comments'] = null;
-      //   }
-      // }
 
 
 
@@ -153,6 +155,7 @@ export class SonubPostListPage {
 
     let option: PAGE_OPTION = {
       post_id: this.post_id,
+      user_id: this.user_id,
       page_no: this.page_no,
       limit: this.limit
     };
@@ -245,6 +248,9 @@ export class SonubPostListPage {
    * @return POST DATA or null if the post is wrong/malformed.
    */
   pre( post: POST ) : POST {
+
+
+    console.log('pre: ', post);
     if ( post === void 0 ) return null; // this error really happened.
     if ( post.idx === void 0 || ! post.idx ) return null;
 
