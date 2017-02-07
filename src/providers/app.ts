@@ -87,7 +87,10 @@ export class App {
     memberInfoView( post ) {
       let option: MEMBER_OPTION = {
         'class': 'member-info',
-        nickname : post.member.nickname
+        nickname : post.member.nickname,
+        id : post.member.id,
+        level : post.member.level,
+        regDate : post.member.regDate,
       };
       this.showMemberInfoModal( option );
     }

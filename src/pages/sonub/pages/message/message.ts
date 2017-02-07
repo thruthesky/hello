@@ -5,6 +5,7 @@ import { App } from '../../../../providers/app';
 //import { IonicApi } from '../../../../providers/ionic-api-0.2/ionic-api';
 //import { IONIC_PUSH_MESSAGE } from '../../../../providers/ionic-api-0.2/ionic-share';
 import * as _ from 'lodash';
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
     selector: 'sonub-message-page',
@@ -30,6 +31,7 @@ export class SonubMessagePage {
         private message: Message,
         private member: Member,
         private renderer: Renderer,
+        activated: ActivatedRoute,
      //   private ionic: IonicApi
     ) {
         console.log("SonubMessagePage::constructor()");
@@ -47,6 +49,18 @@ export class SonubMessagePage {
         this.form.content = 'This is the content' + (new Date()).getTime();
         this.onClickCreateFormSubmit(); }, 3000 );
         */
+
+
+      activated.params.subscribe( param => {
+        console.log("PostList::constructor::subscribe()")
+
+
+        if ( param['user_id'] !== void 0 ) {
+          this.form.id_recv = param['user_id'];
+          this.showCreateForm = true;
+        }
+
+      } );
     }
 
     beginScroll() {

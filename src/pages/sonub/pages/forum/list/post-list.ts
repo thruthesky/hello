@@ -65,7 +65,7 @@ export class SonubPostListPage {
           this.loadPost( param['idx_post'] );
         }
       }
-      
+
 
 
     } );
@@ -76,7 +76,7 @@ export class SonubPostListPage {
       if ( this.page_no == 0 ) {
         this.page_no ++; // since 1st page has been loaded in constructor()
       }
-      if ( this.post_id ) this.loadPage(); // call 'loadPage()' after the view-post has been loaded. ( or when post-list clicked )
+      if ( this.post_id || this.user_id ) this.loadPage(); // call 'loadPage()' after the view-post has been loaded. ( or when post-list clicked )
     } );
   }
   ngOnDestroy() {
@@ -116,6 +116,7 @@ export class SonubPostListPage {
 
   loadUserPosts( user_id: string ) {
     this.user_id = user_id;
+    this.page_no = 0;
     this.loadPage();
   }
 
@@ -322,6 +323,7 @@ export class SonubPostListPage {
   }
 
   onEditComponentShowMemberInfo( post ) {
+    post.member['regDate'] = this.post.getDateTime( post.member.stamp ) ;
     this.app.memberInfoView( post );
   }
 

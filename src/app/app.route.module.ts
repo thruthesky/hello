@@ -44,6 +44,7 @@ const appRoutes: Routes = [
     { path: 'user/register', component: SonubRegisterPage },
     { path: 'user/login', component: SonubLoginPage },
 
+    { path: "message/:user_id", component: SonubMessagePage },
     { path: "message", component: SonubMessagePage },
     { path: "business", component: SonubBusinessPage },
     { path: "help", component: SonubHelpPage },

@@ -7,8 +7,16 @@ sonub-post-list {
   display: block;
   @include color-combination( 'forum' );
   section.content{
+    .in-page-loading {
+      &[active=false] {
+        display: none;
+      }
+    }
     .no-more-posts {
       display: none;
+      margin: 1em;
+      text-align: center;
+      font-size: 1.2em;
       &[active=true] {
         display: block;
       }

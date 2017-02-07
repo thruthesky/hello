@@ -4,11 +4,13 @@ import { Alert } from './alert/alert';
 import { AlertContent } from './alert/alert-content';
 import { ImageModal } from "./modal/image";
 import { MemberInfoModal } from "./modal/member-info";
+import { RouterModule } from "@angular/router";
 
 @NgModule({
     declarations: [ AlertContent, ImageModal, MemberInfoModal ], // component declarations
     entryComponents: [ AlertContent, ImageModal, MemberInfoModal ],
     imports: [
+        RouterModule,
         NgbModule.forRoot() // for ng-bootstrap registration
     ],
     exports: [ NgbModule ], // export alert for importing in other component.
