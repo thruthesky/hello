@@ -4,26 +4,45 @@
   <section class="center">
       
 
-      {{
+      <h3>{{
           [ 'Choose your language', '언어를 선택하십시오.' ] | ek
-      }}
+      }}</h3>
       <fieldset>
           <label>
-              <input type="radio" name="language" (click)="onClickLanguage('en')" [checked]="language=='en'"> {{ ['English', '영어'] | ek }}
+              <input type="radio" (click)="onClickLanguage('en')" [checked]="language=='en'"> {{ ['English', '영어'] | ek }}
           </label>
           
           <label>
-              <input type="radio" name="language" (click)="onClickLanguage('ko')" [checked]="language=='ko'"> {{ ['Korean', '한국어'] | ek }}
+              <input type="radio" (click)="onClickLanguage('ko')" [checked]="language=='ko'"> {{ ['Korean', '한국어'] | ek }}
           </label>
       </fieldset>
       
+<hr>
 
+    <h3>Clear cache</h3>
     <div  (click)="onClickClearLocalStorage()">
         <div class="icon">
             <i class="fa fa-gears"></i>
         </div>
         <span>{{ ['Clear Cache', '캐시삭제'] | ek }}</span>
     </div>
+
+<hr>
+
+
+
+    <section class="forum-list-style">
+        <h3>{{ ['Forum List Style','게시글 목록 스타일'] | ek }}</h3>
+      <fieldset>
+          <label>
+              <input type="radio" (click)="onClickForumListStyle('min')" [checked]="forumListStyle=='min'"> {{ ['Minimized List', '제목만 보기'] | ek }}
+          </label>
+          
+          <label>
+              <input type="radio" (click)="onClickForumListStyle('max')" [checked]="forumListStyle=='max'"> {{ ['Maximized List', '내용 펼쳐 보기'] | ek }}
+          </label>
+      </fieldset>
+    </section>
 
       
     </section><!--/.center-->

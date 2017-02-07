@@ -5,6 +5,7 @@ import { Post, PAGE, POSTS, POST, PAGE_OPTION, ADS, POST_TOP_ADS, POST_TOP_PREMI
 import { App } from '../../../../../providers/app';
 import { Member, MEMBER_LOGIN } from '../../../../../api/philgo-api/v2/member';
 import { languageText } from './../../../../../etc/language-text';
+import { SETTING_FORUM_LIST_STYLE } from './../../../../../etc/config';
 
 @Component({
   selector: 'sonub-post-list',
@@ -29,6 +30,8 @@ export class SonubPostListPage {
   inPageLoading: boolean = false; // true while loading a page of posts.
 
   noMorePosts: boolean = false; // true when there are no more posts of a page.
+
+  forumListStyle: string = null;
   constructor( private post: Post,
                private member: Member,
                activated: ActivatedRoute,
@@ -40,6 +43,7 @@ export class SonubPostListPage {
     post.setLanguage( app.language(), languageText )
 
     this.login = member.getLoginData();
+    this.forumListStyle = localStorage.getItem( SETTING_FORUM_LIST_STYLE );
     activated.params.subscribe( param => {
       console.log("PostList::constructor::subscribe()")
 
@@ -260,6 +264,7 @@ export class SonubPostListPage {
       post['url'] = this.post.getPermalink( post );
     }
 
+    if ( this.forumListStyle == 'min' ) post['minimize'] = true;
 
 
 
@@ -331,4 +336,5 @@ export class SonubPostListPage {
     event.stopPropagation();
     post.minimize = !post.minimize;
   }
+
 }

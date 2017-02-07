@@ -10,7 +10,7 @@ let language = navigator.languages && navigator.languages[0] || // Chrome / Fire
 
 
 export const SETTING_LANGUAGE = 'setting.language';
-export const SETTING_FORUM_FOLD = 'setting.forum-fold';
+export const SETTING_FORUM_LIST_STYLE = 'setting.forum-list-style';
 
 let lang = language.substr( 0, 2 );
 if ( lang != 'ko' ) lang = 'en';

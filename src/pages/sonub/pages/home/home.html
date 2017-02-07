@@ -1,5 +1,5 @@
 <sonub-header></sonub-header>
-<section class="content">
+<section class="content" [class.big]="app.size == 'big'" [class.small]="app.size == 'small'">
   <sonub-left *ngIf=" app.size == 'big' "></sonub-left>
   <section class="center">
     <sonub-news class="news"></sonub-news>

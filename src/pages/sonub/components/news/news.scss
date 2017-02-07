@@ -1,5 +1,12 @@
 $news_left_width: 110px;
+
+
+
+
 sonub-news .news {
+  font-size: 1em;
+  font-family:"Malgun Gothic","AppleGothic","Gulim";
+
   .left {
     float: left;
     width: $news_left_width;
@@ -12,45 +19,90 @@ sonub-news .news {
 
     .subject {
       display: block;
-      margin-top: .4em;
-      height: 1.35em;
+      margin-top: .65em;
+      height: 4.4em;
       overflow: hidden;
-      font-family:Gulim,"AppleGothic","Malgun Gothic";
-      font-size: 12px;
+      font-size: .9rem;
     }
+
   }
 
-  .right {
+
+
+
+  .right { // this is small right.
     margin-left: $news_left_width + $gutter;
     & > div { cursor: pointer; }
+    font-size: .9rem;
+      
 
     .top {
-      margin-bottom: .1em;
+      margin-bottom: .2em;
       padding: $gutter;
       background-color: #cccbc6;
       .subject {
-        font-family:"Malgun Gothic","AppleGothic","Gulim";
-        font-size: 1em;
+        margin-bottom: .55em;
+      height: 1.75em;
+        font-size: 1rem;
       }
     }
+
+
     .subject {
-      margin-bottom: .2em;
-      height: 1.4em;
+      padding: .4em 0;
+      height: 1.5em;
       line-height: 1.4em;
       overflow: hidden;
       color: #00007b;
       text-decoration: none;
-      font-family:Gulim,"AppleGothic","Malgun Gothic";
-      font-size: 12px;
     }
+
+    
     .content {
-      height: 2.8em;
+      height: 4em;
       overflow: hidden;
-      font-family:Gulim,"AppleGothic","Malgun Gothic";
-      font-size: 12px;
       line-height: 1.4em;
       text-decoration: none;
       color: #595959;
+    }
+  }
+
+}
+
+
+
+// big ::-webkit-resizer
+.big sonub-news {
+
+  .left {
+    .subject {
+      margin-top: .35em;
+      height: 1.35em;
+      overflow: hidden;
+    }
+  }
+
+
+
+  .right {
+    
+    
+    .top {
+      margin-bottom: .1em;
+      .subject {
+        margin-bottom: .2em;
+        font-size: .9rem;
+      }
+
+    }
+    .subject {
+      font-size: .8rem;
+      height: 1.13rem;
+    }
+
+    .content {
+      height: 2.4em;
+      font-size: .8rem;
     }
   }
 
