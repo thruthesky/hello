@@ -6,7 +6,6 @@
   }
 }
 
-
 latest-post-component {
   display: block;
   overflow: auto;
@@ -36,20 +35,20 @@ latest-post-component {
   .posts {
     .post {
       position: relative;
-      padding: .3em;
-      height: 1.6rem;
+      margin: .5em;
+      height: 2rem;
       overflow: hidden;
       color: #5a5a5a;
       clear: both;
+      line-height: 2rem;
       font-size: .9rem;
-      max-height: 26px;
       cursor: pointer;
       &:before {
         margin: 0;
         padding: 0;
         content: "• ";
         font-weight: bold;
-        font-size :13px;
+        font-size : .9em;
         color: #bababa;
       }
       .no-of-comment {
@@ -62,6 +61,7 @@ latest-post-component {
         color: white;
         background-color: #b44;
         &[no="0"] { display: none; }
+        line-height: 1.5em;
         font-size: .9em;
         i {
           position: absolute;
@@ -86,16 +86,17 @@ latest-post-component {
 
     }
   }
-
-
-}//latest post component
+}
 
 .big latest-post-component {
   .title {
     font-size: 1em;
   }
   .posts {
-
+    .post {
+      margin: .3em;
+      height: 1.6rem;
+    }
   }
 
 }
