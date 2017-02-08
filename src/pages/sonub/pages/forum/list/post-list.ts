@@ -264,7 +264,8 @@ export class SonubPostListPage {
       post['url'] = this.post.getPermalink( post );
     }
 
-    if ( this.forumListStyle == 'min' ) post['minimize'] = true;
+    if ( this.forumListStyle == 'max' ) post['minimize'] = false;
+    else post['minimize'] = true;
 
 
 
