@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { App } from '../../../../providers/app';
-import { Config, SETTING_LANGUAGE, SETTING_FORUM_LIST_STYLE } from './../../../../etc/config';
+import { SETTING_LANGUAGE, SETTING_FORUM_LIST_STYLE } from './../../../../etc/config';
 import { Router } from '@angular/router';
 @Component({
     selector: 'setting-page',
@@ -32,11 +32,11 @@ export class SonubSettingPage {
         this.app.alarm( "Cache data has been deleted!");
         localStorage.clear();
     }
-    
+
     onClickForumListStyle( mode ) {
         localStorage.setItem( SETTING_FORUM_LIST_STYLE, mode );
         this.forumListStyle = mode;
     }
-    
+
 
 }

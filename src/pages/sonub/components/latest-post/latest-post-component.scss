@@ -10,18 +10,15 @@
 latest-post-component {
   display: block;
   overflow: auto;
+  font-family: Gulim,AppleGothic,"Malgun Gothic", Arial, Helvetica, sans-serif;
 }
 .latest-posts {
   overflow: auto;
-  div.col {
+  div.col-container {
     float: left;
+    padding: 0 .3em;
     width: 50%;
   }
-  .title, .post {
-    font-family: Gulim,AppleGothic,"Malgun Gothic", Arial, Helvetica, sans-serif;
-    cursor: pointer;
-  }
-
   .freetalk       { @include title_icon( '\f0f4' ); }
   .qna            { @include title_icon( '\f059' ); }
   .buyandsell     { @include title_icon( '\f290' ); }
@@ -31,11 +28,12 @@ latest-post-component {
     padding: .7em 0 .3em .3em;
     border-bottom: 2px solid #e2e2e2;
     color:#5a5a5a;
+    font-size: 1.3em;
     vertical-align: middle;
+    cursor: pointer;
   }
 
   .posts {
-    padding-left:0.5em;
     .post {
       position: relative;
       padding: .3em;
@@ -45,6 +43,7 @@ latest-post-component {
       clear: both;
       font-size: .9rem;
       max-height: 26px;
+      cursor: pointer;
       &:before {
         margin: 0;
         padding: 0;
@@ -89,6 +88,16 @@ latest-post-component {
   }
 
 
-}//latest component
+}//latest post component
+
+.big latest-post-component {
+  .title {
+    font-size: 1em;
+  }
+  .posts {
+
+  }
+
+}
 
 

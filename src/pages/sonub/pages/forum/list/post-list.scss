@@ -69,18 +69,29 @@ sonub-post-list {
       padding: .2em .4em 0;
       font-size: 1.5em;
     }
-    .new-post {
+    .options {
       position: absolute;
+      top: 0;
       right: 0;
-      bottom: 0;
-      padding: .2em .8em;
-      background-color: #f9f9f9;
-      border: 1px solid #a9a9a9;
-      cursor: pointer;
-      &:before {
-        content: '\f067';
-        font-family: FontAwesome;
-        margin-right: 5px;
+      .option {
+        float: left;
+        cursor: pointer;
+        &.setting {
+          padding: .4rem .65rem .5rem;
+          font-size: 2rem;
+          line-height: 2rem;
+        }
+        &.new-post {
+          margin: .5em .2em;
+          padding: .2em .8em;
+          background-color: #f9f9f9;
+          border: 1px solid #a9a9a9;
+          &:before {
+            content: '\f067';
+            font-family: FontAwesome;
+            margin-right: 5px;
+          }
+        }
       }
     }
   }

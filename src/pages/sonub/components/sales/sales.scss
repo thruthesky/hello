@@ -1,53 +1,59 @@
 sonub-sales {
-    .sales {
-        margin-bottom: $gutter;
-        overflow: auto;
-        .buy-and-sell {
-            padding: 0 .5%;
-            float: left;
-            width: 25%;
-        }
-        .buyandsell .buy-and-sell {
-            padding-right: 1%;
-            padding-left: 0;
-        }
-        .personal .buy-and-sell {
-            padding-right: 0;
-            padding-left: 1%;
-        }
-
-        .photo {
-            padding: 2px;
-            border: 1px solid #cbd;
-            .inner {
-            max-height: 5.6em;
-            overflow: hidden;
-            img {
-                width: 100%;
-            }
-            }
-        }
-
-        .post {
-            font-size: 13px;
-            .user-name, .subject {
-            font-family: Gulim,AppleGothic, Arial, Helvetica, sans-serif;
-            }
-            .subject {
-            padding: .6em;
-            background-color: #eef3f3;
-            height: 3.8em;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            font-size: 12px;
-            }
-        }
-
-        .buyandsell .subject {
-            background-color: #ddd;
-        }
-        .message .subject {
-            background-color: #ddd;
-        }
+  //font-family: Gulim,AppleGothic, Arial, Helvetica, sans-serif;
+  .sales {
+    margin-bottom: $gutter;
+    overflow: auto;
+    .buy-and-sell {
+      padding: 0 .5%;
+      float: left;
+      width: 25%;
     }
+    .buyandsell .buy-and-sell {
+      padding-right: 1%;
+      padding-left: 0;
+    }
+    .personal .buy-and-sell {
+      padding-right: 0;
+      padding-left: 1%;
+    }
+
+    .photo {
+      padding: 2px;
+      border: 1px solid #cbd;
+      .inner {
+        max-height: 5.6em;
+        overflow: hidden;
+        img {
+          width: 100%;
+        }
+      }
+    }
+
+    .post {
+      .user-name {
+        padding: .2em;
+      }
+      .subject {
+        padding: .3em .6em;
+        background-color: #eef3f3;
+        height: 3.5em;
+        overflow: hidden;
+      }
+    }
+
+    .buyandsell .subject {
+      background-color: #ddd;
+    }
+    .message .subject {
+      background-color: #ddd;
+    }
+  }
+}
+
+.big sonub-sales {
+  .sales {
+    .post {
+      font-size: .9em;
+    }
+  }
 }

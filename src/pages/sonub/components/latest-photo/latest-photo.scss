@@ -3,7 +3,7 @@ sonub-latest-photo {
   .posts {
     .post{
       margin-top: .5em;
-      padding: .8em .3em 0;
+      padding: .3em;
       cursor: pointer;
       span{
         color: #898989;
@@ -17,6 +17,7 @@ sonub-latest-photo {
       .left {
         float: left;
         .photo {
+          margin-top: .3em;
           width: 75px;
           img {
             width: 100%;
@@ -46,7 +47,7 @@ sonub-latest-photo {
           max-height: 22px;
         }
         .comment {
-          max-height: 44px;
+          max-height: 3.5em;
           span:before {
             content: '...@';
           }
@@ -54,4 +55,26 @@ sonub-latest-photo {
       }
     }
   }
+}
+
+
+
+.big sonub-latest-photo {
+  .posts {
+    .post {
+      .left {
+        .photo {
+          margin-top: .5em;
+        }
+
+      }
+      .right {
+        .comment {
+          max-height: 3.1em;
+        }
+      }
+
+    }
+  }
+
 }

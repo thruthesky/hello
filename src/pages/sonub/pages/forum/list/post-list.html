@@ -5,8 +5,10 @@
 
     <div class="post-list-menu">
       <div *ngIf="post_name" class="post-name">{{ post_name }}</div>
-      <div class="new-post" (click)="onClickPostCreate()">{{ ['New Post','새 글 쓰기'] | ek }}
-      </div>
+      <nav class="options">
+        <div class="new-post option" (click)="onClickPostCreate()">{{ ['New Post','새 글 쓰기'] | ek }}</div>
+        <div class="setting option" routerLink="/setting"><i class="fa fa-cog"></i></div>
+      </nav>
     </div>
     <!-- create a  post -->
     <edit-component *ngIf = " showPostCreateFrom "

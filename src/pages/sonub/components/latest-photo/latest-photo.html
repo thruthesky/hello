@@ -8,7 +8,7 @@
     </div>
     <div class="right">
       <div class="info">
-        <span class="name">{{post.user_name}}</span><span>Date:{{post.date}} Viewed:{{post.no_of_view}}</span>
+        <span class="name" (click)="onClickNickname( $event,  post )" >{{post.user_name}}</span><span>Date:{{post.date}} Viewed:{{post.no_of_view}}</span>
       </div>
       <div class="subject">
         <span class="title">{{ post.subject }}</span><span *ngIf="post.no_of_comment">({{post.no_of_comment}})</span>

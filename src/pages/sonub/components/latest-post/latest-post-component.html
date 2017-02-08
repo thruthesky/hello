@@ -1,5 +1,5 @@
 <div class="latest-posts">
-  <div class="left col">
+  <div class="left col-container">
     <latest-component class="freetalk"
                       [title]     = " ['Discussion', '자유게시판'] | ek "
                       [post_id]   = " 'freetalk' "
@@ -7,7 +7,7 @@
                       (error)="onLatestComponentError( $event )"
     ></latest-component>
   </div>
-  <div class="right col">
+  <div class="right col-container">
     <latest-component class="qna"
                       [title]     = " ['QnA', '질문과답변'] | ek "
                       [post_id]   = " 'qna' "

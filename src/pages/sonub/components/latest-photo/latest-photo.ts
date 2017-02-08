@@ -1,8 +1,4 @@
-/**
- * @see ../../../README.md
- *
- */
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Post, PHOTO_OPTION, POSTS, POST } from '../../../../api/philgo-api/v2/post';
 import { App } from '../../../../providers/app';
 @Component({
@@ -14,6 +10,8 @@ export class SonubLatestPhoto {
   @Input() post_id: string = null;
   @Input() limit: number = 1;
   @Input() page_no: number = 1;
+
+  @Output() memberInfo = new EventEmitter();
   posts: POSTS = <POSTS> [];
   constructor(
     private app: App,
@@ -44,7 +42,7 @@ export class SonubLatestPhoto {
           v['date'] = this.post.getDateTime( v.stamp );
           v.content = this.post.strip_tags( v.content );
           if ( v.comments && v.comments.length ) {
-            v.comments.map( (v: POST) => v.content = this.post.strip_tags( v.content ) ); 
+            v.comments.map( (v: POST) => v.content = this.post.strip_tags( v.content ) );
           }
           this.posts.push( v );
         }, i * 50 );
@@ -53,5 +51,11 @@ export class SonubLatestPhoto {
     },
     error => this.app.error("SonubLatestPhoto::loadPage() => LatestPhotos Error " + error));
   }
+
+  onClickNickname( event, post ){
+    event.stopPropagation();
+    this.memberInfo.emit( post );
+  }
+
 
 }

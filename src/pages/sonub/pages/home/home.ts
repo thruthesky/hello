@@ -3,6 +3,7 @@ import { ForumService } from '../../providers/forum';
 import { SonubLatestPhoto } from '../../components/latest-photo/latest-photo';
 import { PageScroll } from './../../../../providers/page-scroll';
 import { App } from '../../../../providers/app';
+import { Post } from "../../../../api/philgo-api/v2/post";
 @Component({
     selector: 'sonub-home-page',
     templateUrl: 'home.html'
@@ -16,7 +17,8 @@ export class SonubHomePage {
         forum: ForumService,
         private pageScroll: PageScroll,
         private renderer: Renderer,
-        public app: App
+        public app: App,
+        private post: Post
     ) {
 
 
@@ -44,6 +46,11 @@ export class SonubHomePage {
 
     ngOnDestroy() {
         this.pageScroll.stop();
+    }
+
+    onEditComponentShowMemberInfo( post ) {
+      post.member['regDate'] = this.post.getDateTime( post.member.stamp ) ;
+      this.app.memberInfoView( post );
     }
 
 
