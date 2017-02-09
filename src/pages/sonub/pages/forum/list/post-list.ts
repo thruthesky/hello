@@ -21,7 +21,7 @@ export class SonubPostListPage {
   post_name: string = ''; // forum name.
   user_id: string = ''; // post list by user id.
   page_no: number = 0;
-  limit: number =  20;
+  limit: number =  30;
   ads: ADS = null;
   post_top_ad: POST_TOP_ADS = null;
   post_top_premium_ad: POST_TOP_PREMIUM_ADS = null;
