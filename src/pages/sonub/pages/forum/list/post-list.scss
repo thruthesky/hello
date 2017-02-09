@@ -286,9 +286,12 @@ view-component.minimize {
   article.post .content, .uploaded-files, .buttons, edit-component {
     display: none;
   }
-  article.post h2 {
+  article.post {
+    cursor: pointer;
+    h2 {
       font-size: 1.2em;
       font-weight: bold;
+    }
   }
 }
 

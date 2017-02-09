@@ -137,7 +137,7 @@ export class SonubPostListPage {
       console.log("data loaded:", response);
       this.view = this.pre( <POST> response.post );
       if ( this.view == null ) return this.app.error("Post Not Found...");
-
+      this.view['minimize'] = false;
 
 
       //console.log("Load a post for view : ", this.view );
