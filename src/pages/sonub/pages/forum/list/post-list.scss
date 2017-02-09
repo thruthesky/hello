@@ -283,6 +283,9 @@ sonub-post-list {
 /******** SHOW-HIDE POST *******/
 
 view-component.minimize {
+  article {
+    cursor: pointer;
+  }
   article.post .content, .uploaded-files, .buttons, edit-component {
     display: none;
   }
