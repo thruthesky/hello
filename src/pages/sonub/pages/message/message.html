@@ -32,7 +32,7 @@
               <div class="title" (click)="onClickToggleContent(message)">
                 <div class="from">{{ message.from.nickname }}</div>
                 <div class="subject" [attr.open]=" message.stamp_open ">{{ message.subject }}</div>
-                <div class="date">{{ message['date_created'] }}</div>
+                <time class="date">{{ message['date_created'] }}</time>
                 <div  style="clear:right;"></div>
               </div>
 
