@@ -108,7 +108,11 @@
           ></view-component>
 
           <ng-container *ngIf="!post?.minimize">
-            <div class="show-more" *ngIf="!post?.more && post?.no_of_comment > 5" (click)="post['more']=true">Show {{ post?.no_of_comment && post?.no_of_comment > 5 ? post?.no_of_comment - 5 : 0 }} more comments.</div>
+            <div class="show-more" *ngIf="!post?.more && post?.no_of_comment > 5" (click)="post['more']=true">
+              {{ ln == 'en' ? 'Show' : '' }}
+                {{ post?.no_of_comment && post?.no_of_comment > 5 ? post?.no_of_comment - 5 : 0 }}
+              {{ ln == 'en' ? 'more comments.' : '개의 코멘트 더 보기...' }}
+              </div>
             <div class="comments" *ngIf="post?.comments?.length">
               <ng-container>
                 <div class="comment" *ngFor=" let comment of post['comments']; let i = index; trackBy: comment?.idx;">
@@ -132,8 +136,8 @@
       </div><!--/.post-->
 
     </div><!--/.posts-->
-    <div [attr.active]=" ! noMorePosts " class="in-page-loading"><i class="fa fa-spinner fa-spin"></i> Loading ...</div>
-    <div [attr.active]=" noMorePosts " class="no-more-posts">No more posts</div>
+    <div [attr.active]=" ! noMorePosts " class="in-page-loading"><i class="fa fa-spinner fa-spin"></i> {{ ln == 'en' ? 'Loading ...' : '로딩 중 ...' }}</div>
+    <div [attr.active]=" noMorePosts " class="no-more-posts">{{ ln == 'en' ? 'No more posts.' : '더 이상 글이 없습니다.' }}</div>
 
   </section><!--/.center-->
   <sonub-right *ngIf=" app.size == 'big' "></sonub-right>

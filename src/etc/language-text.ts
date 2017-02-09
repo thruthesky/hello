@@ -71,6 +71,15 @@ export let languageText = {
     'forum.newcomer':   { en: 'Newcomer Reminders', ko: '필리핀 초보 필독'},
 
 
+    /** Words translation, ㄷ단순 문자 변환 */
+    'Author':           { en: 'Author', ko: '글쓴이' },
+    'No.' :             { en: 'No.', ko: '번호'},
+    'Date' :            { en: 'Date', ko: '날짜' },
+    'copy link':        { en: 'copy link', ko: '링크표시' },
+    'Bonus Point':      { en: 'Bonus Point', ko: '획득 포인트' },
+
+
+
     /** Commands, Button Text, 명령어, 버튼 명령 */
 
     'Submit' :          { en: 'Submit', ko: '전송' },
