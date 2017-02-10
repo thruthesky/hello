@@ -32,6 +32,7 @@ export class SonubPostListPage {
   noMorePosts: boolean = false; // true when there are no more posts of a page.
 
   forumListStyle: string = null;
+  ln: string = null;
   constructor( private post: Post,
                private member: Member,
                activated: ActivatedRoute,
@@ -40,7 +41,8 @@ export class SonubPostListPage {
                private pageScroll: PageScroll ) {
     console.log("SonubPostListPage::constructor()");
 
-    post.setLanguage( app.language(), languageText )
+    post.setLanguage( app.language() );
+    this.ln = app.language();
 
     this.login = member.getLoginData();
     this.forumListStyle = localStorage.getItem( SETTING_FORUM_LIST_STYLE );
