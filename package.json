@@ -1,7 +1,7 @@
 {
-  "name": "aonic-hello-world",
-  "author": "Aonic Framework",
-  "homepage": "http://github.com/thruthesky/aonic",
+  "name": "Sonub",
+  "author": "With Center Inc",
+  "homepage": "http://github.com/thruthesky/sonub",
   "private": true,
   "scripts": {
     "clean": "ionic-app-scripts clean",
@@ -44,5 +44,5 @@
     "cordova-plugin-splashscreen"
   ],
   "cordovaPlatforms": [],
-  "description": "hack2: An Ionic project"
+  "description": "Social Network Hub"
 }
