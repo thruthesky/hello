@@ -10,6 +10,7 @@
         <div class="setting option" routerLink="/setting"><i class="fa fa-cog"></i></div>
       </nav>
     </div>
+
     <!-- create a  post -->
     <edit-component *ngIf = " showPostCreateFrom "
                     [mode]    = " 'create-post' "
@@ -58,7 +59,9 @@
 
 
     <div *ngIf=" posts " class="pages posts">
+
       <div class="post" *ngFor=" let post of posts; let i = index; trackBy: post?.idx ">
+
         <!-- post_top_ad -->
         <div *ngIf=" post_top_ad && ! (i % limit) && post?.idx " class="post_top_ad">
           <div *ngFor=" let top_ad of post_top_ad " class="top_ad"  routerLink="/article/{{ top_ad.ad_idx }}">
@@ -94,6 +97,7 @@
 
         <!-- post -->
         <div class="post-view" *ngIf="post?.idx" (click)="post.minimize = false">
+
           <i class="show-hide fa" [ngClass]="{ 'fa-expand' : post?.minimize, 'fa-compress' : !post?.minimize}" (click)=" onClickFold( $event , post ) "></i>
           <view-component [ngClass]= "{ 'minimize' : post?.minimize }"
                           [login_id] = " login?.id "
