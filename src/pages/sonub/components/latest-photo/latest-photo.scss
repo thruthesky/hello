@@ -4,7 +4,9 @@ sonub-latest-photo {
     .post{
       margin-top: .5em;
       padding: .3em;
+      vertical-align: top;
       cursor: pointer;
+      clear: both;
       span{
         color: #898989;
         font-family: "Malgun Gothic",AppleGothic,sans-serif;
@@ -12,8 +14,6 @@ sonub-latest-photo {
         line-height: 160%;
         word-break: break-all;
       }
-      vertical-align: top;
-      border-color: inherit;
       .left {
         float: left;
         .photo {
@@ -47,7 +47,7 @@ sonub-latest-photo {
           max-height: 22px;
         }
         .comment {
-          max-height: 3.5em;
+          max-height: 3.25em;
           span:before {
             content: '...@';
           }

@@ -218,6 +218,7 @@ export class SonubPostListPage {
     posts.map( ( v, i ) => {
       setTimeout( () => {
           this.posts.push ( this.pre(v) );
+        this.app.renderPage();
         },
         100 + i * 50 );
     });
@@ -233,6 +234,7 @@ export class SonubPostListPage {
     for( let i = 0; i < option.limit; i ++ ) {
       setTimeout( () => {
         this.posts[i] = this.pre(page.posts[i]);
+        this.app.renderPage();
       }, 100 + i * 30);
     }
   }

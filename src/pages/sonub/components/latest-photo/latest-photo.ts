@@ -45,6 +45,7 @@ export class SonubLatestPhoto {
             v.comments.map( (v: POST) => v.content = this.post.strip_tags( v.content ) );
           }
           this.posts.push( v );
+          this.app.renderPage();
         }, i * 50 );
       });
       //console.log('this.posts::', this.posts);
