@@ -71,12 +71,18 @@ export let languageText = {
     'forum.newcomer':   { en: 'Newcomer Reminders', ko: '필리핀 초보 필독'},
 
 
-    /** Words translation, ㄷ단순 문자 변환 */
+    /** Words translation, 단순 문자 변환 */
     'Author':           { en: 'Author', ko: '글쓴이' },
     'No.' :             { en: 'No.', ko: '번호'},
     'Date' :            { en: 'Date', ko: '날짜' },
     'copy link':        { en: 'copy link', ko: '링크표시' },
     'Bonus Point':      { en: 'Bonus Point', ko: '획득 포인트' },
+    'Wrong password':   { en: 'Wrong password', ko: '잘못된 비밀번호'},
+    'Please enter password.':   { en: 'Please enter password.', ko: '비밀번호를 입력하십시오.' },
+    'Please input user ID':     { en: 'Please input user ID', ko: '아이디를 입력하십시오.' },
+    'ID not found':             { en: 'ID not found', ko: '가입되지 않은 아이디입니다.'},
+
+    'already-voted-on-this-post':   { en: 'You have already posted on this post.', ko: '본 글에 이미 추천을 하였습니다.'},
 
 
 

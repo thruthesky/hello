@@ -27,11 +27,14 @@ export class SonubLoginPage {
         //this.onClickLogin();
 
 //        this.login();
+
+
+        
     }
     onClickLogin() {
         console.log("LoginPage::onClickLogin()");
-        if( ! this.form.id ) return this.process.setError( 'Please input user ID...' );
-        if( ! this.form.password ) return this.process.setError( 'Please enter password...' );
+        if( ! this.form.id ) return this.process.setError( this.ln.t( 'Please input user ID' ) );
+        if( ! this.form.password ) return this.process.setError( this.ln.t('Please enter password.') );
         this.login();
     }
 
@@ -39,6 +42,7 @@ export class SonubLoginPage {
         //this.process.loader = true;
         //this.process.error = '';
        this.process.startLoader();
+       
         this.member.login( this.form,
             login => {
                 console.log('philgo login success: ', login);
@@ -49,7 +53,7 @@ export class SonubLoginPage {
             er => {
                 // this.message.error("login error:" + er);
                 console.log("philgo member.login error: ", er );
-                setTimeout(()=>this.process.setError( er ),345);
+                setTimeout(()=>this.process.setError( this.ln.t ( er ) ), 345);
             },
             () => {
                 console.log('philgo login complete!');
@@ -57,37 +61,5 @@ export class SonubLoginPage {
         );
 
     }
-    loginFirebase( login ) {
-        // let email = this.member.getApiEmail(login);
-        // let password = this.member.getApiPassword(login);
-
-        /*
-        this.auth.register( email, password, firebaseUser => { // register
-            console.log("firebase register success.");
-            // every thing is good. go home.
-            this.router.go('/');
-        }, (code, message ) => {
-            if ( code == 'auth/email-already-in-use' ) { // if already registred, login
-                console.log('firebase: already registered. try to login');
-                this.auth.login( email, password, firebaseUser => {
-                    console.log('firebase: login success');
-                    this.process.loader = false;
-                    // every thing is good. go home.
-                    this.router.go('/');
-                }, (code, message) => {
-                    message = 'Warning! Login Error. Error Code: ' + code + ' : ' + message + ' Please report this error message to admin.';
-                    // this.process.error = message;
-                    this.process.setError( message );
-                } );
-            }
-            else { // if firebase register or login error.
-                message = 'Warning! Login Error. Error Code: ' + code + ' : ' + message + ' Please report this error message to admin.';
-                // this.process.error = message;
-                // this.process.loader = false;
-                this.process.setError( message );
-            }
-
-        });
-        */
-    }
+    
 }
