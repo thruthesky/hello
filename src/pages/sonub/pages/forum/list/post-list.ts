@@ -4,7 +4,7 @@ import { PageScroll } from './../../../../../providers/page-scroll';
 import { Post, PAGE, POSTS, POST, PAGE_OPTION, ADS, POST_TOP_ADS, POST_TOP_PREMIUM_ADS } from "../../../../../api/philgo-api/v2/post";
 import { App } from '../../../../../providers/app';
 import { Member, MEMBER_LOGIN } from '../../../../../api/philgo-api/v2/member';
-import { languageText } from './../../../../../etc/language-text';
+//import { languageText } from './../../../../../etc/language-text';
 import { SETTING_FORUM_LIST_STYLE } from './../../../../../etc/config';
 
 @Component({
