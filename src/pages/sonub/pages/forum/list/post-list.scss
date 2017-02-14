@@ -23,6 +23,9 @@ sonub-post-list {
     }
   }
 
+  input[type="file"] {
+    cursor: pointer;
+  }
 
   edit-component {
     display: block;
@@ -192,16 +195,16 @@ sonub-post-list {
       color: #000;
       text-decoration: none;
       .subject {
+        height: 1.375em;
+        line-height: 1.375em;
         font-weight: bold;
         font-family: "Malgun Gothic",AppleGothic,sans-serif;
-        line-height: 22px;
-        height: 22px;
         overflow: hidden;
       }
       .sub_subject {
-        line-height: 20px;
+        height: 1.25em;
+        line-height: 1.25em;
         font-family: "Malgun Gothic",AppleGothic,sans-serif;
-        height: 20px;
         overflow: hidden;
       }
 
@@ -303,23 +306,19 @@ view-component.minimize {
 
 view-component {
   article {
+    .content {
+      margin-top: .4em;
+      padding: .4em;
+      background-color: white;
+      line-height: 1.8;
+    }
     &.post {
       @include view-component-design;
       background: #f0f0f0;
-      .content {
-        margin-top: .4em;
-        padding: .4em;
-        background-color: white;
-      }
     }
     &.comment {
       @include view-component-design;
       background: #e9e9e9;
-      .content {
-        margin-top: .4em;
-        padding: .4em;
-        background-color: white;
-      }
     }
   }
   .post .article-header,
@@ -348,6 +347,7 @@ view-component {
     margin-top: .6em;
     span {
       color: #366;
+      cursor: pointer;
       &:before {
         display: inline-block;
         padding-right: .2em;
