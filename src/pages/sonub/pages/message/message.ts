@@ -153,11 +153,11 @@ export class SonubMessagePage {
 
      lazyProcess( data: MESSAGE_LIST ) {
 
-        this.processMessageDate(data);
+        //this.pre(data);
         //this.data.messages = [];
-        data.messages.map( ( v, i ) => {
+        data.messages.map( ( v: MESSAGE, i ) => {
                 setTimeout( () => {
-                    this.messages.push( v );
+                    this.messages.push( this.pre( v ) );
                     //this.onClickDelete(v);
                 }, i * 50 );
         } );
@@ -166,11 +166,9 @@ export class SonubMessagePage {
 
 
 
-     processMessageDate(data: MESSAGE_LIST){
-            data.messages.map( message  => {
-                message['date_created'] = this.member.getDateTime( message['stamp_created'] );
-                //console.log('stamp', message['stamp_created'] )
-            });
+     pre (message: MESSAGE ) {
+        message['date_created'] = this.member.getDateTime( message['stamp_created'] );
+        return message;
      }
 
 
