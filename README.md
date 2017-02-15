@@ -457,7 +457,7 @@ keytool -genkey -v -keystore <YOUR_KEYSTORE>.keystore -alias <YOUR_ALIAS> -keyal
 
 2) signing the unsigned apk
     a) create a file named  "release-signing.properties" in platform/android directory.
-    b) add the following and apply the necessary changes then save.
+    b) add the following and apply the necessary changes then save. (@see tnp for sample)
 
         key.store=<YOUR_KEYSTORE>.keystore
         key.store.password=<YOUR_KEYSTORE password>
