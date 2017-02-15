@@ -22,8 +22,7 @@ export class AppComponent implements OnInit {
   constructor(
       private router: Router,
 //      private activatedRoute: ActivatedRoute,
-//      public deploy: Deploy,
-//      private ionic: IonicApi,
+
       public app: App,
 //      private alert: Alert
   ) {
