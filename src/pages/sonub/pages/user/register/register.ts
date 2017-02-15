@@ -231,6 +231,7 @@ export class SonubRegisterPage {
     }
 
     failurePrimaryPhotoUpload( e ) {
+        this.showProgress = false;
         this.member.error( "An error has occured while uploading: Code = " + e );
     }
 

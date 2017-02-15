@@ -10,27 +10,27 @@ sonub-latest-photo {
       span{
         color: #898989;
         font-family: "Malgun Gothic",AppleGothic,sans-serif;
-        font-size: 9pt;
-        line-height: 160%;
+        font-size: .9em;
+        line-height: 1.6;
         word-break: break-all;
       }
       .left {
         float: left;
         .photo {
           margin-top: .3em;
-          width: 75px;
+          width: 4.675rem;
           img {
             width: 100%;
           }
         }
       }
       .right {
-        padding-left: 5px;
-        margin-left: 75px;
+        padding-left: .4em;
+        margin-left: 4.675rem;
         .info {
           .name {
-            margin-right: 10px;
-            font-size: 9pt;
+            margin-right: .9em;
+            font-size: .9em;
             font-weight: bold;
             color: #209ac8;
           }
@@ -39,12 +39,12 @@ sonub-latest-photo {
           font-weight: bold;
         }
         .content, .comment {
-          margin-left: 6px;
+          margin-left: .5em;
           font-size: 0.95em;
           overflow: hidden;
         }
         .content {
-          max-height: 22px;
+          height: 1.5em;
         }
         .comment {
           max-height: 3.25em;
