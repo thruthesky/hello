@@ -425,3 +425,45 @@ fork of withcenter
 http://stackoverflow.com/questions/17829991/angularjs-how-to-remove-symbol-in-ie9-by-using-route
 Adding this code will make it work, but there are no further explanation on how it worked.
 *RouterModule.forRoot(ROUTES, { useHash: Boolean(history.pushState) === false });
+
+
+
+# Generate Icon and Splash images
+
+1) download the psd template for icon http://code.ionicframework.com/resources/icon.psd
+    -minimum dimension of 192x192px and no rounded corners
+2) download the psd template for splash http://code.ionicframework.com/resources/splash.psd
+    -minimum dimension of 1200x1200px
+3) put the template to resources directory 
+4) generate icon 
+    $ ionic resources --icon
+5) generate splash
+    $ ionic resources --splash
+
+6) generate icon and splash
+    $ ionic resources -c
+
+* note., --ignore-cache --force or -c to by pass the cache problem
+
+
+
+# Building a release android apk
+
+
+1) generate keystore
+keytool -genkey -v -keystore <YOUR_KEYSTORE>.keystore -alias <YOUR_ALIAS> -keyalg RSA -keysize 2048 -validity 10000
+
+*can be found in platform/android directory
+
+2) signing the unsigned apk
+    a) create a file named  "release-signing.properties" in platform/android directory.
+    b) add the following and apply the necessary changes then save. (@see tnp for sample)
+
+        key.store=<YOUR_KEYSTORE>.keystore
+        key.store.password=<YOUR_KEYSTORE password>
+        key.alias=<YOUR_ALIAS>
+        key.alias.password=<YOUR_ALIAS password>
+
+    c) ionic build android --release ( this will output 2 file signed and unsigned.)
+       can be found in platform/android/build/output/apk
+
