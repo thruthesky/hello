@@ -160,6 +160,7 @@ export class JobIndexPage{
     this.inPageLoading = false;
     if ( page.search.length == 0 ) {
       this.noMorePosts = true;
+      this.app.renderPage();
       //this.endScroll();
       return;
     }
@@ -182,6 +183,10 @@ export class JobIndexPage{
 
     // for link
     page.search.map( post => post['link'] = this.post.getPermalink( post, this.sharePath ) );
+
+    //redraw
+    this.app.renderPage();
+
   }
 
   onClickProvince() {

@@ -453,19 +453,19 @@ Adding this code will make it work, but there are no further explanation on how 
 1) generate keystore
 keytool -genkey -v -keystore <YOUR_KEYSTORE>.keystore -alias <YOUR_ALIAS> -keyalg RSA -keysize 2048 -validity 10000
 
-*can be found in platform/android directory
+*can be found in platform/android directory or if you have the keystore file. place it in the platform/android directory.
 
 2) signing the unsigned apk
     a) create a file named  "release-signing.properties" in platform/android directory.
-    b) add the following and apply the necessary changes then save. (@see tnp for sample)
+    b) add the following and apply the necessary changes then save. (@see tmp for sample)
 
         key.store=<YOUR_KEYSTORE>.keystore
         key.store.password=<YOUR_KEYSTORE password>
         key.alias=<YOUR_ALIAS>
         key.alias.password=<YOUR_ALIAS password>
 
-    c) ionic build android --release ( this will output 2 file signed and unsigned.)
-       can be found in platform/android/build/output/apk
+    c) ionic build android --release --prod
+        *this will create and signed the apk and can be found in platform/android/build/output/apk
 
 
 

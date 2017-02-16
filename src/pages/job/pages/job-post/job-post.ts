@@ -167,7 +167,7 @@ export class JobPostPage{
   }
 
   openConfirmation(msg) {
-    this.post.error(msg);
+    this.app.notice(msg);
   }
 
   updatePost() {
