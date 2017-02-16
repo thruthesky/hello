@@ -467,3 +467,11 @@ keytool -genkey -v -keystore <YOUR_KEYSTORE>.keystore -alias <YOUR_ALIAS> -keyal
     c) ionic build android --release ( this will output 2 file signed and unsigned.)
        can be found in platform/android/build/output/apk
 
+
+
+# Application error
+    - The connetion to the server was unsuccessful.(file:///android_assest/www/index.html)
+
+    option
+    * add the following to config.xml
+    <preference name="loadUrlTimeoutValue" value="700000" />
