@@ -430,18 +430,18 @@ Adding this code will make it work, but there are no further explanation on how 
 
 # Generate Icon and Splash images
 
-1) download the psd template for icon http://code.ionicframework.com/resources/icon.psd
-    -minimum dimension of 192x192px and no rounded corners
-2) download the psd template for splash http://code.ionicframework.com/resources/splash.psd
-    -minimum dimension of 1200x1200px
-3) put the template to resources directory 
-4) generate icon 
-    $ ionic resources --icon
-5) generate splash
-    $ ionic resources --splash
+* 1) download the psd template for icon http://code.ionicframework.com/resources/icon.psd
+   *  -minimum dimension of 192x192px and no rounded corners
+* 2) download the psd template for splash http://code.ionicframework.com/resources/splash.psd
+   *  -minimum dimension of 1200x1200px
+* 3) put the template to resources directory
+* 4) generate icon
+   *  $ ionic resources --icon
+* 5) generate splash
+   *  $ ionic resources --splash
 
-6) generate icon and splash
-    $ ionic resources -c
+* 6) generate icon and splash
+   *  $ ionic resources -c
 
 * note., --ignore-cache --force or -c to by pass the cache problem
 
@@ -450,28 +450,30 @@ Adding this code will make it work, but there are no further explanation on how 
 # Building a release android apk
 
 
-1) generate keystore
-keytool -genkey -v -keystore <YOUR_KEYSTORE>.keystore -alias <YOUR_ALIAS> -keyalg RSA -keysize 2048 -validity 10000
+* 1) generate keystore
+  *  keytool -genkey -v -keystore <YOUR_KEYSTORE>.keystore -alias <YOUR_ALIAS> -keyalg RSA -keysize 2048 -validity 10000
 
 *can be found in platform/android directory or if you have the keystore file. place it in the platform/android directory.
 
-2) signing the unsigned apk
-    a) create a file named  "release-signing.properties" in platform/android directory.
-    b) add the following and apply the necessary changes then save. (@see tmp for sample)
-
+* 2) signing the unsigned apk
+  *   a) create a file named  "release-signing.properties" in platform/android directory.
+   *  b) add the following and apply the necessary changes then save. (@see tmp for sample)
+````
         key.store=<YOUR_KEYSTORE>.keystore
         key.store.password=<YOUR_KEYSTORE password>
         key.alias=<YOUR_ALIAS>
         key.alias.password=<YOUR_ALIAS password>
-
-    c) ionic build android --release --prod
+````
+*     c) ionic build android --release --prod
         *this will create and signed the apk and can be found in platform/android/build/output/apk
 
 
 
 # Application error
-    - The connetion to the server was unsuccessful.(file:///android_assest/www/index.html)
+  *   - The connetion to the server was unsuccessful.(file:///android_assest/www/index.html)
 
-    option
+    * option
     * add the following to config.xml
-    <preference name="loadUrlTimeoutValue" value="700000" />
+    ````
+       <preference name="loadUrlTimeoutValue" value="700000" />
+    ````
