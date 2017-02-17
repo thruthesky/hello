@@ -138,6 +138,7 @@ export class SonubRegisterPage {
             this.member.error('error on update user profile: ' + error );
         },
         () => {
+            this.process.loader = false;
 
         })
     }
