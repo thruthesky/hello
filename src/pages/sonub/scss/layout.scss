@@ -10,6 +10,8 @@ header {
     }
 }
 
+
+
 section.content {
     position: relative;
     margin-top: $header-height + $gutter;
@@ -29,6 +31,7 @@ aside.left {
     width: $left_width;
 }
 
+
 aside.right {
     position: absolute;
     top: 0;
@@ -36,6 +39,7 @@ aside.right {
     margin-left: $gutter;
     width: $right_width;
 }
+
 
 section.center {
     @media all and ( min-width: $break-point ) {

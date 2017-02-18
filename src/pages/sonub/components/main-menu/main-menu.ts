@@ -23,7 +23,6 @@ export class SonubMainMenu {
         this.app.alarm( "Cache data has been deleted!");
         localStorage.clear();
     }
-    
     onClickLogout() {
         this.login = null;
         this.member.logout();

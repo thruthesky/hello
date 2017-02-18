@@ -4,7 +4,7 @@ import { App } from '../../../../../providers/app';
 import { Router } from '@angular/router';
 @Component({
     selector: 'job-main-menu',
-    templateUrl: 'main-menu.html'
+    templateUrl: '../../../../sonub/components/main-menu/main-menu.html'
 })
 export class JobMainMenu {
     login: MEMBER_LOGIN = null;
@@ -22,7 +22,6 @@ export class JobMainMenu {
         this.app.alarm( "Cache data has been deleted!");
         localStorage.clear();
     }
-
     onClickLogout() {
       this.login = null;
       this.member.logout();

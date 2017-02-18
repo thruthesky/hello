@@ -21,9 +21,9 @@
   <title>Sonub - Social Network Hub</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <meta name="format-detection" content="telephone=no">
-  <meta name="msapplication-tap-highlight" content="no">
+  <meta name="msapplication-tap-highlight" content="no"><i>
 
-  <link rel="icon" type="image/x-icon" href="assets/icon/favicon.ico">
+</i>  <link rel="icon" type="image/x-icon" href="assets/icon/favicon.ico">
   <!--No use for webapp or web woker <link rel="manifest" href="manifest.json">-->
   <meta name="theme-color" content="#4e8ef7">
 
@@ -44,7 +44,13 @@
       #shell header menus, #shell section.content { margin-left: auto; margin-right: auto; max-width: 960px; }
 
       #shell ul { list-style: none; margin: 0; padding: 0; }
-      #shell ul li { float: left; padding: .28em 8px .3em 0; cursor: pointer; font-size: 12px; }
+      #shell ul li {
+          float: left;
+          padding: .28em 8px .3em 0;
+          cursor: pointer;
+          font-size: 12px;
+          text-align: center;
+        }
       #shell .icon { font-size: 1.6em; }
       #shell .font { color: #904030; }
 
@@ -57,7 +63,6 @@
           float: left;
           width: 200px;
           min-height: 650px;
-          background-color: blue;
       }
       .app-loader { margin: 0 auto; width: 80%; max-width: 540px; text-align: center; }
       .app-loader .l { margin-bottom: 2.6em; }
@@ -120,11 +125,6 @@
                       <div class="text">가정부</div>
                   </li>
 
-
-
-
-
-
             <li class="business">
                 <span class="icon fa-stack fa-lg">
                     <i class="background fa fa-circle fa-stack-2x"></i>
@@ -154,6 +154,61 @@
             </li>
             
 
+            <li class="business">
+                <span class="icon fa-stack fa-lg">
+                    <i class="background fa fa-circle fa-stack-2x"></i>
+                    <i class="font fa fa-handshake-o fa-stack-1x fa-inverse"></i>
+                </span>
+                <div>기업회원</div>
+            </li>
+            
+
+            <li class="business">
+                <span class="icon fa-stack fa-lg">
+                    <i class="background fa fa-circle fa-stack-2x"></i>
+                    <i class="font fa fa-paper-plane fa-stack-1x fa-inverse"></i>
+                </span>
+                <div>여행</div>
+            </li>
+            
+
+
+
+
+
+            <li class="business">
+                <span class="icon fa-stack fa-lg">
+                    <i class="background fa fa-circle fa-stack-2x"></i>
+                    <i class="font fa fa-h-square fa-stack-1x fa-inverse"></i>
+                </span>
+                <div>호텔</div>
+            </li>
+            
+
+
+
+
+
+            <li class="business">
+                <span class="icon fa-stack fa-lg">
+                    <i class="background fa fa-circle fa-stack-2x"></i>
+                    <i class="font fa fa-taxi fa-stack-1x fa-inverse"></i>
+                </span>
+                <div>렌트카</div>
+            </li>
+            
+
+
+            <li class="business">
+                <span class="icon fa-stack fa-lg">
+                    <i class="background fa fa-circle fa-stack-2x"></i>
+                    <i class="font fa fa-usd fa-stack-1x fa-inverse"></i>
+                </span>
+                <div>환전</div>
+            </li>
+            
+
+
 
             <li class="business">
                 <span class="icon fa-stack fa-lg">
@@ -164,22 +219,86 @@
             </li>
             
 
-            <li class="business">
-                <span class="icon fa-stack fa-lg">
-                    <i class="background fa fa-circle fa-stack-2x"></i>
-                    <i class="font fa fa-handshake-o fa-stack-1x fa-inverse"></i>
-                </span>
-                <div>기업회원</div>
-            </li>
-            
-
 
               </ul>
           </div>
       </header>
       <section class="content">
 
-        <aside class="left">.left</aside>
+
+        <aside class="left">
+            <style>
+                #shell aside {
+                }
+                #shell .freetalk {
+                    background-color: #8d99b3;
+                    padding: 1px;
+                }
+                #shell .title {
+                    padding: 8px;
+                    color: white;
+                    font-size: .9em;
+                }
+                #shell .left .content {
+                    background-color: white;
+                }
+                #shell .post {
+                    position: relative;
+                    padding: 0;
+                }
+
+                #shell .no {
+                    position: relative;
+                    display: inline-block;
+                    top: 4px;
+                    left: 6px;
+                    width: 1.3em;
+                    height: 1.3em;
+                    border-radius: 50%;
+                    background-color: #703023;
+                }
+                #shell .no.b {
+                    background-color: lightslategray;
+                }
+                #shell .no.g {
+                    background-color: lightgrey;
+                }
+                #shell .no i {
+                    position: absolute;
+                    display: block;
+                    top: -2px;
+                    left: 3px;
+                    color: white;
+                    font-size: .7em;
+                }
+
+                #shell .post .text {
+                    display: inline-block;
+                    padding-left: 14px;
+                }
+            </style>
+            <div class="freetalk">
+                <div class="title">자유게시판</div>
+                <div class="content">
+                    <div class="post"><span class="no r"><i>82</i></span><span class="text">에뉴얼리포트 마감입박!!</span></div>
+                    <div class="post"><span class="no g"><i>24</i></span><span class="text">바기오가 영하에요?</span></div>
+                    <div class="post"><span class="no b"><i>39</i></span><span class="text">필리핀 현지 남부지역 참외...</span></div>
+                    <div class="post"><span class="no r"><i>81</i></span><span class="text">기소 중지자란 ?</span></div>
+                    <div class="post"><span class="no g"><i>23</i></span><span class="text">주류와 스테이크...?</span></div>
+                    <div class="post"><span class="no b"><i>45</i></span><span class="text">저녁 맛있게 드세요.</span></div>
+                    <div class="post"><span class="no g"><i>12</i></span><span class="text">[산타로사] StrEAT 한국...</span></div>
+                    <div class="post"><span class="no g"><i>27</i></span><span class="text">잠시 아이들과 다녀올만한...</span></div>
+                    <div class="post"><span class="no b"><i>31</i></span><span class="text">질문입니다. 일반 전자기기...</span></div>
+                    <div class="post"><span class="no b"><i>51</i></span><span class="text">중부루손 한인회 교민안전...</span></div>
+                    <div class="post"><span class="no r"><i>65</i></span><span class="text">사람찾기 게시판에 협박성...</span></div>
+                    <div class="post"><span class="no b"><i>14</i></span><span class="text">이민자 없는날...미국전역에</span></div>
+
+                </div>
+            </div>
+            
+
+
+        </aside>
         <div class="center">
               <div class="kakao-friend" style="margin-bottom: .6em;">
       <a href="http://plus.kakao.com/home/mp8iqm63" target="_blank">
@@ -212,7 +331,7 @@
   <script src="build/polyfills.js" async></script>
 
   <!-- The bundle js is generated during the build process -->
-  <!--script src="build/main.js?version=0.4" async></script>
+  <script src="build/main.js?version=0.4" async></script>
   <!-- // -->
 
 <script>

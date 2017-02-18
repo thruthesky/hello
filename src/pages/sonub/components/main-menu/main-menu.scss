@@ -1,17 +1,20 @@
-sonub-main-menu {
-  &.active {
-    display: block!important;
+.main-menu { display: none; }
+.active .main-menu { display: block; }
+.main-menu {
+  margin-top: $header-height;
+  .inner {
+    margin: 0 auto;
+    padding: 1em 0;
+    max-width: $content-width;
   }
-  margin: 0 auto;
-  padding: 1em 0;
-  max-width: $content-width;
-  .menus {
+  
     font-size: .9rem;
     font-family: Gulim,AppleGothic,Arial, Helvetica, sans-serif;
     text-align: center;
     .inner {
       display: inline-block;
     }
+
     .menu {
       display: inline-block;
       margin-right: $gutter;
@@ -32,13 +35,13 @@ sonub-main-menu {
         } 
       }
     }
-    .menu.hot .icon { background-color: #80a0a0; }
 
+    .menu.hot .icon { background-color: #80a0a0; }
     .inactive {
       text-decoration: line-through;
       .icon {
         background-color: #cdcdcd;
       }
     }
-  }
+  
 }
