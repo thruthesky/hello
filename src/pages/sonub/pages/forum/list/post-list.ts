@@ -39,7 +39,7 @@ export class SonubPostListPage {
                private renderer: Renderer,
                private app: App,
                private pageScroll: PageScroll ) {
-    console.log("SonubPostListPage::constructor()");
+    //console.log("SonubPostListPage::constructor()");
 
     post.setLanguage( app.language() );
     this.ln = app.language();
@@ -47,7 +47,7 @@ export class SonubPostListPage {
     this.login = member.getLoginData();
     this.forumListStyle = localStorage.getItem( SETTING_FORUM_LIST_STYLE );
     activated.params.subscribe( param => {
-      console.log("PostList::constructor::subscribe()")
+      //console.log("PostList::constructor::subscribe()")
 
       // clear everything and initialize here.
       this.post_id = null;
@@ -259,7 +259,7 @@ export class SonubPostListPage {
   pre( post: POST ) : POST {
 
 
-    console.log('pre: ', post);
+    //console.log('pre: ', post);
     if ( post === void 0 ) return null; // this error really happened.
     if ( post.idx === void 0 || ! post.idx ) return null;
 

@@ -13,36 +13,36 @@
                     <i class="background fa fa-circle fa-stack-2x"></i>
                     <i class="font fa fa-comments fa-stack-1x fa-inverse"></i>
                 </span>
-                <div class="text">{{ ['Talk', '자유토론'] | ek }}</div>
+                <div class="text">{{ ['Talk', '토론'] | ek }}</div>
             </li>
             <li class="qna" (click)="onClickRoute('/forum/qna')">
                 <span class="icon fa-stack fa-lg">
                     <i class="background fa fa-circle fa-stack-2x"></i>
                     <i class="font fa fa-question fa-stack-1x fa-inverse"></i>
                 </span>
-                <div class="text">{{ ['QnA', '질문답변'] | ek }}</div>
+                <div class="text">{{ ['QnA', '질문'] | ek }}</div>
             </li>
             <li class="buyandsell" (click)="onClickRoute('/forum/buyandsell')">
                 <span class="icon fa-stack fa-lg">
                     <i class="background fa fa-circle fa-stack-2x"></i>
                     <i class="font fa fa-shopping-basket fa-stack-1x fa-inverse"></i>
                 </span>
-                <div class="text">{{ ['Market', '회원장터'] | ek }}</div>
+                <div class="text">{{ ['Market', '장터'] | ek }}</div>
             </li>
             <li class="job" (click)="onClickRoute('/job')" >
                 <span class="icon fa-stack fa-lg">
                     <i class="background fa fa-circle fa-stack-2x"></i>
                     <i class="font fa fa-suitcase fa-stack-1x fa-inverse"></i>
                 </span>
-                <div class="text">{{ ['Job', '하우스헬퍼'] | ek }}</div>
+                <div class="text">{{ ['Job', '가정부'] | ek }}</div>
             </li>
 
-            <li class="message" *ngIf=" login " (click)="onClickRoute('/message')" >
+            <li class="login" *ngIf=" ! login " (click)="onClickRoute('/user/login')">
                 <span class="icon fa-stack fa-lg">
                     <i class="background fa fa-circle fa-stack-2x"></i>
-                    <i class="font fa fa-envelope-o fa-stack-1x fa-inverse"></i>
+                    <i class="font fa fa-user fa-stack-1x fa-inverse"></i>
                 </span>
-                <div class="text">{{ ['Message', '쪽지'] | ek }}</div>
+                <div>{{ ['Login', '로그인'] | ek }}</div>
             </li>
 
             <li class="register" *ngIf=" ! login " (click)="onClickRoute('/user/register')">
@@ -54,24 +54,16 @@
             </li>
 
 
-            <li class="login" *ngIf=" ! login " (click)="onClickRoute('/user/login')">
+
+            <li class="message" *ngIf=" login " (click)="onClickRoute('/message')" >
                 <span class="icon fa-stack fa-lg">
                     <i class="background fa fa-circle fa-stack-2x"></i>
-                    <i class="font fa fa-user fa-stack-1x fa-inverse"></i>
+                    <i class="font fa fa-envelope-o fa-stack-1x fa-inverse"></i>
                 </span>
-                <div>{{ ['Login', '로그인'] | ek }}</div>
+                <div class="text">{{ ['Message', '쪽지'] | ek }}</div>
             </li>
 
 
-<!--
-            <li class="business" routerLink="/business">
-                <span class="icon fa-stack fa-lg">
-                    <i class="background fa fa-circle fa-stack-2x"></i>
-                    <i class="font fa fa-handshake-o fa-stack-1x fa-inverse"></i>
-                </span>
-                <div>기업회원</div>
-            </li>
--->
 
 
             <li class="help" (click)="onClickRoute('/help')">
@@ -83,6 +75,106 @@
             </li>
 
 
+
+
+
+            <li class="business" (click)="onClickRoute('/business')">
+                <span class="icon fa-stack fa-lg">
+                    <i class="background fa fa-circle fa-stack-2x"></i>
+                    <i class="font fa fa-handshake-o fa-stack-1x fa-inverse"></i>
+                </span>
+                <div>{{ ['Business', '기업회원'] | ek }}</div>
+            </li>
+            
+
+
+
+            <li class="business" (click)="onClickRoute('/forum/travel')">
+                <span class="icon fa-stack fa-lg">
+                    <i class="background fa fa-circle fa-stack-2x"></i>
+                    <i class="font fa fa-paper-plane fa-stack-1x fa-inverse"></i>
+                </span>
+                <div>{{ ['Travel', '여행'] | ek }}</div>
+            </li>
+            
+
+
+
+
+
+            <li class="business" (click)="onClickRoute('/forum/hotel')">
+                <span class="icon fa-stack fa-lg">
+                    <i class="background fa fa-circle fa-stack-2x"></i>
+                    <i class="font fa fa-h-square fa-stack-1x fa-inverse"></i>
+                </span>
+                <div>{{ ['Hotel', '호텔'] | ek }}</div>
+            </li>
+            
+
+
+
+
+
+            <li class="business" (click)="onClickRoute('/forum/rentcar')">
+                <span class="icon fa-stack fa-lg">
+                    <i class="background fa fa-circle fa-stack-2x"></i>
+                    <i class="font fa fa-taxi fa-stack-1x fa-inverse"></i>
+                </span>
+                <div>{{ ['Car Rent', '렌트카'] | ek }}</div>
+            </li>
+            
+
+
+
+            <li class="business" (click)="onClickRoute('/forum/massage')">
+                <span class="icon fa-stack fa-lg">
+                    <i class="background fa fa-circle fa-stack-2x"></i>
+                    <i class="font fa fa-heartbeat fa-stack-1x fa-inverse"></i>
+                </span>
+                <div>{{ ['Massage', '마사지'] | ek }}</div>
+            </li>
+            
+
+
+            <li class="business" (click)="onClickRoute('/forum/party')">
+                <span class="icon fa-stack fa-lg">
+                    <i class="background fa fa-circle fa-stack-2x"></i>
+                    <i class="font fa fa-users fa-stack-1x fa-inverse"></i>
+                </span>
+                <div>{{ ['Bonding', '친구모임'] | ek }}</div>
+            </li>
+            
+
+
+            <li class="business" (click)="onClickRoute('/forum/wanted')">
+                <span class="icon fa-stack fa-lg">
+                    <i class="background fa fa-circle fa-stack-2x"></i>
+                    <i class="font fa fa-male fa-stack-1x fa-inverse"></i>
+                </span>
+                <div>{{ ['Job', '구인구직'] | ek }}</div>
+            </li>
+            
+
+
+
+            <li class="business" (click)="onClickRoute('/forum/money')">
+                <span class="icon fa-stack fa-lg">
+                    <i class="background fa fa-circle fa-stack-2x"></i>
+                    <i class="font fa fa-usd fa-stack-1x fa-inverse"></i>
+                </span>
+                <div>{{ ['Exchange', '환전'] | ek }}</div>
+            </li>
+            
+
+
+            <li class="business" (click)="onClickRoute('/forum/news')">
+                <span class="icon fa-stack fa-lg">
+                    <i class="background fa fa-circle fa-stack-2x"></i>
+                    <i class="font fa fa-newspaper-o fa-stack-1x fa-inverse"></i>
+                </span>
+                <div>{{ ['News', '뉴스'] | ek }}</div>
+            </li>
+            
 
 
             <li class="all-menu cursor" nowrap (click)="onClickMenu( $event )">

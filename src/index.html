@@ -5,7 +5,7 @@
 
   <!-- For angular web -->
 
-  <!--base href="/">
+  <base href="/">
 
   <!-- Uncomment <Base web -->
 
@@ -27,8 +27,6 @@
   <!--No use for webapp or web woker <link rel="manifest" href="manifest.json">-->
   <meta name="theme-color" content="#4e8ef7">
 
-  <link href="build/main.css?version=0.4" rel="stylesheet">
-  <link rel="stylesheet" href="assets/bootstrap-v4/bootstrap.min.css?version=4-alpha-6">
   <link rel="stylesheet" href="assets/font-awesome-v4/css/font-awesome.min.css?version=4">
 
 </head>
@@ -38,28 +36,184 @@
   <app-component>
 
     <style>
+      #shell header {
+        height: 4.625em;
+        background-color: #703023;
+        color: white;
+      }
+      #shell header menus, #shell section.content { margin-left: auto; margin-right: auto; max-width: 960px; }
+
+      #shell ul { list-style: none; margin: 0; padding: 0; }
+      #shell ul li { float: left; padding: .28em 8px .3em 0; cursor: pointer; font-size: 12px; }
+      #shell .icon { font-size: 1.6em; }
+      #shell .font { color: #904030; }
+
+      #shell section.content {
+          position: relative;
+          padding: 0;
+      }
+      #shell section.content aside.left {
+          display: none;
+          float: left;
+          width: 200px;
+          min-height: 650px;
+          background-color: blue;
+      }
       .app-loader { margin: 0 auto; width: 80%; max-width: 540px; text-align: center; }
       .app-loader .l { margin-bottom: 2.6em; }
       .app-loader .l img { display: block; width: 100%; }
+
+
+      @media all and ( min-width: 760px ) {
+          #shell section.content aside.left {
+              display: block;
+            }
+                
+                
+            #shell .center {
+                position: absolute;
+                top: 0;
+                left: 210px;
+                max-width: 640px;
+            }
+            
+      }
     </style>
-    <div class="app-loader" id="app-loader">
-      <div class="l"><img src="assets/img/philgo-loader.svg"></div>
-      <div class="t"><i class="fa fa-spinner fa-spin"></i> 필고를 로딩중입니다.</div>
+
+    <section id="shell">
+        <header class="navbar fixed-top">
+          <div class="menus">
+              <ul class="menu">
+                  <li class="home">
+                      <span class="icon fa-stack fa-lg">
+                          <i class="background fa fa-circle fa-stack-2x"></i>
+                          <img class="logo fa fa-stack-1x" src="assets/img/philgo-logo.png">
+                      </span>
+                      <div class="text">홈</div>
+                  </li>
+                  <li class="discussion">
+                      <span class="icon fa-stack fa-lg">
+                          <i class="background fa fa-circle fa-stack-2x"></i>
+                          <i class="font fa fa-comments fa-stack-1x fa-inverse"></i>
+                      </span>
+                      <div class="text">토론</div>
+                  </li>
+                  <li class="qna">
+                      <span class="icon fa-stack fa-lg">
+                          <i class="background fa fa-circle fa-stack-2x"></i>
+                          <i class="font fa fa-question fa-stack-1x fa-inverse"></i>
+                      </span>
+                      <div class="text">질문</div>
+                  </li>
+                  <li class="buyandsell">
+                      <span class="icon fa-stack fa-lg">
+                          <i class="background fa fa-circle fa-stack-2x"></i>
+                          <i class="font fa fa-shopping-basket fa-stack-1x fa-inverse"></i>
+                      </span>
+                      <div class="text">장터</div>
+                  </li>
+                  <li class="job" >
+                      <span class="icon fa-stack fa-lg">
+                          <i class="background fa fa-circle fa-stack-2x"></i>
+                          <i class="font fa fa-suitcase fa-stack-1x fa-inverse"></i>
+                      </span>
+                      <div class="text">가정부</div>
+                  </li>
+
+
+
+
+
+
+            <li class="business">
+                <span class="icon fa-stack fa-lg">
+                    <i class="background fa fa-circle fa-stack-2x"></i>
+                    <i class="font fa fa-heartbeat fa-stack-1x fa-inverse"></i>
+                </span>
+                <div>마사지</div>
+            </li>
+            
+
+
+            <li class="business">
+                <span class="icon fa-stack fa-lg">
+                    <i class="background fa fa-circle fa-stack-2x"></i>
+                    <i class="font fa fa-users fa-stack-1x fa-inverse"></i>
+                </span>
+                <div>친구모임</div>
+            </li>
+            
+
+
+            <li class="business">
+                <span class="icon fa-stack fa-lg">
+                    <i class="background fa fa-circle fa-stack-2x"></i>
+                    <i class="font fa fa-male fa-stack-1x fa-inverse"></i>
+                </span>
+                <div>구인구직</div>
+            </li>
+            
+
+
+            <li class="business">
+                <span class="icon fa-stack fa-lg">
+                    <i class="background fa fa-circle fa-stack-2x"></i>
+                    <i class="font fa fa-newspaper-o fa-stack-1x fa-inverse"></i>
+                </span>
+                <div>뉴스</div>
+            </li>
+            
+
+            <li class="business">
+                <span class="icon fa-stack fa-lg">
+                    <i class="background fa fa-circle fa-stack-2x"></i>
+                    <i class="font fa fa-handshake-o fa-stack-1x fa-inverse"></i>
+                </span>
+                <div>기업회원</div>
+            </li>
+            
+
+
+              </ul>
+          </div>
+      </header>
+      <section class="content">
+
+        <aside class="left">.left</aside>
+        <div class="center">
+              <div class="kakao-friend" style="margin-bottom: .6em;">
+      <a href="http://plus.kakao.com/home/mp8iqm63" target="_blank">
+        <img style="width:100%;" src="./assets/img/kakaotalk.png"></a>
     </div>
 
+      <div class="app-loader" id="app-loader">
+        헤더를 똑같이 디자인. 상단 뉴스도 똑 같이.
+        필고 단톡방. 필고 엘로톡 방.
+        <div class="t"><i class="fa fa-spinner fa-spin"></i> 필고를 로딩중입니다.</div>
+      </div>
+        </div>
+      </section>
+    </section>
+
   </app-component>
+
 <script>
   var myNav = navigator.userAgent.toLowerCase();
   var IE = (myNav.indexOf('msie') != -1) ? parseInt(myNav.split('msie')[1]) : false;
   if ( IE && IE <= 9) location.href="assets/html/browser-not-support.html";
 </script>
 
+
+  <link href="build/main.css?version=0.4" rel="stylesheet">
+  <link rel="stylesheet" href="assets/bootstrap-v4/bootstrap.min.css?version=4-alpha-6">
+
+
   <!-- The polyfills js is generated during the build process -->
   <script src="build/polyfills.js" async></script>
 
   <!-- The bundle js is generated during the build process -->
-  <script src="build/main.js?version=0.4" async></script>
-
+  <!--script src="build/main.js?version=0.4" async></script>
+  <!-- // -->
 
 <script>
 
