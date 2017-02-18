@@ -67,6 +67,7 @@ export class JobListPage {
       this.inPageLoading = false;
       if ( page.posts.length == 0 ) {
         this.noMorePosts = true;
+        this.app.renderPage();
         //this.endScroll();
         return;
       }
@@ -96,6 +97,9 @@ export class JobListPage {
 
     // for link
     page.posts.map( post => post['link'] = this.post.getPermalink( post, this.sharePath ) );
+
+    //redraw
+    this.app.renderPage();
   }
 
 }

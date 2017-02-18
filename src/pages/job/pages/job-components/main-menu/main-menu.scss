@@ -6,7 +6,7 @@ job-main-menu {
   padding: 1em 0;
   max-width: $content-width;
   .menus {
-    font-size: 12px;
+    font-size: .9rem;
     font-family: Gulim,AppleGothic,Arial, Helvetica, sans-serif;
     text-align: center;
     .inner {
@@ -16,7 +16,8 @@ job-main-menu {
       display: inline-block;
       margin-right: $gutter;
       width: 5em;
-      height: 7em;
+      height: 8em;
+      overflow: hidden;
       text-align: center;
       cursor: pointer;
       .icon {
@@ -28,7 +29,7 @@ job-main-menu {
         i.fa {
           color: white;
           font-size: 2.6em;
-        } 
+        }
       }
     }
     .menu.hot .icon { background-color: #80a0a0; }

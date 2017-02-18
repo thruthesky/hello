@@ -6,6 +6,7 @@ import { PAGES } from '../../../../../api/philgo-api/v2/philgo-api-interface';
 import { Post } from '../../../../../api/philgo-api/v2/post';
 import { MEMBER_LOGIN } from '../../../../../api/philgo-api/v2/member';
 import { Router } from '@angular/router';
+import { App } from '../../../../../providers/app';
 @Component({
   selector: 'job-listing',
   templateUrl: 'job-listing.html',
@@ -26,7 +27,9 @@ export class JobListing {
 
   //active: boolean = false; // "active==true" means, the use is in editing.
 
-  constructor(private router: Router,private _post: Post,) {
+  constructor(private router: Router,
+              private _post: Post,
+              public app: App) {
     console.log("JobListing()");
   }
 
@@ -44,7 +47,7 @@ export class JobListing {
     let re = confirm("Are you sure you want to delete this post?");
     if ( re ) {
       this._post.delete( post.idx, re => {
-          this._post.error("Successful on Deleting this post...");
+          this.app.notice("Successful on Deleting this post...");
           post.idx = null;
         },
         error => this._post.error("delete error: " + error )

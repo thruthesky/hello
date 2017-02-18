@@ -34,11 +34,11 @@ sonub-news .news {
 
 
     .top {
-      margin-bottom: .4em;
+      margin-bottom: .425em;
       padding: $gutter;
       background-color: #cccbc6;
       .subject {
-        margin-bottom: .8em;
+        margin-bottom: .6em;
         height: 1.5em;
         font-size: 1rem;
       }
@@ -53,7 +53,7 @@ sonub-news .news {
     }
 
     .subject {
-      padding: .4em 0;
+      padding: .3em 0;
       height: 1.5em;
       line-height: 1.2em;
       overflow: hidden;
@@ -68,11 +68,11 @@ sonub-news .news {
 
 
 // big ::-webkit-resizer
-.big sonub-news {
+.big sonub-news .news {
 
   .left {
     .subject {
-      margin-top: .35em;
+      margin-top: .475em;
       height: 1.35em;
       overflow: hidden;
     }
@@ -89,14 +89,13 @@ sonub-news .news {
         font-size: .9rem;
       }
       .content {
-        height: 2.4em;
+        height: 2.6em;
         font-size: .8rem;
       }
 
     }
     .subject {
-      margin-bottom: .25em;
-      height: 1.13rem;
+      margin-bottom: .1em;
       font-size: .8rem;
     }
 

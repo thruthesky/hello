@@ -3,7 +3,7 @@
     <div class="post" [ngClass]="{more: post.more}" *ngIf="post.idx">
       <div class="content">
         <div class="profile">
-          <img class="profile-photo" src="{{post.photos.length ? post.photos[0]['url_thumbnail'] : urlPhoto}}" alt="Card image {{post.text_1}}">
+          <img class="profile-photo" src="{{post.photos.length ? post.photos[0]['url_thumbnail'] : urlPhoto}}" alt="{{post.text_1}}">
         </div>
         <div class="info" >
           <div class="text">{{post.sub_category}}</div>
@@ -24,7 +24,7 @@
             <i class="font fa fa-pencil"></i>
             <div>Edit</div>
           </li>
-          <li class="cursor" *ngIf=" post.member.id == login.id " (click)="onClickDelete(post)">
+          <li class="cursor" *ngIf=" post.member.id == login.id " (click)="onClickDelete( post )">
             <i class="font fa fa-trash-o"></i>
             <div>Delete</div>
           </li>
@@ -45,4 +45,5 @@
     </div>
   </ng-container><!--/.col-xx-x-->
 </ng-container><!--/.page.posts.row-->
+<div class="clearfix"></div>
 
