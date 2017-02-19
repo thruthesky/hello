@@ -35,58 +35,11 @@
   <!-- Ionic's root component and where the app will load -->
   <app-component>
 
-    <style>
-      #shell header {
-        height: 4.625em;
-        background-color: #703023;
-        color: white;
-      }
-      #shell header menus, #shell section.content { margin-left: auto; margin-right: auto; max-width: 960px; }
-
-      #shell ul { list-style: none; margin: 0; padding: 0; }
-      #shell ul li {
-          float: left;
-          padding: .28em 8px .3em 0;
-          cursor: pointer;
-          font-size: 12px;
-          text-align: center;
-        }
-      #shell .icon { font-size: 1.6em; }
-      #shell .font { color: #904030; }
-
-      #shell section.content {
-          position: relative;
-          padding: 0;
-      }
-      #shell section.content aside.left {
-          display: none;
-          float: left;
-          width: 200px;
-          min-height: 650px;
-      }
-      .app-loader { margin: 0 auto; width: 80%; max-width: 540px; text-align: center; }
-      .app-loader .l { margin-bottom: 2.6em; }
-      .app-loader .l img { display: block; width: 100%; }
 
 
-      @media all and ( min-width: 760px ) {
-          #shell section.content aside.left {
-              display: block;
-            }
-                
-                
-            #shell .center {
-                position: absolute;
-                top: 0;
-                left: 210px;
-                max-width: 640px;
-            }
-            
-      }
-    </style>
 
     <section id="shell">
-        <header class="navbar fixed-top">
+        <header class="navbar fixed-top" onclick="showLoadingBox();">
           <div class="menus">
               <ul class="menu">
                   <li class="home">
@@ -226,57 +179,8 @@
       <section class="content">
 
 
-        <aside class="left">
-            <style>
-                #shell aside {
-                }
-                #shell .freetalk {
-                    background-color: #8d99b3;
-                    padding: 1px;
-                }
-                #shell .title {
-                    padding: 8px;
-                    color: white;
-                    font-size: .9em;
-                }
-                #shell .left .content {
-                    background-color: white;
-                }
-                #shell .post {
-                    position: relative;
-                    padding: 0;
-                }
-
-                #shell .no {
-                    position: relative;
-                    display: inline-block;
-                    top: 4px;
-                    left: 6px;
-                    width: 1.3em;
-                    height: 1.3em;
-                    border-radius: 50%;
-                    background-color: #703023;
-                }
-                #shell .no.b {
-                    background-color: lightslategray;
-                }
-                #shell .no.g {
-                    background-color: lightgrey;
-                }
-                #shell .no i {
-                    position: absolute;
-                    display: block;
-                    top: -2px;
-                    left: 3px;
-                    color: white;
-                    font-size: .7em;
-                }
-
-                #shell .post .text {
-                    display: inline-block;
-                    padding-left: 14px;
-                }
-            </style>
+        <aside class="left" onclick="showLoadingBox();">
+            
             <div class="freetalk">
                 <div class="title">자유게시판</div>
                 <div class="content">
@@ -300,15 +204,34 @@
 
         </aside>
         <div class="center">
-              <div class="kakao-friend" style="margin-bottom: .6em;">
-      <a href="http://plus.kakao.com/home/mp8iqm63" target="_blank">
-        <img style="width:100%;" src="./assets/img/kakaotalk.png"></a>
+            
+            
+            
+            <table class="headline" cellpadding="0" cellspacing="0" onclick="showLoadingBox();">
+                <tr valign="top">
+                    <td><img src="./assets/img/loader-front-top-photo.jpg"></td>
+                    <td class="text">
+                        <div class="title">투바타하 리프 국립공원</div>
+                        <div class="desc">
+                            필리핀의 큰 섬들과 말레이시아의 사바주 사이에 있는 술루 해 한가운데에 위치한
+                            투바타하 리프는 인근의 제시비슬리 리프와 함게 1988년 필리핀 최초로 국립해양공원으로 지정.
+                            팔라완의 푸에르토 프린세사로부터 남동쪽으로 150km의 거리에 위치.
+                        </div>
+                    </td>
+                </tr>
+            </table>
+
+            <div class="kakao-friend" style="margin-bottom: .6em;">
+            <a href="http://plus.kakao.com/home/mp8iqm63" target="_blank">
+            <img style="width:100%;" src="./assets/img/kakaotalk.png"></a>
+    
+
+
     </div>
 
       <div class="app-loader" id="app-loader">
-        헤더를 똑같이 디자인. 상단 뉴스도 똑 같이.
-        필고 단톡방. 필고 엘로톡 방.
-        <div class="t"><i class="fa fa-spinner fa-spin"></i> 필고를 로딩중입니다.</div>
+          오늘도 즐거운 필리핀 하루되세요 ^^;
+          <div class="t"><i class="fa fa-spinner fa-spin"></i> 필고를 로딩중입니다.</div>
       </div>
         </div>
       </section>
