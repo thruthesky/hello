@@ -169,7 +169,41 @@ export class SonubRegisterPage {
         if ( ! this.cordova ) return;
         console.log("in cordova, onClickPrimaryPhoto(): ");
         let type = null;
-        let re = confirm("Click 'YES' to take photo. Click 'NO' to get photo from library.");
+        //let re = confirm("Click 'YES' to take photo. Click 'NO' to get photo from library.");
+        this.app.mobileUpload( re => {
+         if( re ) console.info( 'onClickPrimaryPhoto::MobileUpload:::' + re );
+
+          if ( re == 'camera' ) {
+            // get the picture from camera.
+            type = Camera.PictureSourceType.CAMERA;
+          }
+          else if ( re == 'photo') {
+            // get the picture from library.
+            type = Camera.PictureSourceType.PHOTOLIBRARY
+          }
+          else {
+            this.app.error("Image Upload Cancelled...");
+          }
+          console.log("in cordova, type: ", type);
+          let options = {
+            quality: 80,
+            sourceType: type
+          };
+          navigator.camera.getPicture( path => {
+            console.log('photo: ', path);
+            // transfer the photo to the server.
+            this.fileTransfer( path );
+          }, e => {
+            console.error( 'camera error: ', e );
+            this.app.error("camera error");
+          }, options);
+        }, dismiss => {
+          console.info('dismiss:: ' + dismiss);
+        });
+
+
+
+/*
         if ( re ) {
             // get the picture from camera.
             type = Camera.PictureSourceType.CAMERA;
@@ -189,8 +223,8 @@ export class SonubRegisterPage {
             this.fileTransfer( path );
         }, e => {
             console.error( 'camera error: ', e );
-            this.member.error("camera error");
-        }, options);
+            this.app.error("camera error");
+        }, options); */
     }
 
     fileTransfer( fileURL: string ) {

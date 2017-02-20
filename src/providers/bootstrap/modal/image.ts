@@ -4,7 +4,7 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
   selector: 'image-modal',
   template: `
     <div class="modal-body">
-      <img [src]="url" (click)="activeModal.close('Close click')" />
+      <img [src]="url" (click)="activeModal.close('image click')" />
     </div>
     `
 })

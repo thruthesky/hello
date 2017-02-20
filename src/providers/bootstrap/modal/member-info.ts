@@ -9,8 +9,8 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
           <span aria-hidden="true">&times;</span>
         </button></div>
         <hr>
-        <div class="text message" routerLink="message/{{id}}" (click)="activeModal.dismiss('send message click')">Send Message</div>
-        <div class="text post-list" routerLink="forum/user/{{id}}" (click)="activeModal.dismiss('post of this user click')">List post of this user</div>
+        <div class="text message" routerLink="message/{{id}}" (click)="activeModal.close('send message click')">Send Message</div>
+        <div class="text post-list" routerLink="forum/user/{{id}}" (click)="activeModal.close('post of this user click')">List post of this user</div>
         <div class="text level">Level : {{level}}</div>
         <div class="text reg-date">Reg Date : {{regDate}}</div>
     </div>
