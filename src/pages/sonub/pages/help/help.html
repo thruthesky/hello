@@ -3,6 +3,17 @@
   <sonub-left *ngIf=" app.size == 'big' "></sonub-left>
   <section class="center">
 
+
+      <div class="header">
+
+                <span class="icon fa-stack fa-lg">
+                    <i class="background fa fa-circle fa-stack-2x"></i>
+                    <i class="font fa fa-whatsapp fa-stack-1x fa-inverse"></i>
+                </span>
+                
+        도움말 페이지
+      </div>
+
             <div class="buttons">
               <button [class.active]="post_id=='qna'" (click)="onClickPostCreate('qna')">Post a Question</button>
               <button [class.active]="post_id=='request_to_manager'" (click)="onClickPostCreate('request_to_manager')">Inquire to admin</button>

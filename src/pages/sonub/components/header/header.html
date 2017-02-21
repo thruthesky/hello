@@ -22,6 +22,8 @@
                 </span>
                 <div class="text">{{ ['QnA', '질문'] | ek }}</div>
             </li>
+
+            
             <li class="buyandsell" (click)="onClickRoute('/forum/buyandsell')">
                 <span class="icon fa-stack fa-lg">
                     <i class="background fa fa-circle fa-stack-2x"></i>
@@ -29,6 +31,8 @@
                 </span>
                 <div class="text">{{ ['Market', '장터'] | ek }}</div>
             </li>
+
+
             <li class="job" (click)="onClickRoute('/job')" >
                 <span class="icon fa-stack fa-lg">
                     <i class="background fa fa-circle fa-stack-2x"></i>
@@ -37,6 +41,8 @@
                 <div class="text">{{ ['Job', '가정부'] | ek }}</div>
             </li>
 
+
+
             <li class="login" *ngIf=" ! login " (click)="onClickRoute('/user/login')">
                 <span class="icon fa-stack fa-lg">
                     <i class="background fa fa-circle fa-stack-2x"></i>
@@ -44,6 +50,8 @@
                 </span>
                 <div>{{ ['Login', '로그인'] | ek }}</div>
             </li>
+
+
 
             <li class="register" *ngIf=" ! login " (click)="onClickRoute('/user/register')">
                 <span class="icon fa-stack fa-lg">
