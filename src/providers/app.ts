@@ -66,6 +66,15 @@ export class App {
         });
     }
 
+    private showMobileUploadModal( option, resultCallback?: (result) => void, dismissCallback?: (reason) => void ) {
+      this.alertService.openMobileUpload( option, result => {
+        console.info("openMobileUpload:: " + result );
+        if( resultCallback ) resultCallback( result );
+      }, reason => {
+        if( dismissCallback ) dismissCallback( reason );
+      });
+    }
+
 
     private showImageModal( option: IMAGE_OPTION ) {
       this.alertService.openImage( option );
@@ -83,6 +92,17 @@ export class App {
       };
       this.showImageModal( option );
     }
+
+    mobileUpload( resultCallback?: (result) => void,  dismissCallback?: (reason) => void ) {
+      let option = {
+        'class': 'mobile-upload'
+      };
+      this.showMobileUploadModal( option, result => {
+        if( resultCallback ) resultCallback( result );
+      }, reason => {
+        if ( dismissCallback ) dismissCallback( reason );
+      });
+    } 
 
     memberInfoView( post ) {
       let option: MEMBER_OPTION = {

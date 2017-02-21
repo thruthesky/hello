@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
-import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModal, NgbModalRef, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { AlertContent } from './alert-content';
 import { ImageModal } from '../modal/image';
 import { MemberInfoModal } from "../modal/member-info";
+import { MobileUploadModal } from "../modal/mobile-upload";
 export interface ALERT_OPTION {
   title: string;
   content: string;
@@ -76,4 +77,31 @@ export class Alert {
     modalRef.componentInstance['regDate'] = option.regDate;
 
   }
+
+
+  openMobileUpload( option , resultCallback?: (result) => void, dismissCallback?: (reason) => void ) {
+    let modalOption = {};
+    if ( option.class ) modalOption['windowClass'] = option.class;
+    let modalRef = this.modalService
+      .open( MobileUploadModal, modalOption );
+
+    modalRef.result.then((result) => {
+      console.info( `Closed with: ${result}` );
+      if ( resultCallback ) resultCallback( result );
+    }, (reason) => {
+      console.info( "dismissed" );
+      if ( dismissCallback ) dismissCallback( this.getDismissReason( reason ) );
+    });
+  }
+
+  private getDismissReason(reason: any): string {
+    if (reason === ModalDismissReasons.ESC) {
+      return 'by pressing ESC';
+    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+      return 'by clicking on a backdrop';
+    } else {
+      return  `with: ${reason}`;
+    }
+  }
+
 }

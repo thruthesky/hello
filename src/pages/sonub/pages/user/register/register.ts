@@ -168,30 +168,40 @@ export class SonubRegisterPage {
     onClickPrimaryPhoto() {
         if ( ! this.cordova ) return;
         console.log("in cordova, onClickPrimaryPhoto(): ");
-        let type = null;
-        let re = confirm("Click 'YES' to take photo. Click 'NO' to get photo from library.");
-        if ( re ) {
-            // get the picture from camera.
-            type = Camera.PictureSourceType.CAMERA;
-        }
-        else {
-            // get the picture from library.
-            type = Camera.PictureSourceType.PHOTOLIBRARY
-        }
-        console.log("in cordova, type: ", type);
-        let options = {
-            quality: 80,
-            sourceType: type
-        };
-        navigator.camera.getPicture( path => {
-            console.log('photo: ', path);
-            // transfer the photo to the server.
-            this.fileTransfer( path );
-        }, e => {
-            console.error( 'camera error: ', e );
-            this.member.error("camera error");
-        }, options);
+
+        navigator.notification.confirm(
+          'Please select how you want to take photo.', // message
+          i => this.onCameraConfirm( i ),
+          'Take Photo',           // title
+          ['Camera','Cancel', 'Gallery']     // buttonLabels
+        );
     }
+
+    onCameraConfirm( index ) {
+      // console.log("confirm: index: ", index);
+      if ( index == 2 ) return;
+      let type = null;
+      if ( index == 1 ) { // get the picture from camera.
+        type = Camera.PictureSourceType.CAMERA;
+      }
+      else { // get the picture from library.
+        type = Camera.PictureSourceType.PHOTOLIBRARY
+      }
+      // console.log("in cordova, type: ", type);
+      let options = {
+        quality: 80,
+        sourceType: type
+      };
+      navigator.camera.getPicture( path => {
+        // console.log('photo: ', path);
+        this.fileTransfer( path ); // transfer the photo to the server.
+      }, e => {
+        // console.error( 'camera error: ', e );
+        this.app.error("EditComponent::onCameraConfirm() : camera error");
+      }, options);
+    }
+
+
 
     fileTransfer( fileURL: string ) {
         this.showProgress = true;
