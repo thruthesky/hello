@@ -90,7 +90,7 @@ export class Alert {
       if ( resultCallback ) resultCallback( result );
     }, (reason) => {
       console.info( "dismissed" );
-      if ( dismissCallback ) dismissCallback( this.getDismissReason(reason) );
+      if ( dismissCallback ) dismissCallback( this.getDismissReason( reason ) );
     });
   }
 

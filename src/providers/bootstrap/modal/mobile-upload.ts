@@ -4,13 +4,13 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
   selector: 'mobile-upload-modal',
   template: `
     <div class="modal-body">
-        <div class="text nickname">Image Upload...
+        <div class="title">Image Upload...
         <button type="button" class="close" (click)="activeModal.dismiss('cross')">
           <span aria-hidden="true">&times;</span>
         </button></div>
         <hr>
-        <div class="text camera" (click)="activeModal.close('camera')">CAMERA</div>
-        <div class="text photo" (click)="activeModal.close('photo')">PHOTOS</div>
+        <div class="camera option" (click)="activeModal.close('camera')"><i class="fa fa-camera"></i><div class="text">CAMERA</div></div>
+        <div class="photo option" (click)="activeModal.close('photo')"><i class="fa fa-picture-o"></i><div class="text">PHOTOS</div></div>
     </div>
     `
 })
