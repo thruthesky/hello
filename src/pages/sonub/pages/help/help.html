@@ -4,33 +4,65 @@
   <section class="center">
 
 
-      <div class="header">
-
-                <span class="icon fa-stack fa-lg">
-                    <i class="background fa fa-circle fa-stack-2x"></i>
-                    <i class="font fa fa-whatsapp fa-stack-1x fa-inverse"></i>
-                </span>
-                
-        도움말 페이지
+      <div class="page-header">
+        <div class="title">무엇을 도와 드릴까요?</div>
+        <table cellpadding="0" cellspacing="0">
+          <tr>
+            <td><div class="circle"><div class="text">도움말</div></div></td>
+            <td>
+              <div class="desc">
+                <div class="first">필리핀과 관련된 모든 것이라면 도움을 요청 할 수 있습니다.</div>
+                <div class="second">필리핀 이민부터 필리핀 사업, 필리핀 홈페이지/앱, 광고 등 필리핀의 모든 것을 물어보세요.</div>
+              </div>
+            </td>
+          </tr>
+        </table>
       </div>
 
-            <div class="buttons">
-              <button [class.active]="post_id=='qna'" (click)="onClickPostCreate('qna')">Post a Question</button>
-              <button [class.active]="post_id=='request_to_manager'" (click)="onClickPostCreate('request_to_manager')">Inquire to admin</button>
-            </div>
-            <div class="desc">
-              <div *ngIf=" post_id == 'qna' " [attr.post-id]=" post_id ">Your inquery will be posted in QnA Forum.</div>
-              <div *ngIf=" post_id == 'request_to_manager' " [attr.post-id]=" post_id ">Your inquery will be sent to administrator.</div>
-            </div>
-            <!-- create form -->
-            <edit-component *ngIf = " showPostCreateFrom "
-                            [mode]    = " 'create-post' "
-                            [active]  = " true "
-                            [post_id] = " post_id "
-                            (error)   = " editComponentOnError( $event ) "
-                            (cancel)  = " editComponentOnCancel() "
-                            (success) = " editComponentOnSuccess() "
-            ></edit-component>
+      <section class="page-content">
+        <table cellpadding="0" cellspacing="0">
+          <tr valign="top">
+            <td width="50%">
+              <button routerLink="/forum/qna">
+                {{ ['Post a Question','질문게시판에 물어보기'] | ek }}
+              </button>
+              <div class="text">필리핀에 대한 일반적인 궁금증을 질문 게시판에 물어보세요.</div>
+            </td>
+            <td width="50%">
+              <button routerLink="/forum/request_to_manager">
+                {{ ['Inquire to admin','운영자에게 물어보기'] | ek }}
+              </button>
+              <div class="text">홈페이지에 대한 문제점, 광고, 협력 등의 대한 문의는 운영자에게 해 주세요.</div>
+            </td>
+          </tr>
+        </table>
+
+
+        <div class="phone-numbers">
+          <div>
+            <i class="fa fa-address-book" aria-hidden="true"></i> 대사관 긴급전화번호: 0917-817-5703
+          </div>
+          <div>
+            <i class="fa fa-address-book" aria-hidden="true"></i> 세부분관 긴급전화번호: 0917-808-3907
+          </div>
+          <div>
+            <i class="fa fa-address-book" aria-hidden="true"></i> 영사콜센터: 82-2-3210-0404
+          </div>
+          <div>
+            <i class="fa fa-address-book" aria-hidden="true"></i> 한인총연합회 민원상담번호: 0919-886-4848
+          </div>
+          <div>
+            <i class="fa fa-address-book" aria-hidden="true"></i> 현지경찰신고전화번호: 117
+          </div>
+          <div>
+            <i class="fa fa-address-book" aria-hidden="true"></i> 중부루손 한인회 교민안전대책위원회: 0927-941-1122
+          </div>
+          <div>
+            <i class="fa fa-address-book" aria-hidden="true"></i> 중부 루손 한인회: 0917-893-1355
+          </div>
+        </div>
+      </section>
+
 
           </section><!--/.center-->
         <sonub-right *ngIf=" app.size == 'big' "></sonub-right>

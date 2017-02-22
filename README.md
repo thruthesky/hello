@@ -420,6 +420,51 @@ fork of withcenter
 
 
 
+# How to put a post write form on a page
+
+.html file
+
+````
+            <div class="desc">
+              <div *ngIf=" post_id == 'qna' " [attr.post-id]=" post_id ">Your inquery will be posted in QnA Forum.</div>
+              <div *ngIf=" post_id == 'request_to_manager' " [attr.post-id]=" post_id ">Your inquery will be sent to administrator.</div>
+            </div>
+            <!-- create form -->
+            <edit-component *ngIf = " showPostCreateFrom "
+                            [mode]    = " 'create-post' "
+                            [active]  = " true "
+                            [post_id] = " post_id "
+                            (error)   = " editComponentOnError( $event ) "
+                            (cancel)  = " editComponentOnCancel() "
+                            (success) = " editComponentOnSuccess() "
+            ></edit-component>
+````
+
+.ts file
+
+````
+
+    onClickPostCreate( post_id ) {
+        this.post_id = post_id;
+        this.showPostCreateFrom = true;
+    }
+
+
+    editComponentOnCancel() {
+        this.showPostCreateFrom = false;
+    }
+
+    editComponentOnSuccess() {
+         this.showPostCreateFrom = false;
+    }
+
+    editComponentOnError() {
+         this.showPostCreateFrom = false;
+    }
+````
+
+
+
 #IE 9 Hashbang
 
 http://stackoverflow.com/questions/17829991/angularjs-how-to-remove-symbol-in-ie9-by-using-route

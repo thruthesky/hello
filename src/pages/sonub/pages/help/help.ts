@@ -13,23 +13,4 @@ export class SonubHelpPage {
     ) {
     }
 
-
-    onClickPostCreate( post_id ) {
-        this.post_id = post_id;
-        this.showPostCreateFrom = true;
-    }
-
-
-    editComponentOnCancel() {
-        this.showPostCreateFrom = false;
-    }
-
-    editComponentOnSuccess() {
-         this.showPostCreateFrom = false;
-    }
-
-    editComponentOnError() {
-         this.showPostCreateFrom = false;
-    }
-
 }
