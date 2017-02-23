@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="org.philgo.philzine2" version="33.0.7" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="org.philgo.philzine2" version="33.0.9" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>헬로필리핀</name>
     <description>헬로 필리핀( Hello Philippines )은 필리핀 정보를 정확하고 빠르게 전달하고자 만든 필리핀 정보 커뮤니티 앱입니다.</description>
     <author email="thruthesky@gmail.com" href="http://www.philgo.com/">송재호</author>
