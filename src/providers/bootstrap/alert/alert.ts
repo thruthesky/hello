@@ -8,6 +8,7 @@ export interface ALERT_OPTION {
   title: string;
   content: string;
   'class'?: string;
+  timeout?: number;
 }
 
 export interface IMAGE_OPTION {

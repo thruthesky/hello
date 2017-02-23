@@ -2,6 +2,7 @@ import { Injectable, NgZone } from '@angular/core';
 import { AppComponent } from '../app/app.component';
 import { LanguagePipe } from '../pipes/language/language.pipe';
 import { Config, SETTING_LANGUAGE } from '../etc/config';
+import { Post } from './../api/philgo-api/v2/post';
 //declare let navigator;
 import { Alert, ALERT_OPTION, IMAGE_OPTION, MEMBER_OPTION } from '../providers/bootstrap/alert/alert';
 const BREAK_POINT = 760; // it should match in vars.scss
@@ -13,6 +14,7 @@ export class App {
     page: string = null; // current page tag(name or id)
     constructor( private alertService: Alert,
         private ln: LanguagePipe,
+        private post: Post,
         private ngZone: NgZone ) {
         // console.log("App::constructor()");
     }
@@ -132,32 +134,39 @@ export class App {
         this.showModal( option );
     }
 
-    error( content ) {
+    error( content, timeout=5000 ) {
         let option: ALERT_OPTION = {
             title: "ERROR",
             content: content,
-            class: 'error'
+            class: 'error',
+            timeout: timeout
         };
         console.log(option);
         this.toast( option );
     }
 
-    notice( content ) {
+    /**
+     * @code
+     *      this.app.notice('You Unread Message...', 10000) ;
+     * @endcode
+     */
+    notice( content, timeout=5000 ) {
         let option: ALERT_OPTION = {
             title: "NOTICE",
             content: content,
-            class: 'notice'
+            class: 'notice',
+            timeout: timeout
         };
         console.log(option);
         this.toast( option );
     }
 
 
-    toast( option ) {
+    toast( option: ALERT_OPTION ) {
         this.appComponent.toast.class = option.class;
         this.appComponent.toast.active = true;
         this.appComponent.toast.content = this.ln.t(option.content);
-        setTimeout( () => this.appComponent.toast.active = false, 5000 );
+        setTimeout( () => this.appComponent.toast.active = false, option.timeout );
     }
 
     renderPage() {
@@ -174,4 +183,19 @@ export class App {
         return lc;
     }
 
+    checkNewMessage() {
+        this.post.version( re => {
+            console.log('version:', re);
+            if ( re['new_message'] === void 0 ) return;
+            let n = parseInt( re['new_message'] );
+            if ( n ) {
+                this.notice(`You have ${n} new messages.`, 10000) ;
+            }
+        },
+        error => {
+
+        },
+        () => {} );
+        
+    }
 }

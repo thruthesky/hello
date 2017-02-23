@@ -47,6 +47,9 @@ export class SonubPostListPage {
     this.login = member.getLoginData();
     this.forumListStyle = localStorage.getItem( SETTING_FORUM_LIST_STYLE );
     activated.params.subscribe( param => {
+
+      this.app.checkNewMessage();
+    
       //console.log("PostList::constructor::subscribe()")
 
       // clear everything and initialize here.
@@ -78,6 +81,7 @@ export class SonubPostListPage {
   }
 
   ngOnInit() {
+
     this.pageScroll.watch( this.renderer, no => {
       if ( this.page_no == 0 ) {
         this.page_no ++; // since 1st page has been loaded in constructor()

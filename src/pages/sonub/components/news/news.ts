@@ -36,7 +36,6 @@ export class SonubNews {
             this.posts.push( v );
           }, i * 50 );
         } );
-        if( page['new_message'] ) this.app.notice('You Unread Message...') ;
       },
       error => this.app.error( error ),
       () => {});
