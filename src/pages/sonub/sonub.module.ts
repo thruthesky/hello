@@ -31,6 +31,7 @@ import { SonubBusinessPage } from './pages/business/business';
 import { SonubHelpPage } from './pages/help/help';
 import { SonubEventPage } from './pages/event/event';
 import { SonubSettingPage } from './pages/setting/setting';
+import { SonubMainBanner } from './components/main-baner/main-banner';
 
 // services
 import { ForumService } from './providers/forum'
@@ -68,7 +69,8 @@ import { SonubReloadPage } from "./pages/reload/reload";
         SonubEventPage,
         FileNotFoundPage,
         SonubReloadPage,
-        SonubSettingPage
+        SonubSettingPage,
+        SonubMainBanner
     ],
     imports: [
         BrowserModule,

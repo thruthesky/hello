@@ -77,7 +77,7 @@ export class JobListPage {
     }, e => {
       this.inPageLoading = false;
       this.post.error( e );
-    });
+    }, () => {});
   }
 
   /**

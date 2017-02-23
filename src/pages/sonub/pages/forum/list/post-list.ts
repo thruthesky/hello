@@ -210,7 +210,8 @@ export class SonubPostListPage {
         this.inPageLoading = false;
         this.app.error( error );
         // this.post.error("Page Load Error: " + error);
-      } );
+      },
+      () => {} );
   }
 
   delayPush( page:PAGE ) {
