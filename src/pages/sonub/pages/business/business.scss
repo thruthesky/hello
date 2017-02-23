@@ -1,7 +1,76 @@
 business-page {
     display: block;
     @include color-combination( 1 );
-    .content .center {
-        padding: 0 1em;
+    
+
+    section.content {
+        padding: 0;
+    }
+
+    .page-header {
+        margin: 0 0 1em;
+        padding: 1em;
+        background-color: #bf8c2e;
+        color: white;
+        .title {
+            display: inline-block;
+            margin-bottom: .4em;
+            border-top: 2px solid darkorange;
+            font-size: 1rem;
+        }
+        .desc {
+            margin-left: 1em;
+        }
+        .first {
+            font-size: .9rem;
+        }
+        .second {
+            font-size: .8rem;
+        }
+        .circle {
+            position: relative;
+            width: 6rem;
+            height: 6rem;
+            border-radius: 50%;
+            background-color: white;
+            .text {
+                position: absolute;
+                width: 100%;
+                top: 2.2rem;
+                text-align: center;
+                color: #437dcc;
+                font-size: 1.2rem;
+            }
+        }
+    }
+
+    .page-content {
+        padding: 1em;
+        min-height: 1024px;
+
+        .title {
+        }
+        .desc {
+            margin: 1em 0 1.6em;
+        }
+        .text {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            li {
+                margin-bottom: 1em;
+                b {
+                    display: block;
+                    padding: .6em;
+                    background-color: lightgray;
+                    color: darkslategrey;
+                }
+            }
+        }
+        .register {
+            padding: 1em;
+            background-color: lightgrey;
+            font-size: .9rem;
+        }
     }
 }
