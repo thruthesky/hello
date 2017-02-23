@@ -159,6 +159,7 @@ export class SonubMessagePage {
                 setTimeout( () => {
                     this.messages.push( this.pre( v ) );
                     //this.onClickDelete(v);
+                  this.app.renderPage();
                 }, i * 50 );
         } );
      }

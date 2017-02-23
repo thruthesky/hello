@@ -2,7 +2,7 @@
  * @see ../../../README.md
  *
  */
-import { Component, Input } from '@angular/core';
+import { Component, Input} from '@angular/core';
 import { Post, PAGE, PAGE_OPTION, POSTS, ONE_MINUTE_STAMP } from '../../../../api/philgo-api/v2/post';
 import { App } from '../../../../providers/app';
 @Component({
@@ -13,6 +13,7 @@ export class SonubNews {
   @Input() title: string = null;
   @Input() post_id: string = 'news';
   @Input() limit: number = 5;
+
   posts: POSTS = <POSTS> [];
   constructor( private app: App, private post: Post ) {
     //console.log("LatestComponent::constructor()");
@@ -28,13 +29,14 @@ export class SonubNews {
     // console.log('option::',option);
     this.post.debug = true;
     this.post.page( option, ( page: PAGE ) => {
-        // console.log("latest: ", page);
+        console.log("news page:: ", page);
         page.posts.map( ( v:any, i ) => {
           setTimeout( () => {
             v.url = this.post.getPostUri( v );
             this.posts.push( v );
           }, i * 50 );
         } );
+        if( page['new_message'] ) this.app.notice('You Unread Message...') ;
       },
       error => this.app.error( error ),
       () => {});
