@@ -296,16 +296,15 @@ export class JobPostPage{
     this.renderPage();
   }
 
-  onClickDeleteFile( file ) {
-
+  onClickDeleteFile() {
     let re = confirm("Do you want to delete?");
     if ( re == false ) return;
 
-    this.deleteFile( file );
+    this.deleteFile( this.form.photos[0] );
 
   }
 
-  deleteFile( file ){
+  deleteFile( file? ){
     if( ! file ) return;
     console.log("onClickDeleteFile: ", file);
     let data = {
@@ -313,11 +312,12 @@ export class JobPostPage{
     };
     this.data.delete( data, (re) => {
       console.log("file deleted: ", re);
-      _.remove( this.files, x => {
+      _.remove( this.form.photos , x => {
         console.log('x:', x);
         return x.idx == data.idx;
       } );
-      console.log( this.files );
+      this.urlPhoto = this.urlDefault;
+      console.log( 'this.files' , this.form );
     }, error => {
       this.post.error( error );
     } );

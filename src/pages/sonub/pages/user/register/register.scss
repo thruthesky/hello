@@ -13,7 +13,7 @@ sonub-register-page {
 
     .primary-photo {
       position: relative;
-      margin: 0 auto;
+      margin: .5em auto;
       width: 14em;
       max-height: 14em;
 
@@ -47,6 +47,10 @@ sonub-register-page {
       width: 14em;
       background-color: #779999;
       color: white;
+    }
+
+    progress.progress {
+      margin: 1em auto;
     }
 
     .row-container {

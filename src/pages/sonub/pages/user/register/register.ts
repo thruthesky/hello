@@ -132,7 +132,7 @@ export class SonubRegisterPage {
     onClickUpdate() {
         this.process.begin();
         this.member.update( this.form, login => {
-            this.member.error("User profile updated!");
+            this.app.notice("User profile updated!");
         },
         error => {
             this.member.error('error on update user profile: ' + error );
@@ -151,7 +151,7 @@ export class SonubRegisterPage {
             this.data.uploadPrimaryPhoto( event, // without gid.
                 x => this.successPrimaryPhotoUpload( x ),
                 e => this.failurePrimaryPhotoUpload( e ),
-                c => console.log("completeCode: ", c),
+                c => this.completePrimaryPhotoUpload( c ),
                 p => this.progressPrimaryPhotoUpload( p )
             );
         }
@@ -159,7 +159,7 @@ export class SonubRegisterPage {
             this.data.uploadAnonymousPrimaryPhoto( this.gid, event, // with gid.
                 x => this.successPrimaryPhotoUpload( x ),
                 e => this.failurePrimaryPhotoUpload( e ),
-                c => console.log("completeCode: ", c),
+                c => this.completePrimaryPhotoUpload( c ),
                 p => this.progressPrimaryPhotoUpload( p )
             );
         }
@@ -225,7 +225,7 @@ export class SonubRegisterPage {
             fileURL,
             x => this.successPrimaryPhotoUpload( x ),
             e => this.failurePrimaryPhotoUpload( e ),
-            c => console.log("completeCode: ", c),
+            c => this.completePrimaryPhotoUpload( c ),
             p => this.progressPrimaryPhotoUpload( p )
         );
     }
@@ -250,6 +250,11 @@ export class SonubRegisterPage {
         this.progress = p;
         this.widthProgress = this.sanitizer.bypassSecurityTrustStyle('width:'  + p + '%' );
         this.renderPage();
+    }
+
+    completePrimaryPhotoUpload( c ) {
+      this.showProgress = false;
+      console.log("completeCode: ", c)
     }
 
     onDeletePhoto() {

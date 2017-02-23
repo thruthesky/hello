@@ -43,6 +43,20 @@ job-post {
       }
     }
 
+    button.delete {
+      display: block;
+      margin: 1em auto;
+      padding: .6em .8em;
+      border: 0;
+      width: 14em;
+      background-color: #779999;
+      color: white;
+    }
+
+    progress.progress {
+      margin: 1em auto;
+    }
+
     .row-container {
       margin-bottom: .8em;
       .text {
