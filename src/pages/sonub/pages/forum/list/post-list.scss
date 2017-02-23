@@ -1,7 +1,4 @@
-@mixin view-component-design {
-  border-radius: .2em;
 
-}
 
 sonub-post-list {
   display: block;
@@ -272,10 +269,11 @@ sonub-post-list {
   position: relative;
   .show-hide.fa {
     position: absolute;
-    top: .7em;
-    right: .7em;
+    top: 0;
+    right: .0;
     z-index: 100;
-    font-size: 1.2em;
+    padding: 1em;
+    font-size: 1.4em;
     font-weight: bold;
     cursor: pointer;
   }
@@ -286,6 +284,7 @@ sonub-post-list {
 /******** SHOW-HIDE POST *******/
 
 view-component.minimize {
+  cursor: pointer;
   article {
     cursor: pointer;
   }
@@ -303,7 +302,7 @@ view-component.minimize {
 
 
 
-
+/** View Design **/
 view-component {
   article {
     .content {
@@ -313,12 +312,10 @@ view-component {
       line-height: 1.8;
     }
     &.post {
-      @include view-component-design;
       background: #f0f0f0;
     }
     &.comment {
-      @include view-component-design;
-      background: #e9e9e9;
+      //
     }
   }
   .post .article-header,
@@ -357,5 +354,16 @@ view-component {
         display: none;
       }
     }
+  }
+}
+
+
+.comment .article-header .meta {
+  &:before {
+    display: inline-block;
+    padding-right: .4em;
+    content: '\f27b';
+    font-family: FontAwesome;
+    font-size: .9rem;
   }
 }

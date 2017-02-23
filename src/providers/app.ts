@@ -185,7 +185,7 @@ export class App {
 
     checkNewMessage() {
         this.post.version( re => {
-            console.log('version:', re);
+            //console.log('version:', re);
             if ( re['new_message'] === void 0 ) return;
             let n = parseInt( re['new_message'] );
             if ( n ) {
