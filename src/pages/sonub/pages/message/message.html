@@ -8,15 +8,15 @@
 
 
         <div class="top-menu">
-          <div class="buttons">
+          <span class="buttons">
             <button (click)=" showCreateForm = true ">{{ ['Send Message','쪽지 전송'] | ek }}</button>
             <button (click)=" onClickMakeAllRead() ">{{ ['Make all read','전체 쪽지 읽음 표시'] | ek }}</button>
             <button *ngIf=" ! showSearchForm " (click)=" onClickSearchFormSubmit() ">{{ ['Search','검색'] | ek }}</button>
-          </div>
-          <div *ngIf=" showSearchForm " class="search" >
+          </span>
+          <span *ngIf=" showSearchForm " class="search" >
             <input name="key" [(ngModel)]="key">
             <button (click)=" onClickSearchFormSubmit() ">{{ ['Search','검색'] | ek }}</button>
-          </div>
+          </span>
         </div>
 
         <div *ngIf="showCreateForm" class="create-form">
@@ -57,8 +57,10 @@
           </ng-container>
         </div>
 
-        <div *ngIf=" inPageLoading " class="in-page-loading"><i class="fa fa-spinner fa-spin"></i> {{ ['Loading','로딩중'] | ek }} ...</div>
-        <div *ngIf=" noMorePosts " class="no-more-posts">{{ ['No more message','더 이상 메세지가 없습니다.'] | ek }}</div>
+        <div class="bottom">
+          <div *ngIf=" inPageLoading " class="in-page-loading"><i class="fa fa-spinner fa-spin"></i> {{ ['Loading','로딩중'] | ek }} ...</div>
+          <div *ngIf=" noMorePosts " class="no-more-posts">{{ ['No more message','더 이상 메세지가 없습니다.'] | ek }}</div>
+        </div>
       </div>
   </section><!--/.center-->
   <sonub-right *ngIf=" app.size == 'big' "></sonub-right>
