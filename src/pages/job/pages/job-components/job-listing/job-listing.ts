@@ -34,7 +34,8 @@ export class JobListing {
   }
 
   ngOnInit() {
-    if (this.pages === null) return this._post.error("Listing Component Error: post is null");
+    if (this.pages === null) return this.app.error("Listing Component Error: post is null");
+    console.log('this.pages', this.pages);
   }
 
 

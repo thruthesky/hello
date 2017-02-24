@@ -159,6 +159,7 @@ sonub-post-list {
       padding: 2px;
       margin-left: 5px;
       border: 1px solid #d3d3d3;
+      cursor: pointer;
       img {
         width:100%;
         height:auto;
@@ -176,6 +177,7 @@ sonub-post-list {
     position: relative;
     border-top: 1px solid #e7e7e7;
     padding: 6px 10px 6px 10px;
+    cursor: pointer;
     .image {
       float: left;
       margin-right: 8px;
@@ -220,6 +222,7 @@ sonub-post-list {
     padding: .6em .3em .6em .8rem;
     overflow: auto;
     background-color: #e0e0e0;
+    cursor: pointer;
     &:nth-child(odd) {
       background-color: #afbfbf;
     }

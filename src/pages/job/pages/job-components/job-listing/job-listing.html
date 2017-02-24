@@ -1,6 +1,6 @@
 <ng-container *ngFor=" let page of pages ">
   <ng-container *ngFor=" let post of page[mode] ">
-    <div class="post" [ngClass]="{more: post.more}" *ngIf="post.idx">
+    <div class="post" [ngClass]="{more: post.more}" *ngIf="post.idx && post.deleted == '0' ">
       <div class="content">
         <div class="profile">
           <img class="profile-photo" src="{{post.photos.length ? post.photos[0]['url_thumbnail'] : urlPhoto}}" alt="{{post.text_1}}">
