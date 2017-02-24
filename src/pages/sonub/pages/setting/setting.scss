@@ -1,13 +1,19 @@
 setting-page {
   display: block;
-  @include color-combination( 1 );
-  .news {
-    margin-bottom: .6em;
+  @include color-combination( 'setting' );
+  
+
+  h1 {
+    padding: .6em;
+    background-color: #aab6c2;
   }
-  .main-banner {
-    margin-bottom: .6em;
-    img {
-      width: 100%;
-    }
+
+  h3 {
+    padding: .4em;
+    background-color: #b6b8c1;
+  }
+
+  fieldset {
+    padding: .4em;
   }
 }

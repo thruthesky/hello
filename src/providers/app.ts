@@ -12,6 +12,7 @@ export class App {
     _width: number = 0;
     menu: boolean = false;
     page: string = null; // current page tag(name or id)
+    t = Config.translate;
     constructor( private alertService: Alert,
         private ln: LanguagePipe,
         private post: Post,
@@ -62,7 +63,10 @@ export class App {
 
 
     private showModal( option: ALERT_OPTION ) {
-        option.content = this.ln.t( option.content );
+        //alert( this.t );
+        option.title = this.t( option.title );
+        option.content = this.t( option.content );
+        //alert(option.content);
         this.alertService.open( option, () => {
             console.info("alert OK");
         });
@@ -125,6 +129,7 @@ export class App {
         };
         this.showModal( option );
     }
+
     alarm( content: string ) {
         let option: ALERT_OPTION = {
             title: "ALARM",

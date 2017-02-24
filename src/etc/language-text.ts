@@ -93,6 +93,15 @@ export let languageText = {
     'file not found':   { en: 'File not found', ko: '페이지를 찾지 못하였습니다.' },
     'there-is-no-such-page': { en: 'There is no such page.', ko: '존재하지 않는 페이지입니다.' },
     'access-url':       { en: 'Url', ko: '접근 경로' },
+    'ALARM':            { en: 'ALARM', ko: '알림' },
+    'WARNING':            { en: 'WARNING', ko: '경고' },
+
+
+    'cache-deleted':    { en: 'Cache data has been deleted!', ko: '캐시를 삭제하였습니다.'},
+
+
+
+
     /** Commands, Button Text, 명령어, 버튼 명령 */
 
     'Submit' :          { en: 'Submit', ko: '전송' },

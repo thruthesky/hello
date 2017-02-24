@@ -3,15 +3,19 @@
   <sonub-left *ngIf=" app.size == 'big' "></sonub-left>
   <section class="center">
       
+      <h1><i class="fa fa-gears"></i> {{ ['Configuration', '설정'] | ek }}</h1>
 
-      <h3>{{
+
+      <h3>
+          <i class="fa fa-language"></i>
+          {{
           [ 'Choose your language', '언어를 선택하십시오.' ] | ek
       }}</h3>
       <fieldset>
           <label>
               <input type="radio" (click)="onClickLanguage('en')" [checked]="language=='en'"> {{ ['English', '영어'] | ek }}
           </label>
-          
+          &nbsp;
           <label>
               <input type="radio" (click)="onClickLanguage('ko')" [checked]="language=='ko'"> {{ ['Korean', '한국어'] | ek }}
           </label>
@@ -19,30 +23,44 @@
       
 <hr>
 
-    <h3>Clear cache</h3>
-    <div  (click)="onClickClearLocalStorage()">
-        <div class="icon">
-            <i class="fa fa-gears"></i>
-        </div>
-        <span>{{ ['Clear Cache', '캐시삭제'] | ek }}</span>
-    </div>
-
-<hr>
-
 
 
     <section class="forum-list-style">
-        <h3>{{ ['Forum List Style','게시글 목록 스타일'] | ek }}</h3>
+        <h3>
+            <i class="fa fa-bars"></i>
+            {{ ['Forum List Style','게시글 목록 스타일'] | ek }}</h3>
       <fieldset>
           <label>
               <input type="radio" (click)="onClickForumListStyle('min')" [checked]="forumListStyle=='min'"> {{ ['Minimized List', '제목만 보기'] | ek }}
           </label>
-          
+          &nbsp;
           <label>
               <input type="radio" (click)="onClickForumListStyle('max')" [checked]="forumListStyle=='max'"> {{ ['Maximized List', '내용 펼쳐 보기'] | ek }}
           </label>
       </fieldset>
+
+
+
+
     </section>
+
+
+
+<hr>
+
+    <h3>
+        <i class="fa fa-trash-o"></i>
+        {{ ['Clear cache','캐시 삭제'] | ek }}
+    </h3>
+
+
+    <div class="btn btn-secondary" (click)="onClickClearLocalStorage()">
+        
+            <i class="fa fa-gear"></i>
+        <span>{{ ['Clear Cache', '캐시삭제'] | ek }}</span>
+    </div>
+
+
 
       
     </section><!--/.center-->

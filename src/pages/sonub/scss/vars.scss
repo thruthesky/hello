@@ -11,10 +11,11 @@ $gutter: 0.5rem;
 
 $header-background-color: (
     1: #703023,
-    'forum': #006640,
+    'forum': #424c36,
     3: #123456,
     'user': #5d6983,
-    'message': #606960
+    'message': #606960,
+    'setting': #87939e
 );
 
 $header-icon-background-color: (
@@ -27,10 +28,11 @@ $header-icon-background-color: (
 
 $header-icon-color: (
     1: #904030,
-    'forum': #006644,
+    'forum': #424c36,
     3: darkgrey,
     'user': #5d6983,
-    'message': #606960
+    'message': #606960,
+    'setting': #909ca7
 );
 
 
@@ -39,7 +41,8 @@ $header-color: (
     'forum': #fff,
     3: #d00,
     'user': white,
-    'message': white
+    'message': white,
+    'setting': white
 );
 
 
@@ -49,7 +52,8 @@ $page-background-color: (
     'forum': transparent,
     3: #dfdfdf,
     'user': transparent,
-    'message': transparent
+    'message': transparent,
+    'setting': transparent
 );
 
 $content-background-color: (
@@ -57,15 +61,17 @@ $content-background-color: (
     'forum': transparent,
     3: #394950,
     'user': transparent,
-    'message': transparent
+    'message': transparent,
+    'setting': transparent
 );
 
 $box-title-background-color: (
-    1: #8d99b3,
-    'forum': #708070,
+    1: #8e8e8e,
+    'forum': #65695f,
     3: #a9b7c0,
     'user': #5d6983,
-    'message': #606960
+    'message': #606960,
+    'setting': #87939e
 );
 
 $box-title-color: (
@@ -73,7 +79,8 @@ $box-title-color: (
     'forum': #f9f9f9,
     3: orange,
     'user': white,
-    'message': white
+    'message': white,
+    'setting': white
 );
 
 @function page-background-color( $n ) { @return map_get( $page-background-color, $n ); }

@@ -30,15 +30,16 @@ export let Config = {
             let language_code = Config.language;
             let lc = localStorage.getItem( SETTING_LANGUAGE );
             if ( lc ) language_code = lc;
-            return lc;
+            return language_code;
         },
 
   translate(code: string, args?: any): string {
     if ( code === void 0 ) return 'code undefined';
     let text = languageText;
-    
+    //console.log(text);
     let language = Config.getLanguage();
-    
+    //console.log(language);
+    // if ( ! language ) language = 'en';
     if ( text[code] === void 0 ) return code;
     if ( text[code][language] === void 0 ) return code;
     let str = text[code][language];
