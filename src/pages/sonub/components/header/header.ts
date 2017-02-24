@@ -17,6 +17,7 @@ export class SonubHeader {
         // app.menu = app.size == 'small';
         app.menu = false;
         member.getLogin( x => this.login = x );
+        this.onClickMenu();
     }
     onClickHeader() {
         window.scrollTo( 0, 0 );
@@ -27,8 +28,8 @@ export class SonubHeader {
         this.member.logout();
     }
 
-    onClickMenu( event ) {
-        event.stopPropagation();
+    onClickMenu( event? ) {
+        if ( event ) event.stopPropagation();
         window.scrollTo( 0, 0 );
         this.app.menu = ! this.app.menu;
     }
