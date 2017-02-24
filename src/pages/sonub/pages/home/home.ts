@@ -22,6 +22,7 @@ export class SonubHomePage {
     ) {
 
 
+        app.error("This is test for error message", 500000);
 
 
         // app.alarm("App Alert Content!");

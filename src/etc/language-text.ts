@@ -90,6 +90,9 @@ export let languageText = {
     'post-of-user':     { en: 'List posts of #name', ko: '#name님이 작성한 글 목록' },
     'regdate':          { en: 'Reg Date', ko: '가입날짜' },
 
+    'file not found':   { en: 'File not found', ko: '페이지를 찾지 못하였습니다.' },
+    'there-is-no-such-page': { en: 'There is no such page.', ko: '존재하지 않는 페이지입니다.' },
+    'access-url':       { en: 'Url', ko: '접근 경로' },
     /** Commands, Button Text, 명령어, 버튼 명령 */
 
     'Submit' :          { en: 'Submit', ko: '전송' },
