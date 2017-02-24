@@ -381,7 +381,29 @@ You do not need to install these module one by one. these are installed by 'npm 
 
 # Language Translation
 
-* @see README.md at pipes/language folder
+language-text.ts
+````
+        'post-of-user':     { en: 'List posts of #name', ko: '#name님이 작성한 글 목록' },
+````
+
+typescript
+````
+import { Config } from './../../../etc/config';
+class {
+  ln = Config.getLanguage();
+  t = Config.translate;
+}
+````
+
+template
+````
+    {{ t( 'post-of-user', {name: nickname} ) }}
+````
+
+
+
+
+* @see also, README.md at pipes/language folder
 
 
 
@@ -522,3 +544,13 @@ Adding this code will make it work, but there are no further explanation on how 
     ````
        <preference name="loadUrlTimeoutValue" value="700000" />
     ````
+
+
+# BUGS
+
+## Known Bugs - Will not fixed
+
+* When a forum is clicked, the first page loads twice since there is a cache.
+
+    * For this matter, when a user click a forum and another forum in fast, the first forum's second load will be appears on the other forum's page but soon it disappears.
+    ( Translation : 캐시 때문에 첫 페이지가 두번 로드되는데, 게시판 2개를 연속으로 이동하면, 첫번째 게시판이 로드 될 때, 두번째 로드되는 실제 데이터가 ..., 두번재 페이지에 나타나는 현상이 있다. )

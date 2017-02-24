@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { Config } from './../../../etc/config';
 @Component({
   selector: 'member-info-modal',
   template: `
@@ -9,10 +10,10 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
           <span aria-hidden="true">&times;</span>
         </button></div>
         <hr>
-        <div class="text message" routerLink="message/{{id}}" (click)="activeModal.close('send message click')">Send Message</div>
-        <div class="text post-list" routerLink="forum/user/{{id}}" (click)="activeModal.close('post of this user click')">List post of this user</div>
-        <div class="text level">Level : {{level}}</div>
-        <div class="text reg-date">Reg Date : {{regDate}}</div>
+        <div class="text message" routerLink="message/{{id}}" (click)="activeModal.close('send message click')">{{ t('send message') }}</div>
+        <div class="text post-list" routerLink="forum/user/{{id}}" (click)="activeModal.close('post of this user click')">{{ t( 'post-of-user', {name: nickname} ) }}</div>
+        <div class="text level">{{ t('level') }} : {{level}}</div>
+        <div class="text reg-date">{{ t('regdate') }} : {{regDate}}</div>
     </div>
     `
 })
@@ -21,5 +22,13 @@ export class MemberInfoModal {
   id : string = null;
   level : string = null;
   regDate : string = null;
-  constructor( public activeModal: NgbActiveModal) {}
+
+  ln = Config.getLanguage();
+  t = Config.translate;
+  
+  
+  constructor( public activeModal: NgbActiveModal ) {
+
+  }
+  
 }

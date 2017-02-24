@@ -14,8 +14,45 @@ export const SETTING_FORUM_LIST_STYLE = 'setting.forum-list-style';
 
 let lang = language.substr( 0, 2 );
 if ( lang != 'ko' ) lang = 'en';
+
+import { languageText } from './language-text';
 export let Config = {
     language: lang,     // default user language. it is either 'ko' or 'en'.
     // urlPhilgoServer: 'http://test.philgo.com/index.php' // For test server.
     // urlPhilgoServer: 'https://www.philgo.com/index.php' // For real server.
-}
+
+
+    /**
+     * 
+     * @attention it accesses localStorage.
+     */
+    getLanguage() : string {
+            let language_code = Config.language;
+            let lc = localStorage.getItem( SETTING_LANGUAGE );
+            if ( lc ) language_code = lc;
+            return lc;
+        },
+
+  translate(code: string, args?: any): string {
+    if ( code === void 0 ) return 'code undefined';
+    let text = languageText;
+    
+    let language = Config.getLanguage();
+    
+    if ( text[code] === void 0 ) return code;
+    if ( text[code][language] === void 0 ) return code;
+    let str = text[code][language];
+    for( let i in args ) {
+      str = str.replace('#' + i, args[i]);
+    }
+    //console.log('str: ', str);
+    return str;
+
+  }
+
+
+
+
+};
+
+

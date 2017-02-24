@@ -177,10 +177,13 @@ export class App {
 
 
     language() : string {
+        return Config.getLanguage();
+        /*
         let language_code = Config.language;
         let lc = localStorage.getItem( SETTING_LANGUAGE );
         if ( lc ) language_code = lc;
         return lc;
+        */
     }
 
     checkNewMessage() {
