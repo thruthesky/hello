@@ -142,7 +142,7 @@ export class JobIndexPage{
     //console.log('###############doSearch###############');
     let page = this.page_no++;
     let data = <SEARCH_QUERY_DATA> {};
-    data.fields = "idx,idx_member,gid,sub_category,post_id,text_1,text_2,text_3,int_1,int_2,int_3,int_4,char_1,varchar_1,varchar_2,varchar_3,varchar_4,varchar_6";
+    data.fields = "deleted,idx,idx_member,gid,sub_category,post_id,text_1,text_2,text_3,int_1,int_2,int_3,int_4,char_1,varchar_1,varchar_2,varchar_3,varchar_4,varchar_6";
     data.from = "sf_post_data";
     data.where = "post_id = 'jobs' AND idx_parent=0" + this.condition;
     data.limit = this.limit.toString();
