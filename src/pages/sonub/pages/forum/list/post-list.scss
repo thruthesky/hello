@@ -272,8 +272,8 @@ sonub-post-list {
     top: 0;
     right: .0;
     z-index: 100;
-    padding: 1em;
-    font-size: 1.4em;
+    padding: .6em;
+    font-size: 1em;
     font-weight: bold;
     cursor: pointer;
   }
@@ -307,7 +307,7 @@ view-component {
   article {
     .content {
       margin-top: .4em;
-      padding: .4em;
+      padding: .725em;
       background-color: white;
       line-height: 1.8;
     }
@@ -338,6 +338,9 @@ view-component {
     .nickname b, .url b {
       cursor: pointer;
     }
+    .idx b, .date b {
+      font-weight: normal;
+    }
   }
   .buttons {
     display: block;
@@ -367,3 +370,5 @@ view-component {
     font-size: .9rem;
   }
 }
+
+

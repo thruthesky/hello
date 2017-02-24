@@ -53,6 +53,7 @@ export class SonubPostListPage {
       //console.log("PostList::constructor::subscribe()")
 
       // clear everything and initialize here.
+      this.noMorePosts = false;
       this.post_id = null;
       this.post_name = null; //
       window.scrollTo( 0, 0 ); // when a forum clicked on a forum in the middle of the page, it does not scroll top. 게시판이 열려 있는 상태에서 다시 게시판을 열면 scrollTop 이 안되므로, 여기서 임의적으로 해 준다.
@@ -173,10 +174,13 @@ export class SonubPostListPage {
     // this.post.debug = true;
     // console.log("load page: ", option);
     this.post.page( option, (page: PAGE) => { // two 1st page because there is a cache for 1st page.
-        // console.log("Page no: ", page);
+        console.log("Page no: ", page);
         this.post_name = page.post_name;
         this.inPageLoading = false;
-        if ( page.posts.length == 0 ) {
+
+
+
+        if ( page.posts.length == 0 || page.posts.length < this.limit ) {
           this.noMorePosts = true;
           //this.endScroll();
         }
@@ -209,6 +213,8 @@ export class SonubPostListPage {
         }
         else this.delayPush( page );
         //console.log('################', this.posts);
+
+
       },
       error => {
         this.inPageLoading = false;

@@ -67,13 +67,15 @@ ngb-modal-window.full-image .modal-dialog {
 
 /** Member Information Modal **/
 ngb-modal-window.member-info .modal-dialog {
+  margin-top: 5.6em;
   .modal-content {
     member-info-modal {
       .modal-body {
         .text {
-          font-weight: 500;
+          padding: .6em 0;
+          font-weight: normal;
         }
-        .nickname, .message, .post-list {
+        .message, .post-list {
           cursor: pointer;
         }
       }

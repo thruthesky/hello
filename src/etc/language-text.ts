@@ -85,6 +85,10 @@ export let languageText = {
     'already-voted-on-this-post':   { en: 'You have already posted on this post.', ko: '본 글에 이미 추천을 하였습니다.'},
 
 
+    'send message':     { en: 'Send Message', ko: '쪽지 보내기'},
+    'level':            { en: 'Level', ko: '레벨' },
+    'post-of-user':     { en: 'List posts of #name', ko: '#name님이 작성한 글 목록' },
+    'regdate':          { en: 'Reg Date', ko: '가입날짜' },
 
     /** Commands, Button Text, 명령어, 버튼 명령 */
 
