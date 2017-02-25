@@ -8,7 +8,7 @@ import { LanguagePipeModule } from "../../../pipes/language/language.pipe.module
 
 
 import { JobIndexPage } from '../pages/job-index/job-index';
-import { JobListPage } from "../pages/job-list/job-list";
+//import { JobListPage } from "../pages/job-list/job-list";
 import { JobPostPage } from "../pages/job-post/job-post";
 import { JobViewPage } from "../pages/job-view/job-view";
 
@@ -41,7 +41,7 @@ export let ROUTES = [
 @NgModule({
   declarations: [
       JobIndexPage,
-      JobListPage,
+      //JobListPage,
       JobPostPage,
       JobViewPage,
       JobHeader,

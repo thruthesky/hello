@@ -105,7 +105,7 @@ $box-title-color: (
 
 @mixin color-combination( $n ) {
     background-color: page-background-color( $n );
-    sonub-header header {
+    header.fixed-top {
         color: header-color( $n );
         background-color: header-background-color( $n );
         .icon {

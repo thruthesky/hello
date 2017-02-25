@@ -1,7 +1,7 @@
 import { Injectable, NgZone } from '@angular/core';
 import { AppComponent } from '../app/app.component';
 import { LanguagePipe } from '../pipes/language/language.pipe';
-import { Config, SETTING_LANGUAGE } from '../etc/config';
+import { Config } from '../etc/config';
 import { Post } from './../api/philgo-api/v2/post';
 //declare let navigator;
 import { Alert, ALERT_OPTION, IMAGE_OPTION, MEMBER_OPTION } from '../providers/bootstrap/alert/alert';

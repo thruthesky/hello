@@ -19,7 +19,7 @@ export class JobIndexPage{
     id: ''
   };
   page_no: number = 0;
-  limit: number = 6;
+  limit: number = 10;
   numbers = Array.from(new Array(20), (x,i) => i+1);
 
   //variables used in range

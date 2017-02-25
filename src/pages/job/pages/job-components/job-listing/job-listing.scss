@@ -1,164 +1,122 @@
-$break-sm: 568px;
+$break-sm: 568px; /// remove this
+
 
 job-listing {
   word-break: break-all;
   position: relative;
   display: block;
-  margin-right: .4em;
+  // background-color: #022;
+}
+
+
+/// delete above
+
+
+$gutter-middle: .4em;
+
+job-listing {           ///   Layout
+
   .post {
-    display: inline-block;
-    width: 50%;
+    margin-bottom: $gutter-middle;
     float: left;
-    &.more {
-      width: 100%;
+    width: 50%;
+    &:nth-child(odd) {
       .content {
-        height:300px;
-        .profile {
-          @media screen and (max-width: $break-sm) {
-            position: absolute;
-            margin: 0 auto;
-            right: 0;
-            max-width: 120px;
-            width: 100%;
-          }
-          @media screen and (min-width: $break-sm) {
-            max-width: 180px;
-            max-height: 180px;
-            width: 100%;
-            height: auto;
-          }
-        }
-        ul.action-group {
-          right: .3em;
-          bottom: 0;
-          top:auto;
-          li {
-              float: left;
-          }
-        }
-        .share {
-          width: 50%;
-          .shareLink {
-            width: 100%;
-            padding-left: 35px;
-            line-height: 16px;
-          }
-        }
-        .sub-info {
-          .message{
-            overflow-y: auto;
-            @media screen and (max-width: $break-sm) {
-              max-height: 76px;
-            }
-            @media screen and (min-width: $break-sm) {
-              max-height: 70px;
-            }
-          }
-        }
-
+        margin-right: $gutter-middle / 2;
       }
     }
-    .content {
-      position: relative;
-      margin: 0 0 .4em .4em;
-      padding: .5em;
-      border: 1px solid #d3d3d3;
-      height: 190px;
-      background-color: #fff;
-      @media screen and (min-width: $break-sm) {
-        padding: .4em 0 3em .5em;
-      }
-      @media screen and (min-width: $break-sm) {
-        height: 175px;
-      }
-      .profile {
-        padding: 0;
-        width: 5em;
-        height: 60px;
-        @media screen and (max-width: $break-sm) {
-          margin: 0 auto;
-        }
-        @media screen and (min-width: $break-sm) {
-          position: absolute;
-          display: inline-block;
-          right: 0;
-          top: 0;
-          max-width: 100px;
-          max-height: 100px;
-          width: auto;
-          height: auto;
-        }
-        .profile-photo{
-          width: 100%;
-          max-width: 100%;
-          height: auto;
-          vertical-align: top;
-        }
-
-      }
-
-      .info, .sub-info {
-        position: relative;
-        vertical-align: top;
-        @media screen and (min-width: $break-sm) {
-          margin: .2em;
-        }
-        .text {
-          overflow: hidden;
-          height: 1.5em;
-          @media screen and (min-width: $break-sm) {
-            padding-right: 6.25em;
-          }
-        }
-        .message {
-          @media screen and (min-width: $break-sm) {
-            font-size: 1.2em;
-          }
-        }
-      }
-
-      ul.action-group {
-        position: absolute;
-        right: 0;
-        top:0;
-        display: inline-block;
-        margin: 0;
-        padding: 0;
-        text-align: center;
-        list-style: none;
-        @media screen and (min-width: $break-sm) {
-          right: .3em;
-          bottom: 0;
-          top:auto;
-        }
-        li {
-          padding: .2em;
-          &:hover {
-            background-color: #e1e1e1;
-          }
-          @media screen and (min-width: $break-sm) {
-            float: left;
-          }
-        }
-      }
-
-      .share {
-        position: relative;
-        overflow: hidden;
-        margin-top: .3em;
-        padding-right: 2.5em;
-        span {
-          position: absolute;
-        }
-        .shareLink {
-          width: 100%;
-          padding-left: 2.5em;
-          line-height: 1em;
-        }
-      }
-      .btn-group {
-        margin-top: .2rem;
+    &:nth-child(even) {
+      .content {
+        margin-left: $gutter-middle / 2;
       }
     }
+  }
+
+
+  .content {
+    position: relative;
+    border: 1px solid #e8e8f2;
+    background-color: #f7f7fb;
+    padding: $gutter-middle * 2;
+  }
+
+  .profile {
+//    background-color: white;
+  }
+  
+  .info {
+    margin-top: .2em;
+  }
+  .photo {
+    width: 70%;
+    img {
+      width: 100%;
+    }
+  }
+
+  .action-group {
+    position: absolute;
+    top: $gutter-middle;
+    right: 0;
+    width: 30%;
+  }
+
+}
+
+
+job-listing .post .profile {
+  .name {
+    font-weight: bold;
+    display: inline-block;
+    &::first-letter { text-transform: uppercase; }
+  
+  }
+}
+
+
+
+
+
+job-listing .action-group {
+
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  list-style: none;
+
+
+
+/*
+  @media screen and (min-width: $break-sm) {
+    right: .3em;
+    bottom: 0;
+    top:auto;
+  }
+  li {
+    padding: .2em;
+    &:hover {
+      background-color: #e1e1e1;
+    }
+    @media screen and (min-width: $break-sm) {
+      float: left;
+    }
+  }
+  */
+
+}
+
+
+job-listing .share {                /// share
+  position: relative;
+  overflow: hidden;
+  margin-top: .3em;
+  padding-right: 2.5em;
+  span {
+    position: absolute;
+  }
+  .shareLink {
+    width: 100%;
+    padding-left: 2.5em;
+    line-height: 1em;
   }
 }

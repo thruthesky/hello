@@ -23,7 +23,7 @@ import { FileNotFoundPage } from "../pages/sonub/pages/file-not-found/file-not-f
 
 /** Importing Job Pages **/
 import { JobIndexPage } from '../pages/job/pages/job-index/job-index';
-import { JobListPage } from "../pages/job/pages/job-list/job-list";
+//import { JobListPage } from "../pages/job/pages/job-list/job-list";
 import { JobPostPage } from "../pages/job/pages/job-post/job-post";
 import { JobViewPage } from "../pages/job/pages/job-view/job-view";
 
@@ -35,7 +35,7 @@ const appRoutes: Routes = [
     /** Job Pages **/
     { path: "job/post", component: JobPostPage },
     { path: "job/post/:idx", component: JobPostPage },
-    { path: "job/list", component: JobListPage },
+    // { path: "job/list", component: JobListPage },
     { path: "job/view/:idx", component: JobViewPage },
     { path: "job", component: JobIndexPage },
 

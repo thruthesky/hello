@@ -99,6 +99,10 @@ export let languageText = {
 
     'cache-deleted':    { en: 'Cache data has been deleted!', ko: '캐시를 삭제하였습니다.'},
 
+    'mobile':           { en: 'Mobile', ko: '전화' },
+    'experience':       { en: 'Experience', ko: '경력' },
+    'years':            { en: 'years', ko: '년'},
+    
 
 
 

@@ -2,23 +2,41 @@
   <ng-container *ngFor=" let post of page[mode] ">
     <div class="post" [ngClass]="{more: post.more}" *ngIf="post.idx && post.deleted == '0' ">
       <div class="content">
-        <div class="profile">
-          <img class="profile-photo" src="{{post.photos.length ? post.photos[0]['url_thumbnail'] : urlPhoto}}" alt="{{post.text_1}}">
+
+        <div class="profile cursor" (click)=" post.more = ! post.more ">
+          <div class="photo"  >
+            <img src="{{post.photos.length ? post.photos[0]['url_thumbnail'] : urlPhoto}}" alt="{{post.text_1}}">
+          </div>
+
+
+        <div class="info"  >
+          <div class="text">
+            <span class="name">
+              {{post.text_1}} {{post.text_2}} {{post.text_3}}
+            </span>
+          </div>
+          <div class="text">
+            <span class="category">{{post.sub_category}}</span>
+            <span class="age">{{ currentYear - post.int_2 }}</span>/<span class="gender">{{ post.char_1 }}</span>
+
+          </div>
+          
+          <div class="text">{{ t('mobile') }} : {{post.varchar_4}}</div>
         </div>
-        <div class="info" >
-          <div class="text">{{post.sub_category}}</div>
-          <div class="text">{{ post.char_1=='M' ? 'Male' : 'Female'}}</div>
-          <div class="text">Age: {{currentYear - post.int_2}}</div>
-          <div class="text">Experience: {{post.int_1}}</div>
-          <div class="text name">Name: {{post.text_1}} {{post.text_2}} {{post.text_3}}</div>
-        </div>
+
         <div class="sub-info" *ngIf=" post.more ">
-          <div class="text">Mobile : {{post.varchar_4}}</div>
+          <div class="text exp">{{ t('experience') }} : {{post.int_1}} 
+          {{ t('years') }}</div>
           <div class="text">Address : {{post.varchar_1}}</div>
           <div class="text">Province : {{post.varchar_2}}</div>
           <div class="text">City : {{post.varchar_3}}</div>
           <div class="message">Applicant Message : {{post.varchar_6}}</div>
         </div>
+
+
+
+        </div>
+
         <ul class="action-group">
           <li class="cursor" *ngIf=" post.member.id == login.id " (click)="onClickEdit(post.idx)">
             <i class="font fa fa-pencil"></i>
@@ -32,11 +50,12 @@
             <i class="fa fa-share-alt"></i>
             <div>Share</div>
           </li>
-          <li class="cursor" (click)=" post.more = ! post.more " >
+          <li class="cursor" (click)=" post.more = ! post.more ">
             <i class="font fa fa-angle-double-down"></i>
             <div>{{ post.more  ? 'Less' : 'More' }}</div>
           </li>
         </ul>
+
         <div *ngIf="post.share" class="share">
           <span class="text">Share</span>
           <input class="shareLink text cursor" onClick="this.setSelectionRange(0, this.value.length)" value="{{post.link}}" readonly/>

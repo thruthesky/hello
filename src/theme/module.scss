@@ -1,3 +1,6 @@
+.cursor {
+  cursor: pointer;
+}
 .toast {
     display: none;
     &[active='true'] { display: block; }

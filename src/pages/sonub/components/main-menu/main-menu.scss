@@ -15,6 +15,13 @@
       display: inline-block;
     }
 
+    h2 {
+      margin: 0 0 .6em;
+      padding: .6em;
+      background-color: #dfdfdf;
+      font-size: 1.2rem;
+    }
+
     .menu {
       display: inline-block;
       margin-right: $gutter;
@@ -26,6 +33,7 @@
       cursor: pointer;
       .icon {
         display: block;
+        margin-bottom: .2em;
         padding-top: 1.2em;
         width: 5em;
         height: 5em;
@@ -44,5 +52,23 @@
         background-color: #cdcdcd;
       }
     }
+
+}
+
+
+.main-menu {
+
+  .container,
+  .container .row,
+  .container .row > div {
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .container {
+    width: 100%;
+    max-width: 100%;
+  }
 
 }
