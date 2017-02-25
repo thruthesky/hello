@@ -104,6 +104,16 @@ export let languageText = {
     'years':            { en: 'years', ko: '년'},
     
 
+    /** Job */
+    'all':                  { en: 'All', ko: '전체 직업' },
+    'housemaid':            { en: 'Housemaid', ko: '하우스메이드' },
+    'driver':               { en: 'Driver', ko: '운전기사' },
+    'Housemaid':            { en: 'Housemaid', ko: '하우스메이드' },
+    'Driver':               { en: 'Driver', ko: '운전기사' },
+    'M':                    { en: 'M', ko: '남' },
+    'F':                    { en: 'F', ko: '여' },
+    
+
 
 
     /** Commands, Button Text, 명령어, 버튼 명령 */

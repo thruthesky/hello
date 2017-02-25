@@ -1,45 +1,48 @@
 job-view {
   display: block;
-  @include color-combination( 5 );
-  .news {
-    margin-bottom: .6em;
+  @include color-combination( 'setting' );
+  
+  .content{
   }
-  .main-banner {
-    margin-bottom: .6em;
+  .primary-photo {
+    position: relative;
+    margin: 0 auto;
+    padding: .2em;
+    border: 1px solid #bbb;
+    max-width: 14em;
+    max-height: 14em;
+    overflow: hidden;
     img {
       width: 100%;
     }
   }
-  .content{
-    font-size: .8rem;
-    .primary-photo {
-      position: relative;
-      margin: 0 auto;
-      max-width: 14em;
-      max-height: 14em;
-      overflow: hidden;
-      img {
-        width: 100%;
-      }
 
-      .camera {
-        position: absolute;
-        z-index: 80;
-        left: .6em;
-        bottom: .6em;
-      }
-      input {
-        position: absolute;
-        z-index: 100;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        font-size: 30em;
-        opacity: .001;
-      }
+  .content {
+    label {
+      font-size: .8rem;
+      color: #49494f;
     }
   }
-}
+  
 
+  .content .text {
+    padding: .6em .8em;
+    background-color: #cfcfc9;
+  }
+
+  .row {
+    margin-top: .6em;
+  }
+
+  .row button {
+    margin-top: 1em;
+    padding: .4em;
+    box-sizing: border-box;
+    border: 0;
+    background-color: #ccb;
+    width: 100%;
+    color: #333;
+  }
+
+}
 

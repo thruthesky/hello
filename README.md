@@ -373,6 +373,23 @@ You do not need to install these module one by one. these are installed by 'npm 
 
 
 
+# DESIGN GUIDELINE
+
+## LAYOUT - Very important
+
+* Desgin only two break of 'small', 'big' size of 'app.size' for RWD design.
+Because in real world, there is only two types of device. Mobile device or computer device.
+
+Translaction) Responsive 디자인에서 'big', 'small' 두가지만 하면된다. 그 이유는 실제 사용자들이 사용하는 장치는 모바일 장치 또는 컴퓨터 두가지 중 하나 밖에 없기 때문이다.
+
+모바일(스마트폰)을 사용하는 경우, 대부분 640px 이하이다. 따라서 그 이상은 컴퓨터 웹 브라우저(또는 넓은 화면 태블릿)이다.
+
+이 경우, 중간 사이즈의 디자인을 할 필요가 없다. 예를 들면, 부트스트랩의 xs, sm, md, lg, xl 와 같이 5 단계로 나누어 디자인을 할 필요가 없다. 왜냐하면 실제로 사용하는 경우 오직, 모바일 크기 또는 데스트탑 크기가 대부분일 것이기 때문이다.
+
+모바일 크기는 기본 또는 app.size == 'small' 이고 웹 브라우저 크기는 'big' 이다.
+
+
+
 
 
 # Form Submission

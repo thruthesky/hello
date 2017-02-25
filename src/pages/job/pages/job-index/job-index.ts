@@ -5,6 +5,7 @@ import { Member, MEMBER_LOGIN } from '../../../../api/philgo-api/v2/member';
 import { Post, SEARCH_QUERY_DATA } from '../../../../api/philgo-api/v2/post';
 import { PageScroll } from './../../../../providers/page-scroll';
 import { App } from '../../../../providers/app';
+import { Config } from './../../../../etc/config';
 import * as _ from 'lodash';
 
 declare var Array;
@@ -14,6 +15,9 @@ declare var Array;
   templateUrl: 'job-index.html'
 })
 export class JobIndexPage{
+
+  ek = Config.englishOrKorean;
+  t = Config.translate;
 
   login: MEMBER_LOGIN = {
     id: ''

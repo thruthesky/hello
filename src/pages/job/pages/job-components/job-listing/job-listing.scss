@@ -72,11 +72,20 @@ job-listing .more .profile {      /// Layout on more.
 
 }
 
+// End Of Layout
+
 job-listing .post .profile {
   .name {
     font-weight: bold;
     display: inline-block;
     &::first-letter { text-transform: uppercase; }
+  }
+
+  .message {
+    margin-top: .6em;
+    padding: .4em;
+    border: 1px solid #d8d8d8;
+    background-color: white;
   }
 }
 
@@ -115,4 +124,14 @@ job-listing .action-group {
   }
 
 }
+
+job-listing .share.link {
+  margin-top: .6em;
+  input {
+    padding: .6em;
+    border: 1px solid #d8d8d8;
+    width: 100%;
+  }
+}
+
 

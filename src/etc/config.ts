@@ -33,23 +33,38 @@ export let Config = {
             return language_code;
         },
 
-  translate(code: string, args?: any): string {
-    if ( code === void 0 ) return 'code undefined';
-    let text = languageText;
-    //console.log(text);
-    let language = Config.getLanguage();
-    //console.log(language);
-    // if ( ! language ) language = 'en';
-    if ( text[code] === void 0 ) return code;
-    if ( text[code][language] === void 0 ) return code;
-    let str = text[code][language];
-    for( let i in args ) {
-      str = str.replace('#' + i, args[i]);
-    }
-    //console.log('str: ', str);
-    return str;
+    translate(code: string, args?: any): string {
+      if ( code === void 0 ) return 'code undefined';
+      let text = languageText;
+      //console.log(text);
+      let language = Config.getLanguage();
+      //console.log(language);
+      // if ( ! language ) language = 'en';
+      if ( text[code] === void 0 ) return code;
+      if ( text[code][language] === void 0 ) return code;
+      let str = text[code][language];
+      for( let i in args ) {
+        str = str.replace('#' + i, args[i]);
+      }
+      //console.log('str: ', str);
+      return str;
 
-  }
+    },
+
+
+    englishOrKorean( en: string, ko: string, args?: any ) : string {
+
+      let language = Config.getLanguage();
+      let str;
+      if ( language == 'ko' ) str = ko;
+      else str = en;
+
+      for( let i in args ) {
+        str = str.replace('#' + i, args[i]);
+      }
+      
+      return str;
+    }
 
 
 

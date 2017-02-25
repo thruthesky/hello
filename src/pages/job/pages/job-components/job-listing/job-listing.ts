@@ -8,6 +8,7 @@ import { Post } from '../../../../../api/philgo-api/v2/post';
 import { MEMBER_LOGIN } from '../../../../../api/philgo-api/v2/member';
 import { Router } from '@angular/router';
 import { App } from '../../../../../providers/app';
+
 @Component({
   selector: 'job-listing',
   templateUrl: 'job-listing.html',
@@ -17,6 +18,8 @@ export class JobListing {
   isComment: boolean = false;
   hideContent: boolean = false;
 
+
+  ek = Config.englishOrKorean;
   t = Config.translate;
 
   today = new Date();

@@ -24,32 +24,31 @@ job-index nav.search-option {         /// search option
 
 
 
-
-
 job-index .search-form {            /// search form
   position: relative;
   margin-bottom: 1em;
   padding: .6em;
-  border: 1px solid #d3d3d3;
-  background-color: white;
+  color: #eee;
+  background-color: #74858d;
   .row-container {
-    margin-bottom: .8em;
     .text {
       float: left;
-      width: 8em;
       margin: 0;
       padding: 0.4em 0;
       &.range {
         width: 4em;
       }
     }
+
     .input {
-      margin-left: 8em;
+      margin-left: 7em;
+      margin-right: 1.6em;
       &.range {
         margin-left: 4em;
         margin-bottom: .5em;
       }
     }
+    
     .form-check-inline{
       padding: 0.4em 0;
       margin-bottom: 0;
