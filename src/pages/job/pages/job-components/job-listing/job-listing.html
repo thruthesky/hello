@@ -3,20 +3,19 @@
     <div class="post" [ngClass]="{more: post.more}" *ngIf="post.idx && post.deleted == '0' ">
       <div class="content">
 
-        <div class="profile cursor" (click)=" post.more = ! post.more ">
-          <div class="photo"  >
+        <div class="profile cursor" (click)=" post.more = ! post.more " [class.more] = "post.more">
+          <div class="photo">
             <img src="{{post.photos.length ? post.photos[0]['url_thumbnail'] : urlPhoto}}" alt="{{post.text_1}}">
           </div>
 
 
         <div class="info"  >
-          <div class="text">
-            <span class="name">
+          <div class="text name">
               {{post.text_1}} {{post.text_2}} {{post.text_3}}
-            </span>
           </div>
-          <div class="text">
-            <span class="category">{{post.sub_category}}</span>
+          <div class="text bio">
+            <span class="category">{{post.sub_category}}</span>,
+
             <span class="age">{{ currentYear - post.int_2 }}</span>/<span class="gender">{{ post.char_1 }}</span>
 
           </div>
@@ -30,7 +29,7 @@
           <div class="text">Address : {{post.varchar_1}}</div>
           <div class="text">Province : {{post.varchar_2}}</div>
           <div class="text">City : {{post.varchar_3}}</div>
-          <div class="message">Applicant Message : {{post.varchar_6}}</div>
+          <div class="text message">Applicant Message : {{post.varchar_6}}</div>
         </div>
 
 
@@ -38,21 +37,41 @@
         </div>
 
         <ul class="action-group">
-          <li class="cursor" *ngIf=" post.member.id == login.id " (click)="onClickEdit(post.idx)">
-            <i class="font fa fa-pencil"></i>
+          <li class="cursor" *ngIf=" post.more && post.member.id == login.id " (click)="onClickEdit(post.idx)">
+            
+            <span class="fa-stack fa-lg">
+              <i class="fa fa-circle fa-stack-2x"></i>
+              <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
+            </span>
+
             <div>Edit</div>
           </li>
-          <li class="cursor" *ngIf=" post.member.id == login.id " (click)="onClickDelete( post )">
-            <i class="font fa fa-trash-o"></i>
+          <li class="cursor" *ngIf=" post.more && post.member.id == login.id " (click)="onClickDelete( post )">
+            
+            <span class="fa-stack fa-lg">
+              <i class="fa fa-circle fa-stack-2x"></i>
+              <i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
+            </span>
+
             <div>Delete</div>
           </li>
           <li class="cursor" (click)="post.share = !post.share">
-            <i class="fa fa-share-alt"></i>
+            
+            <span class="fa-stack fa-lg">
+              <i class="fa fa-circle fa-stack-2x"></i>
+              <i class="fa fa-share-alt fa-stack-1x fa-inverse"></i>
+            </span>
             <div>Share</div>
           </li>
           <li class="cursor" (click)=" post.more = ! post.more ">
-            <i class="font fa fa-angle-double-down"></i>
+
+            <span class="fa-stack fa-lg">
+              <i class="fa fa-circle fa-stack-2x"></i>
+              <i class="fa fa-angle-double-down fa-stack-1x fa-inverse"></i>
+            </span>
             <div>{{ post.more  ? 'Less' : 'More' }}</div>
+
+
           </li>
         </ul>
 

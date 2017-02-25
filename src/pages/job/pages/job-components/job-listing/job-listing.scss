@@ -1,20 +1,20 @@
-$break-sm: 568px; /// remove this
 
-
-job-listing {
-  word-break: break-all;
-  position: relative;
-  display: block;
-  // background-color: #022;
-}
-
-
-/// delete above
 
 
 $gutter-middle: .4em;
 
-job-listing {           ///   Layout
+job-listing {
+  word-break: break-all;
+  
+}
+
+
+
+job-listing {           ///   Layout. width, height, align
+
+
+  position: relative;
+  display: block;
 
   .post {
     margin-bottom: $gutter-middle;
@@ -40,12 +40,13 @@ job-listing {           ///   Layout
     padding: $gutter-middle * 2;
   }
 
-  .profile {
-//    background-color: white;
-  }
-  
   .info {
-    margin-top: .2em;
+    margin-top: $gutter-middle * 2;
+    .name {
+      height: 1rem;
+      overflow: hidden;
+      font-size: .8rem;
+    }
   }
   .photo {
     width: 70%;
@@ -56,20 +57,26 @@ job-listing {           ///   Layout
 
   .action-group {
     position: absolute;
-    top: $gutter-middle;
+    top: $gutter-middle * 2;
     right: 0;
     width: 30%;
   }
 
 }
 
+job-listing .more .profile {      /// Layout on more.
+
+  .name {
+    height: auto;
+  }
+
+}
 
 job-listing .post .profile {
   .name {
     font-weight: bold;
     display: inline-block;
     &::first-letter { text-transform: uppercase; }
-  
   }
 }
 
@@ -84,39 +91,28 @@ job-listing .action-group {
   text-align: center;
   list-style: none;
 
+  color: #777;
+
+  .fa-stack {
+    font-size: .8rem;
+    color: #999;
+  }
 
 
-/*
-  @media screen and (min-width: $break-sm) {
-    right: .3em;
-    bottom: 0;
-    top:auto;
-  }
-  li {
-    padding: .2em;
-    &:hover {
-      background-color: #e1e1e1;
+  .share {                /// share
+    position: relative;
+    overflow: hidden;
+    margin-top: .3em;
+    padding-right: 2.5em;
+    span {
+      position: absolute;
     }
-    @media screen and (min-width: $break-sm) {
-      float: left;
+    .shareLink {
+      width: 100%;
+      padding-left: 2.5em;
+      line-height: 1em;
     }
   }
-  */
 
 }
 
-
-job-listing .share {                /// share
-  position: relative;
-  overflow: hidden;
-  margin-top: .3em;
-  padding-right: 2.5em;
-  span {
-    position: absolute;
-  }
-  .shareLink {
-    width: 100%;
-    padding-left: 2.5em;
-    line-height: 1em;
-  }
-}

@@ -24,7 +24,7 @@ export class JobIndexPage{
 
   //variables used in range
   sharePath = 'job/view';
-  minAge: number = 18;
+  minAge: number = 2;
   maxAge: number = 60;
   minAgeRange = Array.from(new Array( this.maxAge - this.minAge), (x,i) => i+1);
   maxAgeRange = this.minAgeRange;
