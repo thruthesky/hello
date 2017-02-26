@@ -15,7 +15,8 @@ sonub-message-page {
   @include color-combination( 'message' );
   font-family: "Malgun Gothic",AppleGothic,sans-serif;
   section.center {
-    background-color: #f9f9f9;
+    padding: .6em 0;
+    background-color: #606960;
     border: 0;
 
     .login { /** show login message if the user did not logged in */
@@ -94,7 +95,7 @@ sonub-message-page {
     }
 
     .top-menu {
-      margin-bottom: 1em;
+      margin-bottom: .6em;
         button {
           padding: .3em .8em .2em;
           border: 0;
@@ -108,6 +109,10 @@ sonub-message-page {
         margin-top: .6em;
         button {
           font-size: .9rem;
+        }
+        input {
+          border: 0;
+          height: 1.625em;
         }
       }
     }
@@ -151,6 +156,11 @@ sonub-message-page {
         width: 100%;
       }
     }
+  }
+
+  .bottom {
+    padding: 1em 0;
+    color: white;
   }
 }
 

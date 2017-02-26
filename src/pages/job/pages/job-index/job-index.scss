@@ -1,100 +1,96 @@
 job-index {
   display: block;
-  @include color-combination( 5 );
-  .news {
-    margin-bottom: .6em;
-  }
-  .main-banner {
-    margin-bottom: .6em;
-    img {
-      width: 100%;
-    }
-  }
+  @include color-combination( 'setting' );
+  //background-color: #404;
+}
 
-  section.center{
-    .no-more-posts {
-      display: none;
-      margin: 1em;
-      text-align: center;
-      font-size: 1.2em;
-      &.active {
-        display: block;
+
+job-index nav.search-option {         /// search option
+  padding: 0 0 .2em 0;
+  overflow: auto;
+  text-align: center;
+  button {
+    display: block;
+    float: left;
+    padding: .4em 0;
+    border: 0;
+    border-right: 1px solid white;
+    border-radius: 0;
+    width: 33.333%;
+    background-color: #6b7782;
+    color: white;
+  }
+}
+
+
+
+job-index .search-form {            /// search form
+  position: relative;
+  margin-bottom: 1em;
+  padding: .6em;
+  color: #eee;
+  background-color: #74858d;
+  .row-container {
+    .text {
+      float: left;
+      margin: 0;
+      padding: 0.4em 0;
+      &.range {
+        width: 4em;
       }
     }
-    nav.search-option {
-      padding: .8em 0;
+
+    .input {
+      margin-left: 7em;
+      margin-right: 1.6em;
+      &.range {
+        margin-left: 4em;
+        margin-bottom: .5em;
+      }
+    }
+    
+    .form-check-inline{
+      padding: 0.4em 0;
+      margin-bottom: 0;
+    }
+    .form-check-input {
+      padding: 0.4em 0;
+      margin-left: 0;
+    }
+    &.buttons {
       text-align: center;
       button {
-        padding-top: .4em;
-        padding-bottom: .4em;
-        border: 0;
-        border-radius: 0;
-        width: 32%;
+        width: 40%;
+        margin: 0 .5em;
       }
     }
-    .search-form {
-      position: relative;
-      margin: 0 .4em .8em;
-      padding: 1em 1.5em .5em .5em;
-      border: 1px solid #d3d3d3;
-      background-color: white;
-      .row-container {
-        margin-bottom: .8em;
-        .text {
-          float: left;
-          width: 8em;
-          margin: 0;
-          padding: 0.4em 0;
-          &.range {
-            width: 4em;
-          }
-        }
-        .input {
-          margin-left: 8em;
-          &.range {
-            margin-left: 4em;
-            margin-bottom: .5em;
-          }
-        }
-        .form-check-inline{
-          padding: 0.4em 0;
-          margin-bottom: 0;
-        }
-        .form-check-input {
-          padding: 0.4em 0;
-          margin-left: 0;
-        }
-        &.buttons {
-          text-align: center;
-          button {
-            width: 40%;
-            margin: 0 .5em;
-          }
-        }
-      }
-      .close.fa-times {
-        position: absolute;
-        top: .5rem;
-        right: .5rem;
-      }
-
-    }
-
-    .pages {
-      width: 100%;
-      display: inline-block;
-      font-size: .8em;
-      .search-info {
-        margin: 0 .4em .8em;
-        padding: .8em;
-        border: 1px solid #d3d3d3;
-        background-color: white;
-        span {
-          font-size: 1.2em;
-        }
-      }
-    }
-
+  }
+  .close.fa-times {
+    position: absolute;
+    top: .5rem;
+    right: .5rem;
   }
 
 }
+
+job-index .search-result {          /// search result
+  width: 100%;
+  display: inline-block;
+  font-size: .8em;
+
+  .search-info {
+    margin-bottom: .4em;
+  }
+
+}
+
+
+job-index .no-more-posts {          /// no more posts.
+    display: none;
+    margin: 1em;
+    text-align: center;
+    font-size: 1.2em;
+    &.active {
+      display: block;
+    }
+  }

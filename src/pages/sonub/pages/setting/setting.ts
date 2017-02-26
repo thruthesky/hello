@@ -29,7 +29,7 @@ export class SonubSettingPage {
 
 
     onClickClearLocalStorage() {
-        this.app.alarm( "Cache data has been deleted!");
+        this.app.alarm( "cache-deleted" );
         localStorage.clear();
     }
 

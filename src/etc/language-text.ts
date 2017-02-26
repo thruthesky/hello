@@ -90,6 +90,32 @@ export let languageText = {
     'post-of-user':     { en: 'List posts of #name', ko: '#name님이 작성한 글 목록' },
     'regdate':          { en: 'Reg Date', ko: '가입날짜' },
 
+    'file not found':   { en: 'File not found', ko: '페이지를 찾지 못하였습니다.' },
+    'there-is-no-such-page': { en: 'There is no such page.', ko: '존재하지 않는 페이지입니다.' },
+    'access-url':       { en: 'Url', ko: '접근 경로' },
+    'ALARM':            { en: 'ALARM', ko: '알림' },
+    'WARNING':            { en: 'WARNING', ko: '경고' },
+
+
+    'cache-deleted':    { en: 'Cache data has been deleted!', ko: '캐시를 삭제하였습니다.'},
+
+    'mobile':           { en: 'Mobile', ko: '전화' },
+    'experience':       { en: 'Experience', ko: '경력' },
+    'years':            { en: 'years', ko: '년'},
+    
+
+    /** Job */
+    'all':                  { en: 'All', ko: '전체 직업' },
+    'housemaid':            { en: 'Housemaid', ko: '하우스메이드' },
+    'driver':               { en: 'Driver', ko: '운전기사' },
+    'Housemaid':            { en: 'Housemaid', ko: '하우스메이드' },
+    'Driver':               { en: 'Driver', ko: '운전기사' },
+    'M':                    { en: 'M', ko: '남' },
+    'F':                    { en: 'F', ko: '여' },
+    
+
+
+
     /** Commands, Button Text, 명령어, 버튼 명령 */
 
     'Submit' :          { en: 'Submit', ko: '전송' },

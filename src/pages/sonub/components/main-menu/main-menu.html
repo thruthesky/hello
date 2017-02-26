@@ -2,283 +2,28 @@
 
     <div class="inner">
         
-        <div class="menu hot" routerLink="/setting">
-            <div class="icon">
-                <i class="fa fa-gear"></i>
-            </div>
-            <span>{{ ['Settings', '설정'] | ek }}</span>
-        </div>
 
-        <div class="menu hot" routerLink="/forum/freetalk">
-            <div class="icon">
-                <i class="fa fa-comments"></i>
-            </div>
-            <span>{{ ['Talk', '자유토론'] | ek }}</span>
-        </div>
-        
-        <div class="menu hot" routerLink="/forum/qna">
-            <div class="icon">
-                <i class="fa fa-question"></i>
-            </div>
-            <span>{{ ['QnA', '질문답변'] | ek }}</span>
-        </div>
-        
-        
-        <div class="menu hot" routerLink="/forum/buyandsell">
-            <div class="icon">
-                <i class="fa fa-shopping-cart"></i>
-            </div>
-            <span>{{ ['Buy&amp;Sell', '회원장터'] | ek }}</span>
-        </div>
-            
-        <div class="menu hot" routerLink="/forum/rest">
-            <div class="icon">
-                <i class="fa fa-cutlery"></i>
-            </div>
-            <span>{{ ['Restaurant', '맛집'] | ek }}</span>
-        </div>
-        
-            
-        <div class="menu hot" routerLink="/forum/company">
-            <div class="icon">
-                <i class="fa fa-address-card"></i>
-            </div>
-            <span>{{ ['Advertise', '업체홍보'] | ek }}</span>
-        </div>
-        
-            
-        <div class="menu hot" routerLink="/forum/company_book">
-            <div class="icon">
-                <i class="fa fa-address-book"></i>
-            </div>
-            <span>{{ ['Company Book', '업소록'] | ek }}</span>
-        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-4">
+                    <h2>커뮤니티</h2>
+
+                    <div class="menu hot" routerLink="/forum/freetalk">
+                        <div class="icon">
+                            <i class="fa fa-comments"></i>
+                        </div>
+                        <span>{{ ['Talk', '자유토론'] | ek }}</span>
+                    </div>
+
+                    <div class="menu hot" routerLink="/forum/qna">
+                        <div class="icon">
+                            <i class="fa fa-question"></i>
+                        </div>
+                        <span>{{ ['QnA', '질문답변'] | ek }}</span>
+                    </div>
         
 
-
-        <div class="menu inactive">
-            <div class="icon">
-                <i class="fa fa-tv"></i>
-            </div>
-            <span>{{ ['Live TV', '생방송TV'] | ek }}</span>
-        </div>
-
-
-        <div class="menu" routerLink="/message">
-            <div class="icon">
-                <i class="fa fa-envelope"></i>
-            </div>
-            <span>{{ ['Messages', '쪽지'] | ek }}</span>
-        </div>
-        
-        <div class="menu inactive">
-            <div class="icon">
-                <i class="fa fa-krw"></i>
-            </div>
-            <span>{{ ['Exchange Rate', '환율'] | ek }}</span>
-        </div>
-
-
-        <div class="menu" routerLink="/forum/travel">
-            <div class="icon">
-                <i class="fa fa-paper-plane"></i>
-            </div>
-            <span>{{ ['Travel', '여행'] | ek }}</span>
-        </div>
-
-        <div class="menu" routerLink="/forum/travel_photo">
-            <div class="icon">
-                <i class="fa fa-photo"></i>
-            </div>
-            <span>{{ ['Photos', '여행사진'] | ek }}</span>
-        </div>
-
-        <div class="menu" routerLink="/forum/travel_story">
-            <div class="icon">
-                <i class="fa fa-commenting"></i>
-            </div>
-            <span>{{ ['Travel Story', '여행후기'] | ek }}</span>
-        </div>
-
-        <div class="menu" routerLink="/forum/travel_free">
-            <div class="icon">
-                <i class="fa fa-subway"></i>
-            </div>
-            <span>{{ ['Free Travel', '자유여행'] | ek }}</span>
-        </div>
-        <div class="menu" routerLink="/forum/travel_good">
-            <div class="icon">
-                <i class="fa fa-thumbs-up"></i>
-            </div>
-            <span>{{ ['Travel spots', '추천여행'] | ek }}</span>
-        </div>
-
-        <div class="menu" routerLink="/forum/pre">
-            <div class="icon">
-                <i class="fa fa-briefcase"></i>
-            </div>
-            <span>{{ ['Prepare Travel', '여행준비'] | ek }}</span>
-        </div>
-
-        <div class="menu" routerLink="/forum/nature">
-            <div class="icon">
-                <i class="fa fa-tint"></i>
-            </div>
-            <span>{{ ['Skin Scuba', '스쿠버'] | ek }}</span>
-        </div>
-
-
-        <div class="menu" routerLink="/forum/hotel">
-            <div class="icon">
-                <i class="fa fa-h-square"></i>
-            </div>
-            <span>{{ ['Hotel', '호텔'] | ek }}</span>
-        </div>
-
-
-        <div class="menu" routerLink="/forum/boarding_house">
-            <div class="icon">
-                <i class="fa fa-hotel"></i>
-            </div>
-            <span>{{ ['Boarding House', '하숙집'] | ek }}</span>
-        </div>
-
-
-
-        <div class="menu" routerLink="/forum/rentcar">
-            <div class="icon">
-                <i class="fa fa-taxi"></i>
-            </div>
-            <span>{{ ['Car Rent', '렌트카'] | ek }}</span>
-        </div>
-
-        <div class="menu" routerLink="/forum/cars">
-            <div class="icon">
-                <i class="fa fa-car"></i>
-            </div>
-            <span>{{ ['Car Market', '중고차'] | ek }}</span>
-        </div>
-
-        <div class="menu" routerLink="/forum/news">
-            <div class="icon">
-                <i class="fa fa-newspaper-o"></i>
-            </div>
-            <span>{{ ['News', '뉴스'] | ek }}</span>
-        </div>
-
-        <div class="menu" routerLink="/forum/personal">
-            <div class="icon">
-                <i class="fa fa-tags"></i>
-            </div>
-            <span>{{ ['Individual Market', '개인장터'] | ek }}</span>
-        </div>
-        
-        <div class="menu" routerLink="/forum/party">
-            <div class="icon">
-                <i class="fa fa-users"></i>
-            </div>
-            <span>{{ ['Bonding', '친구모임'] | ek }}</span>
-        </div>
-        
-        <div class="menu" routerLink="/forum/massage">
-            <div class="icon">
-                <i class="fa fa-heartbeat"></i>
-            </div>
-            <span>{{ ['Massage', '마사지'] | ek }}</span>
-        </div>
-        
-        
-        <div class="menu" routerLink="/forum/study">
-            <div class="icon">
-                <i class="fa fa-plane"></i>
-            </div>
-            <span>{{ ['Language Study', '어학연수'] | ek }}</span>
-        </div>
-        
-        <div class="menu" routerLink="/forum/wanted">
-            <div class="icon">
-                <i class="fa fa-male"></i>
-            </div>
-            <span>{{ ['Jobs', '구인구직'] | ek }}</span>
-        </div>
-        <div class="menu" routerLink="/job">
-            <div class="icon">
-                <i class="fa fa-female"></i>
-            </div>
-            <span>{{ ['House Helper', '하우스헬퍼'] | ek }}</span>
-        </div>
-        
-        <div class="menu" routerLink="/forum/rent">
-            <div class="icon">
-                <i class="fa fa-map-o"></i>
-            </div>
-            <span>{{ ['Rent House', '주택임대'] | ek }}</span>
-        </div>
-        
-    <!--
-        <div class="menu inactive">
-            <div class="icon">
-                <i class="fa fa-handshake-o"></i>
-            </div>
-            <span>{{ ['', '기업회원'] | ek }}</span>
-        </div>
-    -->
-
-
-        <div class="menu" routerLink="/forum/business">
-            <div class="icon">
-                <i class="fa fa-building"></i>
-            </div>
-            <span>{{ ['Business', '사업,창업'] | ek }}</span>
-        </div>
-        
-
-        <div class="menu" routerLink="/forum/biz_partner">
-            <div class="icon">
-                <i class="fa fa-user-circle"></i>
-            </div>
-            <span>{{ ['Partners', '동업자구함'] | ek }}</span>
-        </div>
-
-
-        <div class="menu" routerLink="/forum/internet">
-            <div class="icon">
-                <i class="fa fa-wifi"></i>
-            </div>
-            <span>{{ ['Internet', '인터넷'] | ek }}</span>
-        </div>
-        
-        <div class="menu" routerLink="/forum/info">
-            <div class="icon">
-                <i class="fa fa-info-circle"></i>
-            </div>
-            <span>{{ ['Philippines Info', '필리핀정보'] | ek }}</span>
-        </div>
-
-        <div class="menu" routerLink="/forum/typoon">
-            <div class="icon">
-                <i class="fa fa-cloud"></i>
-            </div>
-            <span>{{ ['Typoons', '태풍소식'] | ek }}</span>
-        </div>
-        
-        <div class="menu" routerLink="/forum/one_line_talk">
-            <div class="icon">
-                <i class="fa fa-comment"></i>
-            </div>
-            <span>{{ ['Comments', '한줄쓰기'] | ek }}</span>
-        </div>
-        
-        
-        <div class="menu" routerLink="/forum/money">
-            <div class="icon">
-                <i class="fa fa-usd"></i>
-            </div>
-            <span>{{ ['Money Change', '환전'] | ek }}</span>
-        </div>
-
-
-        <div class="menu inactive" routerLink="/help">
+        <div class="menu" routerLink="/help">
             <div class="icon">
                 <i class="fa fa-whatsapp"></i>
             </div>
@@ -328,6 +73,182 @@
             <span>{{ ['Kopino', '코피노'] | ek }}</span>
         </div>
 
+
+        <div class="menu" routerLink="/forum/party">
+            <div class="icon">
+                <i class="fa fa-users"></i>
+            </div>
+            <span>{{ ['Bonding', '친구모임'] | ek }}</span>
+        </div>
+        
+        
+        
+        <div class="menu" routerLink="/forum/wanted">
+            <div class="icon">
+                <i class="fa fa-male"></i>
+            </div>
+            <span>{{ ['Jobs', '구인구직'] | ek }}</span>
+        </div>
+
+
+        
+
+        <div class="menu" routerLink="/forum/one_line_talk">
+            <div class="icon">
+                <i class="fa fa-comment"></i>
+            </div>
+            <span>{{ ['Comments', '한줄쓰기'] | ek }}</span>
+        </div>
+        
+        
+
+        <div class="menu" routerLink="/forum/golf">
+            <div class="icon">
+                <i class="fa fa-street-view"></i>
+            </div>
+            <span>{{ ['Golf', '골프'] | ek }}</span>
+        </div>
+
+        <div class="menu" routerLink="/forum/lookfor">
+            <div class="icon">
+                <i class="fa fa-user-secret"></i>
+            </div>
+            <span>{{ ['Man Wanted', '사람찾기'] | ek }}</span>
+        </div>
+
+        <div class="menu" routerLink="/forum/caution">
+            <div class="icon">
+                <i class="fa fa-warning"></i>
+            </div>
+            <span>{{ ['Cautions', '주의사항'] | ek }}</span>
+        </div>
+
+
+        <div class="menu" routerLink="/forum/case">
+            <div class="icon">
+                <i class="fa fa-suitcase"></i>
+            </div>
+            <span>{{ ['Cases', '사건사고'] | ek }}</span>
+        </div>
+
+
+
+
+        <div class="menu" routerLink="/forum/news_all">
+            <div class="icon">
+                <i class="fa fa-feed"></i>
+            </div>
+            <span>{{ ['Miscellaneous', '잡다한뉴스'] | ek }}</span>
+        </div>
+
+        <div class="menu" routerLink="/forum/column">
+            <div class="icon">
+                <i class="fa fa-clone"></i>
+            </div>
+            <span>{{ ['Columns', '카럼,사설'] | ek }}</span>
+        </div>
+
+
+                </div><!--/.col-->
+                <div class="col-12 col-md-4">
+                    <h2>광고, 장터</h2>
+                    <div class="menu hot" routerLink="/forum/buyandsell">
+                        <div class="icon">
+                            <i class="fa fa-shopping-cart"></i>
+                        </div>
+                        <span>{{ ['Buy&amp;Sell', '회원장터'] | ek }}</span>
+                    </div>
+                    <div class="menu hot" routerLink="/forum/rest">
+                        <div class="icon">
+                            <i class="fa fa-cutlery"></i>
+                        </div>
+                        <span>{{ ['Restaurant', '맛집'] | ek }}</span>
+                    </div>
+                    <div class="menu hot" routerLink="/forum/company">
+                        <div class="icon">
+                            <i class="fa fa-address-card"></i>
+                        </div>
+                        <span>{{ ['Advertise', '업체홍보'] | ek }}</span>
+                    </div>
+        
+        
+                    <div class="menu hot" routerLink="/forum/company_book">
+                        <div class="icon">
+                            <i class="fa fa-address-book"></i>
+                        </div>
+                        <span>{{ ['Company Book', '업소록'] | ek }}</span>
+                    </div>
+    
+
+        
+
+        <div class="menu" routerLink="/forum/business">
+            <div class="icon">
+                <i class="fa fa-building"></i>
+            </div>
+            <span>{{ ['Business', '사업,창업'] | ek }}</span>
+        </div>
+        
+
+        <div class="menu" routerLink="/forum/biz_partner">
+            <div class="icon">
+                <i class="fa fa-user-circle"></i>
+            </div>
+            <span>{{ ['Partners', '동업자구함'] | ek }}</span>
+        </div>
+
+        <div class="menu" routerLink="/forum/money">
+            <div class="icon">
+                <i class="fa fa-usd"></i>
+            </div>
+            <span>{{ ['Money Change', '환전'] | ek }}</span>
+        </div>
+
+
+        <div class="menu" routerLink="/forum/boarding_house">
+            <div class="icon">
+                <i class="fa fa-hotel"></i>
+            </div>
+            <span>{{ ['Boarding House', '하숙집'] | ek }}</span>
+        </div>
+
+
+        <div class="menu" routerLink="/forum/cars">
+            <div class="icon">
+                <i class="fa fa-car"></i>
+            </div>
+            <span>{{ ['Car Market', '중고차'] | ek }}</span>
+        </div>
+
+
+
+
+
+
+
+        <div class="menu" routerLink="/forum/personal">
+            <div class="icon">
+                <i class="fa fa-tags"></i>
+            </div>
+            <span>{{ ['Individual Market', '개인장터'] | ek }}</span>
+        </div>
+        
+        <div class="menu" routerLink="/forum/massage">
+            <div class="icon">
+                <i class="fa fa-heartbeat"></i>
+            </div>
+            <span>{{ ['Massage', '마사지'] | ek }}</span>
+        </div>
+        
+        <div class="menu" routerLink="/forum/rent">
+            <div class="icon">
+                <i class="fa fa-map-o"></i>
+            </div>
+            <span>{{ ['Rent House', '주택임대'] | ek }}</span>
+        </div>
+
+
+
         <div class="menu" routerLink="/forum/phone">
             <div class="icon">
                 <i class="fa fa-mobile-phone"></i>
@@ -335,12 +256,269 @@
             <span>{{ ['Smart Phones', '스마트폰'] | ek }}</span>
         </div>
 
+
+
+
         <div class="menu" routerLink="/forum/food_delivery">
             <div class="icon">
                 <i class="fa fa-truck"></i>
             </div>
             <span>{{ ['Food Delivery', '음식배달'] | ek }}</span>
         </div>
+
+
+
+                </div><!--/.col-->
+
+                <div class="col-12 col-md-4">
+                    <h2>필리핀 생활 정보</h2>
+
+
+        <div class="menu">
+            <div class="icon">
+                <i class="fa fa-krw"></i>
+            </div>
+            <span>{{ ['Life', '필리핀 생활 팁'] | ek }}</span>
+        </div>
+
+                    <div class="menu inactive">
+                        <div class="icon">
+                            <i class="fa fa-tv"></i>
+                        </div>
+                        <span>{{ ['Live TV', '생방송TV'] | ek }}</span>
+                    </div>
+
+                    <div class="menu" routerLink="/forum/hotel">
+                        <div class="icon">
+                            <i class="fa fa-h-square"></i>
+                        </div>
+                        <span>{{ ['Hotel', '호텔'] | ek }}</span>
+                    </div>
+
+
+                    <div class="menu" routerLink="/forum/rentcar">
+                        <div class="icon">
+                            <i class="fa fa-taxi"></i>
+                        </div>
+                        <span>{{ ['Car Rent', '렌트카'] | ek }}</span>
+                    </div>
+
+
+
+        <div class="menu" routerLink="/forum/news">
+            <div class="icon">
+                <i class="fa fa-newspaper-o"></i>
+            </div>
+            <span>{{ ['News', '뉴스'] | ek }}</span>
+        </div>
+
+
+        <div class="menu" routerLink="/forum/tagalog">
+            <div class="icon">
+                <i class="fa fa-hashtag"></i>
+            </div>
+            <span>{{ ['Study Tagalog', '따갈로그'] | ek }}</span>
+        </div>
+        <div class="menu" routerLink="/forum/english">
+            <div class="icon">
+                <i class="fa fa-language"></i>
+            </div>
+            <span>{{ ['Study English', '영어공부'] | ek }}</span>
+        </div>
+
+        <div class="menu" routerLink="/forum/cooking">
+            <div class="icon">
+                <i class="fa fa-cutlery"></i>
+            </div>
+            <span>{{ ['Cooking', '요리게시판'] | ek }}</span>
+        </div>
+
+
+
+        <div class="menu" routerLink="/forum/music_en">
+            <div class="icon">
+                <i class="fa fa-music"></i>
+            </div>
+            <span>{{ ['Music', '음악'] | ek }}</span>
+        </div>
+
+
+
+
+
+        <div class="menu" routerLink="/forum/lifeshot">
+            <div class="icon">
+                <i class="fa fa-photo"></i>
+            </div>
+            <span>{{ ['Phil Photo', '필리핀 사진'] | ek }}</span>
+        </div>
+
+
+        <div class="menu" routerLink="/forum/book">
+            <div class="icon">
+                <i class="fa fa-magic"></i>
+            </div>
+            <span>{{ ['Cultures', '문화생활'] | ek }}</span>
+        </div>
+
+        <div class="menu" routerLink="/event">
+            <div class="icon">
+                <i class="fa fa-gift"></i>
+            </div>
+            <span>{{ ['Events', '이벤트'] | ek }}</span>
+        </div>
+
+
+
+
+        <div class="menu" routerLink="/forum/internet">
+            <div class="icon">
+                <i class="fa fa-wifi"></i>
+            </div>
+            <span>{{ ['Internet', '인터넷'] | ek }}</span>
+        </div>
+        
+        <div class="menu" routerLink="/forum/info">
+            <div class="icon">
+                <i class="fa fa-info-circle"></i>
+            </div>
+            <span>{{ ['Philippines Info', '필리핀정보'] | ek }}</span>
+        </div>
+
+        <div class="menu" routerLink="/forum/typoon">
+            <div class="icon">
+                <i class="fa fa-cloud"></i>
+            </div>
+            <span>{{ ['Typoons', '태풍소식'] | ek }}</span>
+        </div>
+        
+
+
+        <div class="menu" routerLink="/forum/study">
+            <div class="icon">
+                <i class="fa fa-plane"></i>
+            </div>
+            <span>{{ ['Language Study', '어학연수'] | ek }}</span>
+        </div>
+
+
+        <div class="menu" routerLink="/job">
+            <div class="icon">
+                <i class="fa fa-female"></i>
+            </div>
+            <span>{{ ['House Helper', '하우스헬퍼'] | ek }}</span>
+        </div>
+        
+
+        
+        <div class="menu" routerLink="/forum/school">
+            <div class="icon">
+                <i class="fa fa-bank"></i>
+            </div>
+            <span>{{ ['Schools', '학교정보'] | ek }}</span>
+        </div>
+
+        
+        <div class="menu" routerLink="/business">
+            <div class="icon">
+                <i class="fa fa-handshake-o"></i>
+            </div>
+            <span>{{ ['', '기업회원'] | ek }}</span>
+        </div>
+        
+
+
+                </div><!--/.col-->
+            </div><!--/.row-->
+            <div class="row">
+
+                <div class="col-12 col-md-4">
+                    <h2>여행</h2>
+
+
+        <div class="menu" routerLink="/forum/travel">
+            <div class="icon">
+                <i class="fa fa-paper-plane"></i>
+            </div>
+            <span>{{ ['Travel', '여행'] | ek }}</span>
+        </div>
+
+        <div class="menu" routerLink="/forum/travel_photo">
+            <div class="icon">
+                <i class="fa fa-photo"></i>
+            </div>
+            <span>{{ ['Photos', '여행사진'] | ek }}</span>
+        </div>
+
+
+        <div class="menu" routerLink="/forum/travel_story">
+            <div class="icon">
+                <i class="fa fa-commenting"></i>
+            </div>
+            <span>{{ ['Travel Story', '여행후기'] | ek }}</span>
+        </div>
+
+        <div class="menu" routerLink="/forum/travel_free">
+            <div class="icon">
+                <i class="fa fa-subway"></i>
+            </div>
+            <span>{{ ['Free Travel', '자유여행'] | ek }}</span>
+        </div>
+        <div class="menu" routerLink="/forum/travel_good">
+            <div class="icon">
+                <i class="fa fa-thumbs-up"></i>
+            </div>
+            <span>{{ ['Travel spots', '추천여행'] | ek }}</span>
+        </div>
+
+        <div class="menu" routerLink="/forum/pre">
+            <div class="icon">
+                <i class="fa fa-briefcase"></i>
+            </div>
+            <span>{{ ['Prepare Travel', '여행준비'] | ek }}</span>
+        </div>
+
+
+
+        <div class="menu" routerLink="/forum/woman_place">
+            <div class="icon">
+                <i class="fa fa-briefcase"></i>
+            </div>
+            <span>{{ ['Travel Site', '놀거리,볼거리'] | ek }}</span>
+        </div>
+
+        
+
+        <div class="menu" routerLink="/forum/nature">
+            <div class="icon">
+                <i class="fa fa-tint"></i>
+            </div>
+            <span>{{ ['Skin Scuba', '스쿠버'] | ek }}</span>
+        </div>
+
+
+                </div>
+                <div class="col-12 col-md-4">
+                    <h2>이민 이주</h2>
+
+
+
+        <div class="menu" routerLink="/forum/im">
+            <div class="icon">
+                <i class="fa fa-plane"></i>
+            </div>
+            <span>{{ ['Immigrant', '이민'] | ek }}</span>
+        </div>
+
+
+
+        <div class="menu" routerLink="/forum/visa">
+            <div class="icon">
+                <i class="fa fa-folder"></i>
+            </div>
+            <span>{{ ['Visa Passport', '여권비자'] | ek }}</span>
+        </div>
+
 
         <div class="menu" routerLink="/forum/kophil">
             <div class="icon">
@@ -371,109 +549,25 @@
             <span>{{ ['Documents', '서류양식'] | ek }}</span>
         </div>
         
+                </div><!--/.col-->
+                <div class="col-12 col-md-4">
+                    <h2>회원 페이지</h2>
 
-        <div class="menu" routerLink="/forum/golf">
+        <div class="menu hot" routerLink="/setting">
             <div class="icon">
-                <i class="fa fa-street-view"></i>
+                <i class="fa fa-gear"></i>
             </div>
-            <span>{{ ['Golf', '골프'] | ek }}</span>
-        </div>
-
-        <div class="menu" routerLink="/forum/visa">
-            <div class="icon">
-                <i class="fa fa-folder"></i>
-            </div>
-            <span>{{ ['Visa Passport', '여권비자'] | ek }}</span>
-        </div>
-
-        <div class="menu" routerLink="/forum/lookfor">
-            <div class="icon">
-                <i class="fa fa-user-secret"></i>
-            </div>
-            <span>{{ ['Man Wanted', '사람찾기'] | ek }}</span>
-        </div>
-
-        <div class="menu" routerLink="/forum/caution">
-            <div class="icon">
-                <i class="fa fa-warning"></i>
-            </div>
-            <span>{{ ['Cautions', '주의사항'] | ek }}</span>
+            <span>{{ ['Settings', '설정'] | ek }}</span>
         </div>
 
 
-        <div class="menu" routerLink="/forum/case">
+        <div class="menu" routerLink="/message">
             <div class="icon">
-                <i class="fa fa-suitcase"></i>
+                <i class="fa fa-envelope"></i>
             </div>
-            <span>{{ ['Cases', '사건사고'] | ek }}</span>
+            <span>{{ ['Messages', '쪽지'] | ek }}</span>
         </div>
-
-        <div class="menu" routerLink="/forum/school">
-            <div class="icon">
-                <i class="fa fa-bank"></i>
-            </div>
-            <span>{{ ['Schools', '학교정보'] | ek }}</span>
-        </div>
-
-
-        <div class="menu" routerLink="/forum/tagalog">
-            <div class="icon">
-                <i class="fa fa-hashtag"></i>
-            </div>
-            <span>{{ ['Study Tagalog', '따갈로그'] | ek }}</span>
-        </div>
-        <div class="menu" routerLink="/forum/english">
-            <div class="icon">
-                <i class="fa fa-language"></i>
-            </div>
-            <span>{{ ['Study English', '영어공부'] | ek }}</span>
-        </div>
-
-        <div class="menu" routerLink="/forum/cooking">
-            <div class="icon">
-                <i class="fa fa-cutlery"></i>
-            </div>
-            <span>{{ ['Cooking', '요리게시판'] | ek }}</span>
-        </div>
-
-
-        <div class="menu" routerLink="/forum/news_all">
-            <div class="icon">
-                <i class="fa fa-feed"></i>
-            </div>
-            <span>{{ ['Miscellaneous', '잡다한뉴스'] | ek }}</span>
-        </div>
-
-        <div class="menu" routerLink="/forum/column">
-            <div class="icon">
-                <i class="fa fa-clone"></i>
-            </div>
-            <span>{{ ['Columns', '카럼,사설'] | ek }}</span>
-        </div>
-
-
-        <div class="menu" routerLink="/forum/music_en">
-            <div class="icon">
-                <i class="fa fa-music"></i>
-            </div>
-            <span>{{ ['Music', '음악'] | ek }}</span>
-        </div>
-
-
-
-        <div class="menu" routerLink="/forum/book">
-            <div class="icon">
-                <i class="fa fa-magic"></i>
-            </div>
-            <span>{{ ['Cultures', '문화생활'] | ek }}</span>
-        </div>
-
-        <div class="menu" routerLink="/event">
-            <div class="icon">
-                <i class="fa fa-gift"></i>
-            </div>
-            <span>{{ ['Events', '이벤트'] | ek }}</span>
-        </div>
+        
 
 
         <div class="menu" routerLink="/forum/request_to_manager">
@@ -518,6 +612,15 @@
             </div>
             <span>{{ ['Profile', '회원정보'] | ek }}</span>
         </div>
+
+                </div>
+
+            </div><!--/.row-->
+        </div><!--/.container-->
+
+
+
+
 
 
 

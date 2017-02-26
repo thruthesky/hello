@@ -3,6 +3,7 @@ import { Post, POST_DATA } from '../../../../api/philgo-api/v2/post';
 import { FILE_UPLOAD_DATA } from '../../../../api/philgo-api/v2/data';
 import { Router, ActivatedRoute } from '@angular/router';
 import { App } from '../../../../providers/app';
+import { Config } from './../../../../etc/config';
 
 declare var Array;
 declare var navigator;
@@ -14,6 +15,11 @@ declare var Camera;
   templateUrl: 'job-view.html'
 })
 export class JobViewPage {
+
+
+  ek = Config.englishOrKorean;
+  t = Config.translate;
+
 
   form : POST_DATA = <POST_DATA> {
     gid: '',

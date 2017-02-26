@@ -2,11 +2,13 @@
  * @see ./README.md
  */
 import { Component, Input } from '@angular/core';
+import { Config } from './../../../../../etc/config';
 import { PAGES } from '../../../../../api/philgo-api/v2/philgo-api-interface';
 import { Post } from '../../../../../api/philgo-api/v2/post';
 import { MEMBER_LOGIN } from '../../../../../api/philgo-api/v2/member';
 import { Router } from '@angular/router';
 import { App } from '../../../../../providers/app';
+
 @Component({
   selector: 'job-listing',
   templateUrl: 'job-listing.html',
@@ -15,6 +17,10 @@ export class JobListing {
   isPost: boolean = false;
   isComment: boolean = false;
   hideContent: boolean = false;
+
+
+  ek = Config.englishOrKorean;
+  t = Config.translate;
 
   today = new Date();
   currentYear = this.today.getFullYear();

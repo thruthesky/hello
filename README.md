@@ -373,6 +373,23 @@ You do not need to install these module one by one. these are installed by 'npm 
 
 
 
+# DESIGN GUIDELINE
+
+## LAYOUT - Very important
+
+* Desgin only two break of 'small', 'big' size of 'app.size' for RWD design.
+Because in real world, there is only two types of device. Mobile device or computer device.
+
+Translaction) Responsive 디자인에서 'big', 'small' 두가지만 하면된다. 그 이유는 실제 사용자들이 사용하는 장치는 모바일 장치 또는 컴퓨터 두가지 중 하나 밖에 없기 때문이다.
+
+모바일(스마트폰)을 사용하는 경우, 대부분 640px 이하이다. 따라서 그 이상은 컴퓨터 웹 브라우저(또는 넓은 화면 태블릿)이다.
+
+이 경우, 중간 사이즈의 디자인을 할 필요가 없다. 예를 들면, 부트스트랩의 xs, sm, md, lg, xl 와 같이 5 단계로 나누어 디자인을 할 필요가 없다. 왜냐하면 실제로 사용하는 경우 오직, 모바일 크기 또는 데스트탑 크기가 대부분일 것이기 때문이다.
+
+모바일 크기는 기본 또는 app.size == 'small' 이고 웹 브라우저 크기는 'big' 이다.
+
+
+
 
 
 # Form Submission
@@ -550,7 +567,16 @@ Adding this code will make it work, but there are no further explanation on how 
 
 ## Known Bugs - Will not fixed
 
+
+### Post list
+
 * When a forum is clicked, the first page loads twice since there is a cache.
 
     * For this matter, when a user click a forum and another forum in fast, the first forum's second load will be appears on the other forum's page but soon it disappears.
     ( Translation : 캐시 때문에 첫 페이지가 두번 로드되는데, 게시판 2개를 연속으로 이동하면, 첫번째 게시판이 로드 될 때, 두번째 로드되는 실제 데이터가 ..., 두번재 페이지에 나타나는 현상이 있다. )
+
+### Job Index menu
+
+* On action group menu, only my posts has edit/delete buttons which does not look good in design. We do not care for this. since it only appears on my post.
+
+

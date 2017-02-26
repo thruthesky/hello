@@ -24,13 +24,7 @@
         <div class="text">Post</div>
       </li>
 
-      <li class="job-list" (click)="onClickRoute('/job/list')">
-                <span class="icon fa-stack fa-lg">
-                    <i class="background fa fa-circle fa-stack-2x"></i>
-                    <i class="font fa fa-list-alt fa-stack-1x fa-inverse"></i>
-                </span>
-        <div class="text">List</div>
-      </li>
+
 
       <li class="message" *ngIf=" login " (click)="onClickRoute('/message')" >
                 <span class="icon fa-stack fa-lg">
@@ -73,5 +67,4 @@
   </nav>
 </header>
 <job-main-menu [class]=" app.menu ? 'active' : '' "></job-main-menu>
-
 

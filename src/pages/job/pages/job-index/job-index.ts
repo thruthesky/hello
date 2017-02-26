@@ -5,6 +5,7 @@ import { Member, MEMBER_LOGIN } from '../../../../api/philgo-api/v2/member';
 import { Post, SEARCH_QUERY_DATA } from '../../../../api/philgo-api/v2/post';
 import { PageScroll } from './../../../../providers/page-scroll';
 import { App } from '../../../../providers/app';
+import { Config } from './../../../../etc/config';
 import * as _ from 'lodash';
 
 declare var Array;
@@ -15,16 +16,19 @@ declare var Array;
 })
 export class JobIndexPage{
 
+  ek = Config.englishOrKorean;
+  t = Config.translate;
+
   login: MEMBER_LOGIN = {
     id: ''
   };
   page_no: number = 0;
-  limit: number = 6;
+  limit: number = 10;
   numbers = Array.from(new Array(20), (x,i) => i+1);
 
   //variables used in range
   sharePath = 'job/view';
-  minAge: number = 18;
+  minAge: number = 2;
   maxAge: number = 60;
   minAgeRange = Array.from(new Array( this.maxAge - this.minAge), (x,i) => i+1);
   maxAgeRange = this.minAgeRange;

@@ -2,43 +2,80 @@
   <ng-container *ngFor=" let post of page[mode] ">
     <div class="post" [ngClass]="{more: post.more}" *ngIf="post.idx && post.deleted == '0' ">
       <div class="content">
-        <div class="profile">
-          <img class="profile-photo" src="{{post.photos.length ? post.photos[0]['url_thumbnail'] : urlPhoto}}" alt="{{post.text_1}}">
+
+        <div class="profile cursor" (click)=" post.more = ! post.more " [class.more] = "post.more">
+          <div class="photo">
+            <img src="{{post.photos.length ? post.photos[0]['url_thumbnail'] : urlPhoto}}" alt="{{post.text_1}}">
+          </div>
+
+
+        <div class="info"  >
+          <div class="text name">
+              {{post.text_1}} {{post.text_2}} {{post.text_3}}
+          </div>
+          <div class="text bio">
+            <span class="category">{{ t( post.sub_category ) }}</span>,
+
+            <span class="gender">{{ t(post.char_1) }}</span>/<span class="age">{{ currentYear - post.int_2 }}{{ ek('','세') }}</span>
+
+          </div>
+          
+          <div class="text">{{ t('mobile') }} : {{post.varchar_4}}</div>
         </div>
-        <div class="info" >
-          <div class="text">{{post.sub_category}}</div>
-          <div class="text">{{ post.char_1=='M' ? 'Male' : 'Female'}}</div>
-          <div class="text">Age: {{currentYear - post.int_2}}</div>
-          <div class="text">Experience: {{post.int_1}}</div>
-          <div class="text name">Name: {{post.text_1}} {{post.text_2}} {{post.text_3}}</div>
-        </div>
+
         <div class="sub-info" *ngIf=" post.more ">
-          <div class="text">Mobile : {{post.varchar_4}}</div>
-          <div class="text">Address : {{post.varchar_1}}</div>
-          <div class="text">Province : {{post.varchar_2}}</div>
-          <div class="text">City : {{post.varchar_3}}</div>
-          <div class="message">Applicant Message : {{post.varchar_6}}</div>
+          <div class="text exp">{{ t('experience') }} : {{post.int_1}} 
+          {{ t('years') }}</div>
+          <div class="text">{{ ek('Address','경력') }} : {{post.varchar_1}}</div>
+          <!-- div class="text">{{ ek('Province','경력') }} : {{post.varchar_2}}</div -->
+          <div class="text">{{ ek('City','지역') }} : {{post.varchar_3}}</div>
+          <div class="text message">{{post.varchar_6}}</div>
         </div>
+
+
+        </div>
+
         <ul class="action-group">
-          <li class="cursor" *ngIf=" post.member.id == login.id " (click)="onClickEdit(post.idx)">
-            <i class="font fa fa-pencil"></i>
+          <li class="cursor" *ngIf=" post.more && post.member.id == login.id " (click)="onClickEdit(post.idx)">
+            
+            <span class="fa-stack fa-lg">
+              <i class="fa fa-circle fa-stack-2x"></i>
+              <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
+            </span>
+
             <div>Edit</div>
           </li>
-          <li class="cursor" *ngIf=" post.member.id == login.id " (click)="onClickDelete( post )">
-            <i class="font fa fa-trash-o"></i>
+          <li class="cursor" *ngIf=" post.more && post.member.id == login.id " (click)="onClickDelete( post )">
+            
+            <span class="fa-stack fa-lg">
+              <i class="fa fa-circle fa-stack-2x"></i>
+              <i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
+            </span>
+
             <div>Delete</div>
           </li>
           <li class="cursor" (click)="post.share = !post.share">
-            <i class="fa fa-share-alt"></i>
-            <div>Share</div>
+            
+            <span class="fa-stack fa-lg">
+              <i class="fa fa-circle fa-stack-2x"></i>
+              <i class="fa fa-share-alt fa-stack-1x fa-inverse"></i>
+            </span>
+            <div>{{ ek('Share', '링크') }}</div>
           </li>
-          <li class="cursor" (click)=" post.more = ! post.more " >
-            <i class="font fa fa-angle-double-down"></i>
-            <div>{{ post.more  ? 'Less' : 'More' }}</div>
+          <li class="cursor" (click)=" post.more = ! post.more ">
+
+            <span class="fa-stack fa-lg">
+              <i class="fa fa-circle fa-stack-2x"></i>
+              <i class="fa fa-angle-double-down fa-stack-1x fa-inverse"></i>
+            </span>
+            <div>{{ post.more  ? ek('Less','닫기') : ek('More','더보기') }}</div>
+
+
           </li>
         </ul>
-        <div *ngIf="post.share" class="share">
-          <span class="text">Share</span>
+
+        <div *ngIf="post.share" class="share link">
+          <span class="text">{{ ek('Share', '링크') }}</span>
           <input class="shareLink text cursor" onClick="this.setSelectionRange(0, this.value.length)" value="{{post.link}}" readonly/>
         </div>
       </div>
