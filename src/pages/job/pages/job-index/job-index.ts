@@ -28,7 +28,7 @@ export class JobIndexPage{
 
   //variables used in range
   sharePath = 'job/view';
-  minAge: number = 2;
+  minAge: number = 1;
   maxAge: number = 60;
   minAgeRange = Array.from(new Array( this.maxAge - this.minAge), (x,i) => i+1);
   maxAgeRange = this.minAgeRange;
@@ -63,6 +63,8 @@ export class JobIndexPage{
   inPageLoading: boolean = false; // true while loading a page of posts.
   noMorePosts: boolean = false; //
 
+  searchAll: boolean = true;
+  searchWithAge : boolean = false;
   searchPattern : boolean  = false;
 
   constructor(private region: PhilippineRegion,
@@ -102,11 +104,26 @@ export class JobIndexPage{
   ngOnDestroy() {
     this.pageScroll.stop();
   }
+  searchClear(){
+    this.searchAll = true;
+    this.searchWithAge = false;
+    this.query.sub_category = 'all';
+    this.query.varchar_2 = 'all';
+    this.query.varchar_3 = 'all';
+    this.query.int_1 = 'all';
+    this.query.name = '';
+    this.query.male = false;
+    this.query.female = false;
+    this.search();
+  }
 
-  search() {
+  search( filter: boolean = false ) {
     if ( this.inPageLoading ) {
       //console.info("in page loading");
       return;
+    }
+    if ( filter ) {
+      this.searchAll = false;
     }
     this.searchPattern = false;
     this.inPageLoading = true;
@@ -115,11 +132,14 @@ export class JobIndexPage{
     this.pages = [];
     this.page_no = 1;
 
-    let min = this.currentYear-this.minAgeSelected;
-    let max = this.currentYear-this.maxAgeSelected;
-    //ageRange
-    this.condition+= " AND int_2 <= '"+ min +"'"; //min age
-    this.condition+= " AND int_2 >= '"+ max +"'"; //max age
+    if( this.searchWithAge ) {
+      let min = this.currentYear - this.minAgeSelected;
+      let max = this.currentYear - this.maxAgeSelected;
+      //ageRange
+      this.condition += " AND int_2 <= '" + min + "'"; //min age
+      this.condition += " AND int_2 >= '" + max + "'"; //max age
+    }
+
     //profession
     if( this.query.sub_category != 'all') this.condition += " AND sub_category = '"+ this.query.sub_category +"'";
     //province
@@ -138,6 +158,7 @@ export class JobIndexPage{
       gender = this.query.male ? 'm' : 'f';
       this.condition += " AND char_1 = '"+ gender +"'";
     }
+
 
     this.debounceDoSearch();
     //this.doSearch();
@@ -219,15 +240,23 @@ export class JobIndexPage{
   }
 
   onChange() {
-      this.search();
+    console.log('onChange::')
+    this.searchAll = false;
+    this.search();
   }
 
   minRangeChange(){
+    //console.log('minRangeChange::');
+    this.searchWithAge = true;
+    this.searchAll = false;
     this.betweenAge = this.minAgeSelected - 1;
     this.maxAgeRange = this.getRange( this.minAgeSelected, this.maxAge);
     this.search();
   }
   maxRangeChange(){
+    //console.log('maxRangeChange');
+    this.searchWithAge = true;
+    this.searchAll = false;
     this.minAgeRange = this.getRange( this.minAge, this.maxAgeSelected);
     this.search();
   }
