@@ -60,7 +60,6 @@
         <label class="text" *ngIf="showCities">{{ ek('City', '도시') }}</label>
         <div class="input">
           <select class="form-control" id="searchByCities" name="city" [(ngModel)]="query.varchar_3" (change)="search(true)">
-            <option value="all">{{ ek('All', '전체') }}</option>
             <option *ngFor="let key of cityKeys" [value]="key">{{cities[key]}}</option>
           </select>
         </div>

@@ -105,7 +105,9 @@ export class JobIndexPage{
     this.pageScroll.stop();
   }
   searchClear(){
+    this.searchBy = {};
     this.searchAll = true;
+    this.showCities = false;
     this.searchWithAge = false;
     this.query.sub_category = 'all';
     this.query.varchar_2 = 'all';
@@ -131,7 +133,7 @@ export class JobIndexPage{
       //console.info("in page loading");
       return;
     }
-    if ( filter ) {
+    if ( filter && this.searchAll == true ) {
       this.searchAll = false;
     }
     this.searchOption();
@@ -248,29 +250,27 @@ export class JobIndexPage{
       this.query.varchar_3 = 'all';
       this.showCities = false;
     }
-    this.search();
+    this.search(true);
   }
 
   onChange() {
     console.log('onChange::')
     this.searchAll = false;
-    this.search();
+    this.search(true);
   }
 
   minRangeChange(){
     //console.log('minRangeChange::');
     this.searchWithAge = true;
-    this.searchAll = false;
     this.betweenAge = this.minAgeSelected - 1;
     this.maxAgeRange = this.getRange( this.minAgeSelected, this.maxAge);
-    this.search();
+    this.search(true);
   }
   maxRangeChange(){
     //console.log('maxRangeChange');
     this.searchWithAge = true;
-    this.searchAll = false;
     this.minAgeRange = this.getRange( this.minAge, this.maxAgeSelected);
-    this.search();
+    this.search(true);
   }
   getRange(min , max) {
     return Array.from(new Array( max - min), (x,i) => i+1);
@@ -292,6 +292,7 @@ export class JobIndexPage{
   onClickShowMyPost() {
     //console.log('onClickShowMyPost',this.login);
     this.searchOption();
+    this.searchBy = {} ;
     this.myPost = true;
     this.condition = " AND user_id = '" + this.login.id + "'";
     this.debounceDoSearch();
