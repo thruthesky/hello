@@ -152,7 +152,12 @@ export class JobIndexPage{
     //province
     if( this.query.varchar_2 != 'all') this.condition += " AND varchar_2 = '"+ this.query.varchar_2 +"'";
     //city
-    if( this.query.varchar_3 != 'all') this.condition += " AND varchar_3 = '"+ this.query.varchar_3 +"'";
+    if( this.query.varchar_3 != 'all' && this.query.varchar_2 == this.query.varchar_3 ) {
+      this.condition += " AND varchar_3 LIKE '%"+ this.query.varchar_3 +"%'";
+    }
+    else if( this.query.varchar_3 != 'all') {
+      this.condition += " AND varchar_3 = '"+ this.query.varchar_3 +"'";
+    }
     //work experience
     if( this.query.int_1 != 'all') this.condition += " AND int_1 = '"+ this.query.int_1 +"'";
     //name

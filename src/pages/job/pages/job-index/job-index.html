@@ -12,10 +12,6 @@
     <nav class="search-form" *ngIf=" (searchBy | json) != '{}' " [class.more]=" searchBy.more ">
 
       <div class="row-container" *ngIf=" searchBy.more ">
-        <div class="btn btn-primary btn-sm my-post" (click)="onClickShowMyPost()">Show My Posts</div>
-      </div>
-
-      <div class="row-container" *ngIf=" searchBy.more ">
         <label class="text">{{ ek('Gender', '성별') }}</label>
         <div class="input">
           <label class="form-check-inline">
@@ -95,6 +91,10 @@
         <div class="input">
           <input class="form-control" type="text" id="name"  [(ngModel)]="query.name" (keyup)="onChange()" placeholder="Input Name...">
         </div>
+      </div>
+
+      <div class="row-container" *ngIf=" searchBy.more ">
+        <div class="btn btn-primary btn-sm my-post" (click)="onClickShowMyPost()">Show My Posts</div>
       </div>
 
       <i class="close fa fa-times" (click)=" searchBy = {} "></i>
