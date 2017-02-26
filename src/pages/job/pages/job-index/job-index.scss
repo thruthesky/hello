@@ -31,6 +31,7 @@ job-index .search-form {            /// search form
   color: #eee;
   background-color: #74858d;
   .row-container {
+    margin-bottom: .5em;
     &>label.text {
       clear: both;
     }
@@ -49,6 +50,7 @@ job-index .search-form {            /// search form
       &.range {
         margin-left: 4em;
         margin-bottom: .5em;
+        margin-right: 0;
       }
     }
 
