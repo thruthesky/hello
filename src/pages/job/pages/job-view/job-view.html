@@ -12,21 +12,21 @@
       </div>
 
       <div class="row">
-        <label for="first_name" class="col-12">{{ ek('Name', '이름') }}</label>
+        <label class="col-12">{{ ek('Name', '이름') }}</label>
         <div class="col-12">
           <div class="text">{{form.text_1}} {{form.text_2}} {{form.text_3}}</div>
         </div>
       </div>
 
       <div class="row">
-        <label for="mobile" class="col-12">{{ ek('Mobile', '전화') }} #</label>
+        <label class="col-12">{{ ek('Mobile', '전화') }} #</label>
         <div class="col-12">
           <div class="text">{{form.varchar_4}}</div>
         </div>
       </div>
 
       <div class="row">
-        <label for="address" class="col-12">{{ ek('Address','주소') }}</label>
+        <label class="col-12">{{ ek('Address','주소') }}</label>
         <div class="col-12">
           <div class="text">{{form.varchar_1}}, {{form.varchar_3}}, {{form.varchar_2}}</div>
         </div>
@@ -35,9 +35,9 @@
 
 
       <div class="row">
-        <label for="birthday" class="col-12">{{ ek('Birthday','생년월일') }}</label>
+        <label class="col-12">{{ ek('Birthday','생년월일') }}</label>
         <div class="col-12">
-          <div class="text">{{form.varchar_5}}</div>
+          <div class="text">{{form.varchar_5}} ({{ currentYear - form.int_2 }} year's old)</div>
         </div>
       </div>
 
@@ -49,7 +49,7 @@
       </div>
 
       <div class="row">
-        <label class="col-12" for="workExperience">{{ ek('Work Experience','경력') }}</label>
+        <label class="col-12">{{ ek('Work Experience','경력') }}</label>
         <div class="col-12">
           <div class="text">{{form.int_1 + ' years'}}</div>
         </div>
@@ -57,14 +57,14 @@
 
 
       <div class="row">
-        <label class="col-12"  for="workProfession">{{ ek('Work Profession','직업') }}</label>
+        <label class="col-12">{{ ek('Work Profession','직업') }}</label>
         <div class="col-12">
           <div class="text">{{form.sub_category}}</div>
         </div>
       </div>
 
       <div class="row">
-        <label class="col-12" for="personalContent">{{ ek('Personal Message','메세지') }}</label>
+        <label class="col-12">{{ ek('Personal Message','메세지') }}</label>
         <div class="col-12">
           <div class="text">{{form.varchar_6}}</div>
         </div>
