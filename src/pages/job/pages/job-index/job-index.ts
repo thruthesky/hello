@@ -62,7 +62,7 @@ export class JobIndexPage{
   scrollCount = 0;
   inPageLoading: boolean = false; // true while loading a page of posts.
   noMorePosts: boolean = false; //
-
+  myPost:boolean = false;
   searchAll: boolean = true;
   searchWithAge : boolean = false;
   searchPattern : boolean  = false;
@@ -117,6 +117,15 @@ export class JobIndexPage{
     this.search();
   }
 
+  searchOption(){
+    this.searchPattern = false;
+    this.inPageLoading = true;
+    this.noMorePosts = false;
+    this.condition = '';
+    this.pages = [];
+    this.page_no = 1;
+  }
+
   search( filter: boolean = false ) {
     if ( this.inPageLoading ) {
       //console.info("in page loading");
@@ -125,12 +134,10 @@ export class JobIndexPage{
     if ( filter ) {
       this.searchAll = false;
     }
-    this.searchPattern = false;
-    this.inPageLoading = true;
-    this.noMorePosts = false;
-    this.condition = '';
-    this.pages = [];
-    this.page_no = 1;
+    this.searchOption();
+    this.myPost = false;
+
+
 
     if( this.searchWithAge ) {
       let min = this.currentYear - this.minAgeSelected;
@@ -276,6 +283,13 @@ export class JobIndexPage{
 
   onClickMore(){
     this.searchBy = (!this.searchBy.more) ? this.searchBy = { profession: true, more: true,location: true } : {};
+  }
+  onClickShowMyPost() {
+    //console.log('onClickShowMyPost',this.login);
+    this.searchOption();
+    this.myPost = true;
+    this.condition = " AND user_id = '" + this.login.id + "'";
+    this.debounceDoSearch();
   }
 
 }

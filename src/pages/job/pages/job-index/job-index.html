@@ -9,97 +9,104 @@
       <button type="button" class="btn btn-primary btn-sm" (click)="onClickMore()">{{ ek('More Option', '옵션 더보기') }}</button>
     </nav>
 
+    <nav class="search-form" *ngIf=" (searchBy | json) != '{}' " [class.more]=" searchBy.more ">
 
-          <nav class="search-form" *ngIf=" (searchBy | json) != '{}' " [class.more]=" searchBy.more ">
+      <div class="row-container" *ngIf=" searchBy.more ">
+        <div class="btn btn-primary btn-sm my-post" (click)="onClickShowMyPost()">Show My Posts</div>
+      </div>
 
-            <div class="row-container" *ngIf=" searchBy.more ">
-              <label class="text">{{ ek('Gender', '성별') }}</label>
-              <div class="input">
-                <label class="form-check-inline">
-                  <input type="checkbox" name="genderRadio" id="male" [(ngModel)]="query.male" (change)="search(true)"> {{ ek('Male','남') }}
-                </label>
-                <label class="form-check-inline">
-                  <input type="checkbox" name="genderRadio" id="female" [(ngModel)]="query.female" (change)="search(true)"> {{ ek('Female', '여') }}
-                </label>
-              </div>
-            </div>
+      <div class="row-container" *ngIf=" searchBy.more ">
+        <label class="text">{{ ek('Gender', '성별') }}</label>
+        <div class="input">
+          <label class="form-check-inline">
+            <input type="checkbox" name="genderRadio" id="male" [(ngModel)]="query.male" (change)="search(true)"> {{ ek('Male','남') }}
+          </label>
+          <label class="form-check-inline">
+            <input type="checkbox" name="genderRadio" id="female" [(ngModel)]="query.female" (change)="search(true)"> {{ ek('Female', '여') }}
+          </label>
+        </div>
+      </div>
 
-            <div class="row-container" *ngIf=" searchBy.more ">
-              <label class="text" for="workExperience">{{ ek('Experience', '경력') }}</label>
-              <div class="input">
-                <select class="form-control" id="workExperience" name="workExperience" [(ngModel)]="query.int_1" (change)="search(true)">
-                  <option value="all">{{ ek('All','경력 무관') }}</option>
-                  <option value="0">{{ ek('No Work Experience', '경력이 없는 사람만') }}</option>
-                  <option *ngFor="let number of numbers" [value]="number">{{number}} {{ ek('years', '년') }}</option>
-                </select>
-              </div>
-            </div>
+      <div class="row-container" *ngIf=" searchBy.more ">
+        <label class="text" for="workExperience">{{ ek('Experience', '경력') }}</label>
+        <div class="input">
+          <select class="form-control" id="workExperience" name="workExperience" [(ngModel)]="query.int_1" (change)="search(true)">
+            <option value="all">{{ ek('All','경력 무관') }}</option>
+            <option value="0">{{ ek('No Work Experience', '경력이 없는 사람만') }}</option>
+            <option *ngFor="let number of numbers" [value]="number">{{number}} {{ ek('years', '년') }}</option>
+          </select>
+        </div>
+      </div>
 
 
-            <div class="row-container" *ngIf=" searchBy.profession ">
-              <label class="text"  for="workProfession">{{ ek('Profession', '직업') }}</label>
-              <div class="input">
-                <select class="form-control" id="workProfession" name="workProfession" [(ngModel)]="query.sub_category" (change)="search(true)">
-                  <option value="all">{{ ek('All', '전체') }}</option>
-                  <option value="housemaid">{{ ek('House Maid', '하우스메이드') }}</option>
-                  <option value="driver">{{ ek('Driver', '운전기사') }}</option>
-                </select>
-              </div>
-            </div>
+      <div class="row-container" *ngIf=" searchBy.profession ">
+        <label class="text"  for="workProfession">{{ ek('Profession', '직업') }}</label>
+        <div class="input">
+          <select class="form-control" id="workProfession" name="workProfession" [(ngModel)]="query.sub_category" (change)="search(true)">
+            <option value="all">{{ ek('All', '전체') }}</option>
+            <option value="housemaid">{{ ek('House Maid', '하우스메이드') }}</option>
+            <option value="driver">{{ ek('Driver', '운전기사') }}</option>
+          </select>
+        </div>
+      </div>
 
-            <div class="row-container" *ngIf=" searchBy.location ">
-              <label class="text">{{ ek('Province', '지역') }}</label>
-              <div class="input">
-                <select class="form-control" id="searchByProvince" name="province" [(ngModel)]="query.varchar_2" (change)="onClickProvince()">
-                  <option value="all">{{ ek('All', '전 지역') }}</option>
-                  <option *ngFor="let province of provinces" [value]="province">{{province}}</option>
-                </select>
-              </div>
-            </div>
+      <div class="row-container" *ngIf=" searchBy.location ">
+        <label class="text">{{ ek('Province', '지역') }}</label>
+        <div class="input">
+          <select class="form-control" id="searchByProvince" name="province" [(ngModel)]="query.varchar_2" (change)="onClickProvince()">
+            <option value="all">{{ ek('All', '전 지역') }}</option>
+            <option *ngFor="let province of provinces" [value]="province">{{province}}</option>
+          </select>
+        </div>
+      </div>
 
-            <div class="row-container" *ngIf="showCities && searchBy.location">
-              <label class="text" *ngIf="showCities">{{ ek('City', '도시') }}</label>
-              <div class="input">
-                <select class="form-control" id="searchByCities" name="city" [(ngModel)]="query.varchar_3" (change)="search(true)">
-                  <option value="all">{{ ek('All', '전체') }}</option>
-                  <option *ngFor="let key of cityKeys" [value]="key">{{cities[key]}}</option>
-                </select>
-              </div>
-            </div>
+      <div class="row-container" *ngIf="showCities && searchBy.location">
+        <label class="text" *ngIf="showCities">{{ ek('City', '도시') }}</label>
+        <div class="input">
+          <select class="form-control" id="searchByCities" name="city" [(ngModel)]="query.varchar_3" (change)="search(true)">
+            <option value="all">{{ ek('All', '전체') }}</option>
+            <option *ngFor="let key of cityKeys" [value]="key">{{cities[key]}}</option>
+          </select>
+        </div>
+      </div>
 
-            <div class="row-container" *ngIf=" searchBy.more ">
-              <label class="text">{{ ek('Age Range', '나이 제한') }}</label>
-              <div class="input">
-                <label class="range text">{{ ek('Min', '최소' ) }}</label>
-                <div class="range input">
-                  <select class="form-control" id="searchByMinAge" name="minAge" [(ngModel)]="minAgeSelected" (change)="minRangeChange()">
-                    <option [value]="minAge">{{minAge}}</option>
-                    <option *ngFor="let min of minAgeRange" [value]="min+minAge">{{min+minAge}}</option>
-                  </select>
-                </div>
-                <label class="range text">{{ ek('Max', '최대') }}</label>
-                <div class="range input">
-                  <select class="form-control" id="searchByMaxAge" name="maxAge" [(ngModel)]="maxAgeSelected" (change)="maxRangeChange()">
-                    <option *ngFor="let max of maxAgeRange" [value]="max+betweenAge">{{max+betweenAge}}</option>
-                    <option [value]="maxAge">{{maxAge}}</option>
-                  </select>
-                </div>
-              </div>
-            </div>
+      <div class="row-container" *ngIf=" searchBy.more ">
+        <label class="text">{{ ek('Age Range', '나이 제한') }}</label>
+        <div class="input">
+          <label class="range text">{{ ek('Min', '최소' ) }}</label>
+          <div class="range input">
+            <select class="form-control" id="searchByMinAge" name="minAge" [(ngModel)]="minAgeSelected" (change)="minRangeChange()">
+              <option [value]="minAge">{{minAge}}</option>
+              <option *ngFor="let min of minAgeRange" [value]="min+minAge">{{min+minAge}}</option>
+            </select>
+          </div>
+          <label class="range text">{{ ek('Max', '최대') }}</label>
+          <div class="range input">
+            <select class="form-control" id="searchByMaxAge" name="maxAge" [(ngModel)]="maxAgeSelected" (change)="maxRangeChange()">
+              <option *ngFor="let max of maxAgeRange" [value]="max+betweenAge">{{max+betweenAge}}</option>
+              <option [value]="maxAge">{{maxAge}}</option>
+            </select>
+          </div>
+        </div>
+      </div>
 
-            <div class="row-container" *ngIf=" searchBy.more ">
-              <label for="name" class="text">{{ ek('Name', '이름 검색') }}</label>
-              <div class="input">
-                <input class="form-control" type="text" id="name"  [(ngModel)]="query.name" (keyup)="onChange()" placeholder="Input Name...">
-              </div>
-            </div>
+      <div class="row-container" *ngIf=" searchBy.more ">
+        <label for="name" class="text">{{ ek('Name', '이름 검색') }}</label>
+        <div class="input">
+          <input class="form-control" type="text" id="name"  [(ngModel)]="query.name" (keyup)="onChange()" placeholder="Input Name...">
+        </div>
+      </div>
 
-            <i class="close fa fa-times" (click)=" searchBy = {} "></i>
-          </nav>
+      <i class="close fa fa-times" (click)=" searchBy = {} "></i>
 
-          <div *ngIf=" searchPattern " class="search-result">
-            <div class="search-info">
-              <span>{{ ek('Searching','검색') }}:</span><span *ngIf=" ! pages?.length"> No {{ t( query.sub_category!='all' ? query.sub_category : '' ) }} </span>
+    </nav>
+
+    <div *ngIf=" searchPattern " class="search-result">
+      <div class="search-info">
+        <span>{{ ek('Searching','검색') }}:</span>
+        <span *ngIf="myPost"> My Post</span>
+        <span *ngIf="!myPost">
+              <span *ngIf=" ! pages?.length"> No {{ t( query.sub_category!='all' ? query.sub_category : '' ) }} </span>
               <span *ngIf="query.sub_category && pages?.length">{{ t(query.sub_category) }} </span><span>{{ ek('job', ', ') }}</span>
               <span *ngIf="searchWithAge">{{ ek('with Age between', '나이') }} {{ minAgeSelected }} {{ ek('and', '부터') }} {{ maxAgeSelected }} {{ ek('','까지') }}</span>
               <span *ngIf="query.male">{{ ek('and', ',') }} {{ ek('Male', '남') }}</span>
@@ -108,21 +115,22 @@
               <span *ngIf="query.varchar_2 != 'all'">{{ ek('and', ',') }}  {{ ek('province', '지역') }}  "{{query.varchar_2}}"</span>
               <span *ngIf="query.varchar_3 != 'all' && query.varchar_2 != query.varchar_3">{{ ek('and', ',') }}  {{ ek('city', '도시') }} "{{query.varchar_3}}"</span>
               <span *ngIf="query.name">{{ ek('and', ',') }} {{ ek('name', '이름') }}  "{{query.name}}"</span>
-              <i class="fa fa-times" *ngIf="!searchAll" (click)="searchClear()"></i>
-            </div>
+        </span>
+        <i class="fa fa-times" *ngIf="!searchAll || myPost" (click)="searchClear()"></i>
+      </div>
 
-            <job-listing
-                    [pages]="pages" [root]="pages"
-                    [login]="login"
-                    [mode] =" 'search' "
-            ></job-listing>
+      <job-listing
+        [pages]="pages" [root]="pages"
+        [login]="login"
+        [mode] =" 'search' "
+      ></job-listing>
 
-          </div><!--/.pages.container-->
+    </div><!--/.pages.container-->
 
-          <div [class.active]=" ! noMorePosts " class="no-more-posts in-page-loading"><i class="fa fa-spinner fa-spin"></i> {{ ek('Loading', '불러오는 중') }} ...</div>
-          <div [class.active]=" noMorePosts " class="no-more-posts">{{ ek('No more posts', '더 이상 검색 결과가 없습니다.') }}</div>
+    <div [class.active]=" ! noMorePosts " class="no-more-posts in-page-loading"><i class="fa fa-spinner fa-spin"></i> {{ ek('Loading', '불러오는 중') }} ...</div>
+    <div [class.active]=" noMorePosts " class="no-more-posts">{{ ek('No more posts', '더 이상 검색 결과가 없습니다.') }}</div>
 
 
-</section><!--/.center-->
-<job-right *ngIf=" app.size == 'big' "></job-right>
+  </section><!--/.center-->
+  <job-right *ngIf=" app.size == 'big' "></job-right>
 </section><!--/section.content-->
