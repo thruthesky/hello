@@ -61,7 +61,9 @@ export class JobIndexPage{
   scrollListener = null;
   scrollCount = 0;
   inPageLoading: boolean = false; // true while loading a page of posts.
-  noMorePosts: boolean = false; // true when there are no more posts of a page.
+  noMorePosts: boolean = false; //
+
+  searchPattern : boolean  = false;
 
   constructor(private region: PhilippineRegion,
               private post: Post,
@@ -106,6 +108,7 @@ export class JobIndexPage{
       //console.info("in page loading");
       return;
     }
+    this.searchPattern = false;
     this.inPageLoading = true;
     this.noMorePosts = false;
     this.condition = '';
@@ -162,6 +165,7 @@ export class JobIndexPage{
 
   displayPosts( page ) {
     this.inPageLoading = false;
+    this.searchPattern = true;
     if ( page.search.length == 0 ) {
       this.noMorePosts = true;
       this.app.renderPage();

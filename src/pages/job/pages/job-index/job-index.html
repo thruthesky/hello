@@ -97,10 +97,10 @@
             <i class="close fa fa-times" (click)=" searchBy = {} "></i>
           </nav>
 
-          <div *ngIf=" pages?.length " class="search-result">
+          <div *ngIf=" searchPattern " class="search-result">
             <div class="search-info">
-              <span>{{ ek('Searching','검색') }}:</span>
-              <span *ngIf="query.sub_category">{{ t(query.sub_category) }} {{ ek('job with', ', ') }}</span>
+              <span>{{ ek('Searching','검색') }}:</span><span *ngIf=" ! pages?.length"> No {{ t( query.sub_category!='all' ? query.sub_category : '' ) }} </span>
+              <span *ngIf="query.sub_category && pages?.length">{{ t(query.sub_category) }} </span><span>{{ ek('job with', ', ') }}</span>
               <span>{{ ek('Age between', '나이') }} {{ minAgeSelected }} {{ ek('and', '부터') }} {{ maxAgeSelected }} {{ ek('','까지') }}</span>
               <span *ngIf="query.male">{{ ek('and', ',') }} {{ ek('Male', '남') }}</span>
               <span *ngIf="query.female">{{ ek('and', ',') }}  {{ ek('Female', '여') }}</span>
