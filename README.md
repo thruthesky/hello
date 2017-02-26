@@ -1,6 +1,9 @@
-# Ionic Hack
+# Hello Philippines
 
-Ionic 2 project hack by JaeHo Song to use Angular2 framework with ionic 2.
+Hello Philippines Web/App formorely 'sonub' which is built with 'Aonic'.
+
+
+
 
 ## Repository
 
