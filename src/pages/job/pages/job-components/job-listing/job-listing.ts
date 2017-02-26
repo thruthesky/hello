@@ -17,6 +17,7 @@ export class JobListing {
   isPost: boolean = false;
   isComment: boolean = false;
   hideContent: boolean = false;
+  cordova = true;
 
 
   ek = Config.englishOrKorean;
@@ -36,6 +37,7 @@ export class JobListing {
   constructor(private router: Router,
               private _post: Post,
               public app: App) {
+    this.cordova = this._post.isCordova();
     console.log("JobListing()");
   }
 

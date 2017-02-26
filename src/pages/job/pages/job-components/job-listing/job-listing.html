@@ -54,7 +54,7 @@
 
             <div>Delete</div>
           </li>
-          <li class="cursor" (click)="post.share = !post.share">
+          <li class="cursor" *ngIf=" ! cordova " (click)="post.share = !post.share">
 
             <span class="fa-stack fa-lg">
               <i class="fa fa-circle fa-stack-2x"></i>
