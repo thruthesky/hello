@@ -19,12 +19,12 @@
             <span class="gender">{{ t(post.char_1) }}</span>/<span class="age">{{ currentYear - post.int_2 }}{{ ek('','세') }}</span>
 
           </div>
-          
+
           <div class="text">{{ t('mobile') }} : {{post.varchar_4}}</div>
         </div>
 
         <div class="sub-info" *ngIf=" post.more ">
-          <div class="text exp">{{ t('experience') }} : {{post.int_1}} 
+          <div class="text exp">{{ t('experience') }} : {{post.int_1}}
           {{ t('years') }}</div>
           <div class="text">{{ ek('Address','경력') }} : {{post.varchar_1}}</div>
           <!-- div class="text">{{ ek('Province','경력') }} : {{post.varchar_2}}</div -->
@@ -37,7 +37,7 @@
 
         <ul class="action-group">
           <li class="cursor" *ngIf=" post.more && post.member.id == login.id " (click)="onClickEdit(post.idx)">
-            
+
             <span class="fa-stack fa-lg">
               <i class="fa fa-circle fa-stack-2x"></i>
               <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
@@ -46,7 +46,7 @@
             <div>Edit</div>
           </li>
           <li class="cursor" *ngIf=" post.more && post.member.id == login.id " (click)="onClickDelete( post )">
-            
+
             <span class="fa-stack fa-lg">
               <i class="fa fa-circle fa-stack-2x"></i>
               <i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
@@ -55,7 +55,7 @@
             <div>Delete</div>
           </li>
           <li class="cursor" (click)="post.share = !post.share">
-            
+
             <span class="fa-stack fa-lg">
               <i class="fa fa-circle fa-stack-2x"></i>
               <i class="fa fa-share-alt fa-stack-1x fa-inverse"></i>
@@ -66,7 +66,7 @@
 
             <span class="fa-stack fa-lg">
               <i class="fa fa-circle fa-stack-2x"></i>
-              <i class="fa fa-angle-double-down fa-stack-1x fa-inverse"></i>
+              <i class="fa fa-stack-1x fa-inverse" [ngClass]="{ 'fa-angle-double-up' : post.more, 'fa-angle-double-down' : !post.more}"></i>
             </span>
             <div>{{ post.more  ? ek('Less','닫기') : ek('More','더보기') }}</div>
 
