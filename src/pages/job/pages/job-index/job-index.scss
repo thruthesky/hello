@@ -31,6 +31,9 @@ job-index .search-form {            /// search form
   color: #eee;
   background-color: #74858d;
   .row-container {
+    &>label.text {
+      clear: both;
+    }
     .text {
       float: left;
       margin: 0;
