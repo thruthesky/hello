@@ -88,6 +88,9 @@ sonub-message-page {
       overflow-y: hidden;
       line-height: 200%;
       background-color: #e4e9ef;
+      img {
+        max-width: 100%;
+      }
     }
 
     .top-menu {

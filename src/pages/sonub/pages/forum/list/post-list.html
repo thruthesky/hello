@@ -37,9 +37,9 @@
                       (memberInfo)=" onEditComponentShowMemberInfo( $event )"
       ></view-component>
       <ng-container *ngIf="!view?.minimize">
-        <div class="show-more" *ngIf="!view?.more && view?.no_of_comment > 5" (click)="view['more']=true" >Show {{ view?.no_of_comment && view?.no_of_comment > 5 ? view?.no_of_comment - 5 : 0 }} more comments.</div>
+        <div class="show-more" *ngIf="!view?.more && view?.no_of_comment > 5 && forumListStyle == 'max'" (click)="view['more']=true" >Show {{ view?.no_of_comment && view?.no_of_comment > 5 ? view?.no_of_comment - 5 : 0 }} more comments.</div>
         <div class="comments" *ngIf="view?.comments?.length">
-          <ng-container class="comment" *ngFor=" let comment of view['comments']; let i = index; trackBy: comment?.idx;">
+          <ng-container class="comment" *ngFor=" let comment of view['comments']; let i = index; trackBy: comment?.idx; ">
             <view-component
               *ngIf="i < view['comments'].length - view['no_of_comment'] || i >= view['no_of_comment'] - 5 || view['more'] "
               [login_id] = " login?.id "
@@ -112,7 +112,7 @@
           ></view-component>
 
           <ng-container *ngIf="!post?.minimize">
-            <div class="show-more" *ngIf="!post?.more && post?.no_of_comment > 5" (click)="post['more']=true">
+            <div class="show-more" *ngIf="!post?.more && post?.no_of_comment > 5  && forumListStyle == 'max'" (click)="post['more']=true">
               {{ ln == 'en' ? 'Show' : '' }}
                 {{ post?.no_of_comment && post?.no_of_comment > 5 ? post?.no_of_comment - 5 : 0 }}
               {{ ln == 'en' ? 'more comments.' : '개의 코멘트 더 보기...' }}

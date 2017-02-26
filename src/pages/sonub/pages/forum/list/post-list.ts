@@ -49,7 +49,7 @@ export class SonubPostListPage {
     activated.params.subscribe( param => {
 
       this.app.checkNewMessage();
-    
+
       //console.log("PostList::constructor::subscribe()")
 
       // clear everything and initialize here.
@@ -279,8 +279,13 @@ export class SonubPostListPage {
       post['url'] = this.post.getPermalink( post );
     }
 
-    if ( this.forumListStyle == 'max' ) post['minimize'] = false;
-    else post['minimize'] = true;
+    if ( this.forumListStyle == 'max' ) {
+      post['minimize'] = false;
+    }
+    else {
+      post['minimize'] = true;
+      post['more'] = true;
+    }
 
 
 
