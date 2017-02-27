@@ -273,7 +273,7 @@ sonub-post-list {
   .show-hide.fa {
     position: absolute;
     top: 0;
-    right: .0;
+    right: 0;
     z-index: 100;
     padding: .6em;
     font-size: 1em;
@@ -295,6 +295,7 @@ view-component.minimize {
     cursor: pointer;
     .image-preview {
       position: absolute;
+      display: block;
       overflow: hidden;
       width: 3.5em;
       height: 3.5em;
@@ -333,6 +334,9 @@ view-component {
     }
     &.post {
       background: #f0f0f0;
+      .image-preview {
+        display: none;
+      }
     }
     &.comment {
       //
