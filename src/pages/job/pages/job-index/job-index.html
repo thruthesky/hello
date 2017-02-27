@@ -93,7 +93,10 @@
       </div>
 
       <div class="row-container" *ngIf=" searchBy.more ">
-        <div class="btn btn-primary btn-sm my-post" (click)="onClickShowMyPost()">Show My Posts</div>
+        <label for="name" class="text">{{ ek('My Post', '내 글 검색') }}</label>
+        <div class="input">
+          <div class="btn btn-primary btn-sm my-post" (click)="onClickShowMyPost()">{{ ek('Show My Posts', '내가 쓴 구직 글 목록') }}</div>
+        </div>
       </div>
 
       <i class="close fa fa-times" (click)=" searchBy = {} "></i>
