@@ -317,14 +317,11 @@ https://github.com/thruthesky/aonic
 * git submodule foreach git checkout master
 * ionic serve ; To create cordova environment. There will be error. Ignore it.
 
-npm install --save @ng-bootstrap/ng-bootstrap
+* npm install --save @ng-bootstrap/ng-bootstrap
 ionic platform add android
 ionic plugin add cordova-plugin-camera
 ionic plugin add cordova-plugin-file-transfer
 ionic plugin add cordova-plugin-dialogs
-cordova plugin add ionic-plugin-deploy
-ionic plugin add phonegap-plugin-push
-
 
 
 ## Update @ionic/app-scripts copy.config.js

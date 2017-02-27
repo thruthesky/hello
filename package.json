@@ -1,5 +1,5 @@
 {
-  "name": "Sonub",
+  "name": "HelloPhilippines",
   "author": "Withcenter Inc",
   "homepage": "http://github.com/thruthesky/sonub",
   "private": true,
@@ -32,7 +32,7 @@
     "zone.js": "0.6.26"
   },
   "devDependencies": {
-    "@ionic/app-scripts": "1.0.0",
+    "@ionic/app-scripts": "1.1.4",
     "typescript": "2.0.9"
   },
   "cordovaPlugins": [
@@ -43,5 +43,5 @@
     "cordova-plugin-splashscreen"
   ],
   "cordovaPlatforms": [],
-  "description": "Social Network Hub"
+  "description": "Hello Philippines"
 }
