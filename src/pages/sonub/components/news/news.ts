@@ -27,9 +27,9 @@ export class SonubNews {
       fields: 'idx,idx_parent,subject,SUBSTRING(content_stripped,1,200) as content,deleted,gid,good,no_of_comment,no_of_view,post_id,stamp'
     };
     // console.log('option::',option);
-    this.post.debug = true;
+    // this.post.debug = true;
     this.post.page( option, ( page: PAGE ) => {
-        console.log("news page:: ", page);
+        // console.log("news page:: ", page);
         page.posts.map( ( v:any, i ) => {
           setTimeout( () => {
             v.url = this.post.getPostUri( v );

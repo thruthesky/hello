@@ -16,7 +16,7 @@ export class SonubMainBanner {
         };
 
         post.page( option, (page: PAGE) => {
-            console.log('main-banner:', page);
+            // console.log('main-banner:', page);
             
             if ( page.posts && page.posts.length ) {
                 let post = page.posts[0];

@@ -159,7 +159,7 @@ export class SonubPostListPage {
 
   loadPage() {
     if ( this.inPageLoading ) {
-      console.info("in page loading");
+      // console.info("in page loading");
       return;
     }
     this.inPageLoading = true;
@@ -174,7 +174,7 @@ export class SonubPostListPage {
     // this.post.debug = true;
     // console.log("load page: ", option);
     this.post.page( option, (page: PAGE) => { // two 1st page because there is a cache for 1st page.
-        console.log("Page no: ", page);
+        // console.log("Page no: ", page);
         this.post_name = page.post_name;
         this.inPageLoading = false;
 

@@ -40,7 +40,7 @@ export class SonubHomePage {
         this.app.checkNewMessage();
         this.pageScroll.watch( this.renderer, no => {
             this.page_no ++;
-            console.log("ngOnInit() => pageScroll() => no: ", this.page_no);
+            // console.log("ngOnInit() => pageScroll() => no: ", this.page_no);
             this.sonubLatestPhoto.loadPage( this.page_no );
         } );
     }

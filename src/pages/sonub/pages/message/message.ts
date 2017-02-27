@@ -34,7 +34,7 @@ export class SonubMessagePage {
         activated: ActivatedRoute,
      //   private ionic: IonicApi
     ) {
-        console.log("SonubMessagePage::constructor()");
+        // console.log("SonubMessagePage::constructor()");
 
         this.login = member.getLoginData();
         if ( this.login ) {
@@ -52,7 +52,7 @@ export class SonubMessagePage {
 
 
       activated.params.subscribe( param => {
-        console.log("PostList::constructor::subscribe()")
+        // console.log("PostList::constructor::subscribe()")
 
 
         if ( param['user_id'] !== void 0 ) {
@@ -72,13 +72,13 @@ export class SonubMessagePage {
     }
 
     pageScrolled() {
-      console.log("scrolled:", this.scrollCount++);
+      // console.log("scrolled:", this.scrollCount++);
       let pages = document.querySelector(".pages");
       if ( pages === void 0 || ! pages || pages['offsetTop'] === void 0) return; // @attention this is error handling for some reason, especially on first loading of each forum, it creates "'offsetTop' of undefined" error.
       let pagesHeight = pages['offsetTop'] + pages['clientHeight'];
       let pageOffset = window.pageYOffset + window.innerHeight;
       if( pageOffset > pagesHeight - 200) { // page scrolled. the distance to the bottom is within 200 px from
-        console.log("page scroll reaches at bottom: pageOffset=" + pageOffset + ", pagesHeight=" + pagesHeight);
+        // console.log("page scroll reaches at bottom: pageOffset=" + pageOffset + ", pagesHeight=" + pagesHeight);
         this.getMessages();
       }
     }
@@ -97,7 +97,7 @@ export class SonubMessagePage {
         if ( message.stamp_open != "0" ) return;
 
         this.message.opened( message.idx, data => {
-            console.log("onClickShowContent() : data: ", data);
+            // console.log("onClickShowContent() : data: ", data);
             message.stamp_open = "1";
         },
         error => this.app.error("error on reading: " + error ),
@@ -112,10 +112,10 @@ export class SonubMessagePage {
     }
 
     onClickReplyFormSubmit( message: MESSAGE ) {
-        console.log("onClickReplyFormSubmit(): ", message);
+        // console.log("onClickReplyFormSubmit(): ", message);
         this.form.id_recv = message.from.id;
         this.message.send( this.form, re => {
-            console.log("reply sucess: ", re);
+            // console.log("reply sucess: ", re);
             message['showReplyForm'] = false;
             this.sendPushNotification( re );
         },
@@ -145,9 +145,9 @@ export class SonubMessagePage {
           this.app.error( error );
         },
         () => {
-            console.log("message list complete");
+            // console.log("message list complete");
         });
-      console.log("messages::", this.messages);
+      // console.log("messages::", this.messages);
     }
 
 
@@ -179,13 +179,13 @@ export class SonubMessagePage {
 
     onClickCreateFormSubmit() {
         this.message.send( this.form, re => {
-            console.log("message send success: ", re);
+            // console.log("message send success: ", re);
             if( re.code == 0 ) {
                 //this.app.error("Message successfully sent to " + this.form.id_recv);
                 this.form.id_recv = '';
                 this.form.content = '';
                 this.showCreateForm = false;
-                console.log(re);
+                // console.log(re);
                //this.sendPushNotification( re );
 
             }
@@ -216,7 +216,7 @@ export class SonubMessagePage {
 
     onClickMakeAllRead() {
         this.message.makeAllRead( re => {
-            console.log("make all read sucess: ", re);
+            // console.log("make all read sucess: ", re);
             //this.data = <MESSAGE_LIST>{};
             this.messages = [];
             this.page_no = 0;
@@ -244,7 +244,7 @@ export class SonubMessagePage {
         //let re = confirm("Do you want to delete this message?");
         //if ( ! re ) return;
         this.message.delete( message.idx, re => {
-            console.log("message delete success: ", re);
+            // console.log("message delete success: ", re);
             message.idx = null;
         },
         error => this.app.error("error on message delete: " + error ),

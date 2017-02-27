@@ -32,7 +32,7 @@ export class SonubLoginPage {
         
     }
     onClickLogin() {
-        console.log("LoginPage::onClickLogin()");
+        // console.log("LoginPage::onClickLogin()");
         if( ! this.form.id ) return this.process.setError( this.ln.t( 'Please input user ID' ) );
         if( ! this.form.password ) return this.process.setError( this.ln.t('Please enter password.') );
         this.login();
@@ -45,18 +45,18 @@ export class SonubLoginPage {
        
         this.member.login( this.form,
             login => {
-                console.log('philgo login success: ', login);
+                // console.log('philgo login success: ', login);
 //                this.ionic.registerPushNotification( s => s, e => e );
                 this.router.go('/');
                 // this.loginFirebase( login );
             },
             er => {
                 // this.message.error("login error:" + er);
-                console.log("philgo member.login error: ", er );
+                // console.log("philgo member.login error: ", er );
                 setTimeout(()=>this.process.setError( this.ln.t ( er ) ), 345);
             },
             () => {
-                console.log('philgo login complete!');
+                // console.log('philgo login complete!');
             }
         );
 

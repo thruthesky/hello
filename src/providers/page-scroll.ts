@@ -37,7 +37,7 @@ export class PageScroll {
         let pagesHeight = pages['offsetTop'] + pages['clientHeight'];
         let pageOffset = window.pageYOffset + window.innerHeight;
         if( pageOffset > pagesHeight - 200) { // page scrolled. the distance to the bottom is within 200 px from
-            console.log("page scroll reaches at bottom: pageOffset=" + pageOffset + ", pagesHeight=" + pagesHeight);
+            // console.log("page scroll reaches at bottom: pageOffset=" + pageOffset + ", pagesHeight=" + pagesHeight);
             callback( this.scrollNo );
         }
     }
