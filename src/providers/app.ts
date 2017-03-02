@@ -108,7 +108,7 @@ export class App {
       }, reason => {
         if ( dismissCallback ) dismissCallback( reason );
       });
-    } 
+    }
 
     memberInfoView( post ) {
       let option: MEMBER_OPTION = {
@@ -171,6 +171,7 @@ export class App {
         this.appComponent.toast.class = option.class;
         this.appComponent.toast.active = true;
         this.appComponent.toast.content = this.ln.t(option.content);
+        console.log('this.appComponent.toast.content', this.appComponent.toast.content);
         setTimeout( () => this.appComponent.toast.active = false, option.timeout );
     }
 
@@ -204,6 +205,6 @@ export class App {
 
         },
         () => {} );
-        
+
     }
 }

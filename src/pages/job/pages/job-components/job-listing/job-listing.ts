@@ -18,6 +18,8 @@ export class JobListing {
   isComment: boolean = false;
   hideContent: boolean = false;
   cordova = true;
+  urlDefault: string = "assets/img/anonymous.gif";
+  urlPhoto: string = this.urlDefault;
 
 
   ek = Config.englishOrKorean;

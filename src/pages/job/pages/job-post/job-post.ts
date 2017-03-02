@@ -23,7 +23,7 @@ export class JobPostPage{
     subject: 'Job Post Title',
     content: 'Job Post Content',
     post_id: 'jobs',
-    sub_category: '', //sub_category
+    sub_category: '', //sub_category profession
     text_1: '', //first name
     text_2: '', //middle name
     text_3: '', //last name
@@ -58,6 +58,9 @@ export class JobPostPage{
   inputFileValue: string = null;
   cordova: boolean = false;
 
+  today = new Date();
+  currentYear = this.today.getFullYear();
+
   constructor(
     private region: PhilippineRegion,
     private post: Post,
@@ -72,7 +75,7 @@ export class JobPostPage{
     region.get_province( re => {
       this.provinces = re;
     }, e => {
-      console.log('error location.get_province::', e);
+      //onsole.log('error location.get_province::', e);
     });
 
     this.login = member.getLoginData();
@@ -81,7 +84,7 @@ export class JobPostPage{
     if( idx ){ //if idx exist then edit
       //this.post.debug = true;
       this.post.load(idx, re=> {
-        console.log('re data',re.post);
+        //console.log('re data',re.post);
         if(re.post) {
           this.form = re.post;
           re.post.photos.map( e => this.files.push(e) );
@@ -92,7 +95,7 @@ export class JobPostPage{
         }
       }, e => {
         this.app.error( e );
-        console.log('error on getting idx', e);
+        //console.log('error on getting idx', e);
       })
     }
   }
@@ -117,19 +120,39 @@ export class JobPostPage{
 
   getCities() {
     this.region.get_cities( this.form.varchar_2, re => {
-      console.log('cities', re);
+      //console.log('cities', re);
       if(re) {
         this.cities = re;
         this.showCities = true;
       }
     }, e => {
-      console.log('error location.get_cities::', e);
+      //console.log('error location.get_cities::', e);
     });
   }
 
 
   onClickSubmit(){
-    console.log("onClickSubmit:: ", this.form);
+    //console.log("onClickSubmit:: ", this.form);
+    if( ! this.login ) {
+      this.app.notice('Please Login first...')
+      this.router.navigateByUrl( '/user/login' )
+      return;
+    }
+
+
+    if( ! this.form.text_1 ) return this.app.notice('Please Input Name...');
+    if( ! this.form.text_2 ) return this.app.notice('Please Input Middle Name...');
+    if( ! this.form.text_3 ) return this.app.notice('Please Input Last Name...');
+
+
+    if( ! this.form.varchar_4 ) return this.app.notice('Please Input Mobile...');
+    if( ! this.form.varchar_1 ) return this.app.notice('Please Input Address');
+    if( this.form.varchar_2 == 'all' ) return this.app.notice('Please Select Province...');
+    //if( this.form.varchar_3 ) return this.app.notice('Please Input Mobile...');
+    if( ! this.form.sub_category ) return this.app.notice('Please Select Work Profession...');
+    if( ! this.form.varchar_6 ) return this.app.notice('Please Input Personal Message...');
+
+
     this.loader = true;
     this.errorOnPost = null;
     if(this.form['varchar_5']) {
@@ -143,6 +166,12 @@ export class JobPostPage{
       this.form['int_2'] = str[0]; //year
       this.form['int_3'] = str[1]; //month
       this.form['int_4'] = str[2]; //day
+
+      this.form.subject = this.form.sub_category + '-'  //profession
+        + ( this.form.char_1 == 'M' ? 'Male' : 'Female' ) + '-'   //gender
+        + this.form.varchar_2 + '-'   //province
+        + ( this.currentYear - parseInt( this.form.int_2 ) ) + 'years old';  //age
+      this.form.content = this.form.subject;
     }
     if(this.form.idx) {
       this.updatePost();
@@ -153,10 +182,10 @@ export class JobPostPage{
   }
 
   createPost() {
-    console.log('createPost:: ', this.form);
-    this.post.debug =true;
+    //console.log('createPost:: ', this.form);
+    //this.post.debug =true;
     this.post.create( this.form, data => {
-        console.log("post create success: ", data);
+        //console.log("post create success: ", data);
         this.openConfirmation('Success::Your post has been Posted.');
         this.loader = false;
         this.clearInputs();
@@ -171,9 +200,9 @@ export class JobPostPage{
   }
 
   updatePost() {
-    console.log('UpdatePost::');
+    //console.log('UpdatePost::');
     this.post.update( this.form, data => {
-      console.log("post update : ", data);
+      //console.log("post update : ", data);
       this.loader = false;
       this.openConfirmation('Success::Your post has been Updated.');
       this.router.navigate( [ '/job/view/'+ data.idx ] );
@@ -288,10 +317,10 @@ export class JobPostPage{
   }
 
   onCompleteFileUpload( completeCode ) {
-    console.log("completeCode: ", completeCode);
+    //console.log("completeCode: ", completeCode);
   }
   onProgressFileUpload( percentage ) {
-    console.log("percentag uploaded: ", percentage);
+    //console.log("percentag uploaded: ", percentage);
     this.progress = percentage;
     this.renderPage();
   }
@@ -306,18 +335,18 @@ export class JobPostPage{
 
   deleteFile( file? ){
     if( ! file ) return;
-    console.log("onClickDeleteFile: ", file);
+    //console.log("onClickDeleteFile: ", file);
     let data = {
       idx: file.idx
     };
     this.data.delete( data, (re) => {
-      console.log("file deleted: ", re);
+      //console.log("file deleted: ", re);
       _.remove( this.form.photos , x => {
-        console.log('x:', x);
+        //console.log('x:', x);
         return x.idx == data.idx;
       } );
       this.urlPhoto = this.urlDefault;
-      console.log( 'this.files' , this.form );
+      //console.log( 'this.files' , this.form );
     }, error => {
       this.post.error( error );
     } );
@@ -325,7 +354,7 @@ export class JobPostPage{
 
   renderPage() {
     this.ngZone.run(() => {
-      console.log('ngZone.run()');
+      //console.log('ngZone.run()');
     });
   }
 

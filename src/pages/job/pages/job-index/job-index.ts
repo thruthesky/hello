@@ -28,7 +28,7 @@ export class JobIndexPage{
 
   //variables used in range
   sharePath = 'job/view';
-  minAge: number = 1;
+  minAge: number = 18;
   maxAge: number = 60;
   minAgeRange = Array.from(new Array( this.maxAge - this.minAge), (x,i) => i+1);
   maxAgeRange = this.minAgeRange;
@@ -62,7 +62,7 @@ export class JobIndexPage{
   scrollCount = 0;
   inPageLoading: boolean = false; // true while loading a page of posts.
   noMorePosts: boolean = false; //
-  myPost:boolean = false;
+  myPost: boolean = false;
   searchAll: boolean = true;
   searchWithAge : boolean = false;
   searchPattern : boolean  = false;

@@ -40,6 +40,9 @@ job-post {
           font-size: 30em;
           opacity: .001;
         }
+        input[type="file"]{
+          cursor:pointer
+        }
       }
     }
 
