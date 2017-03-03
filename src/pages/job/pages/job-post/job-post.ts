@@ -170,7 +170,8 @@ export class JobPostPage{
       this.form.subject = this.form.sub_category + '-'  //profession
         + ( this.form.char_1 == 'M' ? 'Male' : 'Female' ) + '-'   //gender
         + this.form.varchar_2 + '-'   //province
-        + ( this.currentYear - parseInt( this.form.int_2 ) ) + 'years old';  //age
+        + ( this.currentYear - parseInt( this.form.int_2 ) ) + 'yrs old'
+        + this.form.varchar_3;  //mobile number
       this.form.content = this.form.subject;
     }
     if(this.form.idx) {
