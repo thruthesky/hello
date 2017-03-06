@@ -171,7 +171,7 @@ export class JobPostPage{
         + ( this.form.char_1 == 'M' ? 'Male' : 'Female' ) + '-'   //gender
         + this.form.varchar_2 + '-'   //province
         + ( this.currentYear - parseInt( this.form.int_2 ) ) + 'yrs old'
-        + this.form.varchar_3;  //mobile number
+        + this.form.varchar_4;  //mobile number
       this.form.content = this.form.subject;
     }
     if(this.form.idx) {
@@ -190,6 +190,7 @@ export class JobPostPage{
         this.openConfirmation('Success::Your post has been Posted.');
         this.loader = false;
         this.clearInputs();
+        this.router.navigateByUrl('/job');
       },
       error => this.post.error( error ),
       () => {}

@@ -50,7 +50,7 @@
       <fieldset class="row-container">
         <label for="inputMobile" class="text">{{ ['Mobile', '모바일'] | ek }}</label>
         <div class="input">
-          <input [(ngModel)]="form.mobile" class="form-control" name="mobile" type="number" id="inputMobile" placeholder="Input your phone number." autocomplete="off">
+          <input [(ngModel)]="form.mobile" class="form-control" name="mobile" type="text" id="inputMobile" placeholder="Input your phone number." autocomplete="off">
           <div class="text-muted">{{ ['Input digits only', '숫자만 입력하세요.'] | ek }}</div>
         </div>
       </fieldset>

@@ -51,7 +51,8 @@
             <div class="row-container">
               <label for="mobile" class="text">Mobile #</label>
               <div class="input">
-                <input class="form-control" type="number" id="mobile" name="mobile"  [(ngModel)]="form.varchar_4" placeholder="Input Mobile">
+                <input class="form-control" type="text" id="mobile" name="mobile"  [(ngModel)]="form.varchar_4" placeholder="Input Mobile">
+                <div class="text-muted">{{ ['Input digits only', '숫자만 입력하세요.'] | ek }}</div>
               </div>
             </div>
 
