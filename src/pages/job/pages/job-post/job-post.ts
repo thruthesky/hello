@@ -57,6 +57,7 @@ export class JobPostPage{
   widthProgress: any;
   inputFileValue: string = null;
   cordova: boolean = false;
+  ln: string = null;
 
   today = new Date();
   currentYear = this.today.getFullYear();
@@ -72,6 +73,7 @@ export class JobPostPage{
     public app: App
   ) {
     this.cordova = app.isCordova();
+    this.ln = post.languageCode;
     region.get_province( re => {
       this.provinces = re;
     }, e => {
@@ -242,11 +244,24 @@ export class JobPostPage{
   onClickFileUploadButton() {
     if ( ! this.cordova ) return;
     // console.log("onClickFileUploadButton()");
+    let message = 'Please select how you want to take photo.';
+    let camera = 'Camera';
+    let gallery = 'Gallery';
+    let cancel = 'Cancel';
+    let title = 'Take Photo';
+    if ( this.ln == 'ko' ) {
+      message = '카메라에서 사진 찍기 또는 갤러리에서 가져오기를 선택하세요.';
+      camera = '카메라';
+      gallery = '갤러리';
+      cancel = '취소';
+      title = '사진 선택';
+    }
+
     navigator.notification.confirm(
-      'Please select how you want to take photo.', // message
+      message,
       i => this.onCameraConfirm( i ),
-      'Take Photo',           // title
-      ['Camera','Cancel', 'Gallery']     // buttonLabels
+      title,           // title
+      [camera, cancel, gallery]     // buttonLabels
     );
   }
 

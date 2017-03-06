@@ -36,6 +36,8 @@ export class SonubRegisterPage {
 
     // delete
     inDeleting: boolean = false;
+
+    ln: string = null;
     constructor(
         private member: Member,
         private data: Data,
@@ -46,6 +48,7 @@ export class SonubRegisterPage {
     ) {
         this.cordova = app.isCordova();
         this.gid = data.uniqid();
+        this.ln = data.languageCode;
         member.getLogin( x => {
             this.login = x;
             this.gid = this.login.id;
@@ -168,13 +171,25 @@ export class SonubRegisterPage {
     onClickPrimaryPhoto() {
         if ( ! this.cordova ) return;
         console.log("in cordova, onClickPrimaryPhoto(): ");
+      let message = 'Please select how you want to take photo.';
+      let camera = 'Camera';
+      let gallery = 'Gallery';
+      let cancel = 'Cancel';
+      let title = 'Take Photo';
+      if ( this.ln == 'ko' ) {
+        message = '카메라에서 사진 찍기 또는 갤러리에서 가져오기를 선택하세요.';
+        camera = '카메라';
+        gallery = '갤러리';
+        cancel = '취소';
+        title = '사진 선택';
+      }
 
-        navigator.notification.confirm(
-          'Please select how you want to take photo.', // message
-          i => this.onCameraConfirm( i ),
-          'Take Photo',           // title
-          ['Camera','Cancel', 'Gallery']     // buttonLabels
-        );
+      navigator.notification.confirm(
+        message,
+        i => this.onCameraConfirm( i ),
+        title,           // title
+        [camera, cancel, gallery]     // buttonLabels
+      );
     }
 
     onCameraConfirm( index ) {
