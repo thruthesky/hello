@@ -5,7 +5,7 @@
 
         <div class="profile cursor" (click)=" post.more = ! post.more " [class.more] = "post.more">
           <div class="photo">
-            <img src="{{post.photos.length ? post.photos[0]['url_thumbnail'] : urlPhoto}}" alt="{{post.text_1}}">
+            <img src="{{post.photos.length ? post.photos[0]['url_thumbnail'] : urlPhoto}}" #photoImg  (error)="photoImg.src = post.photos[0]['url'] ">
           </div>
 
 
