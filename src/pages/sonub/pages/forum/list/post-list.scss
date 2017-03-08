@@ -327,12 +327,19 @@ view-component.minimize {
 /** View Design **/
 view-component {
   article {
+    header {
+      h2 {
+        word-break: break-all;
+        overflow: hidden;
+      }
+    }
     .content {
       margin-top: .4em;
       padding: .725em;
       background-color: white;
       line-height: 1.8;
       word-break: break-all;
+      overflow: hidden;
     }
     &.post {
       background: #f0f0f0;
