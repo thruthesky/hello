@@ -332,6 +332,7 @@ view-component {
       padding: .725em;
       background-color: white;
       line-height: 1.8;
+      word-break: break-all;
     }
     &.post {
       background: #f0f0f0;

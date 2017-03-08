@@ -135,6 +135,9 @@ $box-title-color: (
     margin-bottom: $gutter;
     background-color: white;
     box-sizing: border-box;
+    word-break: break-all;
+    //word-break: break-word;
+    overflow: hidden;
     .title {
         padding: $gutter;
         border-bottom: 0;

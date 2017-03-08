@@ -172,7 +172,7 @@ export class JobPostPage{
       this.form.subject = this.form.sub_category + '-'  //profession
         + ( this.form.char_1 == 'M' ? 'Male' : 'Female' ) + '-'   //gender
         + this.form.varchar_2 + '-'   //province
-        + ( this.currentYear - parseInt( this.form.int_2 ) ) + 'yrs old'
+        + ( this.currentYear - parseInt( this.form.int_2 ) ) + 'yrs old-'
         + this.form.varchar_4;  //mobile number
       this.form.content = this.form.subject;
     }
