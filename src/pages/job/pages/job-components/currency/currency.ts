@@ -15,7 +15,7 @@ export class JobCurrency {
   get_currency() {
     let url = this.philgo.apiEndpoint + "?module=ajax&action=currency&submit=1";
     this.philgo.get( { url: url, expire: 3600 }, re => {
-      console.log("currency data: ", re );
+      //console.log("currency data: ", re );
       if ( re['code'] ) console.log( re['message'] );
       else this.currency = re.currency;
     }, error => {
